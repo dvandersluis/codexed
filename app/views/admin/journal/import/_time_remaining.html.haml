@@ -1,0 +1,9 @@
+- t_scope "controllers.admin.journal.update_progress" do
+  - if job.estimated_time.blank? or !job.estimated_time.finite?
+    %b= t(:time_remaining)
+    %i= t(:estimating)
+  - else
+    - estimated_time_in_words = time_ago_in_more_words(job.estimated_time.from_now)
+    - unless estimated_time_in_words.blank?
+      %b= t(:time_remaining)
+      = estimated_time_in_words

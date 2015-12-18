@@ -1,0 +1,107 @@
+- t_scope 'layouts.application.sidebar' do
+  #sidebar
+    #sidebar-inner
+      - if logged_in?
+        %ul.dropdown.no-bullet
+          %li= link_to t(:dashboard), {:controller => '/admin/dashboard'}, :tabindex => (@tabindex += 1)
+          %li#sidebar-members-li
+            = link_to t(:community) + content_tag(:span, image_tag('icons/bullet_arrow_down_no-pad.png', :id => 'sidebar-members-img', :valign => 'baseline', :title => t(:expand)), :style => 'padding: 3px;'), '#', :class => 'dropdown', :onclick => "toggle_sidebar_div('members'); return false", :tabindex => (@tabindex += 1)
+          %li{:style => 'padding-bottom: 0;'}
+            #sidebar-members{ :style => 'width: 100%;' }
+              %ul.no-bullet#sidebar-members-inner{ :style => 'margin: 0;' } 
+                %li= link_to t(:directory), members_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:birthdays), birthdays_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:forums), "http://forums.codexed.com", :tabindex => (@tabindex += 1)
+          %li= link_to(t(:journal), journal_url, :tabindex => (@tabindex += 1))
+          %li#sidebar-posts-li
+            = link_to(t(:writing), admin_entries_path(:page => 1), :tabindex => (@tabindex += 1)) |
+              + link_to(content_tag(:span, image_tag('icons/bullet_arrow_down_no-pad.png', :id => 'sidebar-posts-img', :valign => 'baseline', :title => t(:expand)), :style => 'padding: 3px;'), '#', :class => 'dropdown', :onclick => "toggle_sidebar_div('posts'); return false", :tabindex => (@tabindex += 1)) |
+          %li{:style => 'padding-bottom: 0;'}
+            #sidebar-posts{ :style => 'width: 100%;' }
+              %ul.no-bullet#sidebar-posts-inner{ :style => 'margin: 0;' } 
+                %li= link_to t(:new_entry), new_admin_entry_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:new_page), new_admin_page_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:manage_categories), admin_categories_path, :tabindex => (@tabindex += 1)
+          %li#sidebar-templates-li
+            = link_to(t(:templates), admin_templates_path(:page => 1), :tabindex => (@tabindex += 1)) | 
+              + link_to(content_tag(:span, image_tag('icons/bullet_arrow_down_no-pad.png', :id => 'sidebar-templates-img', :valign => 'baseline', :title => t(:expand)), :style => 'padding: 3px;'), '#', :class => 'dropdown', :onclick => "toggle_sidebar_div('templates'); return false", :tabindex => (@tabindex += 1)) |
+          %li{:style => 'padding-bottom: 0;'}
+            #sidebar-templates{ :style => 'width: 100%;' }
+              %ul.no-bullet#sidebar-templates-inner{ :style => 'margin: 0;' }
+                %li= link_to t(:new_template), new_admin_template_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:new_prefab), list_admin_prefabs_path, :tabindex => (@tabindex += 1)
+                %li= link_to t(:archive_layouts), admin_archive_layouts_path, :tabindex => (@tabindex += 1)
+          %li#sidebar-tools-li
+            = link_to t(:tools) + content_tag(:span, image_tag('icons/bullet_arrow_down_no-pad.png', :id => 'sidebar-tools-img', :valign => 'baseline', :title => t(:expand)), :style => 'padding: 3px;'), '#', :class => 'dropdown', :onclick => "toggle_sidebar_div('tools'); return false", :tabindex => (@tabindex += 1)
+          %li{:style => 'padding-bottom: 0;'}
+            #sidebar-tools{ :style => 'width: 100%;' }
+              %ul.no-bullet#sidebar-tools-inner{ :style => 'margin: 0;' } 
+                %li= link_to t(:import), admin_journal_import_url, :tabindex => (@tabindex += 1)
+                %li= link_to t(:export), admin_journal_export_url, :tabindex => (@tabindex += 1)
+                %li= link_to t(:substitutions), {:controller => '/admin/substitutions'}, :tabindex => (@tabindex += 1)
+                /
+                  %li= link_to t(:my_public_journal_feed), journal_url(:main_feed_path), :tabindex => (@tabindex += 1)
+                  %li= link_to t(:my_private_journal_feed), journal_url(:main_feed_path, :key => current_user.journal.feed_key), :tabindex => (@tabindex += 1)
+          %li#sidebar-options-li
+            = link_to(t(:options), { :controller => '/admin/options', :action => 'index' }, :tabindex => (@tabindex += 1)) |
+              + link_to(content_tag(:span, image_tag('icons/bullet_arrow_down_no-pad.png', :id => 'sidebar-options-img', :valign => 'baseline', :title => t(:expand)), :style => 'padding: 3px;'), '#', :class => 'dropdown', :onclick => "toggle_sidebar_div('options'); return false", :tabindex => (@tabindex += 1)) |
+          %li{:style => 'padding-bottom: 0;'}
+            #sidebar-options{ :style => 'width: 100%;' }
+              %ul.no-bullet#sidebar-options-inner{ :style => 'margin: 0;' } 
+                - t_scope 'controllers.admin.options.tabs' do
+                  %li= link_to t(:account), { :controller => '/admin/options', :action => 'account' }, :tabindex => (@tabindex += 1)
+                  %li= link_to t(:journal), { :controller => '/admin/options', :action => 'journal' }, :tabindex => (@tabindex += 1)
+                  %li= link_to t(:formatting), { :controller => '/admin/options', :action => 'formatting' }, :tabindex => (@tabindex += 1)
+          /%li= link_to t(:statistics), {:controller => 'admin/stats'}, :tabindex => (@tabindex += 1)
+          %li= link_to t(:log_out), {:controller => '/admin/user', :action => 'logout'}, :tabindex => (@tabindex += 1)
+
+          :javascript
+            var currentController = '#{params[:controller].split('/').last}';
+            var sectionConfig = '#{current_user.journal.config.ui.sidebar.sections}'
+            if (['entries', 'pages', 'categories'].include(currentController)) currentController = 'posts';
+            if (['prefabs', 'archive_layouts'].include(currentController)) currentController = 'templates';
+            if (['journal', 'substitutions'].include(currentController)) currentController = 'tools';
+
+            function toggle_sidebar_div(id, dur)
+            {
+              if (!dur) dur = 0.3;
+              var e = $("sidebar-" + id).up();
+              if (e.visible())
+              {
+                new Effect.SlideUp(e, {duration: dur});
+                $('sidebar-' + id + '-img').writeAttribute('src', '/images/icons/bullet_arrow_down_no-pad.png');
+                $('sidebar-' + id + '-img').writeAttribute('title', '#{t(:expand)}');
+              }
+              else
+              {
+                new Effect.SlideDown(e, {duration: dur});
+                $('sidebar-' + id + '-img').writeAttribute('src', '/images/icons/bullet_arrow_up_no-pad.png');
+                $('sidebar-' + id + '-img').writeAttribute('title', '#{t(:collapse)}');
+              }
+            }
+
+            function setup_sidebar_toggle(id)
+            {
+              if (sectionConfig == 0 || (sectionConfig == 1 && id != currentController))
+              {
+                div = $('sidebar-' + id);
+                div.up().hide();
+              }
+              else
+              {
+                $('sidebar-' + id + '-img').writeAttribute('src', '/images/icons/bullet_arrow_up_no-pad.png');
+                $('sidebar-' + id + '-img').writeAttribute('title', '#{t(:collapse)}');
+              }
+              $('sidebar-' + id + '-li').show();
+              $('sidebar-' + id + '-li').setStyle({marginRight: '-13px'});
+            }
+          
+            $$('#sidebar a.dropdown').each(function(element) {
+              element.setStyle({display: 'inline'});
+            });
+
+            setup_sidebar_toggle('posts');
+            setup_sidebar_toggle('templates');
+            setup_sidebar_toggle('options');
+            setup_sidebar_toggle('tools');
+            setup_sidebar_toggle('members');

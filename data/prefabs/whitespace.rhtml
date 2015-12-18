@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  xmlns="http://www.w3.org/1999/xhtml" lang="en">
+	<head>
+		<title>[journal_title]</title>
+    [feed]
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style type="text/css">
+      a {
+        color: [[colors.body.link]];
+        text-decoration: none;
+      }
+
+      a:hover {
+        color: [[colors.page.hover]];
+      }
+
+      body {
+        background: [[colors.page.background]];
+        color: [[colors.body.text]];
+        font: [[fonts.entry.px]]px/[[fonts.entry.px.to_i + 6]]px [[fonts.entry.family]];
+        margin: 3em;
+      }
+
+      h1#journaltitle
+      {
+        font-family: [[fonts.journaltitle.family]];
+        font-size: [[fonts.journaltitle.px]]px;
+        letter-spacing: -.08em;
+      }
+
+      h1#journaltitle a {
+        color: [[colors.header.main]];
+      }
+
+      h2#header {
+        font-family: [[fonts.header.family]];
+        font-size: [[fonts.header.px]]px;
+        color: [[colors.header.title]];
+      }
+
+      div#wrapper {
+        width: 75%;
+      }
+
+      p#navi {
+        font-family: [[fonts.navigation.family]];
+        font-size: [[fonts.navigation.px]]px;
+        margin-top: -.5em;
+        margin-bottom: 1.75em;
+      }
+      p#navi a {
+        background: [[colors.header.navbg]];
+        color: [[colors.header.navtext]];
+        padding: .5em;
+      }
+      p#navi a:hover {
+        background: [[colors.page.hover]];
+      }
+
+      div#content a {
+        border-bottom: 1px solid #ddd;
+        font-variant: small-caps;
+      }
+
+      p#perma {
+        border-top: 1px dotted #ccc;
+        font-family: [[fonts.foot.family]];
+        font-size: [[fonts.foot.px]]px;
+        padding-right: .5em;
+        text-align: right;
+      }
+		
+		</style>
+	</head>
+	<body><div id="wrapper">
+	
+	<h1 id="journaltitle"><a href="[home url]">[journal_title]</a></h1>
+	<p id="navi">
+		[prev link exists "&laquo; Previous"]
+		[next link exists "Next &raquo;"]
+		<a href="[archive url]">Archive</a>
+    <a href="http://www.codexed.com">Codexed</a>
+	</p>
+	<h2 id="header">[title]</h2>
+	
+	<div id="content">
+	
+		[body]
+	
+	</div>
+	
+	<p id="perma">Posted [time "%A, %B %d, %Y"] &middot; <a href="[url]">Permalink</a></p>
+	
+	</div></body>
+</html>

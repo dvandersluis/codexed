@@ -1,0 +1,8 @@
+- t_scope 'controllers.admin.journal.import' do
+  = message_div_for :error do
+    = t(:errors_exist1)
+    = succeed "." do
+      = link_to t(:errors_exist2), :controller => 'admin/journal/import', :action => 'review'
+  .tcenter.lightfill.padded
+    - form_tag({:controller => 'admin/journal/import', :action => 'cancel'}, :style => "display: inline") do
+      = submit_tag t(:cancel)

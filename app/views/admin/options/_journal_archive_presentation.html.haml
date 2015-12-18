@@ -1,0 +1,20 @@
+%blockquote
+  %table.form
+    %tr
+      %th Archive title:
+      %td= f.text_field :archive_title
+    %tr
+      %th Archive template:
+      %td= f.select :archive_template, @templates
+    %tr
+      %th Archive order:
+      %td= f.select :archive_order, [%w(ascending asc), %(descending desc)]
+    %tr
+      %td= f.check_box :split_archives
+      %th Split up archives by month and year?
+    %tr
+      %th Archive format:
+      %td= f.text_field :archive_format
+    %tr
+      %th Lastfew format:
+      %td= f.text_field :lastfew_format

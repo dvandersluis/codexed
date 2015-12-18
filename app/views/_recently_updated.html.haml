@@ -1,0 +1,27 @@
+- t_scope 'controllers.main.recently_updated' do
+  .sidebar-box#recently-updated
+    %h3= t(:recently_updated)
+    .sidebar-box-body
+      - if journals.nil?
+        %p{ :style => 'padding: 5px 0; line-height: normal;' } 
+          = t(:no_recently_updated, :link => link_to(t('controllers.members.index.members_directory'), { :controller => '/members' }))
+      - elsif journals.blank?
+        %p{ :style => 'padding-top: 10px; line-height: normal;' } 
+          = t(:no_recently_updated)
+      -else 
+        %table#recently-updated-table
+          - show_dates = (current_user.nil? or current_user.journal.config.ui.recently_updated.show_dates?)
+          - journals.each do |j|
+            - user_icon = (j.privacy == 'P' ? image_tag('icons/lock.png', :style => 'vertical-align: middle;') : nil)
+            %tr
+              %td.image= user_icon
+              - if j.user.username.length > 21 and show_dates
+                %td.name= link_to j.user.username[0...21] + "...", journal_url(j.user), :title => j.user.username
+              - else
+                %td.name= link_to j.user.username, journal_url(j.user)
+              - if show_dates
+                - date_fmt = (j.current_entry.created_at.to_date == Time.zone.today) ? :time : :short_word
+                - last_updated = l(j.current_entry.created_at, :format => date_fmt)
+                %td.age= last_updated
+        %p{:style => "margin-top: 0"}
+          = link_to(t(:and_more), { :controller => '/members', :sort => 'last_updated', :dir => 'desc' })

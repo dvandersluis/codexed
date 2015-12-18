@@ -1,0 +1,7 @@
+table.listing th, table.listing td {
+  text-align: left; }
+table.listing th {
+  font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+  background-color: #5572A8; }
+table.listing td {
+  /* font-family: Arial */ }

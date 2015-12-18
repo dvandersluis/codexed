@@ -1,0 +1,6 @@
+ul.entrylist li {
+  padding-left: 3px; }
+ul.entrylist li.locked {
+  list-style-image: url('/images/icons/lock12.png');
+  margin-left: 3px;
+  padding-left: 0; }

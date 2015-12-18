@@ -1,0 +1,15 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+      x1: X colour 1
+      x2: X colour 2
+    nav:
+      _: Navigation Area Colours
+    content:
+      _: Content Area Colours
+    blockquote:
+      _: Blockquote Colours
+    links:
+      _: Link Colours

@@ -1,0 +1,50 @@
+!!! XML
+!!!
+%html
+  %head
+    %meta{ 'http-equiv' => 'content-type', 'content' => "text/html; charset=utf-8" }/
+    %title
+      Google Writer
+      - if !@title.blank?
+        == - #{@title}
+    :plain
+      <link type="text/css" rel="stylesheet" href="/google.css" />
+      <script type="text/javascript" src="/google.js"></script>
+
+    = render '/google_analytics'
+
+  %body
+    - if logged_in?
+      = render :partial => 'april_fools/april_fools2010/gbar'
+    - else
+      %div.header
+        %a{ :href => 'http://www.codexed.com', :border => 0 }
+          %img.logo{ :src => '/images/af/writer_logo.gif' }
+
+    - if !logged_in?
+      %div#main
+        = render :partial => 'april_fools/april_fools2010/nologin'
+      %div#footer{ :style => "font-size: 80%" }
+        &copy;2010 Codexed
+        \-
+        = link_to "Google Home", "http://www.google.com"
+        \-
+        = link_to "Discuss", "http://forums.codexed.com"
+        \-
+        = link_to "Privacy Policy", { :controller => "main", :action => "privacy"}
+        \-
+        = link_to "Help", :action => :gotcha
+    - else
+      %div#main{ :style => "padding-top: 25px; height: 80%" }
+        = render :partial => 'april_fools/april_fools2010/admin'
+      %div#footer{ :style => "font-size: 80%" }
+        &copy;2010 Codexed
+        \-
+        = link_to "Google Home", "http://www.google.com"
+        \-
+        = link_to "Discuss", "http://forums.codexed.com"
+        \-
+        = link_to "Privacy Policy", { :controller => "main", :action => "privacy"}
+        \-
+        = link_to "Help", :action => :gotcha
+

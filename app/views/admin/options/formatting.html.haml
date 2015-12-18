@@ -1,0 +1,240 @@
+- add_to_stylesheets 'admin/options'
+- add_to_javascripts "colorpicker"
+
+- t_scope 'controllers.admin.options.formatting' do
+  - window_title t('tabs.formatting')
+
+  :style
+    table.thfixed th
+      width: 225px
+
+    ul.entrylist
+      margin: 0 20px
+
+  :javascript
+    function setTextFieldBgColor(textfield) {
+      if (!textfield.value)
+      {
+          textfield.setStyle({
+            backgroundColor: "#FFF",
+            color: "#000"
+          });
+      }
+      else
+      {
+        var matches = textfield.value.match(/^#?([a-f0-9]{3}|[a-f0-9]{6})$/i);
+        if (matches) {
+          var color = matches[1];
+          parsedColor = parseColor(color);
+          var brightness = ((parsedColor.r * 299 + parsedColor.g * 587 + parsedColor.b * 114) / 1000 / 255);
+          textfield.setStyle({
+            backgroundColor: "#"+color,
+            color: (brightness < 0.5 ? '#FFF' : '#000')
+          });
+        }
+      }
+    }
+
+    function update_live_preview(event, frm, container, url, params)
+    {
+      var evt = event ? event : window.event;
+      var keyCode = evt.which ? evt.which : evt.keyCode;
+
+      // Don't update if the event was inputting a F-key, enter, delete, etc. or a CTRL/ALT sequence 
+      if (evt.ctrlKey || evt.altKey) return;
+      if (evt.keyCode != 0 && evt.keyCode != 46 && evt.which == 0) return false;
+
+      new Ajax.Updater(container, url, params);
+    }
+    
+    function update_archive_preview(event, frm)
+    {
+      var container = { success: 'archive_format_preview' };
+      var url = '#{url_for :controller => 'admin/options', :action => 'preview_archive_format'}';
+      var params = {
+        parameters: {
+          authenticity_token: $F(frm['authenticity_token']),
+          archive_format: $F($('config_entrylists_archiveformat')),
+          lock_icon: $F($('config_entrylists_lockicon')) || false
+        },
+        onCreate: function() {
+          $('ajaxicon').show();
+        },
+        onComplete: function() {
+          $('ajaxicon').hide();
+        }
+      };
+
+      update_live_preview(event, frm, container, url, params);
+    }
+
+    function update_time_preview(event, element)
+    {
+      var frm = element.form;
+      var which = element.id.replace(/^config_formatting_time_/, "");
+
+      if (!$F(element).length)
+      {
+        $(which + '_format_preview').update("");
+        return;
+      }
+
+      var container = { success: which + "_format_preview" };
+      var url = '#{url_for :controller => 'admin/options', :action => 'preview_time_format'}';
+      var ajaxicon = $('ajaxicon-' + which);
+      var params = {
+        parameters: {
+          authenticity_token: $F(frm['authenticity_token']),
+          format: $F(element)
+        },
+        onCreate: function() {
+          ajaxicon.show();
+        },
+        onComplete: function() {
+          ajaxicon.hide();
+        }
+      };
+
+      update_live_preview(event, frm, container, url, params);
+    }
+  
+    document.observe("dom:loaded", function() {
+      // Set up the color picker for each of the color fields on the page
+      // If the field already has a color in it, change the background color to match the color
+      var color_change_input = $('config_formatting_parencolor');
+      attachColorPicker(color_change_input);
+      setTextFieldBgColor(color_change_input);
+
+      // We have to do this here because it looks like the color picker overrides onfocus
+      // It's probably better for this stuff to be here anyway ;)
+      color_change_input.observe('focus', function() {
+        $('config_formatting_parens_color').checked = true;
+      }).observe('keyup', function(event) { setTextFieldBgColor(event.element()) });
+    });
+
+
+  - tabbed(options_tabs) do
+    = message_divs
+    
+    - form_tag do
+      - fields_for 'config[formatting]', @config.formatting, {} do |f|
+        %h3{:style => 'margin-top: 1em'}= t(:formatting)
+        %blockquote.lightfill.padded
+          %table.form
+            %tr.inv
+              %td{ :style => "vertical-align: top" }= f.boolean_check_box :inline
+              %th
+                - label_tag 'config_formatting_inline' do
+                  = t(:enable_inline_formatting)
+                  %br/
+                  %span.option_desc= t(:enable_inline_formatting_desc)
+        
+          %table.form.topmargin
+            %tr.inv
+              %td{ :style => "vertical-align: top" }= f.boolean_check_box :typographical
+              %th
+                - label_tag 'config_formatting_typographical' do
+                  = t(:enable_smart_quotes)
+                  %br/
+                  %span.option_desc= t(:enable_smart_quotes_desc)
+        
+          - format_line_breaks = (@config.formatting.nl2br? || @config.formatting.dnl2p?)
+          %table.form.topmargin
+            %tr.inv
+              %td= radio_button_tag 'format_line_breaks', true, format_line_breaks
+              %th= label_tag 'format_line_breaks_true', t(:convert_line_breaks)
+            %tr
+              %td
+              %td
+                = f.boolean_check_box :nl2br, :onclick => "$('format_line_breaks_true').checked = true"
+                = label_tag 'config_formatting_nl2br', t(:br_after_every_line)
+                %br/
+                = f.boolean_check_box :dnl2p, :onclick => "$('format_line_breaks_true').checked = true"
+                = label_tag 'config_formatting_dnl2p', t(:wrap_text_blocks) 
+            %tr.inv
+              %td= radio_button_tag 'format_line_breaks', false, (!format_line_breaks), :onclick => "$('config_formatting_nl2br').checked = false; $('config_formatting_dnl2p').checked = false"
+              %th= label_tag 'format_line_breaks_false', t(:leave_breaks_alone)
+              
+          %table.form.topmargin
+            %tr.inv
+              %td= f.radio_button :parens, 'color', :onfocus => "$('config_formatting_parencolor').focus()"
+              %th
+                = label_tag 'config_formatting_parens_color', t(:add_this_color_to_parens)
+                = f.text_field :parencolor, :size => 8
+            %tr
+              %td
+              %td
+                %span.option_desc= t(:add_this_color_to_parens_desc)
+            %tr.inv
+              %td= f.radio_button :parens, 'class'
+              %th
+                = label_tag 'config_formatting_parens_class', t(:apply_this_class_to_parens)
+                = f.text_field :parenclass, :onfocus => "$('config_formatting_parens_class').checked = true"
+            %tr.inv
+              %td= f.radio_button :parens, 'normal'
+              %th= label_tag 'config_formatting_parens_normal', t(:leave_parens_alone)
+
+      - fields_for 'config[entrylists]', @config.entrylists, {} do |f|
+        %h3.topmargin= t(:entry_lists)
+        %blockquote.lightfill.padded
+          %table.form.thfixed
+            %tr
+              %th{ :style => "vertical-align: top" }
+                == #{t(:archive_format)}:
+              %td{ :style => "white-space: nowrap;", :nowrap => 'nowrap' }
+                = f.text_field :archiveformat, :size => 80, :autocomplete => 'off', :onkeyup => 'update_archive_preview(event, this.form)'
+                = image_tag('ajax/loading.gif', { :class => 'ajax-loading', :id => 'ajaxicon', :style => 'display: none;' })
+                %br/
+                %span.option_desc= t(:archive_format_desc)
+            %tr
+              %th
+                = f.boolean_check_box :lockicon, :onchange => 'update_live_preview(event, this.form)'
+              %th{ :style => 'text-align: left;' }
+                = label_tag 'config_entrylists_lockicon', t(:lockicon_desc, :image => image_tag('icons/lock12.png'))
+            %tr
+              %th{ :style => "vertical-align: top" }
+                == #{t(:archive_format_preview)}:
+              %td
+                %span#archive_format_preview= @archive_format_preview
+
+      - fields_for 'config[formatting][time]', @config.formatting.time, {} do |f|
+        %h3.topmargin= t(:split_archive_format)
+        %blockquote.lightfill.padded
+          %table.form.thfixed
+            %tr
+              %td{ :colspan => 4, :style => 'text-align: left;' }
+                %span.option_desc= t(:split_formatting_desc)
+            %tr
+              %td
+              %td{ :style => 'font-weight: bold' }= t(:format)
+              %td{ :style => 'padding-left: 10px; font-weight: bold' }= t(:preview)
+              %td
+            %tr
+              %th== #{t(:year_only)}:
+              %td{ :style => 'text-align: center;' }
+                = f.text_field :year, :size => 20, :autocomplete => 'off', :onkeyup => 'update_time_preview(event, this)'
+              %td{ :style => 'padding-left: 10px;' }
+                %span#year_format_preview= @year_format_preview
+              %td
+                = image_tag('ajax/loading.gif', { :class => 'ajax-loading', :id => 'ajaxicon-year', :style => 'display: none;' })
+            %tr
+              %th== #{t(:year_month)}:
+              %td{ :style => 'text-align: center;' }
+                = f.text_field :month, :size => 20, :autocomplete => 'off', :onkeyup => 'update_time_preview(event, this)'  
+              %td{ :style => 'padding-left: 10px;' }
+                %span#month_format_preview= @year_month_format_preview
+              %td
+                = image_tag('ajax/loading.gif', { :class => 'ajax-loading', :id => 'ajaxicon-month', :style => 'display: none;' })
+            %tr
+              %th== #{t(:full_date)}:
+              %td{ :style => 'text-align: center;' }
+                = f.text_field :full, :size => 20, :autocomplete => 'off', :onkeyup => 'update_time_preview(event, this)' 
+              %td{ :style => 'padding-left: 10px;' }
+                %span#full_format_preview= @full_format_preview
+              %td
+                = image_tag('ajax/loading.gif', { :class => 'ajax-loading', :id => 'ajaxicon-full', :style => 'display: none;' })
+      
+      %p.center
+        = submit_tag "#{t(:save)} &raquo;"
+        &nbsp;
+        = submit_tag "#{t(:reset_to_defaults)}", { :name => 'reset', :onclick => "return confirm('#{t(:confirm_reset_options).gsub("'", "\\\\'")}');" }

@@ -1,0 +1,58 @@
+---
+meta:
+  title: Cursive Lines 
+  description: A centered look with clean lines. 
+  created: 2008-12-21
+  creator:
+    name: Ashling
+    url: 
+customization:
+  colors:
+    page:
+      background: '#FFFFFF'
+      journaltitle: '#21810B'
+    entry:
+      text: '#2A2B2A'
+      title: '#21810B'
+      border: '#21810B'
+      background: '#FFFFFF'
+    link:
+      active: '#21810B'
+      hover: '#FFFFFF'
+      hoverhilight: '#21810B'
+  fonts:
+    entry:
+      family: Georgia
+      px: 13
+    title:
+      family: Georgia
+      px: 16
+    journaltitle:
+      family: Georgia
+      px: 64
+descriptions:
+  colors:
+    _order: [:page, :entry, :link]
+    page:
+      _: Page Colors
+      _order: [:background, :journaltitle]
+      background: Page Background
+      journaltitle: Journal title
+    entry:
+      _: Entry Colors
+      _order: [:background, :border, :title, :text]
+      background: Entry background
+      border: Border
+      title: Entry Title
+      text: Body text
+    link:
+      _: Link Colors
+      _order: [:active, :hover, :hoverhilight]
+      active: Default 
+      hover: Hover
+      hoverhilight: Hover Background
+  fonts:
+    _order: [:journaltitle, :title, :entry]
+    journaltitle: Journal Title
+    title: Title
+    entry: Entry

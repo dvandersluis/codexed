@@ -1,0 +1,65 @@
+- t_scope 'controllers.user.signup.profile' do
+  - title t(:title)
+
+  %style{ :type => 'text/css' }
+    :sass
+      table.form
+        margin-top: 30px
+        th
+          vertical-align: top
+          padding-top: 6px
+        td, th
+          padding-bottom: 20px
+        tr.name
+          td, th
+            padding-bottom: 10px
+        input, select
+          font-size: 150%
+
+      span.req
+        color: red
+
+      .small90
+        font-size: 90%
+
+  %div.center{ :style => 'width: 750px;' }
+    %p= t(:instructions1)
+    %p= t(:instructions2, :privacy_link => link_to(t(:instructions2_link_text), { :controller => '/main', :action => :privacy }, :target => '_blank'))
+    %p= t(:instructions3)
+
+    - autosized_form_for :user do |f|
+      %p.center{ :style => 'font-size: 125%' }
+        = submit_tag t(:skip), :name => :skip
+
+      = ordered_error_messages_for @user, :first_name, :last_name, :birthday, :country, :gender
+
+      %blockquote.lightfill.center{ :style => 'margin-top: 30px; padding: 20px;' }
+        %table.smaller.center.form{ :style => 'margin-top: 0;' }
+          %tr.name
+            %th== #{t(:real_name)}:
+            %td
+              = f.text_field :first_name
+              %br/
+              %span.small90{ :style => 'padding-left: 2px;' }= t(:first_name)
+            %td
+              = f.text_field :last_name
+              %br/
+              %span.small90{ :style => 'padding-left: 2px;' }= t(:last_name)
+          %tr
+            %th== #{t(:birthday)}:
+            %td{ :colspan => 2 }
+              - (t(:'date.order') || [:day, :month, :year]).each do |d|
+                = f.select :"birthday_#{d}", instance_variable_get("@#{d.to_s.pluralize}"), :include_blank => true
+          %tr
+            %th== #{t(:country)}:
+            %td{ :colspan => 2 }= f.select :country_id, @countries.unshift([nil, nil])
+          %tr
+            %th{ :style => 'padding-top: 2px; padding-bottom: 0;' }== #{t(:gender)}:
+            %td{ :colspan => 2, :style => 'padding-bottom: 0;' }
+              = f.radio_button :gender, 'M', { :id => 'gender_M' }
+              %label{ :for => 'gender_M' }= t(:male)
+              = f.radio_button :gender, 'F', { :id => 'gender_F' }
+              %label{ :for => 'gender_F' }= t(:female)
+
+      %p.center{ :style => 'font-size: 125%' }
+        = submit_tag t(:next)

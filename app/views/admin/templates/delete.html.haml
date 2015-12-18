@@ -1,0 +1,8 @@
+- t_scope 'controllers.admin.templates.delete' do
+  - title t(:title)
+  - form_tag admin_template_path(@tpl), :method => :delete do |f|
+    %p.center= t(:confirm_delete, :template => @tpl.name)
+    %p.center
+      = submit_tag t(:yes).capitalize
+      &nbsp;
+      = link_to t(:no).capitalize, admin_templates_path(:type => flash[:templates_type])

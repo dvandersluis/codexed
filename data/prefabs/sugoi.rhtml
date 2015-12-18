@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+  <head>
+    <title>[title]</title>
+    [feed]
+    <meta name="copyright" content="Design by starsarefalling" scheme="http://codexed.com/~starsarefalling/design/">
+    <style type="text/css">
+      body
+      {
+        background-color: [[colors.page.background]];
+        font-family: [[fonts.entry.family]];
+        font-size: [[fonts.entry.px]]px;
+        color: [[colors.entry.text]];
+        line-height: 12px;
+        letter-spacing: 0px;
+        text-align: left;
+        cursor: crosshair;
+      }
+      
+      a
+      {
+        text-decoration: none; 
+        font-weight:bold;
+      }
+
+      a:link, a:active
+      {
+        color: [[colors.links.link]];
+      }
+      
+      a:visited
+      {
+        color: [[colors.links.visited]];
+      }
+    
+      a:hover
+      {
+        color: [[colors.links.hover]];
+        cursor: crosshair;
+      }
+
+      blockquote
+      {
+        color: [[colors.entry.text]];
+        padding:4px;
+        border-top: 3px solid [[colors.entry.blockquote]];
+        border-bottom: 3px solid [[colors.entry.blockquote]];
+        border-left: 1px dotted [[colors.entry.blockquote]];
+        border-right: 1px dotted [[colors.entry.blockquote]];
+      }
+      
+      .all
+      {
+        border: 0;
+        overflow: visible;
+        margin-left: auto;
+        margin-right: auto;
+        top: 0px;
+        width: 50%;
+        z-index: 3;
+        text-align: justify;
+        padding: 5px;
+        background-color: [[colors.entry.background]];
+      }
+
+      .links
+      {
+        overflow: visible;
+        position: relative;
+        left: 0px;
+        top: -20px;
+        width: 100%;
+        text-align: center;
+      }
+
+      .entry
+      {
+        position: relative;
+        top: -45px;
+        overflow: hidden;
+      }
+
+      .spadebox
+      {
+        overflow: visible;
+        position: relative;
+        left: 0px;
+        top: 10px;
+        width: 50px;
+        height: 50px;
+        background-color: [[colors.page.background]];
+      }
+
+      .spade
+      {
+        overflow: visible;
+        position: relative;
+        left: 20px;
+        top: -15px;
+        width: 20px;
+        height: 20px;
+        background-color: [[colors.entry.background]];
+        color: [[colors.page.background]];
+        text-align: center;
+        font-size: 32px;
+      }
+
+      .title
+      {
+        font-size: [[fonts.journaltitle.px]]px;
+        font-family: [[fonts.journaltitle.family]];
+        overflow: visible;
+        position: relative;
+        left: 60px;
+        top: -40px;
+        width: 500px;
+        font-weight: bold;
+        text-align: left;
+        color: [[colors.entry.journaltitle]];
+      }
+
+      .entrytitle
+      {
+        font-family: [[fonts.title.family]];
+        font-size: [[fonts.title.px]]px;
+        color: [[colors.entry.title]];
+      }
+
+      hr
+      {
+        width: 95%;
+        height: 1px;
+        background-color: [[colors.page.background]];
+        color: [[colors.page.background]];
+        noshade: true;
+      }
+    </style>
+    <!-- If you're using Haloscan Code, insert the fist part after this text, but before the closing 'head' tag -->
+  </head>
+  <body>
+    <div class="all">
+      <div class="spadebox"> </div>
+      <div class="spade"> &spades; </div>
+      <div class="title">[journaltitle]</div>
+
+      <div class="links">
+        <hr />
+        [prev link "&lt; &lt;"] |
+        <a href="[curr url]">^</a> |
+        [next link "&gt; &gt;"] |
+        <a href="[archive url]" title="expressions past">archives</a> |
+        [[ifset:vars.email '<a href="mailto:' + @v + '">e-mail</a> |']]
+        [[foreach:vars.extralinks "<a href=\"#{@v.url}\">#{@v.text}</a> | " if @v.text]]
+        <a href="http://codexed.com/" title="All here because of.. &lt;3">host</a>
+        <hr />
+      </div>
+      <br />
+
+      <div class="entry">
+        <p align="right">
+          <b class="entrytitle">[title]</b>
+          <br />
+          - <i>[time "On %B  %d, %Y at %I:%M %p"]</i>
+        </p>
+        [body]
+        <br />
+
+        <p align="right">
+          <!-- If you're using Haloscan code, insert the second part after this text and before the closing 'p' tag. -->
+        </p>
+        <hr />
+        <center>
+          [prev link exists "&lt; &lt;"] &nbsp; | &nbsp;
+          <a href="[curr url]">^</a> &nbsp; | &nbsp;
+          [next link exists "&gt; &gt;"]
+        </center>
+        <hr />
+        <br />
+        <center>
+          &copy; [time %Y] [[ifset:vars.username, @v, '[username]']]
+        </center>
+      </div>
+    </div>
+  </body>
+</html>

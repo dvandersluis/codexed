@@ -1,0 +1,2 @@
+[entrylist split year descending]
+[archiveprev &larr; [date]] [archivenext [date] &rarr;]

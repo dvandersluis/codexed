@@ -1,0 +1,504 @@
+CODEXED CHANGELOG
+=================
+
+13 December 2010 - 0.11.4
+Bug Fixes:
+* Fixed crash when browsing directly to a create or update action. [#711]
+* Fixed "no upcoming birthdays" message appearing when there is a birthday today. [#712]
+* Fixed converting a prefab from the template list giving a "prefab not found" error. [#716]
+* Fixed [categorylist] parameters not working as advertised. [#717]
+* Fixed crash on archive layouts when the layout does not contain [entrylist]. [#718]
+* Fixed journal option error messages being suppressed by regenerating a feed key. [#719]
+
+Changes:
+* The birthday list options are now disabled if a user's journal is unlisted. [#713]
+* List pages now use alternating background colours for rows. [#715]
+
+
+12 November 2010 - 0.11.3.1
+Bug Fixes:
+* Fix regression which stopped private entries from working. [#707]
+
+
+11 November 2010 - 0.11.3
+Bug Fixes:
+* Fixed separate instances of the application within the same domain interfering with each other by using the same cookie names. [#699]
+* Fixed crash in import/export update progress when the estimated time is infinity. [#701]
+* Fixed preview links on the category list not using the correct subdomain. [#702]
+* Fixed locked journal page throwing a 403 Forbidden instead of 200 OK. [#704]
+* Fixed locked/private journal pages and user not found page loading extraneous CSS/JS files. [#705]
+
+Changes:
+* Tweaked sidebar organization [#700]
+* When viewing the feed of a locked journal, show a placeholder feed instead of a 403 error. [#706]
+
+Additions:
+* Added upcoming birthdays box on the dashboard. [#697]
+
+
+4 November 2010 - 0.11.2
+Bug Fixes:
+* Fixed crash when skipping filling out user's profile during signup. [#690]
+* Fixed Minirus so that it can output prefab variables that are nil. [#691]
+* Fixed Extreme Georgia prefab to use [[ifset:]] for vars.recent. [#691]
+* Fixed link to removed Profile Options page on Main Options. [#693]
+* Fixed routes for unlocking journals and entries so that it's not taken by the fallback journal route. [#694]
+
+Changes:
+* Allowed access to logged exceptions RSS by guid instead of by password authentication. [#692]
+* Added a link to the Codexed twitter on the layout. [#695]
+* Fixed text on the Registration Information section of Account Options (made firstname not required, clarified privacy) [#696]
+
+Additions:
+* Added member's birthday list. [#656]
+
+
+1 November 2010 - 0.11.1
+Bug Fixes:
+* Fixed crash on archive pages when the journal has no entries. [#685]
+* Journal feed URLs for non-existent journals now throw a 404 instead of loading the user not found HTML page. [#686]
+* Fixed routes for journal RSS feeds. [#687]
+* Fixed crash on favourites feed if an invalid or no key is given. [#688]
+* Fixed rake environment so that rake routes works again. [#689]
+
+
+31 October 2010 - 0.11 
+Bug Fixes:
+* Fix [open] so that it recognizes guest mode. [#657]
+* Split archives should also default to the last (by date) page. [#658]
+* Fix labels for category privacy options. [#659]
+* Fix crash when saving a prefab with a colour option not given or set to an invalid value. [#660]
+* Fix crash on create/update prefab from the preview page. [#661]
+* Stopped users from being able to directly browse to fake entries by permaname except where it makes sense to. [#662]
+* If a fake entry throws an exception, it is now handled. [#663]
+* An appropriate HTTP response status code is given when a post, category or tag cannot be found. [#664]
+* Tag archives are no longer accessible for private journals. [#665]
+* A fallback route was added for journals which takes bad URLs to the post not found page. [#666]
+* Archive ranges now properly handle dates affected by the Y2038 bug. [#668]
+* Journal export now properly exports HTML when all entries in the journal are private. [#669]
+* Added missing translations for change password page, handled invalid input. [#670]
+* Fixed the favourite journal autocomplete when cookies are disabled or missing. [#673]
+* Fixed the link target for Journal Options in the import summary. [#674]
+* Added missing translations for import review/summary. [#675]
+* Fixed importing a post with no explicit template being given template_id = 4. [#676]
+* If somehow a post is associated with a template that doesn't belong to the journal, it will no longer try to use it. [#677]
+* [archivedate], [archiveprev], [archivenext] should not do anything when not viewing an archive. [#683]
+* Tag archives will no longer show other people's private posts. [#684]
+
+26 October 2010 - 0.11.pre (unreleased)
+Bug Fixes:
+* Entries that are made close to the end of a month now appear under the correct heading in a split archive. [#563]
+* The formatting options page widgets (ie. color picker) now work again. [#590]
+* Using split in an [entrylist] for tag and category archives no longer crashes. [#591]
+* Using an archive layout without having any journal posts will no longer crash when viewing the archive. [#592]
+* Trying to save a prefab without a title being given will no longer crash. [#593]
+* If for some reason the preview key is lost, trying to preview will now return to the list page (for templates and posts). [#594]
+* Trying to unlock a post or journal without having cookies enabled will no longer crash. [#595]
+* You can no longer use the link given in the activation email to log in after the account has been activated. [#600]
+* Fixed cookies being created when viewing your own journal/post as a guest. [#606]
+* Changing your password on the account options page now works again. [#607]
+* Trying to delete all categories (or the last remaining category) now works. [#611]
+* Fixed a rare crash when importing a journal archive. [#645]
+* [... exists] template substitutions now work as they should. [#648]
+
+Changes:
+* User journals now appear as subdomains (user.codexed.com) instead of directories (codexed.com/~user). Links to the latter will now be automatically redirected to the former. [#360]
+* Cookies are now all set centrally so that they can be accessed from subdomains. [#378, #630]
+* The registration process has been simplified and made friendlier. We now allow users to fill out profile info as part of registration. [#518, #653]
+* Categories and tags are now included in a journal archive. [#571]
+* Import/export has now been localized, so the progress bar messages will be in the correct language. [#573]
+* When changing the locked journal/post password, Codexed will now automatically regenerate the journal's private feed key by default. [#586]
+* The default privacy for posts can now be specified on the Journal Options page. [#589]
+* [entry], [page] and [locked] are now block commands (so instead of [entry ...], it's now [entry]...[/entry]). Existing templates using these have been automatically updated. [#597, #636]
+* If a category is added or moved beneath a private category, it is now forced private. [#617]
+* A journal's RSS feed is now sorted on the date the entry was given instead of the date the entry was actually created. [#619]
+* The date format in split archives can now be specified on the Formatting Options Page. [#625]
+* The new prefab page has been overhauled, and it now displays a screenshot of the prefab as well as lets you sort prefabs by name, date added, or popularity. [#621, #628, #638]
+* The lorem entry now gets populated with some tags and categories. [#604]
+
+Additions:
+* Journal archives can now be viewed per year (/archive/2010), month (/archive/2010/10), or day (/archive/2010/10/26) [#19]
+* [pre] substitution added. Everything between [pre] and [/pre] in a post will have its whitespace preserved and not affected by newline formatting options (useful if you want to put some HTML in an entry). [#598]
+* [open] template substitution added. Anything between [open] and [/open] will only display if the post is open or has been unlocked (ie. will only display when the post itself is visible). [#599]
+* [username] substitution added, which displays the journal's username. [#609]
+* [now] substitution added, which displays the current date/time (it can be given a format like [time]). [#612]
+* [categorylist] substitution added, which displays a list of categories that exist in the journal. Can be given two parameters: count displays the count of how many items are in the category; used displays only categories that are in used. Both parameters can be used at the same time (ie. [categorylist used count]). [#613]
+* [archivedate] substitution added, which displays the date for the current archive page (if split by date). Currently is only for the title of the complete archive layout. [#626]
+* It is now possible to navigate between archive pages, using the substitutions [archiveprev] and [archivenext]. If anything is given as a parameter, it is used as the link text (this can include [date] which will display the date of the prev/next archive). If nothing is given, it defaults to [archiveprev [date]] and [archivenext [date]]. [#627]
+* Added two new prefabs: Extreme Georgia and Flex. [#614, #615]
+* Codexed now will keep track of users' birthdays. A dismissable notice will be given to users who have not filled out their birthday. Something special will happen when it's your birthday! :) [#639]
+
+
+21 October 2009 - 0.10
+Bug Fixes:
+* Creating a template when none exist makes the new template automatically default. [#402]
+* Ensured that the lorem page passes HTML validation in the default template. [#403]
+* Ensured that only one import/export job can be created at a time per user. [#420]
+* Fixed so that deleting posts/templates/etc. is possible without Javascript enabled. [#430]
+* When a post's title is overly long, the permaname is now smarter about where to truncate. [#434]
+* Fixed imports not working in Chrome. [#442]
+* Exporting an entry with no body content no longer causes the export to fail. [#489]
+* Template substitutions will now be evaluated within user-made substitutions. [#444]
+* Locked entries are now inaccessible rather than open if an entries password is not set up. [#458]
+* Fixed command keys on macs not being handled properly in permaname fields. [#464]
+* Fixed entries with no explicit template (ie. using the journal default) not being included when exporting an archive. [#468]
+* Fixed the line break formatting options not working in posts that contained subs. [#513]
+* Fixed the window title not initially being correct after switching the site language. [#519]
+* Exported files now use Windows line breaks. [#484]
+
+Changes:
+* The number of pages shown on the posts/templates lists can now only be set from the list page itself. [#346]
+* The import/export process was optimized, and its interface was made more user friendly (gives more/better messages, added a progress bar). [#349, #455, #467]
+* Normal entries and special entries were renamed to entries and pages. [#504]
+* Pages can now be locked or private. [#412]
+* The [normal] and [special] substitutions are now renamed to [entry] and [page] to go along with the above. The old names will still work though. [#547]
+* Optimized substitutions that look up special entries [#427]
+* The sidebar was reorganized, section headers are now clickable links to the main page for the section.
+* Reorganized and cleaned up Options pages. [#436]
+* Optimized loading large archive pages. [#447]
+* Import/export jobs in progress can now be cancelled by the user. [#451]
+* The edit page for entries and pages was made consistent, and less important fields are now hidden by default. [#469]
+* Import/export job files are now cleaned up on completion. [#511]
+* The URLs for getting to various pages have been made friendlier. [#516]
+
+Additions:
+* Categories can now be added to entries, tags can now be added to entries and pages. [#105]
+* Archive layouts [#108]
+* Journal RSS feeds [#109]
+* Templates can now be included in other template with the substitution [include 'templatename'] (where templatename is the name of the template)[#110]
+* Favourites RSS feed [#325]
+* Users can now choose to jump straight to the new entry page instead of the dashboard when going to the site. [#401]
+
+
+3 September 2009 - 0.9.8
+Bug Fixes:
+* Setting the number of pages shown on the posts/templates lists was made more consistent [#346]
+* Support for block commands added to Papyrus [#354]
+* Creating a template when none exist makes the new template automatically default. [#402]
+* Ensured that the lorem fake entry passes validation in the default template. [#403]
+* Ensured that only one import/export job can be created at a time per user. [#420]
+* Fixed so that deleting posts/templates/etc. is possible without Javascript enabled. [#430]
+* When a post's title is overly long, the permaname is now smarter about where to truncate. [#434]
+* Fixed imports not working in Chrome [#442]
+* Template substitutions will now be evaluated within user-made substitutions. [#444]
+* Made journal links that were use the %7E entity instead of ~ work. [#446]
+* Locked entries are now inaccessible rather than open if an entries password is not set up. [#458]
+* Fixed Mac command keys not being handled properly in the permaname field. [#464]
+* Fixed entries with no explicit template (ie. using the journal default) not being included when exporting an archive. [#468]
+* Exported files now use Windows line breaks. [#484]
+* Resolved crash when trying to cancel a job that no longer exists. [#488]
+* Exporting an entry with no body content no longer causes the export to fail. [#489]
+* Fixed the line break formatting options not working in posts that contained subs. [#513]
+* Fixed the window title not initially being correct after a locale switch. [#519]
+* Fixed crashes in the [normal] and [special] substitutions. [#547]
+
+Changes:
+* The import/export process was optimized, and its interface was made more user friendly (gives more/better messages, added a progress bar). [#349, #455, #467]
+* Normal entries and special entries were renamed to entries and pages. [#504]
+* Pages can now be locked or private. [#412]
+* The [normal] and [special] substitutions are now renamed to [entry] and [page] to go along with the above. The old names will still work though. [#547]
+* Optimized substitutions that look up special entries [#427]
+* The sidebar was reorganized, section headers are now clickable links to the main page for the section.
+* Removed the EntryType model [#429]
+* Updated Papyrus documentation [#433]
+* Reorganized and cleaned up Options pages. [#436]
+* Optimized loading large archive pages. [#447]
+* Import/export jobs in progress can now be cancelled by the user. [#451]
+* Updated config files to use booleans instead of 0/1. [#463]
+* The edit page for entries and pages was made consistent, and less important fields are now hidden by default. [#469]
+* Import/export job files are now cleaned up on completion. [#511]
+* The URLs for getting to various pages have been made friendlier. [#516]
+
+Addditions:
+* Categories can now be added to entries, tags can now be added to entries and pages. [#105]
+* Archive layouts [#108]
+* Journal RSS feeds [#109]
+* Templates can now be included in other templates. [#110]
+* Favourites RSS feed [#325]
+* Users can now choose to jump straight to the new entry page instead of the dashboard when going to the site. [#401]
+
+
+13 March 2009 - 0.9.7
+Structural Changes:
+* Rails was upgraded to version 2.3.1. [#261]
+* GLoc was replaced with Rails I18n for providing translated strings. [#395]
+
+Bug Fixes:
+* Chosen prefab values are now saved properly again. [#391]
+* Editing more than one entry, template or prefab at the same time now shows the correct information in the preview and when returning from preview. [#365]
+* If an invalid colour is given in the prefab form, it is replaced with the default prefab color. [#383]
+* Journal import will no skip conflicting items if no action is taken at the conflict resolution page, but will require a choice to be made instead. [#396]
+* The pagination options on the entries/templates lists will now always appear regardless of resolution. [#385]
+* The entry title no longer disappears if the entry form is refreshed. [#388]
+* The top bar on the preview page (for entries, templates and prefabs) now shows up regardless of if there is any content. [#392]
+* When viewing your own locked entry or journal as a guest, the unlock form will no longer accept a blank password. [#400]
+* The recently updated and favourite journals lists will now use the correct timezone when determining whether to show a date or a time. [#394]
+* When editing an entry and then previewing it in template, the date used for [time] will be the one given in the edited entry, not the saved value. [#366]
+* Window and page titles have been fixed across the site (most notably in the Options pages).
+  
+Changes:
+* The import journal review page is now able to show just conflicting or invalid items. [#348]
+* There is now a "Return to Options" link in the import journal summary page. [#350]
+* Favourite journal autocompletion no longer shows journals that are already added to the favourite list. [#367]
+* Entries no longer are required to be given a title, and will show up in the entrylist as "Untitled" if none is given. [#368]
+* Entry permanames are automatically filled to "untitled" when not given and automatic generation is disabled. [#379]
+* The entry list now shows the entry name as well as its title (if it has one). [#393]
+* If given a permaname for an entry name that conflicts (for a normal entry where the permaname already exists on the same day), Codexed will now resolve the conflict (ie. if there is a normal entry with permaname 'abcd', and another is created on the same day, the second will be given the permaname 'abcd-2', assuming a custom, non-conflicting permaname isn't specified). [#387]
+* Error, notice and success messages were made more consistent across the site. [#183]
+
+Additions:
+* The Journal Options page now shows a preview of the archive format. This preview updates live as the archive format is changed, if Javascript is enabled. [#356]  
+* The navigational subs have been extended to work with an arbitrary special entry. This allows the use of [<i>specialentry</i> link], [<i>specialentry</i> url], [<i>specialentry</i> title], and [<i>specialentry</i> exists], where <i>specialentry</i> is a special entry in the journal. The parameters to these subs work exactly the same as with prev, next, etc. [#285]
+
+
+15 February 2009 - 0.9.6
+Bug Fixes:
+* The various entry rendering bugs introduced by 0.9.5 have been reverted. [#374]
+* User defined substitutions are now case-insensitive when used in an entry, but always lowercase when defined on the substitutions page. [#373, #380]
+* Making a template default via the template form and template preview screens works again. [#384]
+* Previewing a new entry in template no longer crashes when returning to the form. [#375]
+* Creating a new special entry now works again, both through the entry form and by saving from the preview in template screen. [#376]
+* Errors caused when creating/editing an entry, template or prefab now show up properly again. [#377, #381]
+* The colour change form that is provided to change prefab colours when Javascript is not enabled now works again. [#382]
+
+
+12 February 2009 - 0.9.5
+
+
+19 January 2009 - 0.9.4
+Bug Fixes:
+* Import will no longer fail if the archive contains a sub which is not valid in Codexed.
+* Import will no longer fail if the archive contains a duplicate permaname.
+* Template substitutions are no longer affected by smart quotes.
+* Fixed members directory not being able to be sorted by language.
+* Fixed visiting the members directory changing the site language for non-logged-in users.
+* Fixed prefabs not loading correctly for users with an invalid language cookie set.
+  
+Changes:
+* Importing has been changed to run as a background task, so site usage can continue while import takes place. 
+* If errors are found during import, the user will now be prompted to fix them.
+* A review screen is now shown after reading the imported archive.
+* The entire import process has been revamped and optimized.
+* Old export jobs now expire and are deleted after 24 hours.
+* The HTML journal exported by Codexed now has links that will work properly without being uploaded to the web.
+* Codexed is now smarter about creating permanames from entry titles.
+* Country names and languages will now show up in the correct language, based on site preferences.
+* Formatting options will now apply for entry titles as well as bodies.
+* The pagination links on the entry list, template list and members directories have been replaced with a dropdown to be able to quickly jump to any page.
+
+Additions:
+* A new prefab has been added (thanks Starsarefalling!).
+* Added template substitution [locked ...] which outputs its contents for a locked entry. This can be used inside the archive format (or the format given to [entrylist] or [lastfew]) to deliniate locked entries.
+* Added template substitutions [lock_icon (n)] to display a lock icon of a specific size. Current options are 10, 12 and 16 (which is the default option).
+* A new option was added to show a lock icon instead of a bullet for locked entries in [lastfew] and [entrylist] (including the default archive pages).
+* Added [normal ...] and [special ...] template substitutions which output their content only in a normal or special entry, respectively.
+
+
+29 December 2008 - 0.9.3
+Bug Fixes:
+* When viewing your own locked entry/journal in guest mode, a cookie will no longer be set when unlocked.
+* The password reset form is no longer case sensitive for username.
+* Problems with specifying a format in [entrylist] or [lastfew] have been fixed.
+* Languages will no longer show up in the members directory if all journals with the language are private or unlisted.
+* When changing site languages, the change now takes effect immediately, instead of after the second page load.
+* Error messages now use the correct language, rather than always using English regardless of the set language.  
+* Single letter subs and subs containing dashes now work again.
+* Substitutions can now be properly renamed.
+* Parenthesis style will now be applied to parentheses containing line breaks.
+* Fixed the header on the Options pages sometimes showing up in the wrong language.
+* Previewing an entry in template will no longer cause the entry time to use the wrong timezone if use server time is checked.
+
+Changes:
+* The front page should now load faster.
+* Journal export, templates, and subs have been optimized.
+* Journal export now runs as a background task, so that site usage can carry on while the journal is exporting.
+* You can now choose to not save a cookie when unlocking an entry or journal, causing it to not stay unlocked beyond one page load.
+* Locked journals now have a lock icon in the directory.
+* Removed extraneous error messages when attempting to save an entry with no title.
+* The substitutions page now lists subs alphabetically.
+* The user not found and entry not found pages have been spruced up.
+
+Additions:
+* Added Portuguese as an option for site language (thanks, Pisces!)
+* Added a new prefab (thanks, Ashling!)
+* Added a dismissable notice that appears for users with listed, non-private journals that have at least one entry but do not have a journal language set.
+* Users can now opt out of keeping locked journals/entries unlocked.
+* Added [first ...] and [last ...] navigation subs to point to the first and last entry in the journal, respectively. [last ...] is an alias for [curr ...].
+
+
+10 December 2008 - 0.9.2 update
+Bug Fixes:
+* Codexed now tries to be smarter with character encoding when importing a Diary-X journal. When importing, there is no a checkbox to check if the journal being imported contains non-English characters.
+* The import now properly sets the template for an entry to the one specified in the archive.
+* Subs are now properly evaluated when "quick previewing" an entry.
+* User substitutions can now be a lot longer.
+* The [home url] and [home link] template substitutions now go directly to the home URL instead of to the permalink of the start page.
+* Giving "title", "url", "link" or "exists" as the link text in a navigation sub now works properly.
+
+
+3 December 2008 - 0.9.2
+Bug Fixes:
+* A number of DX archive import issues were resolved, including importing data with non-English characters, and importing entries with no title.
+* The DX archive import is now more lenient with what it expects from the archive it is given so that more archives can be successfully imported.
+* The notice to merge favorites now updates as necessary when favorites are added or removed.
+* Merging favorites should now work in all cases.
+* Modifying favorite journals will no longer cause unexpected behaviour when sending multiple requests before the first finishes.
+* Pressing enter when adding a new favorite journal now uses AJAX to add the favorite, if available.
+* The favorite journals list will no longer cause the main page to crash if a journal which was favorited is deleted.
+* When adding a favorite journal via AJAX, the time will display rather than the date for journals updated today.
+* Logging into Codexed with a reserved username now works (of course, users still cannot register accounts with reserved usernames).
+* Using numbers inside brackets in an entry no longer makes the brackets disappear.
+* Putting multiple template subs inside brackets now works properly.
+* The top bar should now look proper in Firefox 2, in small screen resolutions, and in IE with the font size set higher than medium.
+* Text similar to [...] in an entry will now display as-is, as it should.
+* Fixed a broken link in the stripe prefab.
+* When viewing the entries or templates list, changing "tabs" (ie. Normal to Special entries) will now go to page 1 of the specified tab, so that Codexed doesn't try to load a non-existant page of templates or entries.
+* %M and %I in the [time] substitution are once again zero-padded by default. 
+* Certain words when put in brackets in an entry no longer cause the entry to not be able to be viewed.
+* The 'Preview in template' button on the entry form now works even if no templates are defined.
+* The favorites list now sorts correctly.
+* When viewing your profile options, a user will no longer be shown as being from Afghanistan if they have not selected a country.
+* The "Set timestamp to time when entry is saved" checkbox in the entry form now retains its value when previewing the entry.
+* The sidebar was fixed to look proper when in disabled mode.
+* Users can no longer get into Codexed before activating their account (which means that if you never activated your account before, you will have to do so now before continuing to use it).
+
+Changes:
+* Substitution brackets can now be escaped, in order to put raw substitutions into entry text. In order to escape a sub, use \[sub\].
+* The lorem entry now contains a better variety of HTML so that it is more useful for testing templates and CSS.
+* When editing the default template, there is now a notice that it is the default.
+* Locked journals now show up in the recently updated list with a lock icon.
+* Deleting a the last custom template will now recreate the 'main' template that comes with a new account so that there is always a template available.
+* A format can now be given to the [lastfew] and [entrylist] substitutions to specify how the items will look (ie. [lastfew 10 "[time %f] - [title]"])
+
+Additions:
+* Most option pages now have a button to allow the options on that page to be reset to their default values.
+* There is now a [split ...] template substitution that works the same as [archive ...] but for the split archive.
+* Users now have the option (in the Interface options page) to show the date/time of a recent update in the recent updates list.
+* Users can now specify what language their journal is in. The selected language appears in the members directory, and users can now filter the directory by language.
+* Three new prefabs have been added.
+
+
+8 November 2008 - 0.9.1
+Bug Fixes:
+* [lastfew] template sub now works properly instead of showing 5 random entries.
+* Fixed a problem with DX archive import where entries would end up with no permaname.
+* Template substitutions of the form [next link "next"], [prev link "prev"], etc. now work.
+* Browsing to an entry or journal that does not exist once again gives the proper error message instead of crashing.
+* New special entries are no longer turned into normal entries when created.
+* Fixed smart quotes interfering with HTML in an entry.
+* Setting a start page now works even when the journal has no normal entries.
+* The confirm email field on the registration page now accepts the proper amount of characters (same as the first email field) so that long email addresses can register.
+* The favorite journal box will now always show the proper date.
+
+Changes:
+* Users can now add themselves to their favorite journals.
+* The members directory is now sortable by the column headers.
+* The favorite journals list shows the last entry time instead of date if the last entry was today.
+* [time ...] has some additional formats to allow for non-zero padded numbers (%d, %g, %H, %I, %j, %m, %M, %U, %V and %W now do not use zero-padding; %0d, %0g, etc. do) and ordinal dates (%f).
+* Users will no longer end up on the top of the recently updated list when creating a backdated entry.
+
+Additions:
+* Added Canadian English translation.
+
+
+21 October 2008 - 0.9 complete - Pre-beta release
+Bug Fixes:
+* Changing your password will no longer cause the password to be shown in plain text on the next page.
+* The 'lorem' entry now has a title.
+* The default entry in a brand new journal now has a title.
+* Overly long titles are now truncated in notices and the entry/template lists.
+* Entries whose titles consist of only permaname-invalid characters will now get a permaname.
+* Templates with overly long titles now get saved properly.
+
+Changes:
+* Site text referring to 'alpha' has been updated to say 'beta'.
+* Template parser has been rewritten.
+* A language localization system is now in place.
+* The sidebar when logged in has been reorganized. Settings for controlling how the sidebar should look can be found in Options/UI.
+* [journal_title] template substitution was changed to [journaltitle] (but the old version will still work).
+* Entry and template lists now are paginated.
+* Links for creating new entries/templates are now only in the sidebar instead of having them in multiple locations.
+
+Additions:
+* Both entries and journals can now be public, password protected (locked), or private.
+* Added prefab templates. Prefabs can be created, viewed, set as the default template, and converted to a normal/"custom" template. 
+* Diary-X entry archives can now be imported by Codexed.
+* A profile options page was added to go along with the new members directory.
+* [random], [lastfew] and [entrylist] template substitutions were added.
+* A recently updated list is now visible on the main page and dashboard.
+* Users can now set up favorite journals. Favorite journals can be set up while logged in to tie them to a user account, or while logged out to tie them to a particular browser (saved in a cookie). Cookie-saved favorites can be merged into a user's favorites list.
+* Journals now have start pages -- the entry shown when navigating to the journal's default URL.
+* Journals now have a 'split' entry which displays the archive split by month.
+* Inline formatting options (**bold**, \\italic\\, __underline__) are now available.
+* The archive format can now be specified in Options/Journal.
+
+
+1 September 2008 - 0.5.5
+Bug Fixes:
+* The entries page no longer accepts invalid entry types (by changing the URL).
+* Substitution names now accept dashes.
+* Cancelling a new entry now works as it should.
+* Lorem entry works even if the journal has no entries.
+* Special entries are now properly viewable even if no normal entries exist.
+
+Changes:
+* The dropdown list in the entries page has been replaced by tabs for easier use.
+
+
+15 June 2008 - 0.5.4
+Bug Fixes:
+* The Save & Continue Editing button now works again for normal entries.
+* Templates with quotes in their names no longer crash the template list.
+* [prev url], [next url], etc. now work properly when there is no previous, next, etc. entry.
+* Deleting a non-default template no longer clears the journal's default template.
+* A journal with no normal entries now properly displays the "I have not created any entries for my journal yet." message, even if it has special entries.
+
+Changes:
+* The [timestamp] substitution now provides a unique identifier per entry that does not change even if the entry timestamp is changed.
+* The "Make this my default template" checkbox no longer appears if the template is already default.
+
+Additions:
+* Added [datestamp] template substitution as an alias for [timestamp] so that people using [datestamp] with haloscan will not have problems.
+
+
+4 June 2008 - 0.5.3
+Bug Fixes:
+* Multiple users having special entries with the same name or normal entries with the same permaname and date no longer can cause the wrong entry to be displayed.
+* Custom timestamps now save properly again when "set timestamp to time when entry is saved" is not checked.
+* The template list no longer gives an error if there is no default template.
+* Renamed password entry input for journal deletion confirmation so that browsers do not auto-fill it.
+* Timezone bugs (missing entries, broken navigation) are now fixed.
+* Usernames containing dashes should now work.
+* The journal default template setting is now properly updated when the default template is renamed.
+* Closed two invitation code exploits.
+* The tab order on the new entry form no longer jumps around the page.
+* The substitutions form will no longer crash when the same substitution name is used more than once.
+* Editing or deleting a normal entry that has the same permaname as another normal entry in the same journal now loads the correct entry. 
+
+Changes:
+* Made the template substitution [title] work with archive pages (although the archive title is not customizable at the moment).
+* Replaced timezone offset and DST options with a full-fledged timezone selection that automatically manages DST (see options &rarr; main). 
+* Reordered template list to ensure that the default template is shown at the top.
+* Required new usernames to have at least three alphanumeric characters.
+
+Additions:
+* Users can now change their own password from the options &rarr; profile menu.
+* Forgot my password functionality has been added, so that a user's password can be reset if they are unable to log in.
+
+
+27 May 2008 - 0.5.2
+Bug Fixes:
+* Entry navigation should now work and not result in loops.
+* Adding more entry boxes for substitutions is now faster.
+* Special entries can now be created with the same name as a special entry in a different journal.
+* Fixed some problems with permaname generation
+* Logins will persist across multiple browsers now.
+
+Changes:
+* Template names can no longer contain slashes or periods.
+* Replaced archive page to show a diary-x style list of links instead of all entries.
+
+Additions:
+* New option added - Set journal timezone. Allows you to specify the offset from UTC that you are in so that timestamps match your local time. Also lets you specify if you are currently in DST or summer time.
+* Added [timestamp] template substitution which returns the entry's timestamp (ie. 20080527163930). Alias for [time "%Y%m%d%H%M%S"].
+* The entry timestamp can now be set to whatever time the entry is saved at in addition to a specified time.

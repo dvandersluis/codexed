@@ -1,0 +1,239 @@
+- add_to_stylesheets "archive", 'admin/options', "facebox"
+
+- t_scope 'controllers.admin.options.journal' do
+  - window_title t('tabs.journal')
+
+  :style
+    #start_page_select optgroup
+      padding-top: 5px
+      margin-top: 5px
+      option
+        padding-left: 10px
+
+    table.thfixed th
+      width: 225px
+
+    #feeds_help_link, #feeds_help
+      /*background-color: #d0d0d0
+      background-color: #FFF1D2
+      font-family: "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif
+
+    #feeds_help_link
+      display: block
+      position: absolute
+      bottom: -1px
+      right: 0
+      padding: 0px 5px
+      font-size: 0.85em
+      font-weight: bold
+      border: none
+      border-top: 1px solid #BAB28A
+      border-left: 1px solid #BAB28A
+      border-bottom: 1px solid #FFF1D2
+      text-decoration: none
+
+    #feeds_help
+      border-top: 1px solid #BAB28A
+      font-size: 0.8em
+      line-height: 1.6em
+      div
+        padding: 10px
+
+    /*
+      #facebox #facebox_content.feeds_help
+        line-height: 1.5em
+        height: 200px
+
+  :javascript
+    document.observe("dom:loaded", function() {
+      var passwords_set = {
+        journal: #{(!@journal.crypted_journal_password.blank?).to_s},
+        entries: #{(!@journal.crypted_entries_password.blank?).to_s}
+      };
+
+      var types = ['journal', 'entries'];
+      types.each(function(i)
+      {
+        $('password_changed_' + i).remove();
+
+        if (passwords_set[i])
+        {
+          var span = $(i + '_password_set');
+          var input = $('journal_' + i + '_password');
+
+          var checkbox = new Element('input', {type: 'checkbox', name: 'password_changed[' + i + ']', id: i + '_password_changed_checkbox', value: 'true'});
+          var label = new Element('label', {'for': i + '_password_changed_checkbox'}).update('#{t(:change_journal_password)}');
+
+          var span2 = new Element('span').hide();
+          var checkbox2 = new Element('input', {type: 'checkbox', name: 'regenerate_feed_key', id: i + '_regenerate_feed_key_checkbox', value: 1}).setStyle({marginLeft: "10px"});
+          var label2 = new Element('label', {'for': i + '_regenerate_feed_key_checkbox'}).update('#{t(:regenerate_feed_key)}');
+
+          checkbox.observe('change', function(event)
+          {
+            if (event.element().checked)
+            {
+              input.disabled = false;
+              input.value = "";
+              input.focus();
+
+              event.element().form.getInputs('checkbox', 'regenerate_feed_key').each(function(el)
+              {
+                el.up().show();
+                el.checked = true;
+              });
+            }
+            else
+            {
+              input.disabled = true;
+              input.value = "*********";
+
+              event.element().form.getInputs('checkbox', 'regenerate_feed_key').each(function(el)
+              {
+                el.up().hide();
+                el.checked = false;
+              });
+            }
+          });
+
+          checkbox2.observe('change', (function() {
+            var other_checkboxes = types.reject(function(j) { return j === i; });
+
+            return function(event)
+            {
+              other_checkboxes.each(function(j)
+              {
+                var other_checkbox;
+                if (other_checkbox = $(j + "_regenerate_feed_key_checkbox"))
+                {
+                  other_checkbox.checked = event.element().checked;
+                }
+              });
+            }
+          })());
+
+          span.insert({after: span2.insert(checkbox2).insert(label2)}).insert({after: label}).insert({after: checkbox});
+          input.value = "*********";
+          input.disabled = true;
+          span.remove();
+        }
+
+        // When the regenerate feed button is clicked, create a fake form and submit it
+        // This lets the default submit button still be the save button, and stops
+        // the default submit from changing when back is pressed after regenerating.
+        $('regen_feed_submit').type = "button";
+        $('regen_feed_submit').observe('click', function() {
+          var form;
+          
+          if (!(form = $('regenerate_key_form')))
+          {
+            var form_action = "#{url_for({})}";
+            form = new Element('form', { "method": "POST", "action": form_action, "id": "regenerate_key_form" });
+            var auth_token = new Element('input', { "type": "hidden", "name": "authenticity_token", "value": "#{form_authenticity_token}" });
+            var hidden_submit = new Element('input', { "type": "hidden", "name": "regenerate_feed_key" });
+            
+            form.appendChild(hidden_submit);
+            form.appendChild(auth_token);
+            this.form.up().insert(form);
+          }
+          
+          form.submit();
+        });
+      });
+    });
+
+  - tabbed(options_tabs) do
+    = message_divs
+    
+    - form_tag do
+      %h3= t(:journal_settings)
+      %blockquote.lightfill.padded
+        %table.form.thfixed
+          - fields_for :journal, current_user.journal do |f|
+            %tr
+              %th== #{t(:journal_title)}:
+              %td= f.text_field :title
+          - fields_for 'config[default]', @config.default, {} do |f|
+            %tr
+              %th== #{t(:default_template)}:
+              %td= f.select :template, @journal.template_options
+            %tr
+              %th== #{t(:start_page)}:
+              %td= select_tag('config[default][start_page]', grouped_options_for_select(@journal.start_page_options, @config.default.start_page), {:id => 'start_page_select'})
+
+      %h3= t(:privacy_settings)
+      %blockquote.lightfill.padded
+        .center{ :style => 'width: 100%' }
+          = error_messages_for :journal
+        %table.form.thfixed
+          - fields_for :journal, current_user.journal do |f|
+            %tr
+              %th{ :style => 'vertical-align: top;' }== #{t(:journal_privacy)}:
+              %td
+                = f.radio_button :privacy, 'O'
+                %label{ :for => 'journal_privacy_o'}= t(:public)
+                %br/
+                = f.radio_button :privacy, 'P'
+                %label{ :for => 'journal_privacy_p'}== #{t(:protected)}:
+                = hidden_field_tag 'password_changed[journal]', (!@journal.crypted_journal_password.blank?).to_s
+                = f.password_field :journal_password, { :size => 10, :onfocus => "$('journal_privacy_p').checked = true;" }
+                - if !@journal.crypted_journal_password.blank?
+                  %span{ :style => 'font-style: italic;', :id => 'journal_password_set' }== [#{t(:password_already_set)}]
+                %br/
+                = f.radio_button :privacy, 'C'
+                %label{ :for => 'journal_privacy_c'}= t(:private)
+                %br/
+                = link_to t(:view_journal_as_guest), journal_url(@user, :guest => 1, :only_path => false)
+                == &nbsp;(#{t(:view_journal_as_guest_instr)})
+            %tr
+              %th== #{t(:locked_entry_password)}:
+              %td
+                = hidden_field_tag 'password_changed[entries]', (!@journal.crypted_entries_password.blank?).to_s
+                = f.password_field :entries_password, { :size => 10 }
+                - if !@journal.crypted_entries_password.blank?
+                  %span{ :style => 'font-style: italic;', :id => 'entries_password_set' }== [#{t(:password_already_set)}]
+            %tr
+              %th{ :style => 'vertical-align: top;' }
+                == #{t(:locked_entry_text)}:
+                %br/
+                %span.option_desc= t(:locked_entry_text_instructions)
+              %td
+                = text_area_tag 'config[privacy][locked_entry_text]', @config.privacy.locked_entry_text, :size => "80x3"
+          - fields_for 'config[privacy]', @config.privacy, {} do |f|
+            %tr
+              %th{ :style => 'vertical-align: top;' }
+                == #{t(:default_entry_privacy)}:
+              %td
+                = f.radio_button :default_entry_privacy, 'O'
+                %label{ :for => 'config_privacy_default_entry_privacy_o'}= t(:public)
+                = f.radio_button :default_entry_privacy, 'P'
+                %label{ :for => 'config_privacy_default_entry_privacy_p'}= t(:protected)
+                = f.radio_button :default_entry_privacy, 'C'
+                %label{ :for => 'config_privacy_default_entry_privacy_c'}= t(:private)
+
+      - fields_for 'config[feeds]', @config.feeds do |f|
+        %h3#feeds.topmargin= t(:feeds)
+        = message_div_for :success, flash[:feeds_success]
+        %div
+          .lightfill{ :style => "position: relative" }
+            .padded
+              %table.form.thfixed
+                %tr
+                  %th== #{t(:your_feed_key)}:
+                  %td
+                    = @journal.feed_key
+                    &nbsp;
+                    = submit_tag t(:regenerate_feed_key), :name => "regenerate_feed_key", :id => "regen_feed_submit"
+                - if !@journal.feed_key.nil?
+                  %tr
+                    %th== #{t(:your_private_feed_url)}:
+                    %td
+                      - url = journal_url(:main_feed_url, :key => @journal.feed_key)
+                      = link_to url.sub(@journal.feed_key, "<b>"+@journal.feed_key+"</b>"), url
+            = link_to_function t(:help), "new Effect.toggle('feeds_help', 'slide', { duration: 0.3 })", :id => "feeds_help_link"
+          #feeds_help{:style => "display: none"}
+            %div= t(:feeds_help)
+              
+      %p.center
+        = submit_tag "#{t(:save)} &raquo;"
+        &nbsp;
+        = submit_tag "#{t(:reset_to_defaults)}", { :name => 'reset', :onclick => "return confirm('#{t(:confirm_reset_options).gsub("'", "\\\\'")}');" }

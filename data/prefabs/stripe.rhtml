@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>[title]</title>
+    [feed]
+    <style type="text/css">
+    <!--
+    body
+    {
+      text-align: center;
+      color: [[colors.page.text]]; 
+      font-weight: normal; 
+      background-color: [[colors.page.background]];
+    }
+
+    #container
+    {
+      text-align: justify;
+      width: 620px;
+      margin: 20px auto;
+      border: 3px double [[colors.page.border]];
+    }
+
+    .outer
+    {
+      width: 100%;
+      text-align: center;
+    }
+
+    .links
+    {
+      text-align: center;
+      font-family: [[fonts.links.family]];
+      font-size: [[fonts.links.px]]px;
+    }
+
+    .main
+    {
+      width: 100%;
+      padding: 5px 0 0 0;
+      background: [[colors.page.entry]];
+    }
+
+    .heading
+    {
+      width: 100%;
+      font-family: [[fonts.header.family]];
+      font-size: [[fonts.header.px]]px;
+      color: [[colors.stripe.text]]; 
+      background: [[colors.stripe.background]];
+    }
+
+    .time
+    {
+      font-family: [[fonts.time.family]];
+      font-size: [[fonts.time.px]]px;
+    }
+
+    .entry
+    {
+      padding: 10px;
+      font-family: [[fonts.entry.family]];
+      font-size: [[fonts.entry.px]]px;
+    }
+
+    a:link, a:active
+    {
+      text-decoration: none;
+      color: [[colors.link.active]];
+    }
+
+    a:visited
+    {
+      text-decoration: none;
+      color: [[colors.link.visited]];
+     }
+
+    a:hover
+    { 	
+      text-decoration: none;
+      color: [[colors.link.hover]];
+      cursor: hand;
+    }
+    -->
+    </style>
+  </head>
+
+  <body>
+    <div id="outer">
+      <div id="container">
+        <div class="main">
+          <div class="links">
+            &bull;&bull;&bull; <a href="[prev url]">back</a> &bull;&bull;&bull;
+            <a href="[curr url]">now</a> &bull;&bull;&bull;
+            <a href="[next url]">next</a> &bull;&bull;&bull;
+            <a href="[archive url]">all</a> &bull;&bull;&bull;
+            <a href="http://www.codexed.com">host</a> &bull;&bull;&bull;
+          </div>
+          <br />
+          <div class="heading">
+            <b>[title]</b><br />
+            <span class="time">[time "%A %B %d, %Y - %I:%0M %p"]</span>
+          </div>
+          <div class="entry">
+            <p style="text-align: justify">[body]</p>
+          </div>
+          <div class="links">
+            &bull;&bull;&bull; <a href="[prev url]">back</a> &bull;&bull;&bull;
+            <a href="[curr url]">now</a> &bull;&bull;&bull;
+            <a href="[next url]">next</a> &bull;&bull;&bull;
+            <a href="[archive url]">all</a> &bull;&bull;&bull;
+            <a href="http://www.codexed.com">host</a> &bull;&bull;&bull;
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+- t_scope 'controllers.user.signup.index' do
+  - title t(:title)
+
+  %style{ :type => 'text/css' }
+    :sass
+      table.form
+        margin-top: 30px
+        th
+          vertical-align: top
+          padding-top: 6px
+        td, th
+          padding-bottom: 20px
+        tr.password
+          td, th
+            padding-bottom: 10px
+        tr.nobottompad
+          td, th
+            padding-bottom: 0
+
+      .small90
+        font-size: 90%
+
+      .username_div
+        width: 537px
+        text-align: right
+        padding: 2px 4px
+        border-top: 1px solid #aaa
+        border-left: 1px solid #aaa
+        border-bottom: 1px solid #ddd
+        border-right: 1px solid #ddd
+
+      table.form input, .username_div
+        font-size: 150%
+
+  %div.center{ :style => 'width: 750px; margin-top: -1em;' }
+    %p{ :style => 'text-align: center;' }= t(:instructions1)
+
+    = ordered_error_messages_for @user, :username, :email, :password, :password_confirmation, :invitation_code_name, :prerelease_tos, :tos
+
+    - autosized_form_for :user, :html => { :autocomplete => 'off' } do |f|
+      %blockquote.lightfill.center{ :style => 'margin-top: 30px; padding: 20px;' }
+        %table.smaller.center.form{ :style => 'margin-top: 0;' }
+          %tr
+            %th== #{t('form.username')}:
+            %td{ :colspan => 2 }
+              - bgcol  = @user.errors_on(:username).empty? ? '#FFFFFF' : '#F4D2CA;'
+              %div.username_div{ :onclick => "$('username_input').focus();", :style => "background-color: #{bgcol};" }
+                == #{f.text_field(:username, :id => 'username_input', :style => "font-size: inherit; width: 22em; text-align: right; padding: 0; border: none;", :autocomplete => 'off')}.codexed.com
+          %tr.password
+            %th== #{t('form.password')}:
+            %td
+              = f.password_field :password  
+              %br/
+              %span.small90{ :style => 'padding-left: 2px;' }= t(:enter_field)
+            %td
+              = f.password_field :password_confirmation  
+              %br/
+              %span.small90{ :style => 'padding-left: 2px;' }= t(:confirm_field)
+          %tr
+            %th== #{t(:email_address)}:
+            %td{ :colspan => 2 }= f.text_field :email, :maxlength => 50, :style => "width: 537px;" 
+          %tr
+            %th== #{t(:invitation_code)}:
+            %td{ :colspan => 2 }
+              = f.text_field :invitation_code_name, :maxlength => 32, :style => "width: 537px;" 
+              %br/
+              %span.small90= link_to(t(:get_invitation_code), "http://codexed.com/preorder", :target => '_blank')
+          %tr.nobottompad
+            %th
+            %td{ :colspan => 2 }
+              = f.check_box :prerelease_tos
+              %label.small90{ :for => 'user_prerelease_tos' }
+                = t(:read_and_agreed, :link_text => link_to(t(:prerelease_tos), { :controller => '/main', :action => :prerelease }, :target => '_blank'))
+          %tr.nobottompad
+            %th
+            %td{ :colspan => 2 }
+              = f.check_box :tos
+              %label.small90{ :for => 'user_tos' }
+                = t(:read_and_agreed, :link_text => link_to(t(:terms_of_service), { :controller => '/main', :action => :tos }, :target => '_blank'))
+      %p.center{ :style => 'font-size: 125%' }= submit_tag t(:next)

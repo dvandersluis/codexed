@@ -1,0 +1,3 @@
+- t_scope 'controllers.admin.journal.export' do
+  - form_tag({:controller => 'admin/journal/export', :action => 'run'}, :class => "tcenter lightfill padded") do
+    = submit_tag t(:download) + " &raquo;"

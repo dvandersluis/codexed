@@ -1,0 +1,4 @@
+%tr
+  %td= '[ ' + text_field_tag('subs[][name]', sub.name, :size => 20, :onkeypress => "if (force_allowed_chars(event, /[a-z0-9-]/i)) { force_case(event, 'L'); }") + ' ]'
+  %td =&gt;
+  %td= text_field_tag  'subs[][value]', sub.value, :size => 50

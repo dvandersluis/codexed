@@ -1,0 +1,62 @@
+---
+meta:
+  title: Stripe
+  description: Simplistic design in black and white. 
+  created: 2008-10-19
+  creator:
+    name: Breathe
+    url: 
+customization:
+  colors:
+    page:
+      text: '#000000'
+      background: '#FFFFFF'
+      entry: '#FFFFFF'
+      border: '#000000'
+    stripe:
+      background: '#000000'
+      text: '#FFFFFF'
+    link:
+      active: '#563604'
+      visited: '#513509'
+      hover: '#FF5500'
+  fonts:
+    entry:
+      family: 'Verdana'
+      px: '11'
+    links:
+      family: 'Verdana'
+      px: '11'
+    header:
+      family: 'Verdana'
+      px: '13'
+    time:
+      family: 'Verdana'
+      px: '13'
+descriptions:
+  colors:
+    _order: [:page, :stripe, :link]
+    page:
+      _: Page Colors
+      _order: [:text, :background, :entry, :border]
+      text: Body text
+      background: Page background
+      border: Entry border
+      entry: Entry background
+    stripe:
+      _: Stripe Colors
+      _order: [:text, :background]
+      background: Background
+      text: Text
+    link:
+      _: Link Colors
+      _order: [:active, :visited, :hover]
+      active: Default 
+      visited: Visited link
+      hover: Hover 
+  fonts:
+    _order: [:header, :time, :entry, :links]
+    header: Header
+    time: Date/Time
+    entry: Entry body
+    links: Navigation links

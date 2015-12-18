@@ -1,0 +1,42 @@
+- t_scope 'controllers.admin.journal.import' do
+  .tcenter.lightfill.padded
+    - if @import.jobs_ahead.count > 0
+      = t(:step1_waiting, :count => t(:x_other_user, :count => @import.jobs_ahead.count))
+      %br
+      = t(:refresh_at_any_time)
+      - form_tag({:controller => 'admin/journal/import', :action => 'cancel'}) do
+        = submit_tag t(:cancel)
+    - else
+      %p
+        = t(:step1_running1)
+        %span#import_step1_running2_text= t(:step1_running2_nojs)
+      %p= t(:step1_running3)
+      #import_progress{ :style => "display: none" }
+        = render :partial => 'admin/journal/import/progress', :locals => { :job => @import.job }
+      :javascript
+        $("import_step1_running2_text").update("#{t(:step1_running2_js)}");
+        $("import_progress").show();
+        startUpdatingProgress("import", "#{request_forgery_protection_token}", "#{escape_javascript form_authenticity_token}");
+        (function() {
+          $("import_progress_bar_bg").removeClassName('animated');
+          $("import_progress_bar_fill").addClassName('animated');
+          morphBoxHeight("import_progress_box", "auto", function(box) {
+            box.undoClipping();
+          });
+        }).delay(3);
+        
+      /
+        #import_progress
+          #import_progress_box.job_progress_box{ :style => "height: 64px; overflow: hidden" }
+            #import_activity.job_activity
+              t(:waiting_for_job)
+            #import_progress_bar_bg.job_progress_bar_bg
+              #import_progress_bar_fill.job_progress_bar_fill.animated{ :style => "width: 20%" }
+            #import_subactivity.job_activity &nbsp;
+            #import_subprogress_bar_bg.job_progress_bar_bg
+              #import_subprogress_bar_fill.job_progress_bar_fill{ :style => "width: 0%" }
+            #import_job_info.job_info &nbsp;
+        :javascript
+          (function() {
+            $('import_activity').update("#{t(:waiting_for_job)} #{t(:here_we_go)}");
+          }).delay(1.5);

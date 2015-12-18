@@ -1,0 +1,18 @@
+<style type="text/css">
+  .cdx_error_message
+  {
+    margin: 0px auto;
+    margin-bottom: 1em;
+    padding: 3px;
+    text-align: center;
+    background-color: #FFE4DE;
+    border: 1px solid #EA786B;
+    color: #CC0000;
+    line-height: 1.8em;
+  }
+</style>
+
+<div class="cdx_error_message">
+  <img src="/images/icons/exclamation.png" style="vertical-align: middle" alt="<%= t('general.messages.error') %>" />&nbsp;&nbsp;
+  <%= t(:entry_private, :scope => 'controllers.journal.private') %>
+</div>

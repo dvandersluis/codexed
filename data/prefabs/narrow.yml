@@ -1,0 +1,61 @@
+---
+meta:
+  title: Narrow 
+  description: A simple layout where the content is wrapped in a narrow-ish box aligned along the left edge of the screen.
+  created: 2008-11-29
+  creator:
+    name: Elliot Winkler (bean-with-bacon)
+    url: http://codexed.com/~elliot
+customization:
+  colors:
+    page:
+      background: '#4B7399'
+    link:
+      visited: '#999999'
+    hr:
+      page: '#CCCCCC'
+      entry: '#DEDEDE'
+    container:
+      border: '#3E536D'
+    entry:
+      time: '#666666'
+    nav:
+      default: '#C0C0C0'
+  fonts:
+    page:
+      family: Georgia
+      px: 14
+    headers:
+      family: Verdana
+descriptions:
+  colors:
+    _order: [:page, :container, :link, :hr, :entry, :nav]
+    page:
+      _: Page Colors
+      _order: [:background]
+      background: Page background / default link
+    link:
+      _: Link Colors
+      _order: [:visited]
+      visited: Visited
+    hr:
+      _: Horizontal rule colors
+      _order: [:page, :entry]
+      page: Top and bottom
+      entry: Entry
+    container:
+      _: Container colors
+      _order: [:border]
+      border: Border
+    entry:
+      _: Entry colors
+      _order: [:time]
+      time: Time
+    nav:
+      _: Nav (footer) colors
+      _order: [:default]
+      default: Default
+  fonts:
+    _order: [:page, :headers]
+    page: Page font
+    headers: Header/nav font

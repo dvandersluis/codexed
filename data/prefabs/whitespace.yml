@@ -1,0 +1,64 @@
+---
+meta:
+  title: Whitespace
+  description: Simple template with emphasis on space and typography.
+  created: 2008-10-19
+  creator: 
+    name: Autumn Welles 
+    url: 'http://www.novembird.com/'
+customization:
+  colors:
+    page:
+      background: '#FFFFFF'
+      hover: '#000000'
+    header:
+      main: '#00AAFF'
+      navbg: '#00AAFF'
+      navtext: '#FFFFFF'
+      title: '#000000'
+    body:
+      text: '#666666'
+      link: '#00AAFF'
+  fonts:
+    entry:
+      family: Georgia
+      px: 16
+    journaltitle:
+      family: Helvetica
+      px: 48
+    navigation:
+      family: Helvetica
+      px: 16
+    header:
+      family: Georgia
+      px: 24
+    foot:
+      family: Helvetica
+      px: 12
+descriptions:
+  colors:
+    _order: [:page, :header, :body]
+    page:
+      _: Full Page Colors
+      _order: [:background, :hover]
+      background: Background
+      hover: Hover color
+    header:
+      _: Page Header Colors
+      _order: [:main, :navbg, :navtext, :title]
+      main: Journal title text
+      navbg: Nav button background 
+      navtext: Nav button text
+      title: Entry title text
+    body:
+      _: Body Colors
+      _order: [:text, :link] 
+      text: Body text 
+      link: Link text
+  fonts:
+    _order: [:journaltitle, :navigation, :header, :entry, :foot]
+    journaltitle: Journal title
+    navigation: Navigation
+    header: Entry title
+    entry: Entry body
+    foot: Footer

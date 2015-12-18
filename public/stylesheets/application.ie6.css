@@ -1,0 +1,41 @@
+#logo h1 {
+  overflow: visible; }
+
+#main {
+  height: 100%; }
+
+#tabs_header {
+  height: 33px; }
+
+#tabs_header, #tabs_header ul {
+  zoom: 1; }
+
+#sidebar ul.dropdown li a {
+  font-size: 0.95em; }
+
+.sidebar-box#favorite-journals form {
+  width: 100%; }
+.sidebar-box#favorite-journals td {
+  padding: 3px; }
+
+table#recently-updated-table {
+  width: 225px; }
+  table#recently-updated-table td {
+    height: 20px; }
+
+li.recently-updated-locked {
+  margin-left: -2px;
+  padding-left: 2px; }
+
+li.recently-updated-unlocked {
+  padding-left: 0px; }
+
+/* a table inside #main-inner-inner set to 100% width extends past right margin, */
+/* so just, liek, compensate 'n stuff */
+table.stretch {
+  width: 80%; }
+
+/* ============================================================== */
+/* Enables the IE PNG fix. */
+img, div {
+  behavior: url("/behaviors/iepngfix.htc"); }

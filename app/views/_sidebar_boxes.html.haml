@@ -1,0 +1,48 @@
+- cookies[:favorites] = { :value => cookies[:favorites], :expires => Time.now + 1.year }
+- cookies[:dismiss_merge_notice] = { :value => cookies[:dismiss_merge_notice], :expires => Time.now + 1.year } unless cookies[:dismiss_merge_notice].nil?
+
+= javascript_include_tag 'favorite_journals'
+
+:javascript
+  var ajax_in_progress = false;
+
+  function ajax_loading()
+  {
+    $('fj_ajax').show();
+    $('fj_add_input').disable();
+    $('fj_add_button').disable();
+  }
+
+  function ajax_complete()
+  {
+    $('fj_ajax').hide();
+    $('fj_add_input').enable();
+    $('fj_add_button').enable();
+  }
+
+  function ajax_failed()
+  {
+    alert('#{t('form.request_failed').gsub(/[']/, "\\\\'")}')
+  }
+
+  function ajax_request(url, fn, authenticity_token, params)
+  {
+    if (ajax_in_progress) return false;
+    else ajax_in_progress = true;
+
+    new Ajax.Request(url, {
+      asynchronous: true,
+      evalScripts: true,
+      onComplete: function(request) { ajax_in_progress = false; ajax_complete(); },
+      onFailure: ajax_failed,
+      onLoading: ajax_loading,
+      onSuccess: function(request) { fn(request) }, 
+      parameters: '#{request_forgery_protection_token}=' + encodeURIComponent(authenticity_token) + '&' + params,
+      requestHeaders: {Accept: 'application/json, text/javascript, text/html, application/xml, text/xml, */*'}
+    });
+    return false;
+  }
+
+= recently_updated
+= birthdays
+= favorite_journals

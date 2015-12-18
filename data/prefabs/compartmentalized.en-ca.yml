@@ -1,0 +1,13 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+    topbox:
+      _: Header Colours 
+    entrybox:
+      _: Entry Colours
+    bottombox:
+      _: Footer Colours 
+    link:
+      _: Link Colours

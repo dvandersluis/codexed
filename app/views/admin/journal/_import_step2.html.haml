@@ -1,0 +1,15 @@
+- t_scope 'controllers.admin.journal.import' do
+  .tcenter.lightfill.padded
+    - if @import.jobs_ahead.count > 0
+      = t(:step2_waiting, :count => t(:x_other_user, :count => @import.job.jobs_ahead.count))
+      %br
+      = t(:refresh_at_any_time)
+      - form_tag({:controller => 'admin/journal/import', :action => 'cancel'}) do
+        = submit_tag t(:cancel)
+    - else
+      = t(:step2_running)
+      #import_progress{ :style => "display: none" }
+        = render :partial => 'admin/journal/import/progress', :locals => { :job => @import.job }
+      :javascript
+        $("import_progress").show();
+        startUpdatingProgress("import", "#{request_forgery_protection_token}", "#{escape_javascript form_authenticity_token}")

@@ -1,0 +1,15 @@
+<% t_scope 'controllers.journal.category_not_found' do %>
+  <p><%= t(:message) %></p>
+
+  <% unless @categories.empty? %>
+    <p><%= t(:perhaps_looking_for) %>:</p>    
+    <ul>
+      <% category = nil %>
+      <% for category in @categories %>
+        <li><%= link_to category.name, journal_category_archive_path(category, :user => @user) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <p><%= t(:go_to_front, :front_link => link_to(t(:go_to_front_link_text), journal_url(@user))) %></p>  
+<% end %>

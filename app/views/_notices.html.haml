@@ -1,0 +1,8 @@
+- if today_is_my_birthday?
+  = render :partial => '/notices/happy_birthday'
+- elsif show_birthday_nag_notice?
+  = render :partial => '/notices/nag/birthday'
+- elsif show_language_nag_notice?
+  = render :partial => '/notices/nag/language'
+- elsif show_survey_nag_notice?
+  = render :partial => '/notices/nag/survey'

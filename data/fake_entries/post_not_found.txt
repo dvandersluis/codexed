@@ -1,0 +1,28 @@
+<% t_scope 'controllers.journal.entry_not_found' do %>
+  <p><%= t(:message) %></p>
+
+  <% unless @archive.blank? %>
+    <p><%= t(:looking_for_archive, :archive_link => link_to(@archive, journal_dated_archive_url(:year => @archive))) %></p>
+  <% end %>
+
+  <% unless @posts.empty? %>
+    <% unless @posts[0].empty? %>
+      <p><%= t(:perhaps_looking_for) %>:</p>
+      <ul>
+        <% for entry in @posts[0] %>
+          <li><%= link_to entry.title, journal_post_path(entry) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <% unless @posts[1].empty? %>
+      <p><%= t(:other_entries_on_date) %>:</p>
+      <ul>
+        <% for entry in @posts[1] %>
+          <li><%= link_to entry.title, journal_post_path(entry) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <p><%= t(:go_to_front, :front_link => link_to(t(:go_to_front_link_text), journal_url(@user))) %></p>
+<% end %>

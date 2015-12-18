@@ -1,0 +1,8 @@
+- t_scope 'controllers.admin.categories.delete' do
+  - title t(:title)
+  - form_tag admin_category_path(@category), :method => :delete do |f|
+    %p.center= t(:confirm_delete, :category => @category.name)
+    %p.center
+      = submit_tag t(:yes).capitalize
+      &nbsp;
+      = link_to t(:no).capitalize, admin_categories_path

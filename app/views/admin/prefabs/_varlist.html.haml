@@ -1,0 +1,13 @@
+%tr
+  - descriptions = @config.descriptions.vars[parent].include?(:_order) ? @config.descriptions.vars[parent]._order : @config.descriptions.vars[parent]
+  - descriptions.each do |var|
+    - if @config.descriptions.vars[parent][var].is_a?(ConfigurationHash)
+      - sublabel = @config.descriptions.vars[parent][var]["_"] || @config.descriptions.vars[parent][var]
+      - default = @config.descriptions.vars[parent][var]["default"]
+    %th{ :style => 'width: 1px; white-space: nowrap; padding: 0 15px 0 5px;' }
+      = sublabel || @config.descriptions.vars[parent][var]
+    %td
+      - name = "config[customization][vars][#{parent.to_s}]"
+      - name += "[]" if multiple
+      - name += "[#{var.to_s}]"
+      = text_field_tag name, varlist[var] || default, :style => 'width: 95%; margin-right: 5px;'

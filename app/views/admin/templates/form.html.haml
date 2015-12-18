@@ -1,0 +1,77 @@
+- t_scope 'controllers.admin.templates.form' do
+  - title(params[:action] =~ /new/ ? t(:create_new_template) : t(:editing_template))
+
+  - add_to_javascripts "cancel_event"
+  - add_to_javascripts "form_helper"
+
+  :style
+    textarea
+      font-family: monospace
+
+  .center{ :style => 'width: 100%' }
+    = error_messages_for :tpl
+    
+    - form_options = { :html => { :id => 'form' } }
+    - if @tpl.new_record?
+      - form_options[:url] = { :action => 'create' }
+      - form_options[:html][:method] = 'post'
+    - else
+      - form_options[:url] = { :action => 'update', :id => @tpl.id }
+      - form_options[:html][:method] = 'put'
+    - form_options[:url].merge!(:pk => params[:pk])
+    - form_for(:template, @tpl, form_options) do |f|
+      %table.form.stretch
+        %colgroup{ :span => 3 }
+          %col{ :width => '80' }
+          %col
+          %col{ :width => '250' }
+        %tr
+          %th= t(:name)
+          %td= f.text_field :name, :size => 90, :onkeypress => 'force_allowed_chars(event, /[^\/.]/)'
+          %td
+        %tr
+          %th{ :style => 'vertical-align: top' }
+            = t(:content)
+          %td
+            = find_and_preserve do
+              = f.text_area :raw_content, :rows => 30, :cols => 90
+          %td{ :rowspan => 3, :style => 'vertical-align: top; padding-left: 20px', :class => 'smaller' }
+            %p.notopmargin= "<b>" + t(:available_substitutions) + ":</b>"
+            %ul{ :style => 'line-height: 1.3em;' }
+            %ul{ :style => 'line-height: 1.3em;' }
+              %li [body]
+              %li [title]
+              %li [journaltitle]
+              %li [url]
+              %li [time (...)]
+              %li== [timestamp] <i>#{t(:or)}</i> [datestamp]
+              %li [prev ...]
+              %li [next ...]
+              %li [curr ...]
+              %li [home ...]
+              %li [archive ...]
+              %li [random ...]
+              %li [lastfew (n)]
+              %li [entrylist (split) (descending)]
+            %p= "<b>" + t(:get_help_with_templates) + ":</b>"
+            %ul{ :style => 'line-height: 1.3em;' }
+              %li= link_to t(:get_help_template_subs), "http://forums.codexed.com/viewtopic.php?t=723", :popup => true
+              %li= link_to t(:get_help_time_formats), "http://forums.codexed.com/viewtopic.php?t=733", :popup => true
+          
+      %p.center{ :style => "margin: 1.5em 0" }
+        - if @tpl.default? 
+          = image_tag('icons/information.png', :class => 'icon')
+          %span{ :style => 'color: #5471A1' }= t(:this_is_default_template)
+        - else
+          = f.boolean_check_box :make_default
+          = f.label :make_default, t(:make_template_default)
+          
+      %p.center
+        - t_scope 'general.form' do
+          = submit_tag t(:save), :name => 'save_and_return', :accesskey => 'S'
+          &nbsp;
+          = submit_tag t(:save_and_continue), :name => 'save_and_continue', :accesskey => 'E'
+          &nbsp;
+          = submit_tag t(:preview), :name => 'preview', :accesskey => 'P'
+          &nbsp;
+          = submit_tag t(:cancel), :name => 'cancel', :accesskey => 'C'

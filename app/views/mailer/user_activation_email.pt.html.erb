@@ -1,0 +1,18 @@
+Olá <%= @user.first_name %>,
+
+Sua conta no Codexed.com foi criada com sucesso. Para começar a utilizá-la, precisamos confirmar a validade do seu endereço de e-mail. Por favor, acesse o link abaixo para ativar sua conta.
+
+  <%= @link %>
+  
+Se a página pedir uma chave de ativação, use a seguinte:
+
+  <%= @user.activation_key %>
+  
+Divirta-se com seu diário! Se tiver dúvidas, acesse nosso fórum ou contate-nos escrevendo para admin@codexed.com.
+
+Equipe Codexed
+http://www.codexed.com
+
+----
+Esta é uma mensagem automática. Por favor, não a responda. Dúvidas ou sugestões devem ser enviadas para admin@codexed.com.
+Codexed.com não envia e-mails não solicitados. Se você recebeu este e-mail por engano, contate-nos para verificarmos o erro o mais breve possível.

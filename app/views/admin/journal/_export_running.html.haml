@@ -1,0 +1,33 @@
+- t_scope 'controllers.admin.journal.export' do
+  .tcenter.lightfill.padded
+    = t(:running1)
+    %span#export_running2_text= t(:running2_nojs)
+    #export_progress{ :style => "display: none" }
+      = render :partial => 'admin/journal/export/progress', :locals => { :job => @journal.export.job }
+    :javascript
+      $("export_running2_text").update("#{t(:running2_js)}");
+      $("export_progress").show();
+      startUpdatingProgress("export", "#{request_forgery_protection_token}", "#{escape_javascript form_authenticity_token}");
+      (function() {
+        $("export_progress_bar_bg").removeClassName('animated');
+        $("export_progress_bar_fill").addClassName('animated');
+        morphBoxHeight("export_progress_box", "auto", function(box) {
+          box.undoClipping();
+        });
+      }).delay(3);
+      
+    /
+      #export_progress
+        #export_progress_box.job_progress_box{ :style => "height: 64px; overflow: hidden" }
+          #export_activity.job_activity
+            t(:waiting_for_job)
+          #export_progress_bar_bg.job_progress_bar_bg
+            #export_progress_bar_fill.job_progress_bar_fill.animated{ :style => "width: 20%" }
+          #export_subactivity.job_activity &nbsp;
+          #export_subprogress_bar_bg.job_progress_bar_bg
+            #export_subprogress_bar_fill.job_progress_bar_fill{ :style => "width: 0%" }
+          #export_job_info.job_info &nbsp;
+      :javascript
+        (function() {
+          $('export_activity').update("#{t(:waiting_for_job)} #{t(:here_we_go)}");
+        }).delay(1.5);

@@ -1,0 +1,13 @@
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+    lists:
+      _: Sidebar List Colours
+    content:
+      _: Content Area Colours
+    navigation:
+      _: Navigation Button Colours
+    links:
+      _: Link Colours
+

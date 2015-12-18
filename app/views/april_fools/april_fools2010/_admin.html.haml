@@ -1,0 +1,75 @@
+= stylesheet_link_tag('messages')
+%style{ :type => 'text/css' }
+  :sass
+    #footer
+      background: white
+
+    body
+      overflow: hidden
+
+    .cdx-content
+      font-size: 90%
+      height: 100%
+
+      #tabs_header
+        display: none
+
+      .stretch
+        width: 100%
+
+      table.form
+        td, th
+          padding: 2px
+          vertical-align: middle
+        th
+          text-align: right
+          /*font-size: 0.9em
+          padding-right: 7px
+        tr.inv
+          th
+            text-align: left
+          td
+            text-align: right
+          td.label
+            text-align: left
+      table.form.stretch
+        input[type=text], input[type=password], textarea
+          width: 100%
+
+      table.listing
+        /*
+          th, td
+            border: 2px solid white
+        th
+          background-color: gray
+          color: white
+          padding: 2px 7px
+          text-align: left
+        td
+          border-bottom: 1px solid silver
+          padding: 5px 7px
+
+      img
+        border: 0
+
+      .lightfill
+        background-color: #efefef
+      .padded
+        padding: 7px
+
+#nav{ :style => "padding-top: 30px; border-right: solid 1px #c2cff1" }
+  = render :partial => 'april_fools/april_fools2010/nav'
+#chrome
+  #chrome-header
+    %span#chrome-title
+      - if !page_title.blank?
+        = page_title
+      - else
+        Google Writer
+      &raquo;
+  %div.cdx-content{ :style => "padding: 10px; overflow: auto;" }
+    = yield
+
+:javascript
+  document.getElementById('nav').style.height = (parseInt(window.clientHeight) - 100)  + "px";
+  document.getElementById('chrome').style.height = document.getElementById('nav').offsetHeight + "px";

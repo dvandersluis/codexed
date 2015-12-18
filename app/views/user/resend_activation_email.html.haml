@@ -1,0 +1,10 @@
+- t_scope 'controllers.user.resend_activation_email' do
+  - title t(:title)
+
+  %p= t(:instructions)
+    
+  - form_tag do
+    %b= t(:enter_codexed_username, :scope => 'general') + ":"
+    = text_field_tag 'username'
+    &nbsp;
+    = submit_tag "#{t(:send_email, :scope => 'general')} &raquo;"

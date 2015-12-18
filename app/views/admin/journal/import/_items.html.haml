@@ -1,0 +1,53 @@
+- real_type = (type.to_s =~ /entries|pages/ ? 'posts' : type)
+- type_single = t("models.#{type.to_s.singularize}", :count => 1)
+- type_plural = t("models.#{type.to_s.singularize}", :count => 2)
+
+%div{ :class => "items #{type}" }
+  - t_scope 'controllers.admin.journal.import.review' do
+    %h3= type_plural
+    
+    - items = instance_variable_get("@#{type}")
+
+    = render :partial => "error_messages_for", :locals => { :type => type, :items => items }
+
+    - if items.any?
+    
+      %table.listing{ :id => type }
+        %tr
+          %th= check_box_tag "toggle_all_#{type}"
+          - columns.each do |name, width, field_width|
+            %th{ :width => width }= t(name, :scope => 'general.fields')
+          %th{ :width => 30 }/
+        - default_classes = [ "item", type ]
+        - items.each do |item_key, item|
+          - fields_for "#{real_type}[#{item_key}]", item do |f|
+            - state = nil
+            - if item.import?
+              - state = "conflicting" if item.existing_id
+              - state = "invalid" if !item.errors.blank? or !item.other_errors.blank?
+            - classes = default_classes.dup
+            - classes << state
+            - class_name = classes.compact.join(" ")
+            %tr{ :class => class_name + (" br" if item.existing_id).to_s  }
+              %td= f.boolean_check_box :import
+              - columns.each do |name, width, field_width|
+                - attr = name
+                - attr = :posted_at if attr == :post_date
+                - if field_width
+                  %td= f.text_field "new_#{attr}", :value => (item.send("new_#{attr}") || item.send(attr)), :size => field_width, :class => ("fieldWithErrors" if item.errors.andand.include?(attr.to_sym)), :tabindex => (@tabindex += 1)
+                - else
+                  - if attr == :posted_at
+                    %td= item.send(attr).to_datetime.to_s(:std)
+                  - else
+                    %td= item.send(attr).to_s(:std)
+              %td= link_to image_tag("icons/magnifier.png"), {:action => 'get_one_item', :type => real_type, :key => item_key}, :rel => "facebox", :class => "has_image"
+            - if state == "conflicting"
+              %tr{ :class => class_name }
+                %td
+                %td.error-text{:colspan => columns.size + 1 }
+                  = image_tag 'icons/exclamation.png', :style => "vertical-align: middle"
+                  = t(:this_item_conflicts, :item => type_single.downcase, :attr => t(:permaname, :scope => 'general.fields').downcase)
+                  = link_to t(:compare_the_two), {:action => 'get_two_items', :type => real_type, :source_key => item_key, :existing_id => item.existing_id}, :rel => "facebox"
+    - else
+
+      %p= t(:there_are_no_items, :items => type_plural.downcase)

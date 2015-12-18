@@ -1,0 +1,30 @@
+= render :partial => '/sidebar_boxes'
+
+.medium
+  %p
+    %b Codexed
+    is a brand new service that aims to make it easy to organize and publish your writings online, while providing you with a unique set of tools to freely customize their presentation and giving you the opportunity to meet and visit with other members.
+
+  %h4 How do I get started?
+  %p
+    At this time, the service is being
+    %b beta tested
+    by the Codexed community. In order to participate in the beta test, you
+    will need to receive an invitation, which you can 
+    == #{link_to "request", "http://codexed.com/preorder"}.
+    Once you have an invitation code, all that is left to do is
+    == #{link_to "register", :controller => 'user/signup', :action => 'index'}!
+  %p
+    Please note that while Codexed is in a pre-release stage, registrations are limited to <b>one account per person</b>.
+
+  %h4 How can I get involved?
+  %p
+    Become an active member of the Codexed community by not only signing up for a Codexed account,
+    but also by joining our
+    == #{link_to "forums", "http://forums.codexed.com"}
+    if you have not done so already.
+  %p
+    We are also looking for people to help with various
+    non-coding aspects of Codexed development, so if this is something in which
+    you might be interested, please take a look at the forums, or send an email to
+    == #{link_to "admin@codexed.com", "mailto:admin@codexed.com"}.

@@ -1,0 +1,27 @@
+---
+meta:
+  description: Layout simples com o conteúdo dentro de um box alinhado à esquerda da tela.
+descriptions:
+  colors:
+    page:
+      _: Cores da Página
+      background: Fundo / link padrão
+    link:
+      _: Cores dos Links
+      visited: Visitado
+    hr:
+      _: Cores da linha horizontal
+      page: Topo e rodapé
+      entry: Conteúdo
+    container:
+      _: Cores da caixa de texto
+      border: Borda
+    entry:
+      _: Cores do Conteúdo
+      time: Hora
+    nav:
+      _: Cores do Rodapé
+      default: Padrão
+  fonts:
+    page: Fonte
+    headers: Fonte do topo

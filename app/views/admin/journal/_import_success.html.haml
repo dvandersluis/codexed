@@ -1,0 +1,6 @@
+- t_scope 'controllers.admin.journal.import' do
+  = message_div_for :success do
+    = t(:success1)
+    = succeed "." do
+      = link_to t(:success2), :controller => 'admin/journal/import', :action => 'summary'
+  = render :partial => '/admin/journal/import_form'

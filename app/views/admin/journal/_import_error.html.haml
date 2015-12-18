@@ -1,0 +1,11 @@
+- t_scope 'controllers.admin.journal.import' do
+  = message_div_for :error do
+    - if @journal.import.exception_class == 'ImportWorker::InvalidStructureError'  # hack
+      = t(:error_invalid_structure, :email => mail_to("admin+import_error@codexed.com", t(:error_invalid_structure2)))
+    - else
+      = t(:internal_error, :let_us_know => mail_to("admin+import_error@codexed.com", t(:let_us_know_about_this)))
+      - form_tag({:controller => 'admin/journal/import', :action => 'restart'}) do
+        = submit_tag t(:try_again) + " &raquo;"
+  .tcenter.lightfill.padded
+    - form_tag({:controller => 'admin/journal/import', :action => 'cancel'}, :style => "display: inline") do
+      = submit_tag t(:cancel)

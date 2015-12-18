@@ -1,0 +1,25 @@
+----------------------------------------------------------------------------------------------------
+autosized_form
+-- Plugin for Ruby on Rails that adds a form builder and view helper method that automatically
+   sizes text fields based on the length of the associated columns as reported by the database.
+Author: Elliot Winkler <elliot.winkler@gmail.com>
+Created: Sept 2007
+----------------------------------------------------------------------------------------------------
+
+This plugin adds four helper methods:
+  - autosized_form_for
+  - autosized_fields_for
+  - autosized_form_remote_for
+  - autosized_remote_form_for
+  
+So instead of saying
+
+  <% form_for :person, :action => 'create' do |f| %>
+    <%= f.text_field :height, :size => 10 %>
+  <% end %>
+  
+assuming that people.height is already set to be 10 characters, all you have to say is
+
+  <% autosized_form_for :person, :action => 'create' do |f| %>
+    <%= f.text_field :height %>
+  <% end %>

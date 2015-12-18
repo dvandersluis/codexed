@@ -1,0 +1,101 @@
+--- !ruby/object:Gem::Specification 
+name: chardet
+version: !ruby/object:Gem::Version 
+  version: 0.9.0
+platform: ruby
+authors: 
+- Hui
+autorequire: UniversalDetector
+bindir: bin
+cert_chain: 
+date: 2006-03-28 00:00:00 +00:00
+default_executable: 
+dependencies: []
+
+description: 
+email: zhengzhengzheng@gmail.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: []
+
+files: 
+- lib/Big5Freq.rb
+- lib/Big5Prober.rb
+- lib/CharDistributionAnalysis.rb
+- lib/CharSetGroupProber.rb
+- lib/CharSetProber.rb
+- lib/CodingStateMachine.rb
+- lib/EscCharSetProber.rb
+- lib/ESCSM.rb
+- lib/EUCJPProber.rb
+- lib/EUCKRFreq.rb
+- lib/EUCKRProber.rb
+- lib/EUCTWFreq.rb
+- lib/EUCTWProber.rb
+- lib/GB2312Freq.rb
+- lib/GB2312Prober.rb
+- lib/HebrewProber.rb
+- lib/JapaneseContextAnalysis.rb
+- lib/JISFreq.rb
+- lib/LangBulgarianModel.rb
+- lib/LangCyrillicModel.rb
+- lib/LangGreekModel.rb
+- lib/LangHebrewModel.rb
+- lib/LangHungarianModel.rb
+- lib/LangThaiModel.rb
+- lib/Latin1Prober.rb
+- lib/MBCSGroupProber.rb
+- lib/MBCSSM.rb
+- lib/MultiByteCharSetProber.rb
+- lib/SBCSGroupProber.rb
+- lib/SingleByteCharSetProber.rb
+- lib/SJISProber.rb
+- lib/UniversalDetector.rb
+- lib/UTF8Prober.rb
+- python-docs/css
+- python-docs/faq.html
+- python-docs/how-it-works.html
+- python-docs/images
+- python-docs/index.html
+- python-docs/license.html
+- python-docs/supported-encodings.html
+- python-docs/usage.html
+- python-docs/css/chardet.css
+- python-docs/images/caution.png
+- python-docs/images/important.png
+- python-docs/images/note.png
+- python-docs/images/permalink.gif
+- python-docs/images/tip.png
+- python-docs/images/warning.png
+- COPYING
+- README
+has_rdoc: false
+homepage: http://blog.vava.cn/
+post_install_message: 
+rdoc_options: []
+
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">"
+    - !ruby/object:Gem::Version 
+      version: 0.0.0
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: 
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 1
+summary: Character encoding auto-detection in Ruby. Base on Mark Pilgrim's Python port.
+test_files: []
+

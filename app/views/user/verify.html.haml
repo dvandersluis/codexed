@@ -1,0 +1,11 @@
+- t_scope 'controllers.user.verify' do
+  - title t(:title)
+
+  - form_tag({}, { :style => 'margin-top: 2em' }) do
+    %table
+      %tr
+        %th== #{t(:enter_activation_key)}:
+        %td
+          = text_field_tag 'key'
+          &nbsp;
+          = submit_tag "#{t(:activate)} &raquo;"

@@ -1,0 +1,161 @@
+- t_scope 'controllers.admin.journal.import.summary' do
+  - title t(:title)
+
+  :style
+    table.listing
+      font-size: 0.9em
+      th.name, th.title, th.permaname
+        min-width: 200px
+      th.post-date
+        width: 150px
+      th.status
+        min-width: 80px
+    .imported
+      color: green
+    .errored
+      color: red
+    .skipped
+      color: gray
+
+  - if @entries_password_needs_setting
+    = message_div_for :notice do
+      - options_link = link_to("<b>#{t('models.option', :count => 2)}&nbsp;&rarr;&nbsp;#{t('models.journal', :count => 1)}</b>", { :controller => '/admin/options', :action => 'journal' }, :target => '_blank')
+      = t(:set_up_entries_password_notice, :options_link => options_link) 
+        
+  %p= t(:these_are_imported_items)
+
+  %h3= t('models.template', :count => 2)
+
+  - if @templates.any?
+    %table#templates.listing
+      %tr
+        %th.name= t(:name)
+        %th.status= t(:status)
+      - @templates.each do |key, template|
+        %tr
+          %td= template.id ? link_to(template.new_name, edit_admin_template_path(:id => template.id)) : template.name
+          %td
+            - if template.import
+              - if template.id
+                %span.imported= t(:imported)
+                - msgs = []
+                - msgs << t(:new_name) if template.name != template.new_name
+                - unless msgs.empty?
+                  %br
+                  = "(" + msgs.join(", ") + ")"
+              - else
+                %span.errored= t(:could_not_be_imported)
+                %br
+                = "(#{template.other_errors})"
+                
+            - else
+              %span.skipped= t(:skipped)
+  - else
+    %p= t(:there_were_no_items, :items => t('models.template', :count => 2).downcase)
+
+  %h3= t(:entries_and_pages)
+
+  %h4= t('models.entry', :count => 2)
+  - if @entries.any?
+    %table#entries.listing
+      %tr
+        - t_scope 'general.fields' do
+          %th.title= t(:title)
+          %th.permaname= t(:permaname)
+          %th.post-date= t(:post_date)
+        %th.status= t(:status)
+      - @entries.each do |key, entry|
+        %tr
+          - time = entry.posted_at
+          %td= entry.id ? link_to(entry.new_title, edit_admin_post_path(entry)) : entry.title
+          %td= entry.id ? entry.new_permaname : entry.permaname
+          %td= entry.posted_at.to_datetime.to_s(:std)
+          %td
+            - if entry.import
+              - if entry.id
+                %span.imported= t(:imported)
+                - msgs = []
+                - msgs << t(:new_permaname) if entry.permaname != entry.new_permaname
+                - msgs << t(:new_title)     if entry.title != entry.new_title
+                - unless msgs.empty?
+                  %br
+                  = "(" + msgs.join(", ") + ")"
+              - else
+                %span.errored= t(:could_not_be_imported)
+            - else
+              %span.skipped= t(:skipped)
+  - else
+    %p= t(:there_were_no_items, :items => t('models.entry', :count => 2).downcase)
+
+  %h4= t('models.page', :count => 2)
+  - if @pages.any?
+    %table#pages.listing
+      %tr
+        - t_scope 'general.fields' do
+          %th.title= t(:title)
+          %th.permaname= t(:permaname)
+        %th.status= t(:status)
+      - @pages.each do |key, entry|
+        %tr
+          - time = entry.posted_at
+          %td= entry.id ? entry.new_title : entry.title
+          %td= entry.id ? link_to(entry.new_permaname, edit_admin_post_path(entry)) : entry.permaname
+          %td
+            - if entry.import
+              - if entry.id
+                %span.imported= t(:imported)
+                - msgs = []
+                - msgs << t(:new_permaname) if entry.permaname != entry.new_permaname
+                - msgs << t(:new_title)     if entry.title != entry.new_title
+                - unless msgs.empty?
+                  %br
+                  = "(" + msgs.join(", ") + ")"
+              - else
+                %span.errored= t(:could_not_be_imported)
+            - else
+              %span.skipped= t(:skipped)
+  - else
+    %p= t(:there_were_no_items, :items => t('models.page', :count => 2).downcase)
+
+  %h3= t('models.substitution', :count => 2)
+
+  - if @subs.any?
+    %table#subs.listing
+      %tr
+        %th.name= t(:name)
+        %th.status= t(:status)
+      - @subs.each do |key, sub|
+        %tr
+          %td= sub.id ? link_to(sub.new_name, :controller => '/admin/substitutions') : sub.name
+          %td
+            - if sub.import
+              - if sub.id
+                %span.imported= t(:imported)
+                - msgs = []
+                - msgs << t(:new_name) if sub.name != sub.new_name
+                - unless msgs.empty?
+                  %br
+                  = "(" + msgs.join(", ") + ")"
+              - else
+                %span.errored= t(:could_not_be_imported)
+            - else
+              %span.skipped= t(:skipped)
+  - else
+    %p= t(:there_were_no_items, :items => t('models.sub', :count => 2).downcase)
+
+  - if @options
+    %h3= t('models.option', :count => 2)
+    - if @options[:import]
+      %p= t(:these_options_were_merged)
+      %ul
+        - h = @options[:data].flatten_keys
+        - h.keys.sort.each do |k|
+          - v = h[k]
+          %li
+            %b= t(k, :scope => 'controllers.admin.journal.import.review.options')+":"
+            = v.nil? ? "<i>("+t(:nothing)+")</i>" : "<tt>"+html_escape(v)+"</tt>"
+    - else
+      %p= t(:options_not_imported)
+      
+  %p.center{ :style => "font-weight: bold"}
+    = link_to "&laquo; #{t(:return)}", :controller => '/admin/journal', :action => 'import', :anchor => 'import'

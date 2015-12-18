@@ -1,0 +1,81 @@
+---
+meta:
+  title: Compartmentalized 
+  description: Layout split into three vertical sections. 
+  created: 2008-11-13
+  creator:
+    name: Breathe
+    url: 
+customization:
+  colors:
+    page:
+      background: '#FFFFFF'
+    topbox:
+      background: '#FFFFFF'
+      border: '#000000'
+    entrybox:
+      background: '#FFFFFF'
+      border: '#000000'
+      text: '#000000'
+      title: '#000000'
+    bottombox:
+      background: '#000000'
+      border: '#000000'
+      text: '#FFFFFF'
+    link:
+      active: '#999999'
+      visited: '#999999'
+      hover: '#FF5500'
+  fonts:
+    links:
+      family: 'Verdana'
+      px: 9
+    entry:
+      family: 'Verdana'
+      px: 10
+    title:
+      family: 'Verdana'
+      px: 12
+    time:
+      family: 'Verdana'
+      px: 10
+  vars:
+    email: 
+descriptions:
+  colors:
+    _order: [:page, :topbox, :entrybox, :bottombox, :link]
+    page:
+      _: Page Colors
+      background: Page background
+    topbox:
+      _: Header Colors 
+      _order: [:background, :border]
+      background: Background
+      border: Border
+    entrybox:
+      _: Entry Colors
+      _order: [:background, :border, :title, :text]
+      background: Background
+      border: Border
+      text: Text
+      title: Entry Title text
+    bottombox:
+      _: Footer Colors 
+      _order: [:background, :border, :text]
+      background: Background
+      border: Border
+      text: Text
+    link:
+      _: Link Colors
+      _order: [:active, :visited, :hover]
+      active: Default 
+      visited: Visited link
+      hover: Hover 
+  fonts:
+    _order: [:title, :time, :entry, :links]
+    title: Entry title
+    time: Date/Time
+    entry: Entry body
+    links: Links
+  vars:
+    email: Email address

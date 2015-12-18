@@ -1,0 +1,6 @@
+- t_scope 'controllers.admin.journal.import' do
+  = message_div_for :error do
+    = t(:error_bad_data, :let_us_know => mail_to("admin+import_error@codexed.com", t(:let_us_know_about_this)))
+  .tcenter.lightfill.padded
+    - form_tag({:controller => 'admin/journal/import', :action => 'cancel'}, :style => "display: inline") do
+      = submit_tag t(:cancel)

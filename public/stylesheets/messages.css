@@ -1,0 +1,63 @@
+/* Messages */
+.success, .error, .notice, .errorExplanation {
+  /* width: 70% */
+  margin: 0px auto;
+  margin-bottom: 1em;
+  /* line-height: 1.5em */
+  font-size: 1em;
+  padding: 6px; }
+
+.success, .notice, .error {
+  /* font-size: 0.9em */
+  text-align: center; }
+
+.success {
+  border: 1px solid #60A956;
+  background-color: #C1EBBA;
+  color: #48973D; }
+
+.notice {
+  /* background-color: #D4D8E9 */
+  background-color: #CFD6EE;
+  color: #5471A1;
+  border: 1px solid #5471A1; }
+
+.error, .errorExplanation {
+  background-color: #FFE4DE; }
+
+.error {
+  border: 1px solid #EA786B;
+  /* font-style: italic */
+  color: #CC0000; }
+
+.errorExplanation {
+  border: 2px solid #EA786B;
+  font-size: 0.9em;
+  padding: 0 1em;
+  margin: 1em auto; }
+  .errorExplanation h2 {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 3px 8px;
+    background-color: #c00;
+    color: #fff;
+    margin: 0;
+    letter-spacing: 0px;
+    margin: -2px -1em 0; }
+  .errorExplanation ul li {
+    list-style: square;
+    font-style: italic;
+    color: #CC0000; }
+
+.fieldWithErrors {
+  display: inline; }
+
+.fieldWithErrors input, .fieldWithErrors textarea, .fieldWithErrors select, input.fieldWithErrors, textarea.fieldWithErrors, select.fieldWithErrors {
+  background-color: #F4D2CA; }
+
+img.icon {
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+  padding-right: 6px; }

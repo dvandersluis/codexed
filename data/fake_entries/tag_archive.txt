@@ -1,0 +1,8 @@
+<% t_scope 'controllers.journal.tag_archive' do %>
+<h3><%= t(:my_tagged_posts) %></h3>
+[entrylist descending "[link [title]] at [time "%H:%0M, %Y-%0m-%0d"]"]
+
+[entrylist others exists <h3><%= t(:other_tagged_posts) %></h3>
+  [entrylist descending others "[link [title]] in [home link [journaltitle]] by [username] at [time "%H:%0M, %Y-%0m-%0d"]"]
+]
+<% end %>

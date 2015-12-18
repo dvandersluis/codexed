@@ -1,0 +1,17 @@
+- add_to_stylesheets 'import--export'
+- t_scope 'controllers.admin.journal.export' do
+  - title t(:title)
+  %blockquote
+    %p= t(:instructions)
+    = message_divs
+    #export_stuff
+      - if @export.job.nil?
+        = render 'export_form'
+      - elsif @export.finished?
+        = render 'export_success'
+      - elsif @export.failed?
+        = render 'export_error'
+      - elsif @export.jobs_ahead.count > 0
+        = render 'export_waiting'
+      - else
+        = render 'export_running'

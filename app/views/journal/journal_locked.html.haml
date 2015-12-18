@@ -1,0 +1,35 @@
+%style{ :type => 'text/css' }
+  :sass
+    body
+      background-color: #DFD029
+
+    #login #box
+      background-color: white
+      border: 1px solid black
+
+%table
+  %tr
+    %td{ :style => "vertical-align: middle; text-align: center;" }
+      #login.center
+        #box{ :style => "height: 100%" }
+          - t_scope 'controllers.journal.locked' do
+            %h4= t(:journal_locked)
+            
+            %p= t(:journal_locked_instructions)
+            
+            - form_tag :action => 'unlock' do
+              = hidden_field_tag "mode", "journal"
+              = hidden_field_tag "guest", params[:guest]
+              
+              = message_divs
+              
+              %table.form.center{ :cellspacing => 0, :style => 'width: 250px', :align => 'center' }
+                %tr
+                  %th== #{t('form.password')}:
+                  %td= password_field_tag "journal_authentication", nil, :size => 20
+                  %td= submit_tag t(:unlock)
+                %tr
+                  %td{ :colspan => 3 }
+                    = check_box_tag "set_cookie", "1", true
+                    %label{ :for => 'set_cookie', :style => "position: relative; top: -3px;" }
+                      = t(:keep_unlocked, :item => t('models.journal', :count => 1).downcase)

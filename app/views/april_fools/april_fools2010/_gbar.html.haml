@@ -1,0 +1,49 @@
+%div{ :style => "font-size: 90%" }
+  %div#gbar
+    %nobr
+      %a.gb1{ :target => "_blank", :href => "http://mail.google.com/mail" }Gmail
+      %a.gb1{ :target => "_blank", :href => "https://www.google.com/calendar/render" }Calendar
+      %a.gb1{ :target => "_blank", :href => "https://docs.google.com/" }Documents
+      %a.gb1{ :target => "_blank", :href => "https://reader.google.com/" }Reader
+      %b{ :class => "gb1" }Writer
+      %a.gb1{ :target => "_blank", :href => "http://www.google.com/webhp" }Web
+      %a.gb3{ :target => "_blank", :href => "http://www.google.com/intl/en/options/", :onclick => "this.blur();gbar.tg(event);return !1" }
+        %u
+          more
+          %small &#9660;
+        
+      %div.gbm#gbi
+        %a.gb2{ :target => "_blank", :href => "http://picasaweb.google.com/home" }Photos
+        %a.gb2{ :target => "_blank", :href => "https://sites.google.com/3" }Sites
+        %a.gb2{ :target => "_blank", :href => "http://groups.google.com/grphp" }Groups
+        %a.gb2{ :target => "_blank", :href => "http://www.youtube.com/1" }YouTube
+        %div.gb2
+          %div.gbd
+        %a.gb2{ :target => "_blank", :href => "http://images.google.com/imghp" }Images
+        %a.gb2{ :target => "_blank", :href => "http://video.google.com/" }Videos
+        %a.gb2{ :target => "_blank", :href => "http://maps.google.com/maps" }Maps
+        %a.gb2{ :target => "_blank", :href => "http://news.google.com/nwshp" }News
+        %a.gb2{ :target => "_blank", :href => "http://www.google.com/prdhp" }Shopping
+        %a.gb2{ :target => "_blank", :href => "http://books.google.com/bkshp" }Books
+        %a.gb2{ :target => "_blank", :href => "http://translate.google.com/" }Translate
+        %a.gb2{ :target => "_blank", :href => "http://scholar.google.com/schhp" }Scholar
+        %a.gb2{ :target => "_blank", :href => "http://www.google.com/finance" }Finance
+        %a.gb2{ :target => "_blank", :href => "http://blogsearch.google.com/" }Blogs
+        %div.gb2
+          %div.gbd
+        %a.gb2{ :target => "_blank", :href => "http://www.google.com/intl/en/options/" }even more &raquo;
+
+  %div#guser{ :width => "100%" }
+    %nobr
+      %b.gb4=current_user.login_name
+      |
+      = link_to "Settings", { :controller => '/admin/options' }
+      |
+      = link_to "Sign out", { :controller => '/admin/user', :action => 'logout' }
+
+  %div.gbh{ :style => "left: 0;" }
+  %div.gbh{ :style => "right: 0;" }
+
+%a#logo-container{ :href => home_url }
+  %h1#logo
+    %span Google Writer

@@ -1,0 +1,14 @@
+%tr
+  %td.day
+    - if day == :cake
+      = image_tag('icons/cake.png', :style => 'vertical-align: middle;')
+    - elsif !day.nil?
+      = day.ordinalize
+  %td
+    - all_birthdays = []
+    - birthdays.each do |u|
+      - str = link_to(u.username, u.journal.home_url)
+      - if u.show_age
+        - str << " (#{u.age_on_next_birthday})"
+      - all_birthdays << str
+    = all_birthdays.join(", ")

@@ -1,0 +1,33 @@
+- t_scope 'controllers.main.birthdays' do
+  .sidebar-box#birthdays
+    %h3= t(:title)
+    .sidebar-box-body
+      %table#birthdays-table
+        - unless users.empty?
+          - if users.keys.include? Time.zone.today
+            - today = users.delete(Time.zone.today)
+            - today.each do |user|
+              %tr
+                %td.image= image_tag('icons/cake.png', :style => 'vertical-align: middle;')
+                %td.name
+                  = link_to user.username, journal_url(user)
+                  -if user.show_age?
+                    == (#{user.age})
+
+          - unless users.empty?
+            %tr
+              %td{ :colspan => 2, :style => 'padding: 5px;' }
+            - users.each do |date, user_list|
+              %tr
+                %td{ :colspan => 2, :style => 'font-size: 90%; padding-top: 0; padding-bottom: 0;' } 
+                  %span
+                    - if date == Time.zone.today + 1.day
+                      == #{t(:tomorrow)}:
+                    - else
+                      == #{I18n.l(date, :format => "%A")}:
+                  = user_list.map{ |user| link_to(user.username, journal_url(user)) + (user.show_age? ? " (#{user.age})" : "") }.join(", ")
+        - else
+          %tr
+            %td{ :colspan => 2, :style => 'text-align: center; font-weight: bold;' }= t(:no_upcoming_birthdays)
+        %tr
+          %td{ :colspan => 2, :style => 'padding-top: 5px;' }= link_to(t(:all_birthdays), :controller => '/members', :action => 'birthdays')

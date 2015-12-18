@@ -1,0 +1,123 @@
+- t_scope 'controllers.admin.prefabs.form' do 
+  - title(params[:action] == "new" ? t(:create_new_prefab) : t(:editing_prefab))
+
+  = javascript_include_tag "cancel_event"
+  = javascript_include_tag "form_helper"
+  = javascript_include_tag "colorpicker"
+
+  %style{ :type => 'text/css', :id => 'inline-stylesheet' }
+    :sass
+      h3
+        font-size: 1em
+        margin: 1em 0 0.5em 0
+        text-align: left
+        background-color: #e5e5e5
+        padding: 2px 5px
+      div.custom-options
+        width: 70%
+        margin: 0px auto
+      table.form th
+        width: 150px
+        padding-right: 10px
+
+  :javascript
+    function change_select_font(select)
+    {
+      select.setStyle({fontFamily: select.value});
+    }
+
+    $S(document.styleSheets.length - 1).addCSS('.change_color_button', 'display: none;');
+
+    document.observe("dom:loaded", function()
+    {
+        $$('.change_color_input, .change_color_button').each(function(e)
+        {
+          if (e.hasClassName('change_color_input'))
+          {
+            attachColorPicker(e, $('main-inner-inner'));
+            e.observe('keyup', function(event)
+            {
+              var el = event.element();
+              if (el.value.search(/^#(?:[a-f0-9]{3}|[a-f0-9]{6})$/i) >= 0)
+              {
+                parsedColor = parseColor(el.value);
+                var brightness = ((parsedColor.r * 299 + parsedColor.g * 587 + parsedColor.b * 114) / 1000 / 255);
+                el.setStyle({
+                  backgroundColor: el.value,
+                  color: (brightness < 0.5 ? '#FFF' : '#000')
+                });
+              }
+            });
+          }
+          else if (e.hasClassName('change_color_button')) e.remove();
+        });
+
+        $$('.font_picker').each(function(e)
+        {
+          change_select_font(e)
+          e.observe('change', function(event)
+          {
+            change_select_font(event.element());
+          })
+        });
+    });
+
+  .center{ :style => 'width: 80%' }
+    = error_messages_for :prefab
+    
+    - form_options = { :html => { :id => 'form' } }
+    - if @prefab.new_record?
+      - form_options[:url] = { :action => 'create' }
+      - form_options[:html][:method] = 'post'
+    - else
+      - form_options[:url] = { :action => 'update', :id => @prefab.id }
+      - form_options[:html][:method] = 'put'
+    - form_options[:url].merge!(:pk => params[:pk])
+    - form_for(:prefab, form_options) do |f|
+      
+      = f.hidden_field :prefab_name
+      
+      /{ :style => "margin-left: 5%"}
+      %table.form.center.stretch
+        %colgroup{ :span => 3 }
+          /{ :width => '250' }
+          %col
+          %col
+          %col
+        %tr
+          %th= t(:prefab_name)
+          %td= @config.meta.title
+        %tr
+          %th= t(:name)
+          %td= f.text_field :name, { :style => "width: auto", :size => 65, :onkeypress => 'force_allowed_chars(event, /[^\/.]/)' }
+        - unless @prefab.default? 
+          %tr
+            %th
+            %td{ :colspan => 2 }
+              = f.boolean_check_box :make_default
+              = f.label :make_default, t(:make_template_default, :scope => 'controllers.admin.templates.form')
+      
+      - if @config.customization.nil?
+        %table.form.stretch
+          %tr
+            %td{ :colspan => 2 }= t(:no_prefab_customization)
+      - else  # Output customization options
+        - if !@config.customization.vars.nil?
+          = render :partial => 'vars'
+        - if !@config.customization.colors.nil?
+          = color_options(@config.customization.colors, @config.descriptions.colors, 'config[customization][colors]')
+        - if !@config.customization.fonts.nil?
+          = render :partial => 'fonts'
+                  
+      %p{ :align => 'center' }
+        = submit_tag "#{t(:prefab_save)} &raquo;", :name => 'save', :accesskey => 'S'
+        &nbsp;
+        - if @prefab.new_record?
+          = submit_tag t(:return_to_prev, :scope => 'general.form'), :name => 'return', :accesskey => 'R'
+        - else
+          = submit_tag t(:convert_prefab, :scope => 'controllers.admin.templates.index'), :name => 'convert', :accesskey => 'V'
+        - t_scope 'general.form' do
+          &nbsp;
+          = submit_tag t(:preview), :name => 'preview', :accesskey => 'P'
+          &nbsp;
+          = submit_tag t(:cancel), :name => 'cancel', :accesskey => 'C'

@@ -1,0 +1,3 @@
+<% t_scope 'controllers.journal.new_journal' do %>
+  <p><%= t(:no_entries) %></p>
+<% end %>

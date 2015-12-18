@@ -1,0 +1,49 @@
+- t_scope 'controllers.admin.posts.index' do
+  - posts.each_with_index do |post, i| 
+    %tr{ :class => i.even? ? "evenrow" : "oddrow" }
+      %td{ :style => 'padding: 2px; text-align: center; vertical-align: middle' }
+        - privacy_icon = special_icon = ''
+        - if post.privacy != 'O'
+          - case post.privacy
+            - when 'P':
+              - privacy_icon = 'lock_go'
+              - privacy_title = t(:protected_entry)
+            - when 'C':
+              - privacy_icon = 'lock'
+              - privacy_title = t(:private_entry)
+        - if post.page?
+          - special_icon = 'star'
+          - special_title = t(:p_desc).capitalize
+
+        - icon = (!special_icon.blank? and !privacy_icon.blank?) ? "#{special_icon}-#{privacy_icon}" : "#{special_icon}#{privacy_icon}"
+        - title = (!special_title.blank? and !privacy_title.blank?) ? "#{special_title} - #{privacy_title}" : "#{special_title}#{privacy_title}"
+
+        - if !icon.blank?
+          = image_tag("icons/#{icon}.png", :valign => 'absmiddle', :title => title)
+        - else
+          &nbsp;
+      %td
+        - title = post.title(false).length > 45 ? post.title(false)[0..44] + "..." : post.title
+        = link_to h(title), edit_admin_post_path(post)
+      %td
+        = post.permaname.length > 45 ? post.permaname[0..44] + "..." : post.permaname
+      %td
+        = l(post.posted_at, :format => :default)
+      %td{ :style => "width: 80px; text-align: right" }
+        - if post.privacy != 'O'
+          = link_to image_tag('icons/magnifier_lock.png', :valign => 'absmiddle', :title => t(:preview_as_guest)), journal_post_url(post, :guest => 1), :style => 'border: none', :target => '_blank'
+          &nbsp;
+        = link_to image_tag('icons/magnifier.png', :valign => 'absmiddle', :title => t(:preview_entry)), journal_post_url(post), :style => 'border: none', :target => '_blank'
+        &nbsp;
+        = link_to image_tag('icons/delete.png', :valign => 'absmiddle', :title => t(:delete_entry, :type => t("models.#{post.full_type}", :count => 1).downcase)), delete_admin_post_path(post), :title => t(:confirm_delete, :type => t("models.#{post.full_type}", :count => 1).downcase), :style => 'border: none', :class => 'delete'
+  %tr
+    %td{ :colspan => 4, :style => 'border: 0; padding-top: 20px; text-align: center;' }
+      - t_scope 'general.pagination' do
+        = will_paginate posts, |
+          :previous_label => "&lsaquo; #{t(:prev)}", |
+          :next_label => "#{t(:next)} &rsaquo;", |
+          :first_label => "&laquo; #{t(:first)}", |
+          :last_label => "#{t(:last)} &raquo;", |
+          :jump_label => "#{t(:jump)}:", |
+          :go_label => "#{t(:go)}", |
+          :renderer => JumpListLinkRenderer |

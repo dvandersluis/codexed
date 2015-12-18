@@ -1,0 +1,7 @@
+- t_scope 'controllers.admin.journal.export' do
+  .tcenter.lightfill.padded
+    = t(:awaiting_export, :count => t(:x_other_user, :count => @journal.export.queue_position))
+    %br
+    = t(:refresh_at_any_time)
+    - form_tag({:controller => 'admin/journal/export', :action => 'cancel'}) do
+      = submit_tag t(:cancel)

@@ -1,0 +1,10 @@
+- t_scope 'controllers.main.privacy' do
+  - title t(:title)
+
+  %p= t(:p1)
+  %p= t(:p2)
+  %p= t(:p3)
+  %p= t(:p4)
+  /%p= t(:p5) 
+  %p= t(:p6)
+  %p= t(:p7, :contact_link => mail_to('admin@codexed.com', t(:p7_link_text))) 

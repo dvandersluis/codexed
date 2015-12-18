@@ -1,0 +1,2 @@
+class UnmonitorableJob < Job
+end 

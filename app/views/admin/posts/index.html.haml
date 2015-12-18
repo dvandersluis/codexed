@@ -1,0 +1,34 @@
+- add_to_stylesheets 'tabs'
+- add_to_javascripts 'restful_destroy'
+
+- t_scope 'controllers.admin.posts.index' do
+  - title t(:title)
+
+  #tabs_header
+    %ul{ :style => "float: left; width: 400px"}
+      - @selectable_views.each do |tab_name, controller_name|
+        - url = { :controller => controller_name }
+        - if controller.controller_name == controller_name
+          %li= content_tag(:span, tab_name.titleize)
+        - else
+          %li= link_to(tab_name.titleize, url)
+    - form_tag({ :action => 'index' }, :method => "get", :style => "float: right; padding-right: 25px; display: inline; margin: 0") do
+      == #{t('models.entry.other')} #{t('pagination.per_page')}:
+      = text_field_tag 'per_page', @per_page, {:size => 2} 
+      = submit_tag t(:show), :name => nil
+
+  %div#tabs_content
+    %div#tabs_content_inner
+      = message_divs
+      - if @posts.empty?
+        = message_div_for :notice, t(:no_entries, :type => t("models.#{@type.singularize}.other").downcase)
+      - else
+        %table.listing.stretch
+          %tr
+            %th{ :style => "width: 16px" }
+            %th= h(t('fields.title'))
+            %th= h(t('fields.permaname'))
+            %th{ :style => "width: 170px" }
+              = t(:entry_timestamp)
+            %th{ :style => "width: 60px" }
+          = render :partial => "admin/posts/post_list", :locals => { :posts => @posts, :type => @type }

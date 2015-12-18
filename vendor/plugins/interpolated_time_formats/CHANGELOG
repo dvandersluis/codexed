@@ -1,0 +1,17 @@
+*SVN*
+
+*0.0.3* (September 18th, 2007)
+
+* Remove gem dependency on activesupport
+
+* Remove short_hour since it's not related to the plugin
+
+* Convert dos newlines to unix newlines
+
+*0.0.2* (February 2nd, 2007)
+
+* Released as a gem
+
+*0.0.1* (December 10th, 2006)
+
+* Initial release

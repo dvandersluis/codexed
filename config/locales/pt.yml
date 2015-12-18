@@ -1,0 +1,1421 @@
+pt:
+  general:
+    locale:
+      lang_name: "Português"
+      clock_type: 12  # Set to 12 for a 12-hour clock, 24 for a 24-hour clock
+
+    fields:
+      filename: "Nome do arquivo"
+      permaname: "Permaname"
+      title: "Título"
+      type: "Escreva"
+      datetime: "Data/Hora"
+      value: "Valor"
+      post_date: "Data da postagem"
+
+    form:
+      preview_top:
+        looking_at_a_preview: "Você está visualizando uma prévida do seu {{record}}." # entry/template/prefab
+        save_and_finish_editing: "Salvar {{record}} e finalizar a edição" # entry/prefab/template
+        continue_editing: "Continuar editando"
+
+      username: "Usuário"
+      password: "Senha"
+      email: "E-mail"
+      current_password: "Senha atual"
+      new_password: "Nova senha"
+      confirm_password: "Confirmar nova senha"
+      change_password: "Mudar minha senha"
+
+      cancel: "Cancelar"
+      continue: "Continuar"
+      finish: "Finalizar"
+      oops: "Oops..." # no trans
+      preview: "Visualizar"
+      required_fields_notice: "Campos marcados com um <span style=\"color:red\">*</span> são obrigatórios."
+      save: "Salvar"
+      save_and_continue: "Salvar e Continuar Editando"
+      return: "Retornar"
+      return_to_prev: "Retornar para o Passo Anterior"
+      previous: "Retornar para o Passo Anterior"
+      previous_short: "Anterior"
+      next: "Avançar para o Próximo Passo"
+      next_short: "Próximo"
+      request_failed: "A solicitação falhou. Por favor, tente novamente."
+      error: "Erro"
+    
+    messages:
+      invalid_username: "<b>{{username}}</b> é um nome de usuário inválido."
+      no_username_given: "Nenhum nome de usuário foi fornecido."
+      missing_record_to_create: "O {{record}} que você tentou criar não existe!"
+      missing_record_to_update: "O {{record}} que você tentou atualizar não existe mais!"
+      missing_record_to_edit: "O {{record}} que você tentou atualizar não existe mais!"
+      missing_record_to_delete: "O {{record}} que você tentou apagar não existe mais!"
+      check_it_out: "Verificar."
+      error: "Erro"
+      notice: "Aviso"
+      success: "Sucesso"
+      also: "Também"
+      invalid_update: "The {{record}} you tried to update was accessed incorrectly, please try again."
+      invalid_create: "The {{record}} you tried to create was accessed incorrectly, please try again."
+
+    pagination:
+      first: "Primeiro"
+      prev: "Anterior"
+      next: "Próximo"
+      last: "Último"
+      jump: "Ir para a página"
+      go: "Ir"
+      per_page: "por página"
+
+    all: "todos"
+    or: "ou"
+    name: "Nome"
+    enter_codexed_username: "Insira seu usuário:"
+    send_email: "Enviar e-mail"
+    show: "Mostrar"
+    codexed: "Codexed" 
+    "No": "Não"
+    "Yes": "Sim"
+    "no": "não"
+    "yes": "sim"
+    
+    members_directory: "Diretório"
+    journal_title: "Nome do diário"
+
+  layouts:
+    application:
+      sidebar:
+        expand: "Expandir seção"
+        collapse: "Recolher seção"
+        writing: "Posts"
+        new_entry: "Novo Post"
+        new_page: "Nova página"
+        manage_categories: "Categorias"
+        templates: "Templates" # no trans
+        new_template: "Novo Template"
+        new_prefab: "Definir novo Prefab"
+        edit_writing: "Editar meu texto"
+        edit_templates: "Editar meus Templates"
+        options: "Opções"
+        tools: "Tools"
+        substitutions: "Substituições"
+        statistics: "Estatísticas"
+        my_journal: "Meu Diário"
+        get_help: "Ajuda!"
+        dashboard: "Painel"
+        log_out: "Sair"
+        journal: "Diário"
+        import: "Importar um arquivo"
+        export: "Baixar meu diário"
+        my_journal: "Visualizar meu diário"
+        my_public_journal_feed: "Meu feed público"
+        my_private_journal_feed: "Meu feed privado"
+        archive_layouts: "Templates de arquivos"
+        community: "Community"
+        directory: "Members directory"
+        birthdays: "Birthdays"
+        forums: "Forums"
+
+      nag_notice:
+        no_lang_set1: "Você não {{link_text}} do seu diário." # ... see no_lang_set1_link_text
+        no_lang_set1_link_text: "especificou o idioma"
+        no_lang_set2: "Gostaríamos de saber o idioma para mantermos um diretório mais completo de quem escreve em que língua."
+        no_birthday_set1: "Estamos coletando informações sobre o aniversário do usuário!"
+        no_birthday_set2: "Você ainda não {{link_text}} no seu perfil." # ... preencheu seu aniversário
+        no_birthday_set2_link_text: "preencheu seu aniversário"
+        no_birthday_set3: "Gostaríamos que você preenchesse para podermos comemorar juntos!"
+        dismiss_this_message: "Ignorar esta mensagem."
+        survey: "Queremos saber sua opinião! Visite {{link_text}} e fale o que você pensa sobre o Codexed!"
+      
+      notices:
+        happy_birthday: "Feliz {{age}} aniversário! Felicidades, dos seus amigos do Codexed!" # ... age will be something like 20th
+        
+      alpha: "alfa"
+      beta: "beta"
+      home: "Início"
+      directory: "Diretório"
+      forums: "Fórum"
+      twitter: "Twitter"
+      help: "Ajuda"
+      logged_in_as: "Você está logado como {{username}}."
+      create_account: "Registre-se"
+      or_login: "ou entre"
+      forgot_password: "Esqueceu sua senha?"
+      log_in: "Entrar"
+      logout: "Sair"
+      privacy_statement: "política de privacidade"
+      tos: "termos do serviço"
+
+  models:
+    archive_layout:
+      one: "Template de arquivos"
+      other: "Templates de arquivos"
+    
+    archive_layout_type:
+      complete_archive: "Arquivo completo"
+      category_archive: "Arquivo por categorias"
+      tag_archive: "Arquivo por tags"
+
+    category:
+      one: "Categoria"
+      other: "Categorias"
+
+    country:
+      one: "País"
+      other: "Países"
+      
+    entry:
+      one: "Post" 
+      other: "Posts"
+
+    post:
+      one: "Post"
+      other: "Posts"
+      untitled: "Sem título"
+      entry_archive: "[archivedate] Arquivo"
+      entry_split_archive: "Arquivo"
+      category_archive: "Arquivos para a categoria '[category]'"
+      tag_archive: "Lista de posts com a tag '[tag]'"
+      new_journal: "Novo diário"
+      prev_entry: "Anterior"
+      curr_entry: "Atual"
+      next_entry: "Próximo"
+      home_entry: "Início"
+      archive_entry: "Arquivos"
+      random_entry: "Post aleatório"
+      first_entry: "Primeiro"
+      last_entry: "Último"
+      entry_not_found: "Post Não Foi Encontrado"
+      category_not_found: "Categoria não encontrada"
+      tag_not_found: "Tag Não encontrada"
+      
+    page:
+      one: "página"
+      other: "Páginas"
+      
+    journal:
+      one: "Diário"
+      other: "Diários"
+
+      use_site_default: "<usar padrão do site>"
+      start_page: "Página inicial"
+      current_entry: "Post atual"
+      archive: "Arquivo"
+      split: "Arquivo mensal"
+  
+    option:
+      one: "Opção"
+      other: "Opções"
+      
+    prefab:
+      one: "Template" 
+      other: "Templates"
+      
+    reader:
+      one: "Leitor"
+      others: "Leitores"
+      
+    substitution:
+      one: "Substituição"
+      other: "Substituições"
+      
+    sub:
+      one: "Sub" 
+      other: "Subs"
+      
+    template:
+      one: "Template" 
+      other: "Templates"
+      
+      custom_commands:
+        category_no_entries: "Não há posts neste diário."
+        journal_no_entries: "Não há posts nesta categoria."
+        journal_no_entries_for_date: "Não há posts no seu diário desde {{date}}."
+        invalid_date_for_archive: "A data que você está buscando no arquivo é inválida."
+
+    user:
+      one: "Usuário"
+      other: "Usuários"
+
+      new_password_blank: "A nova senha não pode ficar em branco."
+      confirm_password_blank: "As novas senhas não conferem."
+      new_password_mismatch: "As novas senhas não conferem."
+      incorrect_password: "Senha incorreta."
+
+  controllers:
+    main:
+      title: "Painel"
+
+      favorite_journals:
+        favorite_journal:
+          one: "Diário favorito"
+          other: "Diários favoritos"
+        favorite_journals:
+          one: "1 diário favorito"
+          other: "{{count}} diários favoritos"
+        favorites_found_in_cookie: "cookie encontrado."
+        merge: "Juntar?"
+        dismiss: "descartar"
+        no_favorites: "Você não tem nenhum favorito!"
+        deleted_favorite_journal: "Este diário foi apagado." 
+        cookie_mode: "Esta lista é baseada em cookies."
+        deleted: "apagado"
+        add: "Adicionar"
+
+      recently_updated:
+        recently_updated: "Atualizações recentes"
+        no_recently_updated: "Ninguém atualizou ainda."
+        and_more: "... e mais!"
+      
+      birthdays:
+        title: "Birthdays"
+        all_birthdays: "See all birthdays"
+        no_upcoming_birthdays: "No upcoming birthdays"
+        todays_birthdays: "Today's Birthdays"
+        tomorrow: "Tomorrow"
+      
+      privacy:
+        title: "Política de Privacidade"
+        p1: "O Codexed coleta informações específicas dos usuários no momento do registro. Estas informações limitam-se a: nome, nome de usuário, senha e e-mail. Outras informações opcionais não são obrigatórias."
+        p2: "Toda informação coletada pelo Codexed será usada <b>somente</b> para análise demográfica, ajudando-nos a conhecer e entender nossos usuários, e direcionando publicidade potencial. <b><u>Sob nenhuma circunstância o Codexed fornecerá essas informações a terceiros.</u></b>"
+        p3: "O Codexed nunca enviará e-mail não solicitado. Nossos operadores nunca pedirão informações pessoais depois do registro, como senha, identidade ou número do cartão de crédito - se isto ocorrer, nos avise imediatamente."
+        p4: "O Codexed usa cookies. Estes cookies fornecem somente informações sobre a sessão. Eles não armazenam informações pessoais dos usuários, não serão compartilhados com ninguém, e nem usados para lhe contatar."
+        p5: "Qualquer publicidade em nossas páginas pode ser de agências externas. Eles coletam seus próprios logs e podem utilizar seus próprios cookies. Eles têm suas próprias políticas de privacidade que você pode consultar."
+        p6: "O Codexed se reserva o direito de modificar esta política a qualquer momento. Caso isto ocorra, todos os usuários serão notificados."
+        p7: "Caso tenha alguma dúvida, não hesite em {{contact_link}}."
+        p7_link_text: "nos contatar"
+
+      prerelease:
+        title: "Pre-Release Termos de Serviço"
+        terms: "Esta versão do Codexed é um <b>pré-lançamento</b>. Ela não contém as funcionalidades completas do produto final e pode conter áreas não funcionais, bugs ou até falhas de segurança. Ao participar deste pré-lançamento, você decidiu usar o serviço, a princípio, para contribuir com o teste e fornecer informações aos criadores do Codexed, ajudando a melhorar o serviço. Você entende que, como o produto não está finalizado, <b>qualquer post, template ou outra informação criada podem ser acidentalmente apagados ou corrompidos, e os criadores do Codexed não serão responsabilizados por essas perdas.</b>"
+
+      tos:
+        title: "Termos de Serviço"
+        
+        section1:
+          header: "Aceitação dos termos"
+          text: "Os serviços prestados a você (\"usuário\") pelo Codexed (\"serviço\") estão sujeitos aos seguintes Termos de Serviço (TDS). Estes termos estão sujeitos a mudanças feitas pela administração do Codexed; você será notificado através de seu e-mail de registro se alguma mudança acontecer."
+        section2:
+          header: "Descrição do serviço"
+          line1: "O Codexed oferece aos usuários acesso ao fórum online, bem como um espaço personalizado para conteúdo produzido pelo usuário, e uma conta de e-mail. Você entende e concorda com as condições de uso e embora os administradores e operadores se dediquem a oferecer a melhor qualidade do serviço, não se responsabilizam por falhas ou perdas de dados do usuário."
+          line2: "Por favor esteja ciente de que os usuários do Codexed podem criar conteúdo adulto. Você deve ter mais de 18 anos para acessar estes conteúdos."
+        section3:
+          header: "Registro"
+          line1:
+            text: "Para utilizar os serviços oferecidos pelo Codexed, você deve se registrar. Fazendo isso, você concorda em:"
+            item1: "fornecer informações pessoais verdadeiras, atualizadas e completas, conforme requisitado no formulário de registro, e"
+            item2: "atualizar os dados e mantê-los verdadeiros, atualizados e completos."
+          line2: "Se por quaisquer motivos houver suspeita de que as informações são falsas, desatualizadas ou incompletas, o Codexed se reserva o direito de suspender ou eliminar sua conta."
+          line3: "Você é inteiramente responsável por manter a confidencialidade de sua senha e conta. <b>Nenhum operador do Codexed irá, sob nenhuma circunstância, pedir sua senha.</b> Você também é inteiramente responsável por toda e qualquer atividade de sua conta. Notifique o Codexed imediatamente se alguém pedir sua senha, ou se notar algum uso não autorizado de sua conta, bem como qualquer outra falha de segurança."
+          line4: "Todas as informações serão utilizadas de acordo com a {{privacy_link}} do Codexed"
+        section4:
+          header: "Conduta do usuário"
+          line1: "Você entende que todo o conteúdo é de responsabilidade da pessoa que o criou. Isto significa que você, e não o Codexed ou seus operadores, é inteiramente responsável por todo o conteúdo que você enviar ou postar através de nossos serviços. O Codexed não controla o conteúdo postado pelos usuários, e não garante a integridade, veracidade ou qualidade do mesmo. O Codexed não será responsabilizado por nenhum conteúdo, sob nenhuma circunstância."
+          line2:
+            text: "Você concorda em não utilizar o serviço para:"
+            item1: "enviar, postar ou transmitir qualquer conteúdo ilegal, perigoso, ameaçador, abusivo, difamatório, vulgar, obsceno, preconceituoso, ou que implique em invasão de privacidade;"
+            item2: "causar qualquer tipo de dano;"
+            item3: "se passar por qualquer pessoa ou entidade, incluindo mas não se limitando a responsáveis pelo Codexed ou líderes dos fóruns, ou divulgar falsidade de afiliação destes com qualquer pessoa ou entidade;"
+            item4: "forjar ou manipular identificadores para alterar a origem de qualquer conteúdo;"
+            item5: "enviar ou postar qualquer conteúdo que você não tenha o direito de transmitir, por lei ou por contrato (por exemplo, informações confidenciais obtidas como parte de relação de trabalho ou qualquer tipo de contrato);"
+            item6: "enviar, postar ou transmitir qualquer conteúdo que infrinja patentes, marcas registradas, segredos de mercado, copyright ou qualquer outro tipo de propriedade de terceiros;"
+            item7: "enviar ou postar publicidade não solicitada, materiais promocionais, spam, correntes, ou qualquer outra solicitação como estas;"
+            item8: "enviar ou postar qualquer material que contenha vírus, arquivos ou programas destinados a interromper, destruir ou limitar a funcionalidade de softwares ou hardwares ou equipamentos de telecomunicações;"
+            item9: "intencional ou não intencionalmente violar qualquer lei local, estadual, national ou internacional."
+          line3: "O Codexed se reserva o direito (mas não a obrigação) de, se necessário, recusar ou mover qualquer conteúdo considerado inapropriado de acordo com este termo."
+        section5:
+          header: "Direitos do Conteúdo"
+          text: "Todo material criado nas áreas de usuário do Codexed é de direito do referido usuário; todo material postado em áreas públicas (por exemplo, fóruns) serão de direito do Codexed."
+        section6:
+          header: "Garantias"
+          text: "Você concorda em garantir que o Codexed e seus afiliados, operadores, agentes, parceiros e funcionários, estejam livres de qualquer demanda, incluindo taxas jurídicas provenientes de qualquer terceiro, causadas por conteúdo enviado ou postado por você, violação do TDS, ou violação de direitos de outros."
+        section7:
+          header: "Encerramento da Conta"
+          line1: "As contas podem ser encerradas pelo usuário a qualquer momento através do painel de administração do usuário."
+          line2: "As contas podem ser encerradas pela administração do Codexed devido à violação deste acordo ou se a conta permanecer inutilizada por mais de 90 dias. Em caso de inatividade, o usuário será notificado e terá dez dias para reativar sua conta antes da remoção."
+          line3: "Com o encerramento, todas as informações da conta serão apagadas. O Codexed não é responsável por perdas de informação associadas com o encerramento."
+        section8:
+          header: "Publicidade"
+          text: "Sua correspondência, negócios com empresas ou participações em promoções através de publicidade encontrada no ou através do Codexed, incluindo pagamentos e entregas de bens ou serviços, e quaisquer outros termos, condições, garantias ou representações associadas com estas relações, são somente entre você e o anunciante. Você concorda que o Codexed não será responsável ou sujeito a qualquer perda ou dano decorrente destas relações."
+        section9:
+          header: "Links"
+          text: "O Codexed ou terceiros podem disponibilizar links para outros sites ou serviços. Como o Codexed não tem controle sobre estes sites ou serviços, você entende e concorda que o Codexed não é responsável pela disponibilidade dos mesmos, e não endossa e nem se responsabiliza pelo seu conteúdo, publicidade, produtos ou outros materiais disponíveis nestes sites ou serviços."
+        section10:
+          header: "Aviso sobre garantias"
+          line1:
+            text: "Você expressamente entende que:"
+            item1: "O uso que você faz deste serviço está sob sua conta e risco. Todos os dados inseridos por você são de sua responsabilidade e o Codexed não se responsabiliza por quaisquer danos que possam ocorrer."
+            item2:
+              text: "O Codexed não garante que:"
+              item1: "o serviço irá atender suas expectativas pessoais,"
+              item2: "o serviço será ininterrupto, seguro ou livre de erros,"
+              item3: "a qualidade de qualquer produto, serviço, informação ou outro material oferecido por ou obtido através do Codexed irá atender suas expectativas,"
+              item4: "qualquer erro no software será corrigido."
+        section11:
+          header: "Limitações da responsabilidade"
+          line1:
+            text: "Você expressamente entende e concorda que o Codexed não será responsável por qualquer dano direto, indireto, incidental ou consequente, incluindo mas não se limitando a danos por perda monetária, benevolência, dados ou outras perdas intangíveis (mesmo que o Codexed tenha sido avisado sobre a possibilidade de tal danos), resultantes de:"
+            item1: "o uso ou inabilidade de uso do serviço;"
+            item2: "o custo de obtenção de bens e serviços substitutos, resultados de qualquer bens, dados, informações ou serviços adquiridos ou comprados ou mensagens recebidas ou transações feitas através do serviço;"
+            item3: "acesso não autorizado ou alteração de seus dados;"
+            item4: "declarações ou conduta de qualquer terceiro no Codexed; ou"
+            item5: "qualquer outro assunto relacionado ao Codexed."
+        section12:
+          header: "Exclusões e limitações"
+          text: "Algumas jurisdições não permitem a exclusão de certas garantias ou limitações ou exclusão de responsabilidade por danos incidentais ou consequentes. Da mesma maneira, algumas das limitações das seções 10 e 11 podem não se aplicar a você."
+
+    members:
+      index:
+        title: "Membros Codexed"
+        no_journals_for_search: "Não há diários começados com <b>{{search}}</b>."
+        show_usernames: "Nomes de usuário começados com"
+        unspecified_lang: "Não especificado / Outros"
+        directory_empty: "Não há nenhum diário no {{link}}."
+        username: "Usuário"
+        language: "Idioma"
+        member_since: "Membro desde"
+        last_updated: "Última Atualização"
+        never: "Nunca"
+
+      birthdays:
+        title: "Próximos aniversários"
+        todays_birthdays: "Today's Birthdays"
+
+    journal:
+      go_to_front: "Você pode tentar acessar a {{front_link}} desde diário."
+      go_to_front_link_text: "página inicial"
+
+      post_could_not_be_loaded:
+        message: "Sorry, for some reason the post could not be loaded! If this problem persists, please {{contact_link}}!"
+        contact: "let us know"
+
+      entry_not_found:
+        message: "Desculpe, este post não foi encontrado!"
+        looking_for_archive: "Você está procurando pelo arquivo {{archive_link}}?"
+        perhaps_looking_for: "Talvez você tenha buscado por"
+        other_entries_on_date: "Outros posts nesta data"
+        
+      category_not_found:
+        message: "Desculpe, a categoria não pôde ser encontrada!"
+        perhaps_looking_for: "Talvez você tenha buscado por"
+
+      tag_not_found:
+        message: "Desculpe, esta tag não é usada neste diário!"
+
+      category_archive:
+        parent_category: "Categoria principal"
+        subcategories: "Subcategorias"
+
+      locked:
+        locked_entry: "Este post foi protegido pelo dono do diário. Se ele lhe forneceu a senha, digite-a abaixo para destravar todos os posts protegidos deste diário."
+        journal_locked: "Este diário é protegido por senha."
+        journal_locked_instructions: "Se o dono do diário lhe deu a senha, digite para destravar o diário. Se não, entre em contato com ele."
+        unlock: "Destravar"
+        keep_unlocked: "Mantenha este {{item}} destravado." # journal/entry
+
+      private:
+        entry_private: "Este post é privado. Você não deveria estar aqui."
+        journal_private: "Este diário é privado."
+        journal_private_instructions: "Desculpe, somente o dono do diário pode acessá-lo."
+        category_private: "Esta categoria é privada. Você não deveria estar aqui."
+
+      show_post:
+        journal_authentication_changed: "A senha utilizada previamente não é mais válida."
+
+      show_tag:
+        posts_tagged_x: "Lista de posts com a tag '{{tag}}'"
+
+      tag_archive:
+        my_tagged_posts: "Posts neste diário"
+        other_tagged_posts: "Posts em outros diários"
+
+      user_not_found:
+        title: "Um sapo!"
+        message: "O usuário que você procura não foi encontrado."
+        alt: "NÃO ENCONTRAMOS... E NÃO ESTAMOS LOUCOS!"
+
+      new_journal:
+        no_entries: "Ainda não há nenhum post neste diário."
+
+      incorrect_password: "Senha incorreta."
+      lock_icon: "Protegido por senha"
+
+    user:
+      add_favorite:
+        favorite_journal_exists: "<b>{{username}}</b> já foi adicionado."
+        
+      forgot_password:
+        title: "Redefinir sua senha"
+        instructions: "Por segurança, não arquivamos senhas em formato texto. Por isso, não podemos lhe mostrar sua senha. Porém, inserindo seu usuário abaixo, você receberá um e-mail com instruções para gerar uma nova senha"
+        instructions_sent: "As instruções para redefinir a senha foram enviadas para o e-mail associado a <b>{{username}}</b>."
+
+      remove_favorite:
+        invalid_favorite: "Diário favorito inválido."
+
+      reset_password:
+        title: "Redefinir sua senha"
+        instructions: "Preencha o formulário para mudar sua senha. A troca será feita imediatamente, e você já estará logado ao Codexed."
+        username_differs: "Esta chave de mudança de senha foi enviada para um username diferente do fornecido."
+        key_missing: "É necessária uma chave para redefinir a senha, mas a chave fornecida não é válida."
+        password_changed: "Senha trocada com sucesso. Você está logado."
+
+      resend_activation_email:
+        title: "Reenviar e-mail de ativação"
+        instructions: "Se você não recebeu o e-mail de ativação, use este formulário para reenviá-lo."
+        email_sent: "Um novo e-mail de ativação foi enviado para o endereço associado a <b>{{username}}</b>."
+
+      sayonara:
+        title: "Lamentamos que esteja indo embora..."
+        sayonara: "Sua conta e diário foram removidos. Esperamos que tenha gostado de utilizar o Codexed!"
+
+      signup:
+        has_errors: "Não foi possível completar o registro pelos motivos seguintes:"
+
+        index:
+          title: "Você está prestes a juntar-se à comunidade Codexed!"
+          instructions1: "Want a journal? You're just one quick form away."
+          get_invitation_code: "Solicite um código de convite!"
+          desired_username: "Usuário desejado"
+          email_address: "E-mail"
+          email_confirmation: "Confirmação do e-mail"
+          invitation_code_name: "Convite"
+          enter_field: "enviar"
+          confirm_field: "confirmar"
+          your_name: "Seu nome"
+          first_name: "Primeiro nome"
+          last_name: "Sobrenome"
+          your_email: "Seu e-mail"
+          invitation_code: "Convite"
+          read_and_agreed: "Li e concordo com os {{link_text}}."
+          terms_of_service: "Termos de Serviço"
+          prerelease_tos: "Termos de Serviço de pré-lançamento"
+          next: "Quase pronto!"
+
+        profile:
+          title: "Fale sobre você"
+          instructions1: "Temos interesse em saber mais sobre você para conhecê-lo melhor e visualizar o perfil dos usuários do site. Todas as informações desta seção são opcionais, e podem ser modificadas a qualquer momento na página de Opções da Conta, após o registro."
+          instructions2: "Não se preocupe, todas as informações coletadas aqui são cobertas por nossa {{privacy_link}}, e somente o pessoal autorizado do Codexed poderá vê-las, se necessário, sem sua permissão."
+          instructions2_link_text: "Política de privacidade"
+          instructions3: "Se preferir não preencher suas informações pessoais, tudo bem. Ficaremos tristes, mas vamos superar com o tempo."
+          real_name: "Nome"
+          birthday: "Aniversário"
+          gender: "Gênero"
+          male: "Masculino"
+          female: "Feminino"
+          first_name: "Nome"
+          last_name: "Sobrenome"
+          country: "País"
+          next: "Pronto!"
+          skip: "Não, obrigado, quero entrar no site!"
+
+        thanks:
+          title: "Verifique seu e-mail"
+          p1: "Parabéns, você agora é membro do Codexed!"
+          p2: "<i>Mais um momento!</i> Antes de começar a usar seu diário, você precisa ativar sua conta. Esta é uma medida de segurança para evitar a criação automática de contas. Enviamos a você um email com um link, basta clicar e sua conta estará ativa!"
+          p3: "O e-mail foi enviado para <b>{{email}}</b>. Se o endereço não estiver correto, {{contact_us}} e iremos corrigir."
+          p3_link_text: "contate-nos"
+
+      verify:
+        title: "Passo final: Ative sua conta"
+        error_no_email: "O quê? Como você tem um código de ativação se ainda não recebeu o e-mail de ativação? Você deve ser do futuro, não? Bem, todos têm que receber o e-mail antes, pessoas do futuro também. São as regras!"
+        error_invalid_key: "Código de ativação inválido."
+        error_invalid_key_long: "Hmm... sua conta não foi ativada pois o código de ativação é inválido. Provavelmente, o link no e-mail de registro estava errado. Tente copiar o código manualmente e colar no campo abaixo."
+        enter_activation_key: "Digite o código de ativação"
+        activate: "Ativar"
+        welcome_to_codexed: "Bem vindo ao Codexed! Use os links à esquerda para modificar seu diário."
+        user_already_activated: "Este usuário já foi ativado. Por favor use o formulário de login para entrar."
+
+    admin:
+      title:  "Administração Codexed" #no trans
+      
+      archive_layouts:
+        invalid_layout_given: "Template inválido para os arquivos."
+        index:
+          title: "Templates de arquivos"
+          view: "Visualizar template de arquivos"
+          delete: "Apagar templade de arquivos"
+          confirm_delete: "Tem certeza que deseja apagar o template {{layout}}?"
+          instructions1: "Se você precisa adicionar conteúdo à página de arquivos ou modificar a ordem em que eles aparecem, utilize esta página. No momento há dois tipos de arquivos customizáveis: o <b>arquivo completo</b>, que lista todos os posts do diário, e o <b>arquivo por categorias</b>, que lista os posts de categorias específicas."
+          instructions2: "Clique em um template abaixo para customizar a página correspondente. O link vermelho corresponde a um template não customizado. O linnk azul corresponde a um template já customizado."
+          category_required_to_preview: "Você precisa ter pelo menos uma categoria pública em seu diário para visualizar o arquivo por categorias."
+          tag_required_to_preview: "Você precisa ter pelo menos um post com tags para visualizar o arquivo por tags." 
+        form:
+          archive_type: "Tipo de arquivo"
+          title: "Título"
+          content: "Conteúdo"
+          available_substitutions: "Substituições disponíveis"
+          use_default_template: "<usar padrão>"
+          new:
+            title: "Definir template de arquivo"
+            create_layout: "Definir Template"
+          edit:
+            title: "Editar Template de Arquivo"
+            update_layout: "Atualizar Template"        
+        create:
+          archive_layout_created: "<b>{{layout}}</b> template definido com sucesso."
+        update:
+          archive_layout_updated: "<b>{{layout}}</b> template atualizado com sucesso."
+        delete:
+          title: "Confirmar exclusão de template de arquivos"
+          confirm_delete: "Tem certeza que deseja apagar o template <b>{{layout}}</b>?"
+        destroy:
+          archive_layout_destroyed: "<b>{{layout}}</b> template apagado com sucesso."
+      
+      categories:
+        privacy_changed: "A categoria foi classificada como privada pois a categoria-mãe é privada."
+        privacy_changed_subcategories: "Todas as subcategorias de <b>{{name}}</b> que não eram privadas foram modificadas para privadas."
+
+        index:
+          title: "Gerenciar categorias"
+          view: "Ver categoria"
+          delete: "Apagar categoria"
+          new_category: "Adicionar categoria"
+          no_categories: "Você não criou nenhuma categoria."
+          confirm_delete: "Tem certeza que deseja apagar esta categoria? Também serão apagadas as subcategorias existentes!"
+          private_category: "Categoria privada"
+          category_has_x_entries:
+            one: "Esta categoria tem 1 post"
+            other: "Esta categoria tem {{count}} posts"
+
+        create:
+          new_category_canceled: "Nova categoria cancelada."
+          category_created: "Categoria <b>{{name}}</b> criada com sucesso."
+          
+        delete:
+          title: "Confirmar exclusão de categoria"
+          confirm_delete: "Tem certeza que deseja apagar a categoria <b>{{category}}</b>? Apagar uma categoria irá apagar também suas subcategorias!"
+
+        destroy:
+          category_destroyed: "Categoria <b>{{name}}</b> apagada com sucesso."
+          category_and_subcats_destroyed:
+            one: "Categoria <b>{{name}}</b> e uma subcategoria foram apagadas com sucesso."
+            other: "Categoria <b>{{name}}</b> e {{count}} subcategorias foram apagadas com sucesso."
+
+        form:
+          create_new_category: "Criar nova categoria"
+          editing_category: "Editando categoria"
+          slug: "Permaname"
+          autofill_slug: "Preencher permaname automaticamente"
+          parent: "Categoria principal"
+          change_parent_notice: "NOTA: Modificar a categoria principal irá mover suas subcategorias."
+          privacy: "Privacidade"
+          public: "Público"
+          private: "Privado"
+          privacy_options_disallowed: "NOTA: Como a categoria-mãe é privada, esta categoria deve ser privada também."
+
+        update:
+          category_updated: "Categoria <b>{{name}}</b> atualizada com sucesso."
+          changes_to_category_not_saved: "Mudanças na categoria <b>{{name}}</b> não foram salvas."
+
+      posts:
+        all_posts: "Todos os Posts"
+
+        e_desc: "post"
+        p_desc: "página"
+ 
+        e_with_article: "um post"
+        p_with_article: "uma página"
+        
+        create_entry:
+          page: "Criar nova página"
+          entry: "Criar novo post" 
+        editing_entry: "Editar {{type}} existente"
+
+        entry_not_found: "Não foi encontrado {{type}} post com o permaname <b>{{permaname}}</b>."
+        password_missing_warning: "Este post não será acessível até que uma senha seja criada na página {{options_link}}."
+        journal_options: "Opções do diário"
+        permaname_conflict: "O permaname especificado já está em uso; use <b>{{permaname}}</b> no lugar."
+        use_default_template: "<usar padrão>"
+        page_as_archive_warning: "Você está usando uma página para customizar seu arquivo.<br />Ainda que isso ainda vá funcionar por algum tempo, é recomendável usar os <a href=\"{{url}}\">layouts de arquivo</a>."
+
+        create:
+          new_entry_canceled: "A criação do {{type}} foi cancelada, as alterações não foram salvas."
+          entry_created: "{{type}} <b>{{title}}</b> criado com sucesso."
+
+        delete:
+          title: "Confirmar exclusão de post"
+          confirm_delete: "Tem certeza que deseja apagar o {{type}} <b>{{entry}}</b>?"
+
+        destroy:
+          entry_destroyed: "{{type}} <b>{{title}}</b> apagado com sucesso."
+
+        form:
+          day: "Dia"
+          month: "Mês"
+          year: "Ano" 
+          hour: "Hora"
+          minute: "Minuto"
+          second: "Segundo"
+          use_server_time:
+            page: "Utilizar a hora em que a página for salva"
+            entry: "Utilizar a hora em que o post for salvo"
+          title: "Título"
+          permaname: "Permaname" # no trans
+          autofill_permaname: "Preencher permaname automaticamente"
+          body: "Conteúdo"
+          summary: "Sumário"
+          entry_privacy: "Privacidade"
+          quick_preview: "Visualização rápida"
+          preview_in_template: "Visualizar no template"
+          entry_preview: "Visualizar {{type}}"
+          public: "Público"
+          protected: "Protegido por senha"
+          private: "Privado"
+          categories: "Categorias"
+          no_categories: "Ainda não existem categorias para este diário."
+          add_a_category: "Criar uma categoria!"
+          add_category: "Adicionar nova categoria"
+          tags: "Tags"
+          more_fields: "Mais campos"
+          entry_tags_default_message: "Tags existentes serão mostradas conforme você as digite. Pressione enter ou espaço para criar uma tag."
+
+        index:
+          a: "posts ou páginas"
+          e: "posts"
+          p: "páginas"
+          title: "Posts"
+          no_entries: "Você não tem nenhum {{type}} posts ou páginas."
+          entry_timestamp: "Data e hora"
+          confirm_delete: "Tem certeza que deseja apagar este {{type}}?"
+          protected_entry: "Protegido por senha"
+          private_entry: "Privado"
+          preview_entry: "Visualizar"
+          delete_entry: "Apagar este {{type}}"
+          preview_as_guest: "Visualizar como visitante"
+
+        update:
+          entry_updated: "{{type}} <b>{{title}}</b> atualizado com sucesso."
+          changes_to_entry_not_saved: "As mudanças no {{type}} post <b>{{title}}</b> não foram salvas."
+      
+      journal:
+        let_us_know_about_this: "avise"
+        x_other_user:
+          one: "1 outro usuário está"
+          other: "{{count}} outros usuários estão"
+        refresh_at_any_time: "Você pode atualizar a qualquer momento para verificar em que ponto você está."
+        try_again: "Tente novamente"
+        waiting_for_job: "Aguardando o início do trabalho..."
+        here_we_go: "e lá vamos nós!"
+
+        update_progress:
+          waiting_for_job_to_start: "Aguardando início..."
+          and_here_we_go: "Aguardando início... e lá vamos nós!"
+          time_remaining: "Tempo restante:"
+          estimating: "estimando..."
+        
+        import:
+          title: "Importar um arquivo"
+
+          header: "Importar seu diário"
+          instructions: "Se você exportou seu diário (acima), ou se você tem uma cópia do seu diário do Diary-x, use este formulário para importar seus posts e templates para sua conta no Codexed."
+          instructions2a: "Esta funcionalidade ainda está na versão beta, portanto em caso de erros, favor" # ...
+          instructions2b: "avise"
+          error_bad_data: "Um erro ocorreu na tentativa de organizar seu arquivo. Por favor faça o envio do arquivo novamente. Se o erro persistir, por favor {{let_us_know}}."
+          error_invalid_structure: "A organização dos arquivos dentro do zip não é a esperada, não foi possível importar os dados. Nos {{email}} e iremos ajudar."
+          error_invalid_structure2: "Envie-nos seu arquivo"
+          journal_imported_is_nonenglish: "O diário que estou importando tem caracteres diferentes do {{wiki_link}}." #...
+          latin_alphabet: "alfabeto latino"
+          latin_alphabet_wikilink: "http://pt.wikipedia.org/wiki/Alfabeto_latino"
+          journal_imported_is_nonenglish_desc: "Isto irá garantir que caracteres específicos de algumas línguas (Chinês, Russo etc) sejam preservados durante o processo de importação. Línguas como inglês, francês e espanhol usam o alfabeto latino; se seu arquivo estiver em alguma dessas línguas ou similares, não selecione esta opção."
+          button_text: "Importar Diário"
+          errors_exist1: "Encontramos erros ao salvar alguns itens do arquivo. Antes de importá-los, você deve" #...
+          errors_exist2: "corrigir os erros"
+          conflicts_exist1: "Alguns itens importados estão em conflito com itens já existentes em seu diário."
+          conflicts_exist2: "Para continuar, você deve"
+          conflicts_exist3: "decidir o que deseja fazer com eles"
+          step1_waiting: "Recebemos seu pedido para importar seu diário, mas no momento há {{count}} na sua frente na fila. Aguarde -- sua vez chegará logo!"
+          step1_running1: "Estamos lendo o arquivo enviado."
+          step1_running2_js: "Você pode acompanhar o progresso abaixo."
+          step1_running2_nojs: "Isso pode levar até 3 minutos dependendo do tamanho do arquivo."
+          step1_running3: "Depois de terminado, você verá uma lista com o conteúdo do arquivo para escolher o que será importado."
+          step1_pending1: "O processo de importação está quase no fim!"
+          step1_pending2: "Revise o que será importado"
+          #step2_running: "Estamos copiando o conteúdo do arquivo. Isso pode levar até 20 minutos dependendo do tamanho do arquivo."
+          step2_running: "Estamos copiando o conteúdo do arquivo. This may take a while, but you can keep an eye on the progress below."
+          step2_waiting: "Recebemos seu pedido para continuar importando seu diário, mas no momento há {{count}} na sua frente na fila. Aguarde -- sua vez chegará logo!"
+          success1: "Seu diário foi importado com sucesso."
+          success2: "Veja o que aconteceu"
+          internal_error: "Algo aconteceu durante a importação do seu diário! Você pode {{let_us_know}}."
+          in_progress: "Estamos processando a importação do seu diário."
+          continue: "Continuar importando"
+          cancel: "Cancelar o processo de importação"
+          import_job_missing: "Parece que a última importação ativa não existe mais. Faça uma nova importação."
+
+          review:
+            options:
+              header: "Opções"
+              default:
+                start_page: "Página inicial padrão"
+                template: "Template padrão"
+              entrylists:
+                archiveformat: "Formato do arquivo"
+                lockicon: "Usar ícone de cadeado para os posts protegidos na lista de arquivos?"
+              formatting:
+                time:
+                  full: "Archive full date format"
+                  month: "Archive year and month format"
+                  year: "Archive year only format"
+                dnl2p: "Converter quebras de linha duplas em parágrafos?"
+                inline: "Permitir formatação inline?"
+                nl2br: "Converter quebras de linha para &lt;br /&gt;'s?"
+                parenclass: "Classe CSS dos parênteses"
+                parencolor: "Cor dos parênteses"
+                parens: "Formatação dos parênteses"
+                typographical: "Permitir aspas inteligentes"
+              lang: "Idioma do site"
+              privacy:
+                locked_entry_text: "Texto do post protegido"
+                default_entry_privacy: "Privacidade padrão"
+              time:
+                zone: "Fuso horário"
+              ui:
+                pagination:
+                  entry: "Número de posts por página"
+                  template: "Número de templates por página"
+                recently_updated:
+                  show_dates: "Mostrar datas nas atualizações recentes?"
+                sidebar:
+                  sections: "Visão padrão para os links do menu"
+                login_to_new_entry: "Ir para 'novo post' após o login?"
+            
+            title: "Revisar dados importados"
+            these_are_items_found: "Estes são os templates, categorias, posts, substituições e opções encontrados no arquivo. Todos serão importados. Para evitar a importação de algum item, desmarque-o."
+            some_items_need_to_be_corrected: "<b>Atenção!</b> Alguns itens devem ser corrigidos antes de serem importados. Veja mais informações abaixo."
+            some_items_conflict: "<b>Atenção!</b> Alguns itens estão em conflito com itens já existentes em seu diário. Você deve mudar alguns dados para importá-los."
+            only_show_invalid_items: "Mostrar somente os itens que precisam de correção"
+            only_show_conflicting_items: "Mostrar somente os itens que estão em conflito"
+            this_item_conflicts: "Este {{item}} está em conflito com um {{item}} já existente em seu diário. Você deve definir um novo {{attr}} para importá-lo."
+            compare_the_two: "Comparar os dois."
+            there_are_no_items: "Não há {{items}} no arquivo."
+            merge_config_options: "Adicione as configurações do jornal importado às minhas configurações."
+            merge_config_options_desc: "Por exemplo, se você definiu um template padrão 'main', mas no arquivo importado o padrão é 'plain', seu template padrão será alterado para 'plain'. Isto não irá afetar o título do seu diário, bem como opções de privacidade e idioma."
+
+          start:
+            no_file_given: "Você deve selecionar um arquivo para importar."
+            #no_zip_given: "Hmm, isso não parece ser um arquivo zip."
+            import_error_zip_error: "Não foi possível abrir o arquivo. Certifique-se de que é um arquivo zip válido."
+          
+          summary:
+            title: "Sumário dos dados importados"
+            entries_and_pages: "Posts e páginas"
+            set_up_entries_password_notice: "Alguns posts importados são protegidos. Parece que você ainda não definiu uma senha para os posts. Vá para {{options_link}} e preencha o campo \"Locked Entry Password\", caso contrário todos poderão acessar seus posts protegidos!"
+            these_are_imported_items: "Estes são os templates, posts, substituições e opções encontrados no último arquivo importado, bem como o status do processo."
+            there_were_no_items: "Não há {{items}} no arquivo."
+            imported: "Importado"
+            new_name: "novo nome"
+            new_permaname: "novo permaname"
+            new_title: "novo título"
+            status: "Status" # no trans
+            could_not_be_imported: "Não pôde ser importado"
+            skipped: "Descartados"
+            these_options_were_merged: "Estas opções foram incorporadas às suas opções:"
+            options_not_imported: "Você escolheu não importar as opções do arquivo para seu diário."
+            return: "Retornar à importação"
+
+          importing_cancelled: "O processo de importação foi cancelado."
+          these_items_are_invalid: "Estes {{items}} são inválidos e devem ser corrigidos antes de serem importados:"
+          nothing: "Nada"
+
+        export:
+          title: "Baixar meu diário"
+
+          header: "Faça o download do seu diário"
+          instructions: "Você pode baixar seu diário em formato .zip para backup. Este arquivo incluirá todos os seus posts, templates e opções de configuração, mas não incluirá outras informações associadas com sua conta (como imagens enviadas para o Codexed Plus!, posts no fórum, etc)."
+          awaiting_export: "Recebemos sua solicitação para download do seu diário, mas {{count}} na sua frente na fila. Aguarde - processaremos seu pedido em breve!"
+          running1: "Estamos gerando uma cópia do seu diário."
+          running2_js: "Você pode acompanhar o progresso abaixo."
+          running2_nojs: "Isso pode levar até 15 minutos dependendo do tamanho do diário."
+          complete: "Terminamos de gerar a cópia do seu diário."
+          expires_in: "Você pode usar este link para {{time}}, depois você terá que gerar outra cópia."
+          expired:  "Apesar do link para download ainda estar disponível, o processo expirou e será apagado em breve. Por favor, gere uma nova cópia para fazer o download do arquivo."
+          error: "Um erro interno ocorreu enquanto seu jornal era exportado! Entre em contato para que possamos verificar."
+          download: "Download"
+          redownload: "Gere uma cópia atualizada"
+          cancel: "Cancelar exportaçã"
+          exporting_cancelled: "A exportação foi cancelada."
+          export_job_missing: "Parece que a última exportação ativa não existe mais. Faça uma nova exportação."
+
+        no_entries_exist: "Sem posts até o momento."
+
+      options:
+        title: "Opções"
+        help: "Ajuda"
+ 
+        tabs:
+          main: "Principal"
+          account: "Conta"
+          journal: "Diário"
+          formatting: "Formatação"
+          
+        reset_to_defaults: "Restaurar padrão"
+        confirm_reset_options: "Tem certeza que deseja restaurar as configurações padrão? Esta ação não pode ser desfeita."
+        options_saved: "Opções salvas com sucesso."
+        options_reset: "As opções foram restauradas com sucesso."
+        test_entry: "Post para teste"
+        save: "Salvar Opções" 
+        account_saved: "Opções da conta salvas com sucesso."
+        password_changed_no_login: "Senha modificada com sucesso."
+        time_format_cannot_be_blank: "Os formatos da data dos arquivo não podem ficar em branco."
+        
+        account:
+          unspecified_lang: "Não especificado / Outros"
+
+          profile:
+            member_profile: "Perfil"
+            info_shared_in: "This information is shared in the {{directory_link}}, unless your journal is private."
+            registered: "Registrado"
+            ancient: "No início dos tempos"
+            journal_language: "Idioma do diário"
+            list_me: "Listar meu diário no diretório e na lista de últimas atualizações."
+            save_profile: "Salvar perfil"
+
+          user:
+            registration_information: "Informações de Registro"
+            registration_information_instructions: "This information is only visible to you and the Codexed.com staff (except where specified, if you have opted-in)."
+            real_name: "Nome"
+            email_address: "E-mail"
+            birthday: "Aniversário"
+            list_birthday: "Deixe que os outros usuários vejam meu aniversário"
+            show_age: "&hellip; and how old I am"
+            gender: "Sexo"
+            male: "Masculino"
+            female: "Feminimo"
+            first_name: "Primeiro nome"
+            last_name: "Sobrenome"
+            country: "País"
+            save_registration: "Salvar informações de registro"
+          
+          remove_journal:
+            header: "Remover Seu Diário"
+            instructions: "Se desejar, remova seu diário e todas as informações de sua conta do Codexed.com. Isto apagará todo o diário e informações pessoais do Codexed, mas deixará algumas outras coisas, como posts no fórum."
+            instructions2: "Esta operação é permanente e não pode ser desfeita."
+            enter_password: "Insira a senha para {{username}}:"
+            button_text: "Remover Diário"
+            incorrect_password: "Senha incorreta."
+        
+        email:
+          email_placeholder: "Aqui ficarão as opções de e-mail."
+          email_preferences: "Preferências de E-mail"
+          forward_my_email: "Encaminhar meus e-mails para meu endereço ({{email}})"
+          change_email_link: "Acesse {{options_link}} para mudar o endereço de sua conta."
+          profile_options: "Opções de perfil"
+          reject_email: "Rejeitar todos os e-mails enviados para {{username}}@codexed.com"
+          communication_preferences: "Preferências de Comunicação"
+          send_official_emails: "Desejo receber notícias e atualizações do Codexed por e-mail."
+
+        main:
+          site_preferences: "Configurações do Codexed.com"
+          site_preferences_instructions: "Defina como deseja interagir com o site."
+          my_language: "Idioma do site"
+          language_instructions: "Especifica o idioma do site, e não irá afetar o conteúdo do diário. Para mudar o idioma do diário, vá até a opção {{profile_link}}" # Profile
+          language_instructions_link_text: "Conta"
+          my_timezone: "Meu fuso horário"
+          timezone_instructions: "O fuso horário / horário de verão serão detectados automaticamente, não é necessário definir"
+          default_page: "Depois de entrar, abrir"
+          dashboard: "Painel"
+          new_entry: "Criar novo post"
+          other_options: "Minhas Preferências"
+          section_display: "Visualização padrão do menu"
+          section_display_js_note: "Note que as duas primeiras opções funcionam somente com Javascript ativado."
+          disable: "Desativar"
+          collapse_all: "Recolher todos"
+          expand_active: "Expandir seção atual"
+          expand_all: "Expandir todos"
+          show_dates: "Mostrar data e hora na lista de últimas atualizações?"
+  
+        formatting:
+          formatting: "Formatação do post"
+          convert_line_breaks: "Converter quebras de linha em tags HTML:"
+          br_after_every_line: "Inserir &lt;br/&gt; depois de cada linha"
+          wrap_text_blocks: "Separar os parágrafos com quebras de linha duplas em &lt;p&gt;..&lt;/p&gt;"
+          leave_breaks_alone: "Não mexa nas minhas quebras de linha!"
+          enable_inline_formatting: "Habilitar formatação automática"
+          enable_inline_formatting_desc: "Isto irá substituir **negrito** por <b>negrito</b>, \\\\itálico\\\\ por <i>itálico</i>, e __sublinhado__ por <u>sublinhado</u>."
+          enable_smart_quotes: "Habilitar aspas inteligentes"
+          enable_smart_quotes_desc: "Isto irá substituir aspas normais por aspas inglesas, dois hífens por um travessão, e três pontos por reticências."
+          add_this_color_to_parens: "Adicionar esta cor aos parênteses:"
+          add_this_color_to_parens_desc: "(<b>Exemplo:</b> #FFFFFF, #CCC, ccc, blue)"
+          apply_this_class_to_parens: "Aplicar esta classe CSS aos parênteses:"
+          leave_parens_alone: "Não mexa nos meus parênteses!"
+          entry_lists: "Arquivo &amp; Formatação da lista de posts"
+          archive_format: "Formato do arquivo"
+          archive_format_desc: "Subs permitidas: [time], [url], [title], [link&nbsp;(...)], [locked], [lock_icon]"
+          archive_format_preview: "Visualizar formato do arquivo"
+          archive_format_live_preview: "Visualizar formato do arquivo atual"
+          lockicon_desc: "Mostrar {{image}} em vez de uma bolinha para posts protegidos."
+          split_archive_format: "Formatação do arquivo por data"
+          split_formatting_desc: "Aqui você pode especificar os formatos de data (similar a [time]) para os arquivos."
+          format: "Formatar"
+          preview: "Visualizar"
+          year_only: "Somente o ano"
+          year_month: "Ano e mês"
+          full_date: "Data completa"
+
+        journal:
+          journal_settings: "Configurações do Diário"
+          privacy_settings: "Configurações de privacidade"
+          journal_privacy: "Privacidade"
+          journal_password: "Senha"
+          public: "Público"
+          protected: "Protegido por senha"
+          private: "Privado"
+          locked_entry_password: "Senha para posts protegidos"
+          locked_entry_text: "Texto para posts protegidos"
+          locked_entry_text_instructions: "Deixe em branco para usar a mensagem padrão.<br />HTML é permitido."
+          default_entry_privacy: "Privacidade padrão"
+          password_already_set: "Senha já definida."
+          change_journal_password: "Mudar"
+          journal_defaults: "Padrões do Diário"
+          default_template: "Template padrão"
+          start_page: "Página inicial"
+          view_journal_as_guest: "Visualizar meu diário como visitante"
+          view_journal_as_guest_instr: "para testar as opções de privacidade"
+          feeds: "Feeds"
+          your_feed_key: "Sua chave"
+          your_private_feed_url: "Sua url do feed privado"
+          regenerate_feed_key: "Gerar nova chave"
+          feed_key_regenerated: "Chave gerada com sucesso."
+          feeds_help: "O Codexed fornece dois feeds que você pode compartilhar publicamente. O primeiro permite que sejam lidos os posts abertos, mas não os privados ou protegidos por senha. Chamamos isso de feed <i>público</i>. O segundo permite a leitura de posts públicos e protegidos por senha (ocultando os posts privados). Chamamos isso de feed <i>privado</i>. O acesso ao feed privado é feito através de uma chave. Como você pode ver, a chave é uma sequência de caracteres que aparecem no final da url do feed privado e é gerada randomicamente, para evitar que possa ser adivinhada. As pessoas que receberem esta url não precisam usar uma senha; no entanto, os riscos em relação à segurança são os mesmos de uma senha. Não há como evitar que posts específicos fiquem ocultos no feed privado, a menos que fiquem totalmente ocultos em seu diário, portanto selecione com cuidado as pessoas com quem você compartilha esta url. Se descobrir que alguém teve acesso a esta url sem seu conhecimento, é possível gerar um novo código acima. Isto evitará que novos posts apareçam no feed privado, exigindo que os assinantes do feed contatem você para obter a nova url."
+
+          readers:
+            journal_protection_level: "Nível de proteção do diário"
+            journal_protection_level_instructions: "Você pode trancar seu diário para impedir que outras pessoas o leiam."
+            journal_protection_level_O: "Qualquer pessoa pode ler seu diário."
+            journal_protection_level_R: "Somente os usuários adicionados abaixo podem ler seu diário."
+            set_protection_level: "Definir nível de proteção"
+            manage_readers: "Editar seus leitores"
+            manage_readers_instructions: "Estes são os leitores que tem permissão para ler seu diário no modo privado."
+            reader_name: "Nome do leitor"
+            reader_password: "Senha do leitor"
+
+      prefabs:
+        template_set_as_default: "Template <b>{{name}}</b> foi definido como padrão."
+        
+        change_color:
+          choose_color_for: "Seleção de cor: {{desc}}"
+          choose_std_color: "Escolha uma cor:"
+          or_input_color: "Ou, insira o código HTML da cor:"
+          change_color_button: "Mudar cor"
+          
+        convert:
+          canceled: "Conversão do template pré-definido <b>{{name}}</b> cancelada."
+          succeeded: "Template pré-definido <b>{{name}}</b> convertido com sucesso em um template personalizado."
+          missing_prefab_to_convert: "O template pré-definido que você tentou converter não existe mais!"
+          instructions: "Ao converter um template pré-definido para personalizado, você ganha controle total sobre o código, o que permite qualquer mudança desejada. A conversão irá criar um novo template customizado, também chamado <b>{{name}}</b>, mas irá remover o pré-definido."
+          instructions2: "A conversão de um template irá manter todas as opções pré-definidas, mas você não terá mais acesso ao formulário de opções deste template (as opções podem ser modificadas através do código do template)."
+
+        create:
+          new_prefab_canceled: "Novo template pré-definido foi cancelado."
+          prefab_created: "Template pré-definido <b>{{name}}</b> criado com sucesso."
+          
+        delete:
+          title: "Confirmar exclusão de Prefab"
+          confirm_delete: "Tem certeza que deseja apagar o prefab <b>{{prefab}}</b>?"
+        
+        destroy:
+          template_deleted: "Template pré-definido <b>{{name}}</b> apagado com sucesso."
+          default_template_deleted: "O template pré-definido foi apagado, e todos posts que o utilizam foram modificados para <b>&lt;use default&gt;</b>."
+          fallback_template_restored: "Como você apagou seu último template, seu diário irá utilizar o template existente no momento do seu registro."
+
+        form:
+          prefab_name: "Template"
+          no_prefab_customization: "Este template pré-definido não tem opções de customização."
+          colors: "Cores"
+          default_color: "Cores padrão"
+          change_color: "Mudar"
+          prefab_save: "Salvar"
+          font_options: "Fontes"
+          text_options: "Variáveis dos templates pré-definidos"
+
+        list:
+          choose_prefab_instructions: "Selecione o template pré-definido que deseja instalar:"
+          description: "Descrição"
+          creator: "Criado por"
+          no_prefabs_available: "Não há templates pré-definidos disponíveis no momento."
+          setup_options: "Editar opções dos templates pré-definidos"
+          loading: "Carregando..."
+          preview_template: "Visualizar este template pré-definido."
+          sort_by: "Organizar por"
+          name: "Nome"
+          newest: "Mais novo"
+          popularity: "Popularidade"
+          
+        update:
+          prefab_updated: "Template pré-definido <b>{{name}}</b> atualizado com sucesso."
+          changes_to_prefab_not_saved: "Mudanças no template pré-definido <b>{{name}}</b> não foram salvas."
+        
+        prefabs: "Pré-definidos"
+        custom: "Templates Personalizados"
+        create_new_prefab: "Configurar um novo template pré-definido"
+        editing_prefab: "Editando o template pré-definido"
+
+      templates:
+        title: "Templates" 
+        tpl: "Template" 
+        prefabs: "Pré-definidos"
+        custom: "Templates Personalizados"
+
+        template_not_found: "Não foi possível encontrar o template chamado <b>{{name}}</b>"
+        template_set_as_default: "Template <b>{{name}}</b> foi definido como padrão."
+        template_name_truncated: "O nome do template deve ter no máximo 40 caracteres.<br />O nome do seu template foi reduzido para <b>{{name}}</b>."
+  
+        create:
+          new_template_canceled: "Novo template foi cancelado."
+          template_created: "Template <b>{{name}}</b> criado com sucesso."
+
+        delete:
+          title: "Confirmar exclusão de template customizado"
+          confirm_delete: "Tem certeza que deseja apagar o template customizado <b>{{template}}</b>?"
+
+        destroy:
+          template_deleted: "Template <b>{{name}}</b> apagado com sucesso."
+          default_template_deleted: "O template pré-definido foi apagado, e todos posts que o utilizam foram modificados para <b>&lt;use default&gt;</b>."
+          fallback_template_restored: "Como você apagou seu último template, seu diário irá utilizar o template existente no momento do seu registro."
+        
+        form:
+          create_new_template: "Criar um novo template"
+          editing_template: "Editar template"
+          content: "Conteúdo"
+          available_substitutions: "Substituições disponíveis"
+          get_help_with_templates: "Ajuda com templates"
+          get_help_template_subs: "Substituições para Templates"
+          get_help_time_formats: "Formatos de data e hora"
+          make_template_default: "Selecionar como template padrão"
+          this_is_default_template: "Este é o template padrão para este diário."
+          
+        index:
+          no_templates: "Você não tem nenhum template customizado definido."
+          no_prefabs: "Você não tem nenhum template pré-definido pronto."
+          last_updated: "Última Atualização"
+          confirm_delete_template: "Tem certeza que deseja apagar este template?"
+          confirm_delete_prefab: "Tem certeza que deseja apagar este prefab?"
+          add_new_template: "Adicionar novo template"
+          add_new_prefab: "Criar template pré-definido"
+          original_prefab: "Nome"
+          convert_prefab: "Converter este prefab"
+          delete_template: "Apagar este template"
+          preview_template: "Visualizar este template."
+          default_template: "Este é seu template padrão."
+
+        update:
+          changes_to_template_not_saved: "Mudanças no template <b>{{name}}</b> não foram salvas."
+          template_updated: "Template <b>{{name}}</b> atualizado com sucesso."
+
+      substitutions:
+        title: "Substituições"
+
+        index:
+          sub_already_defined: "A substituição <b>[{{sub}}]</b> já foi definida. A substituição não foi salva."
+          substitutions_saved: "As substituições foram salvas com sucesso."
+          add_sub: "Adicionar outra substituição"
+
+      user:
+        add_favorite:
+          invalid_user_id: "Usuário inválido."
+
+        destroy:
+          title: "Confirmar Exclusão de Usuário"
+          confirm_destroy_prompt: "Tem certeza de que quer remover seu diário? Só para confirmar, esta operação não pode ser desfeita..."
+          confirm_destroy_yes: "Sim, tenho certeza!"
+          confirm_destroy_no: "Não, mudei de idéia!"
+
+        login:
+          user_not_activated: "Você ainda não ativou sua conta. Verifique seu e-mail para ativação, ou {{link_text}}." # ...
+          resend_the_email: "<a href=\"/user/resend_activation_email\">reenvie o email</a>"
+          cookies_not_enabled: "Cookies must be enabled in order to be able to login to Codexed. If you do have cookies enabled, try refreshing the page."
+          invalid_username_or_password: "Usuário ou senha inválidos."
+          forgot_password: "Esqueceu sua senha?"
+          log_in: "Entrar"
+          no_account: "Não tem uma conta no Codexed?"
+          register_now: "Registre agora!"
+          login: "Entrar"
+
+        logout:
+          logged_out: "Você saiu do sistema."
+          
+        remove_favorite:
+          invalid_favorite: "Diário favorito inválido."
+
+  workers:
+    export:
+      writing_categories: "Escrevendo categorias"
+      writing_category_n: "Escrevendo category {{n}}/{{total}}: {{name}}"
+      writing_category_index: "Escrevendo índice de categorias"
+      writing_posts: "Escrevendo posts"
+      writing_post_n: "Escrevendo post {{n}}/{{total}}: {{title}}"
+      writing_post_index: "Escrevendo índice de posts"
+      writing_templates: "Escrevendo templates"
+      writing_template_n: "Escrevendo template {{n}}/{{total}}: {{name}}"
+      writing_template_index: "Escrevendo índice de templates"
+      writing_subs: "Escrevendo subs"
+      writing_sub_n: "Escrevendo sub {{n}}/{{total}}: {{name}}"
+      writing_sub_index: "Escrevendo índice de sub"
+      writing_options: "Escrevendo opções"
+      writing_html: "Escrevendo HTML"
+      writing_html_for_post: "Escrevendo HTML do post {{n}}/#{{total}}: #{{title}}"
+      writing_html_index: "Escrevendo index.html"
+      writing_html_for_name: "Escrevendo {{name}}.html"
+      writing_metadata: "Escrevendo metadata"
+
+    import:
+      extracting_to_temp_dir: "Extraindo para diretório temporário"
+      index_existing_data: "Indexando dados existentes"
+      index_existing_template_n: "Indexando template existente {{n}}/{{total}}: {{name}}"
+      index_existing_post_n: "Indexando post existente {{n}}/{{total}}: {{title}}"
+      index_existing_sub_n: "Indexando sub existente {{n}}/{{total}}: {{name}}"
+      index_existing_category_n: "Indexando categoria existente {{n}}/{{total}}: {{name}}"
+      index_source_data: "Indexando fonte de dados"
+      index_source_template_n: "Indexando fonte do template {{n}}/{{total}}: {{name}}"
+      index_source_post_n: "Indexando fonte do post {{n}}/{{total}}: {{title}}"
+      index_source_sub_n: "Indexando fonte de sub {{n}}/{{total}}: {{name}}"
+      index_source_category_n: "Indexando fonte de categorias {{n}}/{{total}}: {{name}}"
+      index_source_options: "Indexando fonte de opções"
+      sort_source_data: "Organizando fonte de dados"
+      sort_templates: "Organizando templates"
+      sort_posts: "Organizando posts"
+      sort_subs: "Organizando subs"
+      verify_source_data: "Verificando fonte de dados"
+      validate_data: "Validando_dados"
+      validating_item: "Validando {{item}} {{n}}/{{total}}: {{name}}"
+      import_data: "Importando dados"
+      importing_item: "Importando {{item}} {{n}}/{{total}}: {{name}}"
+      import_options: "Importação de opções" 
+
+  mailer:
+    cdx: "[cdx]"
+    user_activation:
+      subject: "Instruções para ativar sua conta"
+    forgot_password:
+      subject: "Instruções para redefinir sua senha"
+
+  activerecord:
+    errors:
+      messages:
+        accepted: "deve ser aceito"
+        all_blank: "{{other_attrs}} não pode {{quantifier}} ser deixado em branco"
+        blank: "não pode ser deixado em branco"
+        confirmation: "não é igual à confirmação"
+        email: "deve ser um endereço real (confira o que foi digitado!)"
+        empty: "não pode ser deixado em branco"
+        equal_to: "deve ser igual a {{value}}"
+        even: "deve ser igual"
+        exclusion: "está reservado"
+        greater_than: "deve ser maior que {{count}}"
+        greater_than_or_equal_to: "deve ser maior ou igual a {{count}}"
+        inclusion: "não está incluso na lista"
+        invalid: "é inválido"
+        less_than: "deve ser menor que {{count}}"
+        less_than_or_equal_to: "deve ser menor ou igual a {{count}}"
+        no_match: "não é igual a {{value}}"
+        not_a_date: "não é uma data válida"
+        not_a_number: "não é um número"
+        odd: "deve ser ímpar"
+        reserved: "está reservado"
+        taken: "não está disponível"
+        too_long: "é muito longo (máximo de {{count}} caracteres)"
+        too_short: "é muito curto (mínimo de {{count}} caracteres)"
+        wrong_length: "tem o tamanho errado (deve ter {{count}} caracteres)"
+
+      models:
+        category:
+          cannot_be_child_of_descendant: "Uma categoria não pode ser movida abaixo de uma de suas subcategorias"
+          cannot_be_child_of_self: "Uma categoria não pode ser sua própria categoria principal"
+          given_parent_is_invalid: "A categoria especificada é inválida"
+          taken: "já foi selecionado nesta lista de categorias"
+        journal:
+          password_required: "não pode ser deixado em branco quando o diário é protegido por senha"
+        post:
+          unique_permaname_e: "já está em uso em outro post com a mesma data"
+          unique_permaname_p: "já está em uso em outro post especial"
+        tag:
+          invalid: "não pode conter vírgulas ou começar com dois ou menos pontos."
+        sub:
+          bad_chars: "deve conter somente caracteres alfanuméricos e hífen"
+          already_used: "foi utilizado mais de uma vez"
+        user:
+          invitation_code_email_mismatch: "não é igual ao endereço usado no pedido do convite"
+          invitation_code_already_used:
+          invitation_code_isnt_real: "não é real"
+          username_valid_chars: "deve conter somente carateres alfanuméricos, underlines ou hífens"
+          username_min_alnum: "deve conter pelo menos três caracteres alfanuméricos"
+          acceptance_of_prerelease_tos: "Você deve aceitar os Termos de Serviço de pré-lançamento"
+          acceptance_of_tos: "Você deve aceitar os Termos de Serviço"
+        user_favorite:
+          exists: "já foi adicionado à lista de favoritos"
+          no_self_add: "Não é possível adicionar você mesmo à lista de favoritos"
+
+      template:
+        header:
+          one: "1 erro não permitiu que {{model}} seja salvo" 
+          other: "{{count}} erros permitiu que {{model}} seja salvo" 
+          subs:
+            one: "1 erro não permitiu que suas substituições sejam salvas"
+            other: "{{count}} erros não permitiu que suas substituições sejam salvas"
+          profile:
+            one: "1 erro não permitiu que seu perfil seja salvo"
+            other: "{{count}} erros não permitiu que seu perfil seja salvo"
+        # The variable :count is also available
+        body: "Existem problemas nos campos a seguir:"
+        subs_body: "Existem problemas nas substituições a seguir:"
+
+    models:
+      entry:
+        one: "Post"
+        other: "Posts"
+      template:
+        one: "Template" 
+        other: "Templates"
+      date_and_time: "Data/Hora"
+      birthday: "Aniversário"
+
+    attributes:
+      category:
+        parent_id:
+          one: ""
+        slug: "Permaname"
+        existing_name: "Nome existente"
+        import_name: "Importar nome"
+      entry:
+        day: "Dia"
+        month: "Mês"
+        year: "Ano"
+        hour: "Hora"
+        minute: "Minuto"
+        second: "Segundo"
+      journal:
+        entries_password: "Locked Entry Password"
+        journal_password: "Locked Journal Password"
+      tag:
+        name: "Tag"
+      template:
+        name: "Nome"
+      user:
+        invitation_code_name: "Convite"
+        first_name: "Primeiro nome"
+        email: "E-mail"
+        username: "Usuário"
+        password: "Senha"
+        tos: ""
+        prerelease_tos: ""
+        
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+    percentage:
+      format:
+        # separator: 
+        delimiter: ""
+        # precision: 
+    ordinals:
+      other: "%dº"
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+    human:
+      format:
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d de %B"
+      short_word: "%e %b %y"
+      long: "%d de %B de %Y"
+      only_day: "%d"
+    
+    day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
+    abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
+    month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
+    abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
+    order: [:day, :month, :year]
+  
+  time:
+    formats:
+      default: "%d/%m/%Y %I:%M %p"
+      time: "%H:%M hs"
+      short: "%d/%m, %H:%M hs"
+      short_word: "%e %b %Y"
+      long: "%A, %d de %B de %Y, %H:%M hs"
+      only_second: "%S"
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+    am: "AM"
+    pm: "PM"
+    
+  datetime:
+    distance_in_words:
+      about: "cerca de" # ... 5 seconds, or whatever
+      half_a_minute: "meio minuto"
+      less_than_x_seconds:
+        one:   "menos de um segundo"
+        other: "menos de {{count}} segundos"
+      x_seconds:
+        one:   "1 second"
+        other: "{{count}} seconds"
+      less_than_x_minutes:
+        one:   "menos de um minuto"
+        other: "menos de {{count}} minutos"
+      x_minutes:
+        one:   "1 minuto"
+        other: "{{count}} minutos"
+      about_x_hours:
+        one:   "cerca de uma hora"
+        other: "cerca de {{count}} horas"
+      x_hours:
+        one:   "uma hora"
+        other: "{{count}} horas"
+      x_days:
+        one:   "1 dia"
+        other: "{{count}} dias"
+      about_x_months:
+        one:   "cerca de 1 mês"
+        other: "cerca de {{count}} meses"
+      x_months:
+        one:   "1 mês"
+        other: "{{count}} meses"
+      about_x_years:
+        one:   "cerca de 1 ano"
+        other: "cerca de {{count}} anos"
+      over_x_years:
+        one:   "mais de 1 ano"
+        other: "mais de {{count}} anos"
+    prompts:
+      year:   "Ano"
+      month:  "Mês"
+      day:    "Dia"
+      hour:   "Hora"
+      minute: "Minuto"
+      second: "Seconds"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " e "
+      last_word_connector: ", e "

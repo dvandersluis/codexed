@@ -1,0 +1,15 @@
+- t_scope 'controllers.admin.journal.import' do
+  .tcenter.lightfill.padded
+    - form_tag({ :controller => 'admin/journal/import', :action => 'start' }, :multipart => true, :style => "display: inline") do
+      %p= file_field_tag 'file', :size => 50
+      %table.form.center{ :style => "width: 80%"}
+        %tr
+          %td.checkbox
+            = check_box_tag 'options[is_nonenglish]', 1
+            = hidden_field_tag 'options[is_nonenglish]', 0
+          %td
+            - label_tag 'options[is_nonenglish]' do
+              = t(:journal_imported_is_nonenglish, :wiki_link => link_to(t(:latin_alphabet), t(:latin_alphabet_wikilink)))
+              %br/
+              %span.option_desc= t(:journal_imported_is_nonenglish_desc)
+      %p= submit_tag "#{t(:button_text)} &raquo;"

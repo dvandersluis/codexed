@@ -1,0 +1,39 @@
+- add_to_javascripts 'restful_destroy'
+
+- t_scope 'controllers.admin.templates.index' do
+  - title t(:title)
+
+  - add_to_stylesheets 'tabs'
+
+  #tabs_header
+    %ul{ :style => "float: left; width: 400px"}
+      - @selectable_views.each do |name, type, url|
+        - current = (type == @type)
+        - if current
+          %li= content_tag(:span, name.titleize)
+        - else
+          %li= link_to(name.titleize, url)
+    - form_tag({:action => 'index'}, :method => "get", :style => "float: right; padding-right: 25px; display: inline; margin: 0") do
+      == #{t('models.template.other')} #{t(:per_page, :scope => 'general.pagination')}:
+      = text_field_tag 'per_page', @per_page, {:size => 2} 
+      = submit_tag t(:show), :name => nil
+
+  %div#tabs_content
+    %div#tabs_content_inner
+      = message_divs
+      - if @templates.empty?
+        - if @type == 'p'
+          = message_div_for :notice, t(:no_prefabs)
+        - else
+          = message_div_for :notice, t(:no_templates)
+      - else
+        %table.listing.stretch
+          %tr
+            %th{ :style => "width: 16px" }
+            %th= t(:name)
+            - if @type == 'p' or @type == 'all'
+              %th= t(:original_prefab)
+            %th{ :style => "width: 170px" }
+              = t(:last_updated)
+            %th{ :style => "width: 80px" }
+          = render :partial => "admin/templates/template_list", :locals => { :templates => @templates }

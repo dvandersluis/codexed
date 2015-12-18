@@ -1,0 +1,96 @@
+-------------------------------------------------------------------------------------------
+user_auth
+-- Yet another plugin for Ruby on Rails that implements user registration/authentication logic
+Author: Elliot Winkler <elliot.winkler@gmail.com>
+Created: Feb 2008
+------------------------------------------------------------------------------------------
+
+
+
+****** TODO: Update me!! ******
+
+
+
+USAGE
+
+Simply add the following to your user model:
+
+  include UserAuth
+  
+then, to make sure that non-logged-in users are prevented from accessing protected areas,
+add this to your top-level controller:
+
+  before_filter {|c| authorize_or_goto(URL_FOR_OPTIONS) }
+    
+where URL_FOR_OPTIONS is something like { :controller => 'user', :action => 'login' }.
+
+EXAMPLE
+
+  # Migration
+
+  class AddUsersTable < ActiveRecord::Migration
+    def self.up
+      create_table :users do |t|
+        t.integer :id,                             :null => false
+        t.string :username,         :limit => 50,  :null => false
+        t.string :crypted_password, :limit => 255, :null => false
+        t.string :salt,             :limit => 255, :null => false
+        t.string :mnemonic          :limit => 255, :null => true
+      end
+    end
+    def self.down
+      drop_table :users
+    end
+  end
+  
+  # Model
+
+  class User < ActiveRecord::Base
+    include UserAuth     # will add validations and everything
+  end
+  
+  class Admin::BaseController < ApplicationController 
+    before_filter :authorize
+  private
+    def authorize() authorize_or_goto(:controller => 'user', :action => 'login') end
+  end
+  
+  # Controllers
+  
+  class Admin::MainController < Admin::BaseController
+    def index
+    end
+  end
+  
+  class Admin::UserController < Admin::BaseController
+    before_filter :authorize, :except => [ :login, :logout ]
+    def login
+      if logged_in?
+        redirect_to_back_or_default(:controller => 'main', :action => 'index')
+        return
+      end
+      if request.post?
+        if user = User.authenticate(params[:username], params[:password])
+          self.current_user = user
+          if logged_in?
+            redirect_to_back_or_default(:controller => 'main', :action => 'index')
+            return
+          else
+            raise "Couldn't log in: User cookie isn't being stored correctly"
+          end
+        else
+          flash[:notice] = "Invalid username or password."
+        end
+        redirect_to(:action => 'login')
+        return
+      end
+      render :layout => 'blank'
+    end
+    def logout
+      forget_user(current_user)
+      flash[:notice] = "You have been logged out."
+      redirect_to(:action => 'login')
+    end
+  end
+  
+  # (Presumably you can fill in the views)

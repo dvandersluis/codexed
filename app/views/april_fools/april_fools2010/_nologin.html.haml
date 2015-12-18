@@ -1,0 +1,188 @@
+%style{ :type => 'text/css' }
+  :plain
+    body { font-family: arial,sans-serif; background-color: #fff; margin-top: 2; }
+    .c { width: 4; height: 4; } 
+    a:link { color: #00c; } 
+    a:visited { color: #551a8b; }
+    a:active { color: #f00; }
+    .form-noindent { background-color: #fff; border: 1px solid #c3d9ff; }
+    .gaia.le.lbl { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.fpwd { font-family: Arial, Helvetica, sans-serif; font-size: 70%; }
+    .gaia.le.chusr { font-family: Arial, Helvetica, sans-serif; font-size: 70%; }
+    .gaia.le.val { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.button { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.rem { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+     
+    .gaia.captchahtml.desc { font-family: arial, sans-serif; font-size: smaller; } 
+    .gaia.captchahtml.cmt { font-family: arial, sans-serif; font-size: smaller; font-style: italic; }
+      
+    body {
+      font-family: arial, sans-serif;
+      margin: 0;
+      padding: 13px 15px 15px;
+      
+    }
+    .body { margin: 0; }
+    div.errorbox-good {}
+    div.errorbox-bad {} 
+    div.errormsg { color: red; font-size: smaller; font-family: arial,sans-serif;}
+    font.errormsg { color: red; font-size: smaller; font-family: arial,sans-serif;}
+    
+    div.topbar {
+      font-size:smaller;
+      margin-right: -5px;
+      text-align:right;
+      white-space:nowrap;
+    }
+    div.header {
+      margin-bottom: 9px;
+      margin-left: -2px;
+      position:relative;
+      zoom: 1
+    }
+    div.header img.logo {
+      border: 0;
+      float:left;
+    }
+    div.header div.headercontent {
+      float:right;
+      margin-top:17px;
+    }
+    div.header:after{
+      content:".";
+      display:block;
+      height:0;
+      clear:both;
+      visibility:hidden;
+    }
+    div.pagetitle {
+      font-weight:bold;
+    }
+    
+    .footer { 
+      color: #666;
+      font-size: smaller;
+      margin-top: 40px;
+      text-align: center;
+    }
+    
+    table#signupform {
+      left: -5px;
+      top: -7px;
+      position:relative;
+    }
+    table#signupform td{
+      padding: 7px 5px;
+    }
+    table#signupform td table td{
+      padding: 1px;
+    }
+ 
+    hr {
+      border: 0;
+      background-color:#DDDDDD;
+      height: 1px;
+      width: 100%;
+      text-align: left;
+      margin: 5px;
+    }
+
+    div.errormsg { color: red; font-size: smaller; font-family:arial,sans-serif; }
+    font.errormsg { color: red; font-size: smaller; font-family:arial,sans-serif; }  
+
+    .gaia.le.lbl { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.fpwd { font-family: Arial, Helvetica, sans-serif; font-size: 70%; }
+    .gaia.le.chusr { font-family: Arial, Helvetica, sans-serif; font-size: 70%; }
+    .gaia.le.val { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.button { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+    .gaia.le.rem { font-family: Arial, Helvetica, sans-serif; font-size: smaller; }
+     
+    .gaia.captchahtml.desc { font-family: arial, sans-serif; font-size: smaller; } 
+    .gaia.captchahtml.cmt { font-family: arial, sans-serif; font-size: smaller; font-style: italic; }
+
+    .btn {
+    background-image: url(http://www.google.com/accounts/reader/btn_middle.gif);
+    background-repeat: repeat-x;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    }
+    .btn a,
+    .btn a:visited {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    }
+
+%div.maincontent{ :style => "overflow: auto;" }
+  %table{ :border => 0, :width => "100%", :cellpadding => 0, :cellspacing => 0 }
+    %tr
+      %td{ :width => "75%", :valign => "top" }
+        = yield
+      %td{ :style => "padding-left: 10px;", :valign => "top", :align => "center" }
+        %div#rhs
+          %div#rhs_login_signup_box
+            - form_for User.new, :url => { :controller => 'admin/user', :action => 'login' } do |f|
+              %div#gaia_loginbox
+                %table.form-noindent{ :cellspacing => 3, :cellpadding => 5, :width => "100%", :border => 0 }
+                  %tr
+                    %td{ :valign => "top", :style => "text-align: center", :nowrap => "nowrap", :bgcolor => "#E8EEFA" }
+                      %div.loginBox
+                        %table#gaia_table{ :align => "center", :border => 0, :cellpadding => 1, :cellspacing => 0 }
+                          %tr
+                            %td{ :colspan => 2, :align => "center" }
+                              %span{ :style => "font-size: -1" }Sign in to Google Writer with your
+                              %table
+                                %tr
+                                  %td{ :valign => "middle" }
+                                    %font{ :size => "+0" }
+                                      %b
+                                        %span{ :style => 'font-family: Georgia,Times,"Times New Roman",serif; font-style: italic;' }
+                                          <span style="color: #E73C21">C</span><span style="color: #39BA42">o</span><span style="color: #3971DE">d</span><span style="color: #EFBA00">e</span><span style="color: #39BA42">x</span><span style="color: #3971DE">e</span><span style="color: #E73C21">d</span>
+                                        Account
+                          %tr
+                            %td{ :colspan => 2, :align => "center" }
+                          %tr#email-row
+                            %td{ :nowrap => "nowrap" }
+                              %div{ :align => "right" }
+                                %span.gaia.le.lbl Username:
+                            %td
+                              = f.text_field :username, :size => 18, :class => "gaia le val"
+                          %tr
+                            %td
+                            %td{ :align => "left" }
+                          %tr.enabled#password-row
+                            %td{ :align => "right", :nowrap => "nowrap" }
+                              %span.gaia.le.lbl Password:
+                            %td
+                              = f.password_field :password, :size => 18, :class => "gaia le val"
+                          %tr
+                            %td
+                            %td{ :align => "left" }
+                          %tr.enabled#rememberme-row
+                            %td{ :colspan => 2, :align => "center", :valign => "top" }
+                              = f.check_box :persistent, :checked => true
+                              %label.gaia.le.rem{ :for => "persistent" } Stay signed in
+                          %tr
+                            %td
+                            %td{ :align => "left" }
+                              = submit_tag "Sign in", :class => "gaia le button" 
+                          %tr#ga-fprow
+                            %td.gaia.le.fpwd{ :colspan => 2, :height => "33.0", :align => "center", :valign => "bottom" }
+                              = link_to "Can't access your account?", :controller => '/user', :action => 'forgot_password'
+
+            %br/
+
+            %table.form-noindent{ :border => 0, :cellpadding => 6, :cellspacing => 3, :width => "100%" }
+              %tr
+                %td{ :bgcolor => "#E8EEFA", :align => "center", :style => "font-size: 93%" }
+                  %table{ :border => 0, :cellpadding => 0, :cellspacing => 0 }
+                    %tr
+                      %td
+                        %img{ :border => 0, :src => "http://www.google.com/accounts/reader/btn_left.gif", :width => 8, :height => 40 }
+                      %td.btn
+                        = link_to "Create an account", :controller => 'user/signup', :action => 'index'
+                      %td
+                        %img{ :border => 0, :src => "http://www.google.com/accounts/reader/btn_right.gif", :width => 8, :height => 40 }
+                        
+          %br/

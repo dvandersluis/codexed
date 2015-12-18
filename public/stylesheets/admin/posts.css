@@ -1,0 +1,24 @@
+tr.datetime_descs > td {
+  font-size: 70%;
+  text-align: center; }
+
+table.form.stretch input[type=text], table.form.stretch input[type=password], table.form.stretch textarea {
+  width: 95%;
+  max-width: 792px; }
+table.form.stretch #entry_category_ids {
+  width: 95%;
+  max-width: 800px; }
+
+#more_fields_toggler {
+  background: #EFEFEF no-repeat 8px center;
+  font-weight: bold;
+  padding: 2px 22px 3px;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  color: #333;
+  margin: 1em 0;
+  cursor: pointer; }
+  #more_fields_toggler.open {
+    background-image: url(/images/icons/triangle_open.gif); }
+  #more_fields_toggler.closed {
+    background-image: url(/images/icons/triangle_closed.gif); }

@@ -1,0 +1,40 @@
+%h3= @config.descriptions.vars.andand[:_] || t(:text_options)
+%table.form.stretch
+  - d = @config.descriptions.vars.include?(:_order) ? @config.descriptions.vars._order : @config.descriptions.vars
+  - d.each do |var, value|
+    - label = @config.descriptions.vars[var]
+    - if @config.descriptions.vars[var].is_a?(ConfigurationHash) 
+      - label, note, options, slider, multiple = @config.descriptions.vars[var].delete "_", "_note", "_options", "_slider", "_multiple"
+      - has_subfields = !@config.descriptions.vars[var].empty?
+    %tr
+      %th{ :style => 'vertical-align: top', :rowspan => note.nil? ? 1 : 2 }= label
+      %td{ :style => has_subfields ? 'padding-top: 0;' : '' }
+        - if has_subfields
+          %table{ :style => 'width: 100%; margin-top: 0;' }
+            - multiple = !multiple.nil?
+            - group = multiple ? @config.customization.vars[var] + [{}] : [@config.customization.vars[var]]
+            = render :partial => "varlist", :collection => group, :locals => {:parent => var, :multiple => multiple}
+            - if multiple
+              %tr{ :id => "add_another_#{var}" }
+                %td{ :colspan => 2 }= link_to_remote(image_tag('icons/add.png') + " <b>#{@config.descriptions.vars[var]["_add"]}</b>", :url => { |
+                  :action => :add_varlist_row,      |
+                  :before => "add_another_#{var}",  |
+                  :name => @prefab.prefab_name,     |
+                  :parent => var,                   |
+                  :multiple => multiple             |
+                })                                  |
+        - else
+          - if !multiple.nil?
+            Multiple select 
+          - elsif !options.nil?
+            - if !slider.nil?
+              = select_driven_slider_tag "config[customization][vars][#{var.to_s}]", options, @config.customization.vars[var], slider.merge({ "labelValue" => "value + '%'" })
+            - else
+              = select_tag "config[customization][vars][#{var.to_s}]", options_for_select(options, @config.customization.vars[var])
+          - else
+            = text_field_tag "config[customization][vars][#{var.to_s}]", @config.customization.vars[var], :size => 30
+
+    - unless note.nil?
+      %tr
+        %td
+          %span{ :style => 'font-style: italic' }= note

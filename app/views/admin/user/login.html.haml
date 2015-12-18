@@ -1,0 +1,28 @@
+- t_scope 'controllers.admin.user.login' do
+  %table
+    %tr
+      %td{ :style => "vertical-align: middle; text-align: center" }
+        #login.center
+          %h1= link_to( "codexed.", home_path, :class => 'plain' )
+          #box
+            = message_divs 
+          
+            - form_for User.new, :url => { :action => 'login' } do |f|
+              %table.form.center{ :cellspacing => 0 }
+                %tr
+                  %th
+                    == #{t('form.username')}:
+                  %td= f.text_field :username, :size => 20
+                %tr
+                  %th
+                    == #{t('form.password')}:
+                  %td= f.password_field :password, :size => 20
+                %tr
+                  %th
+                  %td{ :style => 'font-size: 80%' }
+                    = link_to t(:forgot_password), :controller => '/user', :action => 'forgot_password'
+              %p.center
+                = submit_tag t(:login)
+              %p.center
+                = t(:no_account)
+                = link_to t(:register_now), :controller => 'user/signup', :action => 'index'

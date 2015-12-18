@@ -1,0 +1,30 @@
+- t_scope "controllers.admin.journal.update_progress" do
+  - if job.pending?
+    - activity = t(:waiting_for_job_to_start)
+    - subactivity = ""
+    - box_attrs = { :style => "height: 63px; overflow: hidden" }
+    - progress_bar_bg_attrs = { :class => "animated" }
+    - progress_bar_fill_attrs = { :style => "width: 0" }
+    - subprogress_bar_attrs = { :style => "width: 0" }
+  - else
+    - activity = job.activity.blank? ? "" : job.activity
+    - subactivity = job.subactivity.blank? ? "" : job.subactivity
+    - box_attrs = {} #{ :style => "height: 150px" }
+    - progress_bar_bg_attrs = {}
+    - progress_bar_fill_attrs = { :class => "animated", :style => "width: #{job.progress_percentage}%" }
+    - subprogress_bar_attrs = { :style => "width: #{job.subprogress_percentage}%" }
+
+  #export_progress_box.job_progress_box{box_attrs}
+    #export_activity.job_activity= activity
+    #export_progress_bar_bg.job_progress_bar_bg{progress_bar_bg_attrs}
+      #export_progress_bar_fill.job_progress_bar_fill{progress_bar_fill_attrs}
+    #export_subactivity.job_activity= subactivity
+    #export_subprogress_bar_bg.job_progress_bar_bg
+      #export_subprogress_bar_fill.job_progress_bar_fill.animated{subprogress_bar_attrs}
+    #export_job_info.job_info
+      = render :partial => '/admin/journal/export/time_remaining', :locals => { :job => job }
+      
+  .tcenter.lightfill.padded
+    - form_tag({:controller => 'admin/journal/export', :action => 'cancel'}, :style => "display: inline") do
+      = submit_tag t(:cancel, :scope => "controllers.admin.journal.export")
+  

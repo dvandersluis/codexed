@@ -1,0 +1,29 @@
+- t_scope 'controllers.admin.options.email' do
+  - window_title t('tabs.email')
+
+  - tabbed(options_tabs) do
+    = message_divs
+    
+    - form_for :journal do |f|
+      %h3= t(:email_preferences)
+      %blockquote.tcenter.lightfill.padded
+        = t(:email_placeholder)
+    -#     %table.form
+    -#       %tr
+    -#         %td= f.radio_button :forward_emails, 1
+    -#         %th
+    -#           = t(:forward_my_email, :email => current_user.email)
+    -#           %br/
+    -#           %small= t(:change_email_link, :options_link => link_to("#{t(:profile_options)}", :action => 'profile'}
+    -#       %tr
+    -#         %td= f.radio_button :forward_emails, 0
+    -#         %th= t(:reject_email, :username => current_user.username)
+    -#   
+    -#   %h3= t(:communication_preferences)
+    -#   %blockquote
+    -#     %table.form
+    -#       %tr
+    -#         %td= f.check_box :send_official_emails
+    -#         %th= t(:send_official_emails) 
+    -#         
+    -#   %p.center= submit_tag "#{t(:save)} &raquo;"

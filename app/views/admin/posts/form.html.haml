@@ -1,0 +1,134 @@
+- add_to_javascripts "cancel_event", "form_helper", "permaname_generator", "multiselect"
+- add_to_stylesheets "multiselect"
+- include_facebox
+
+:style
+  .form
+    th, td
+      padding-top: 3px
+      padding-bottom: 3px
+
+  table#post_category_ids_table
+    width: 95%
+    border-collapse: collapse
+    border-top: 1px solid #AAA
+    border-left: 1px solid #AAA
+    border-bottom: 1px solid #DDD
+    border-right: 1px solid #DDD
+    margin-left: 1px
+
+    tbody
+      display: block
+      overflow: auto
+      max-height: 156px
+      width: 100%
+
+      tr
+        display: block
+        width: 100%
+        border-bottom: 1px solid #F0F0F0
+        
+        &:last-child
+          border-bottom: 0
+
+        &:hover
+          background-color: #BBCEF1
+
+  #facebox
+    .body
+      width: 475px
+    
+- t_scope 'controllers.admin.posts.form' do
+  :javascript
+    var new_record = #{@post.new_record? ? 'true' : 'false'};
+    var permaname_length = #{Post.permaname_length};
+    var tags_fetch_file = '#{url_for(:controller => 'admin/tags', :action => 'list')}';
+    var tags_default_message = '#{t(:entry_tags_default_message)}';
+
+  - title @title
+
+  = error_messages_for :post
+  
+  - form_for(:post, post_form_options) do |f|
+    %table.form.stretch
+      %colgroup{ :span => 2 }
+        %col{ :width => '100' }
+        %col
+      %tr
+        %th= t(:title)
+        %td
+          = f.text_field :title, :size => 90
+          - if @post.entry?
+            = text_area_tag 'decoded_permaname', nil, :style => 'display: none;'
+      %tr
+        %th{ :style => 'vertical-align: top' }= t(:body)
+        %td= f.text_area :raw_body, :rows => 16, :cols => 90
+      %tr
+        %th= t(:entry_privacy)
+        %td
+          = f.radio_button :privacy, 'O'
+          %label{ :for => 'post_privacy_o' }= t(:public)
+          = f.radio_button :privacy, 'P'
+          %label{ :for => 'post_privacy_p' }= t(:protected)
+          = f.radio_button :privacy, 'C'
+          %label{ :for => 'post_privacy_c' }= t(:private)
+      - if @post.entry?
+        %tr
+          %th{ :style => 'vertical-align: top;' }= t(:categories)
+          %td
+            %input{ :type => 'hidden', :name => 'post[category_ids][]', :value => ''}/
+            %div#category_list
+              - if !@categories.empty?
+                = categories_select :post, :category_ids, @categories
+              - else
+                /= message_div_for(:notice, t(:no_categories, :link => link_to(t(:add_a_category), new_admin_category_path)))
+                = t(:no_categories)
+            %span#add_category_link
+              = image_tag 'icons/add.png', :valign => 'absmiddle', :style => 'position: relative; top: 2px;'
+              = link_to t(:add_category), {:controller => "admin/categories", :action => 'add_category'}, :rel => "facebox", :target => "blank"
+      %tr
+        %th= t(:tags)
+        %td= f.text_field :tag_names, :size => 90, :style => "width: 95%"
+      %tr
+        %th= t('models.template.one')
+        %td= f.select :template_id, @selectable_templates, {}
+          
+    #more_fields_toggler.open= t(:more_fields)
+    #more_fields
+      %table.form.stretch
+        %colgroup{ :span => 2 }
+          %col{ :width => '100' }
+          %col
+        %tr
+          %th{ :style => 'vertical-align: top; padding-top: 6px;' }= t('fields.datetime')
+          %td{ :class => 'date_inputs' + (' fieldWithErrors' if @post.errors.on(:date_and_time)).to_s }
+            - f.with_options :disabled => @date_disabled do |t|
+              = t.text_field :day, :maxlength => 2, :style => 'width: 30px'
+              = t.select :month, @months, {}, {}
+              = t.text_field :year, :maxlength => 4, :style => 'width: 60px'
+              @
+              = t.select :hour, @hours, {}, {}
+              \: 
+              = t.select :minute, @zero_to_59, {}, {}
+              - if @ampm
+                = t.select :ampm, @ampm, {}, {}
+              = t.hidden_field :second, :value => 0
+            = f.check_box :use_server_time, :id => 'use_server_time'
+            %label{ :for => 'use_server_time' }= t("use_server_time.#{@post.full_type}")
+        %tr
+          %th= t(:permaname)
+          %td
+            = f.text_field :permaname, :size => 55, :maxlength => 60, :style => ("width: auto" if @post.entry?)
+            - if @post.entry?
+              = f.boolean_check_box :autoupdate_permaname
+              = f.label :autoupdate_permaname, t(:autofill_permaname)
+            
+    #preview_area{ :style => 'display: none' }
+      = render :partial => 'admin/posts/buttons'
+      %hr{ :style => 'margin: 2em 0' }/
+      %h3= t(:entry_preview, :type => t("models.#{@post.full_type}", :count => 1).capitalize)
+      #entry_preview
+        &nbsp;
+      %hr{ :style => 'margin: 2em 0' }/
+      
+    = render :partial => 'admin/posts/buttons'

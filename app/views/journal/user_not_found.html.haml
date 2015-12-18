@@ -1,0 +1,19 @@
+- t_scope 'controllers.journal.user_not_found' do
+  - title t(:title)
+
+  :style
+    #login
+      width: 450px
+    #login #box
+      font-size: 1.3em
+    img
+      margin-bottom: 1.5em
+
+  %table
+    %tr
+      %td{ :style => "vertical-align: middle; text-align: center" }
+        #login.center
+          %h1 codexed.
+          #box
+            %p~ image_tag('two-guys-and-a-frog.jpg', :height => 330, :height => 350, :alt => t(:alt), :title => t(:alt))
+            %p= "..." + t(:message)

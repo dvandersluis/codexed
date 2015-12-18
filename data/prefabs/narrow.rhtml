@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+  <title>[journal_title] - [title]</title>
+  [feed]
+  <style type="text/css">
+  body {
+    background-color: [[colors.page.background]];
+    font-family: [[fonts.page.family]];
+    font-size: [[fonts.page.px]]px;
+    margin: 0;
+    padding: 0;
+  }
+
+  a:link, a:active {
+    color: [[colors.page.background]];
+  }
+  a:visited {
+    color: [[colors.link.visited]];
+  }
+  
+  h1, h2, h3 {
+    font-family: [[fonts.headers.family]];
+    letter-spacing: -1px
+  }
+
+  .noshow { display: none }
+  
+  #container {
+    line-height: 140%;
+    text-align: justify;
+    width: 750px;
+    margin: 20px 45px 30px;
+    background-color: white;
+    border-style: solid;
+    border-color: [[colors.container.border]];
+    border-width: 1px 2px 2px 1px;
+    
+    min-height: 500px;
+    position: relative;
+  }
+  
+  #container-inner {
+    padding: 20px 30px 60px;
+  }
+  
+  #container-inner h1 {
+    color: [[colors.hr.entry]];
+    text-align: right;
+    font-size: 150%;
+    text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid [[colors.hr.entry]];
+    padding-bottom: 10px;
+  }
+  
+  #container-inner h2 {
+    font-size: 150%;
+  }
+  
+  #container-inner h2 small {
+    font-size: 80%;
+    color: [[colors.entry.time]];
+    font-weight: normal;
+  }
+  
+  #entry-body {
+    margin: 1em 0;
+  }
+  
+  #nav {
+    text-align: right;
+    font-weight: bold;
+    font-family: [[fonts.headers.family]];
+    letter-spacing: -0.5px;
+    font-variant: small-caps;
+    text-transform: lowercase;
+    font-size: 110%;
+    color: [[colors.nav.default]];
+
+    position: absolute;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+  }
+  #nav-inner {
+    border-top: 1px solid [[colors.hr.page]];
+    padding-top: 5px;
+    margin: 0 30px 25px 30px;
+  }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="container-inner">
+      <h1>[journal_title]</h1>
+      <hr class="noshow" />
+      <h2><span>[title]</span> <small>&mdash; [time]</small></h2>
+      <div id="entry-body">
+        [body]
+      </div>
+      <hr class="noshow" />
+    </div>
+    <div id="nav">
+      <div id="nav-inner">
+        [prev link] &mdash; [curr link] &mdash; [next link] . . . [archive link] &mdash; <a href="http://www.codexed.com">host</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

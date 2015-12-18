@@ -1,0 +1,7 @@
+- t_scope 'controllers.user.signup.thanks' do
+  - title t(:title)
+
+  %div.center{ :style => 'width: 750px;' }
+    %p= t(:p1) 
+    %p= t(:p2) 
+    %p= t(:p3, :email => @user.email, :contact_us => mail_to("admin@codexed.com", t(:p3_link_text)))

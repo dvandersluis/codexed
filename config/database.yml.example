@@ -1,0 +1,22 @@
+login: &login
+  adapter: mysql
+  username: root
+  password:
+  host: localhost
+  encoding: utf8
+
+development: &development
+  <<: *login
+  database: codexed
+
+production:
+  <<: *development
+  
+# Make sure this is something other than the development/production table
+# as it will get wiped before every test..
+test:
+  <<: *login
+  database: codexed_test
+  
+rake:
+  <<: *development

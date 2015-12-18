@@ -1,0 +1,17 @@
+<style type="text/css">
+  .cdx_error_message
+  {
+    margin: 0px auto;
+    margin-bottom: 1em;
+    padding: 3px;
+    text-align: center;
+    background-color: #FFE4DE;
+    border: 1px solid #EA786B;
+    color: #CC0000;
+    line-height: 1.8em;
+  }
+</style>
+
+<div class="cdx_error_message">
+  <%= message_div_for :error, t(:category_private, :scope => 'controllers.journal.private') %>
+</div>

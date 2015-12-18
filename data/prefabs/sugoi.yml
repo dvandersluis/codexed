@@ -1,0 +1,76 @@
+---
+meta:
+  title: Sugoi 
+  description: A clean, blocky theme. 
+  created: 2009-01-06
+  creator:
+    name: Maggie
+    url: http://codexed.com/~starsarefalling/design/
+customization:
+  colors:
+    page:
+      background: "#2D8CA7"
+    entry:
+      text: "#000000"
+      blockquote: "#000000"
+      background: "#8EE6FF"
+      journaltitle: "#000000"
+      title: "#000000"
+    links:
+      link: "#65A6CA"
+      hover: "#294C6C"
+      visited: "#294C6C"
+  fonts:
+    entry:
+      px: 11
+      family: Courier New
+    journaltitle:
+      px: 20 
+      family: Courier New
+    title:
+      px: 11
+      family: Courier New
+  vars:
+    email:
+    username:
+    extralinks: []
+descriptions:
+  colors:
+    _order: [:page, :entry, :links]
+    page:
+      _: Page Colors
+      background: Background
+    entry:
+      _: Entry Colors
+      _order: [:background, :journaltitle, :title, :text, :blockquote]
+      background: Background
+      text: Body text
+      journaltitle: Journal title
+      title: Entry title
+      blockquote: Blockquote border
+    links:
+      _: Link Colors
+      _order: [:link, :hover, :visited]
+      link: Default 
+      hover: Hover
+      visited: Visited
+  fonts:
+    _order: [:journaltitle, :title, :entry]
+    entry: Entry body
+    title: Entry title
+    journaltitle: Journal title
+  vars:
+    _order: [:email, :username, :extralinks]
+    email: Email address
+    username:
+      _: Journal author
+      _note: Your journal username will be used if left blank.
+    extralinks:
+      _: Extra links
+      _order: [:url, :text]
+      _multiple: true
+      _add: Add another link
+      url:
+       _: URL
+       default: "http://"
+      text: Link Text

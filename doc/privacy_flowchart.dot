@@ -1,0 +1,36 @@
+// to generate: dot -Tpdf -o privacy_flowchart.pdf privacy_flowchart.dot
+
+digraph G {
+  {node[shape=box] "refresh cookie" "show auth changed" "action = 'locked'" "action = 'private'" "yield(action)" "return action" "allow access" "privileged_reader = true"}
+  {node[shape=diamond] "record locked?" "flash[:unlocked] set?" "viewing as guest?" "acting as guest?" "acting as guest? (2)" "acting as guest? (3)" "record protected?" "crypted password set?" "cookie set?" "acting as guest?" "password == cookie?" "record private?"}
+  "record locked?" -> "allow access" [label=no]
+  "record locked?" -> "flash[:unlocked] set?" [label=yes]
+  "flash[:unlocked] set?" -> "allow access" [label=yes]
+  "flash[:unlocked] set?" -> "viewing as guest?" [label=no]
+  "viewing as guest?" -> "acting as guest?" [label=no]
+  "viewing as guest?" -> "record protected?" [label=yes]
+  "acting as guest?" -> "allow access" [label=no]
+  "acting as guest?" -> "record protected?" [label=yes]
+  "record protected?" -> "record private?" [label=no]
+  "record private?" -> "allow access" [label=no]
+  "record private?" -> "action = 'private'" [label=yes]
+  "action = 'private'" -> "yield(action)"
+  "record protected?" -> "crypted password set?" [label=yes]
+  "crypted password set?" -> "allow access" [label=no]
+  "crypted password set?" -> "password == cookie?" [label=yes]
+  "password == cookie?" -> "acting as guest? (2)" [label=yes]
+  "acting as guest? (2)" -> "privileged_reader = true" [label=no]
+  "privileged_reader = true" -> "refresh cookie"
+  "refresh cookie" -> "allow access"
+  "password == cookie?" -> "cookie set?" [label=no]
+  "acting as guest? (2)" -> "cookie set?" [label=yes]
+  "cookie set?" -> "action = 'locked'" [label=no]
+  "action = 'locked'" -> "yield(action)"
+  "cookie set?" -> "acting as guest? (3)" [label=yes]
+  "acting as guest? (3)" -> "action = 'locked'" [label=no]
+  "acting as guest? (3)" -> "show auth changed" [label=yes]
+  "show auth changed" -> "action = 'locked'"
+  "yield(action)" -> "return action"
+  "acting as guest?" -> "acting as guest? (2)" [style=dotted, arrowhead=none]
+  "acting as guest? (2)" -> "acting as guest? (3)" [style=dotted, arrowhead=none]
+}

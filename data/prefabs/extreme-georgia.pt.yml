@@ -1,0 +1,49 @@
+---
+meta:
+  description: Layout em estilo jornal com a fonte Georgia como base. Criado para a competição de layouts da Smashing Magazine.
+descriptions:
+  vars:
+    username:
+      _: Autor do diário
+      _note: Seu nome de usuário será usado se este campo ficar em branco.
+    subheading: Subtítulo
+    recent: Cabeçalho
+    previous: Label anterior
+    next: Próxima label
+    extralinks:
+      _: Links extra
+      _add: Adicionar outro link
+      url:
+       _: URL
+      text: Texto do link
+  colors:
+    page:
+      _: Cores da página
+      background: Plano de fundo
+      topborder: Topo
+      journaltitle: Título do diário
+      subhead: Subtítulo
+    lists:
+      _: Cores da barra lateral
+      heading: Cabeçalho
+      border: Borda do cabeçalho
+    content:
+      _: Cores da área de conteúdo
+      header: Plano de fundo do cabeçalho
+      headertext: Texto do cabeçalho
+      headerhighlight: Destaque do cabeçalho
+      border: Borda
+      background: Plano de fundo
+      highlights: Destaque
+      entrymeta: Informações sobre o post
+      text: Texto
+    navigation:
+      _: Cores dos botões de navegação
+      background: Plano de fundo
+      hover: Ativo
+      text: Texto
+    links:
+      _: Cores dos links
+      active: Padrão
+      hover: Ativo
+

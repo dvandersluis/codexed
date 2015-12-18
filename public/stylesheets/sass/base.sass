@@ -1,0 +1,148 @@
+!main_font = "Georgia, Times, \"Times New Roman\", serif"
+!alt_font = "\"Trebuchet MS\", Verdana, Arial, Helvetica, sans-serif"
+!input_font = !main_font
+
+html
+  /* get text down to 10px (assuming default of 16px)
+  font-size: 62.5%
+  height: 100%
+
+body
+  :font-family = !main_font
+  margin: 0px
+  padding: 0px
+  height: 100%
+  background-color: silver
+  /* bring text back up to something reasonable
+  font-size: 1.4em
+
+hr
+  border: none
+  color: gray
+  background-color: gray
+  height: 2px
+  padding: 0
+  margin: 1.5em 0
+
+/*==============================================================
+
+/* Headers
+  
+h1, h2, h3, h4
+  font-weight: bold
+  margin: 1em 0
+h2
+  :font-family = !alt_font
+  letter-spacing: -1px
+h1
+  font-size: 1.9em
+  margin: 0
+h2
+  margin-top: 0
+  font-size: 1.7em
+h3
+  font-size: 1.2em
+h4
+  font-size: 1.15em
+
+/*==============================================================
+
+/* Links
+
+a
+  border-bottom: 1px solid silver
+  text-decoration: none
+  color: #232868
+  &:hover
+    background-color: lemonchiffon
+  &:focus
+    outline-color: invert
+    outline-style: dotted
+    outline-width: 1px
+
+/*==============================================================
+  
+/* Block-level elements
+
+p, blockquote
+  font-size: 1em
+
+p
+  margin: 1em 0
+
+blockquote
+  margin-left: 2em
+
+
+/*==============================================================
+
+/* Inline elements
+
+img
+  border: none
+  
+tt, pre, code
+  font-family: monospace
+  
+/*==============================================================
+  
+/* Form stuff
+
+form, input, select, option, textarea
+  /*font-size: 1em
+  font-size: 100%
+
+form
+  margin: 1em 0
+
+input, textarea, select, option
+  :font-family = !input_font
+  
+input[type="submit"], input[type="button"], button, input[type="file"]
+  font-size: 0.9em
+  font-weight: bold
+
+input[type=text], input[type=password], textarea, select
+  border-top: 1px solid #aaa
+  border-left: 1px solid #aaa
+  border-bottom: 1px solid #ddd
+  border-right: 1px solid #ddd
+  /*font-family: Arial
+  /*font-size: 0.9em
+  /*font-family: inherit
+  
+input[type=text], input[type=password], textarea
+  padding: 2px 4px
+
+optgroup
+  font-family: inherit
+
+/*==============================================================
+  
+/* Tables
+
+table, thead, tbody, tr, td, th
+  font-size: 1em
+
+table
+  border-collapse: collapse
+  
+td, th
+  padding: 4px
+    
+th
+  font-weight: bold
+
+/*==============================================================
+  
+/* Lists
+
+ul, ol
+  margin: 1em 2em
+  padding: 0
+  
+ul
+  list-style-type: square
+  
+dd
+  margin-left: 2em

@@ -1,0 +1,148 @@
+<html>
+  <head>
+    <title>[title]</title>
+    [feed]
+    <style type="text/css">
+
+    body
+    {
+      background: [[colors.page.background]];
+    }
+
+    .title
+    {
+      padding-top: 5px;
+      font-family: [[fonts.title.family]]; 
+      font-size: [[fonts.title.px]]px;
+      font-weight: bold;
+      color: [[colors.entrybox.title]];
+    }
+
+    .time
+    {
+      font-weight: normal;
+      font-family: [[fonts.time.family]];
+      font-size: [[fonts.time.px]]px;
+    }
+
+    .links
+    {
+      font-family: [[fonts.links.family]];
+      font-size: [[fonts.links.px]]px;
+      letter-spacing: 1px;
+      padding-left: 5px; 
+      padding-right: 5px;
+      text-align: right;
+    }
+
+    .topbox .links a
+    {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+    .entry
+    {
+      font-family: [[fonts.entry.family]]; 
+      font-size: [[fonts.entry.px]]px; 
+      color: [[colors.entrybox.text]]; 
+      width: 600px;
+      padding-top: 5px; 
+      padding-bottom: 5px;
+      border-width: 0px; 
+    }
+
+    .topbox
+    {
+      width: 600px;
+      height: 150px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: [[colors.topbox.border]];
+      background: [[colors.topbox.background]];
+      vertical-align: bottom;
+    }
+
+    .entrybox
+    {
+      background: [[colors.entrybox.background]];
+      border-width: 1px;
+      border-style: solid;
+      border-color: [[colors.entrybox.border]];
+      vertical-align: top;
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+
+    .bottombox
+    {
+      background: [[colors.bottombox.background]];
+      width: 600px;
+      height: 30px;
+      border-width: 1px;
+      border-style: solid;
+      border-color: [[colors.bottombox.border]];
+      vertical-align: middle;
+      color: [[colors.bottombox.text]];
+    }
+    
+    a 
+    {
+      text-decoration: none; 
+      color: [[colors.link.active]];
+    }
+
+    a:visited 
+    {
+      text-decoration: none; 
+      color: [[colors.link.visited]];
+    }
+
+    a:hover 
+    {
+      text-decoration: none;
+      color: [[colors.link.hover]];
+    }
+
+    </style>
+  </head>
+  <body>
+    <table style="height: 100%; border: 0;" cellpadding="0" cellspacing="1" align="center">
+      <tr>
+        <td class="topbox">
+          <div class="links">
+            <a href="[prev url]">prior</a>
+            <a href="[curr url]">current</a>
+            <a href="[next url]">next</a>
+            <a href="[archive url]">archive</a>
+            [[ifset:vars.email '<a href="mailto:' + @v + '">e-mail</a>']]
+            <a href="http://codexed.com">host</a>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="entrybox">
+          <div class="title">
+            <span>[title]</span><br />
+            <span class="time">[time "%B %d, %Y (%I:%0M %p)"]</span>
+          </div>
+          <div class="entry">
+            <p align="justify">[body]</p>
+          </span>
+        </td>
+      </tr>
+      <tr>
+        <td class="bottombox">
+          <div class="links">
+            <a href="[prev url]">prior</a> ::
+            <a href="[curr url]">current</a> ::
+            <a href="[next url]">next</a> ::
+            <a href="[archive url]">archive</a> ::
+            [[ifset:vars.email '<a href="mailto:' + @v + '">e-mail</a> ::']]
+            <a href="http://codexed.com">host</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

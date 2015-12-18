@@ -1,0 +1,5 @@
+<% t_scope 'controllers.journal.post_could_not_be_loaded' do %>
+  <p><%= t(:message, :contact_link => mail_to('admin@codexed.com', t(:contact)) ) %></p>
+
+  <p><%= t(:go_to_front, :front_link => link_to(t(:go_to_front_link_text), journal_url(@user))) %></p>
+<% end %>

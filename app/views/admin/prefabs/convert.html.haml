@@ -1,0 +1,12 @@
+- t_scope 'controllers.admin.prefabs.convert' do
+  - title t(:convert_prefab, :scope => 'controllers.admin.templates.index')
+
+  %blockquote
+    %p= t(:instructions, :name => @prefab.name)
+    %p= t(:instructions2)
+    - form_tag convert_admin_prefab_path(@prefab) do 
+      %p{ :align => 'center' }
+        - t_scope 'general.form' do
+          = submit_tag "#{t(:continue)} &raquo;", :name => 'convert'
+          &nbsp;
+          = submit_tag t(:cancel), :name => 'cancel', :accesskey => 'C'

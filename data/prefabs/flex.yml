@@ -1,0 +1,113 @@
+---
+meta:
+  title: Flex
+  description: Variable width layout with right side navigation menu
+  created: 2010-10-01
+  creator:
+    name: Tiny Fox 
+    url: http://www.codexed.com/~tinyfox
+customization:
+  vars:
+    width: 70 
+    extralinks: []
+  colors:
+    page:
+      background: "#666666"
+      journal_title: "#EFEFEF"
+      selection: "#E92675"
+      x1: "#E3E3E3"
+      x2: "#FFAD4C"
+    nav:
+      background: "#E9E9E9"
+      border: "#E3E3E3"
+      text: "#888888"
+    content:
+      background: "#E9E9E9"
+      border: "#E3E3E3"
+      title: "#FFAD4C"
+      date: "#444444"
+      text: "#888888"
+    blockquote:
+      background: "#E5E5E5"
+      border: "#444444"
+      text: "#666666"
+    links:
+      default: "#666666"
+      hover: "#FFAD4C"
+  fonts:
+    nav:
+      family: Georgia
+      px: 11 
+    journal_title:
+      family: Georgia
+      px: 15
+    content:
+      family: Georgia
+      px: 11
+    title:
+      family: Arial
+      px: 15
+    date:
+      family: Arial
+      px: 12
+descriptions:
+  vars:
+    _: Settings
+    _order: [:width, :extralinks]
+    width:
+      _: Main content width
+      _options: [[25%, 25], [30%, 30], [35%, 35], [40%, 40], [45%, 45], [50%, 50], [55%, 55], [60%, 60], [65%, 65], [70%, 70]]
+      _slider: { min: 25, max: 70, step: 5 }
+    extralinks:
+      _: Extra links
+      _order: [:url, :text]
+      _multiple: true
+      _add: Add another link
+      url:
+       _: URL
+       default: "http://"
+      text: Link Text
+  colors:
+    _order: [:page, :nav, :content, :blockquote, :links]
+    page:
+      _: Page Colors
+      _order: [:background, :selection, :journal_title, :x1, :x2]
+      background: Background
+      journal_title: Journal title
+      selection:
+        _note: "Note: this will not work in all browsers."
+        _: Selected text
+      x1: X color 1
+      x2: X color 2
+    nav:
+      _: Navigation Area Colors
+      _order: [:background, :border, :text]
+      background: Background
+      border: Border
+      text: Text
+    content:
+      _: Content Area Colors
+      _order: [:background, :border, :title, :date, :text]
+      background: Background
+      border: Border
+      title: Title
+      date: Date
+      text: Text
+    blockquote:
+      _: Blockquote Colors
+      _order: [:background, :border, :text]
+      background: Background
+      border: Border
+      text: Text
+    links:
+      _: Link Colors
+      _order: [:default, :hover]
+      default: Default
+      hover: Hover
+  fonts:
+    _order: [:nav, :journal_title, :content, :title, :date ]
+    nav: Navigation 
+    journal_title: Journal Title
+    content: Content
+    title: Title
+    date: Date

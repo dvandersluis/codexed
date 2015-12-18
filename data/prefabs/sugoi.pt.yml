@@ -1,0 +1,37 @@
+---
+meta:
+  description: Tema clean e em blocos.
+descriptions:
+  colors:
+    page:
+      _: Cores da página
+      background: Plano de fundo
+    entry:
+      _: Cores do conteúdo
+      background: Plano de fundo
+      text: Texto do post
+      journaltitle: Título do diário
+      title: Título do post
+      blockquote: Borda do blockquote
+    links:
+      _: Cores dos link
+      link: Padrão
+      hover: Ativo
+      visited: Visitado
+  fonts:
+    entry: Corpo do post
+    title: Título do post
+    journaltitle: Título do diário
+  vars:
+    email: Email
+    username:
+      _: Autor do diário
+      _note: Seu nome de usuário será utilizado se este campo for deixado em branco.
+    extralinks:
+      _: Links extra
+      _multiple: true
+      _add: Adicionar link
+      url:
+       _: URL
+      text: Texto do link
+

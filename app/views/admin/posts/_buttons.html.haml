@@ -1,0 +1,11 @@
+- t_scope 'general.form' do
+  %p{ :align => 'center' }
+    = submit_tag t(:save), :name => 'save_and_return', :accesskey => 'S'
+    &nbsp;
+    = submit_tag t(:save_and_continue), :name => 'save_and_continue', :accesskey => 'E'
+    &nbsp;
+    = submit_to_remote 'preview', t('controllers.admin.posts.form.quick_preview'), :url => { :action => 'quick_preview' }, :method => 'post', :html => { :accesskey => 'P' }
+    &nbsp;
+    = submit_tag t('controllers.admin.posts.form.preview_in_template'), :name => 'preview', :accesskey => 'T'
+    &nbsp;
+    = submit_tag t(:cancel), :name => 'cancel', :accesskey => 'C'

@@ -1,0 +1,25 @@
+---
+meta:
+  description: Design simples em preto e branco. 
+descriptions:
+  colors:
+    page:
+      _: Cores da Página
+      text: Conteúdo
+      background: Fundo da página
+      border: Borda
+      entry: Fundo do conteúdo
+    stripe:
+      _: Cores da Linha
+      background: Fundo
+      text: Conteúdo
+    link:
+      _: Cores dos Links
+      active: Padrão 
+      visited: Link visitado
+      hover: Link ativo
+  fonts:
+    header: Cabeçalho
+    time: Data/Hora
+    entry: Conteúdo
+    links: Links

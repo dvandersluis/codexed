@@ -1,0 +1,31 @@
+- add_to_stylesheets 'import--export'
+- t_scope 'controllers.admin.journal.import' do
+  - title t(:title)
+
+  %blockquote
+    %p= t(:instructions)
+    %p= t(:instructions2a) + " " + mail_to('admin@codexed.com', t(:instructions2b)) + "."
+
+    = message_divs
+    
+    #import_stuff
+      - if @import.job.nil?
+        = render 'import_form'
+      - else
+        - if (@import.paused? or @import.failed?) and @import.data.nil?
+          = render 'import_bad_data'
+        - elsif @import.paused?
+          - if @import.data[:errors_exist]
+            = render 'import_errors_exist'
+          - elsif @import.data[:conflicts_exist]
+            = render 'import_conflicts_exist'
+          - else
+            = render 'import_paused'
+        - elsif @import.finished?
+          = render 'import_success'
+        - elsif @import.failed?
+          = render 'import_error'
+        - elsif @import.job.worker_method == "save"
+          = render 'import_step2'
+        - else
+          = render 'import_step1'

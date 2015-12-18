@@ -1,0 +1,1418 @@
+en:
+  general:
+    locale:
+      lang_name: "English"
+      clock_type: 12  # Set to 12 for a 12-hour clock, 24 for a 24-hour clock
+
+    fields:
+      filename: "Filename"
+      permaname: "Permaname"
+      title: "Title"
+      type: "Type"
+      datetime: "Date/Time"
+      value: "Value"
+      post_date: "Post Date"
+
+    form:
+      preview_top:
+        looking_at_a_preview: "You're looking at a preview of your {{record}}." # entry/template/prefab
+        save_and_finish_editing: "Save {{record}} and finish editing" # entry/prefab/template
+        continue_editing: "Continue editing"
+
+      username: "Username"
+      password: "Password"
+      email: "Email"
+      current_password: "Current password"
+      new_password: "New password"
+      confirm_password: "Confirm new password"
+      change_password: "Change my password"
+
+      cancel: "Cancel"
+      continue: "Continue"
+      finish: "Finish"
+      oops: "Oops..."
+      preview: "Preview"
+      required_fields_notice: "Fields marked with a <span style=\"color:red\">*</span> are required."
+      save: "Save"
+      save_and_continue: "Save &amp; Continue Editing"
+      return: "Return"
+      return_to_prev: "Return to Previous Step"
+      previous: "Return to Previous Step"
+      previous_short: "Previous"
+      next: "Advance to Next Step"
+      next_short: "Next"
+      request_failed: "Request failed. Please try again."
+      error: "Error"
+    
+    messages:
+      invalid_username: "<b>{{username}}</b> is an invalid username."
+      no_username_given: "No username was given."
+      missing_record_to_create: "The {{record}} you tried to create does not exist!"
+      missing_record_to_update: "The {{record}} you tried to update no longer exists!"
+      missing_record_to_edit: "The {{record}} you tried to update no longer exists!"
+      missing_record_to_delete: "The {{record}} you tried to delete no longer exists!"
+      check_it_out: "Check it out."
+      error: "Error"
+      notice: "Notice"
+      success: "Success"
+      also: "Also"
+      invalid_update: "The {{record}} you tried to update was accessed incorrectly, please try again."
+      invalid_create: "The {{record}} you tried to create was accessed incorrectly, please try again."
+
+    pagination:
+      first: "First"
+      prev: "Previous"
+      next: "Next"
+      last: "Last"
+      jump: "Jump to page"
+      go: "Go"
+      per_page: "per page"
+
+    all: "all"
+    or: "or"
+    name: "Name"
+    enter_codexed_username: "Enter your Codexed username"
+    send_email: "Send email"
+    show: "Show"
+    codexed: "Codexed"
+    "No": "No"
+    "Yes": "Yes"
+    "no": "no"
+    "yes": "yes"
+      
+    members_directory: "Members Directory"
+    journal_title: "Journal title"
+
+  layouts:
+    application:
+      sidebar:
+        expand: "Expand section"
+        collapse: "Collapse section"
+        writing: "Writing"
+        new_entry: "New Entry"
+        new_page: "New Page"
+        manage_categories: "Categories"
+        templates: "Templates"
+        new_template: "New Template"
+        new_prefab: "Setup a New Prefab"
+        edit_writing: "Edit My Writing"
+        edit_templates: "Edit My Templates"
+        options: "Options"
+        tools: "Tools"
+        substitutions: "Substitutions"
+        statistics: "Statistics"
+        my_journal: "My Journal"
+        get_help: "Get Help!"
+        dashboard: "Dashboard"
+        log_out: "Log Out"
+        journal: "Journal"
+        import: "Import an archive"
+        export: "Download my journal"
+        my_journal: "View my journal"
+        my_public_journal_feed: "My public journal feed"
+        my_private_journal_feed: "My private journal feed"
+        archive_layouts: "Archive Layouts"
+        community: "Community"
+        directory: "Members directory"
+        birthdays: "Birthdays"
+        forums: "Forums"
+    
+      nag_notice:
+        no_lang_set1: "You have not {{link_text}} of your journal." # ... specified the language 
+        no_lang_set1_link_text: "specified the language"
+        no_lang_set2: "We would appreciate it if you would set it so we can have a good directory of who is writing in what language."
+        no_birthday_set1: "We are now collecting user's birthday information!"
+        no_birthday_set2: "You have not yet {{link_text}} in your profile." # ... filled out your birthday
+        no_birthday_set2_link_text: "filled out your birthday"
+        no_birthday_set3: "We would appreciate it if you would set it so we can celebrate together!"
+        dismiss_this_message: "Dismiss this message."
+        survey: "We need your input! Please visit {{link_text}} and let us know what you think about Codexed!"
+      
+      notices:
+        happy_birthday: "Happy {{age}} birthday! Best wishes from your friends at Codexed!" # ... age will be something like 20th
+
+      alpha: "alpha"
+      beta: "beta"
+      home: "Home"
+      directory: "Directory"
+      forums: "Forums"
+      twitter: "Twitter"
+      help: "Help"
+      logged_in_as: "You are logged in as {{username}}."
+      create_account: "Register"
+      or_login: "or login"
+      forgot_password: "Forgot your password?"
+      log_in: "Log in"
+      logout: "Logout"
+      privacy_statement: "privacy statement"
+      tos: "terms of service"
+
+  models:
+    archive_layout:
+      one: "Archive Layout"
+      other: "Archive Layouts"
+
+    archive_layout_type:
+      complete_archive: "Complete archive page"
+      category_archive: "Category archive page"
+      tag_archive: "Tag archive page"
+    
+    category:
+      one: "Category"
+      other: "Categories"
+
+    country:
+      one: "Country"
+      other: "Countries"
+      
+    entry:
+      one: "Entry"
+      other: "Entries"
+
+    post:
+      one: "Post"
+      other: "Posts"
+      untitled: "Untitled"
+      entry_archive: "[archivedate] Entry Archive"
+      entry_split_archive: "Entry Archive"
+      category_archive: "Archive for Category '[category]'"
+      tag_archive: "List of posts tagged '[tag]'"
+      new_journal: "New Journal"
+      prev_entry: "previous entry"
+      curr_entry: "current entry"
+      next_entry: "next entry"
+      home_entry: "home"
+      archive_entry: "archives"
+      random_entry: "random entry"
+      last_entry: "last entry"
+      first_entry: "first entry"
+      entry_not_found: "Entry Not Found"
+      category_not_found: "Category Not Found"
+      tag_not_found: "Tag Not Found"
+      
+    page:
+      one: "page"
+      other: "Pages"
+      
+    journal:
+      one: "Journal"
+      other: "Journals"
+
+      use_site_default: "<use site default>"
+      start_page: "Start page"
+      current_entry: "Current entry"
+      archive: "Archive"
+      split: "Split Archive"
+      
+    option:
+      one: "Option"
+      other: "Options"
+      
+    prefab:
+      one: "Prefab"
+      other: "Prefabs"
+      
+    reader:
+      one: "Reader"
+      others: "Readers"
+      
+    substitution:
+      one: "Substitution"
+      other: "Substitutions"
+      
+    sub:
+      one: "Sub"
+      other: "Subs"
+      
+    template:
+      one: "Template"
+      other: "Templates"
+      
+      custom_commands:
+        category_no_entries: "There are no entries in this category."
+        journal_no_entries: "There are no entries in this journal."
+        journal_no_entries_for_date: "There are no entries in this journal from {{date}}."
+        invalid_date_for_archive: "The date you are trying to view an archive for is invalid."
+      
+    user:
+      one: "User"
+      other: "Users"
+          
+      new_password_blank: "New password cannot be blank."
+      confirm_password_blank: "Confirm new password cannot be blank."
+      new_password_mismatch: "Given new passwords do not match."
+      incorrect_password: "Incorrect password."
+
+  controllers:
+    main:
+      title: "Dashboard"
+
+      favorite_journals:
+        favorite_journal:
+          one: "Favorite journal"
+          other: "Favorite journals"
+        favorite_journals:
+          one: "1 favourite journal"
+          other: "{{count}} favorite journals"
+        favorites_found_in_cookie: "found in cookie."
+        merge: "Merge?"
+        dismiss: "dismiss"
+        no_favorites: "You don't have any favorites!"
+        deleted_favorite_journal: "This journal has been deleted."
+        cookie_mode: "This list is cookie-based."
+        deleted: "deleted"
+        add: "Add"
+
+      recently_updated:
+        recently_updated: "Recently updated journals"
+        no_recently_updated: "No one has updated their journal yet."
+        and_more: "... and more!"
+      
+      birthdays:
+        title: "Birthdays"
+        all_birthdays: "See all birthdays"
+        no_upcoming_birthdays: "No upcoming birthdays"
+        todays_birthdays: "Today's Birthdays"
+        tomorrow: "Tomorrow"
+      
+      privacy:
+        title: "Privacy Policy"
+        p1: "Codexed requires specific information from registered members as they sign up. This information is limited to: first name, username, password and email address. Other optional information is also requested, but not required."
+        p2: "Any information gathered by Codexed will be used <b>only</b> for demographic purposes, helping us get to know and understand our users, and to help target potential advertising. <b><u>Under no circumstances will the operators of Codexed ever provide the information gathered to any third party.</u></b> There is no need to opt-out."
+        p3: "Codexed operators will never send you any unsolicited commercial bulk e-mail. Codexed operators will never ask for any personal information after registration, such as your password, social security or credit card numbers - should any of these things occur, please contact us immediately."
+        p4: "Codexed uses cookies. These cookies are used only to provide session information needed. They are not used to store personal information about users, they will not be shared with anyone else, and they will not be used to contact you."
+        p5: "Any advertisements on our pages may be served by an outside agency. They collect their own logs and may serve their own cookies. They have their own privacy policies that you may want to review."
+        p6: "Codexed reserves the right to change this policy at any time. Should Codexed decide to do so, all users will be notified in a timely manner."
+        p7: "Should you have any further questions, please do not hesitate to {{contact_link}}."
+        p7_link_text: "contact us"
+
+      prerelease:
+        title: "Pre-Release Terms of Service"
+        terms: "This version of Codexed is a <b>pre-release</b>. It does not contain the full feature set of the final product and may contain non-functional areas, bugs or even security holes. By participating in this pre-release, you have decided to use the service primarily to contribute testing data to the creators of Codexed in order to patch and polish the product. You understand that, since the product is unfinished, <b>any entries, templates, or other data you create has the potential of being accidentally deleted or corrupted, and you will not hold the creators of Codexed liable for said loss of data.</b>"
+
+      tos:
+        title: "Terms of Service"
+        
+        section1:
+          header: "Acceptance of terms"
+          text: "The services provided to you (\"the Member\") by Codexed (\"the Service\") are subject to the following Terms of Service (\"TOS\"). These terms are subject to change at the discretion of the Codexed administration team; you will be notified via your provided e-mail address if any such changes occur."
+        section2:
+          header: "Description of service"
+          line1: "Codexed provides users with access to online forums as well as personalized space for user produced content and an email account. You understand and agree that these services are provided \"AS-IS\" and that while Codexed and its operators will make a good faith effort to provide quality services, we assume no responsibility for the timeliness, deletion, mis-delivery or failure to store any user provided information."
+          line2: "Please be aware that Codexed users may have created certain areas of Codexed that contain adult or mature content. You must be at least 18 years of age to access and view such areas."
+        section3:
+          header: "Registration"
+          line1:
+            text: "In order to use the services offered by Codexed, you must register. By registering, you agree to:"
+            item1: "provide true, accurate, current, and complete information about yourself as prompted by the registration form and"
+            item2: "maintain and promptly update the data to keep it true, accurate, current and complete."
+          line2: "Should Codexed have reasonable grounds to suspect that such information is untrue, inaccurate, not current or incomplete, Codexed reserves the right to suspend or terminate your account."
+          line3: "You are entirely responsible for maintaining the confidentiality of your password and account. <b>No operator of Codexed will, under any circumstances, ask you for your password.</b> Furthermore, you are entirely responsible for any and all activities that occur under your account. Notify Codexed administration immediately if you are asked for your password, or if any unauthorized use of your account or any other breach of security occurs."
+          line4: "All information will be held in accordance with Codexed's {{privacy_link}}."
+        section4:
+          header: "Member conduct"
+          line1: "You understand that all content is the sole responsibility of the person from which it originated. This means that you, and not Codexed or its operators, are entirely responsible for all content that you upload, post or email through our services. Codexed does not screen or in any other way control content posted to the members area and, therefore, does not guarantee the accuracy, integrity or quality the content. Under no circumstances will Codexed be liable in any way for any content."
+          line2:
+            text: "You agree to not use the Service to:"
+            item1: "upload, post, email or otherwise transmit any content that is unlawful, harmful, threatening, abusive, harassing, tortuous, defamatory, vulgar, obscene, libelous, invasive of another's privacy, hateful, or racially, ethnically or otherwise objectionable;"
+            item2: "harm minors in any way;"
+            item3: "impersonate any person or entity, including, but not limited to, a Codexed official, forum leader, or falsely state or otherwise misrepresent your affiliation with a person or entity;"
+            item4: "forge headers or otherwise manipulate identifiers in order to disguise the origin of any content;"
+            item5: "upload, post or email any content that you do not have a right to transmit under any law or under contractual or fiduciary relationships (such as inside information, proprietary and confidential information learned or disclosed as part of employment relationships or under nondisclosure agreements);"
+            item6: "upload, post, or email transmit any content that infringes any patent, trademark, trade secret, copyright or other proprietary rights of any party;"
+            item7: "upload, post, or email any unsolicited or unauthorized advertising, promotional materials, \"junk mail,\" \"spam,\" \"chain letters,\" \"pyramid schemes,\" or any other form of solicitation;"
+            item8: "upload, post, or email any material that contains software viruses, files or programs designed to interrupt, destroy or limit the functionality of any computer software or hardware or telecommunications equipment;"
+            item9: "intentionally or unintentionally violate any applicable local, state, national or international law."
+          line3: "Codexed retains the right (but not the obligation) to, by their sole discretion, refuse or move any content that it deems inappropriate under this agreement."
+        section5:
+          header: "Content rights"
+          text: "All materials posted to Codexed member areas remain the copyrighted material of that member; all materials posted to public areas (i.e. user forums) will be copyright Codexed, and pages will be so marked."
+        section6:
+          header: "Indemnity"
+          text: "You agree to indemnify and hold Codexed, and its affiliates, officers, agents, partners, and employees, harmless from any claim or demand, including reasonable attorneys' fees, made by any third party due to or arising out of content you submit or post, your violation of the TOS, or your violation of any rights of another."
+        section7:
+          header: "Account termination"
+          line1: "Accounts may be terminated by Member at any time via the Member's personal administration panel."
+          line2: "Accounts may be terminated by Codexed administration for violation of this agreement or if the account lies dormant for more than 90 days. In case of dormancy, member will be notified and given ten days to reactivate their account before deletion."
+          line3: "Upon termination, all information in the account will be deleted. Codexed is not responsible for any information loss associated with termination."
+        section8:
+          header: "Advertisements"
+          text: "Your correspondence or business dealings with, or participation in promotions of, advertisers found on or through Codexed, including payment and delivery of related goods or services, and any other terms, conditions, warranties or representations associated with such dealings, are solely between you and such advertiser. You agree that Codexed shall not be responsible or liable for any loss or damage of any sort incurred as the result of any such dealings."
+        section9:
+          header: "Links"
+          text: "Codexed may provide, or third parties may provide, links to other World Wide Web sites or resources. Because Codexed has no control over such sites and resources, you acknowledge and agree that Codexed is not responsible for the availability of such external sites or resources, and does not endorse and is not responsible or liable for any content, advertising, products, or other materials on or available from such sites or resources."
+        section10:
+          header: "Disclaimer of warranties"
+          line1:
+            text: "You expressly understand and agree that:"
+            item1: "your use of this service is at your own risk. The service is provided \"as is\" and \"as available.\" Codexed expressly disclaims all warranties of any kind, express or implied."
+            item2:
+              text: "Codexed makes no warranty that:"
+              item1: "the service will meet your personal requirements,"
+              item2: "the service will be uninterrupted, timely, secure, or error-free,"
+              item3: "the quality of any products, services, information or other material provided by or obtained through Codexed will meet your expectations"
+              item4: "any errors in the software will be corrected."
+        section11:
+          header: "Limitation of liability"
+          line1:
+            text: "You expressly understand and agree that Codexed shall not be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data or other intangible losses (even if Codexed has been advised of the possibility of such damages), resulting from:"
+            item1: "the use or the inability to use the service;"
+            item2: "the cost of procurement of substitute goods and services resulting from any goods, data, information or services purchased or obtained or messages received or transactions entered into through or from the service;"
+            item3: "unauthorized access to or alteration of your transmissions or data;"
+            item4: "statements or conduct of any third party on Codexed; or"
+            item5: "any other matter relating to Codexed."
+        section12:
+          header: "Exclusions and limitations"
+          text: "Some jurisdictions do not allow the exclusion of certain warranties or the limitation or exclusion of liability for incidental or consequential damages. Accordingly, some of the above limitations of sections 10 and 11 may not apply to you."
+
+    members:
+      index:
+        title: "Codexed Members"
+        no_journals_for_search: "There are no journals that start with <b>{{search}}</b>."
+        show_usernames: "Usernames starting with"
+        unspecified_lang: "Unspecified / Other"
+        directory_empty: "There are currently no journals in the {{link}}."
+        username: "Username"
+        language: "Language"
+        member_since: "Member Since"
+        last_updated: "Last Updated"
+        never: "Never"
+
+      birthdays:
+        title: "Upcoming Birthdays"
+        todays_birthdays: "Today's Birthdays"
+
+    journal:
+      go_to_front: "You might try visiting this journal's {{front_link}}."
+      go_to_front_link_text: "front page"
+
+      post_could_not_be_loaded:
+        message: "Sorry, for some reason the post could not be loaded! If this problem persists, please {{contact_link}}!"
+        contact: "let us know"
+
+      entry_not_found:
+        message: "Sorry, that entry couldn't be found!"
+        looking_for_archive: "Were you looking for the archive for {{archive_link}}?"
+        perhaps_looking_for: "Perhaps you were looking for"
+        other_entries_on_date: "Other entries on this date"
+        
+      category_not_found:
+        message: "Sorry, that category couldn't be found!"
+        perhaps_looking_for: "Perhaps you were looking for"
+
+      tag_not_found:
+        message: "Sorry, that tag isn't being used in this journal!"
+
+      category_archive:
+        parent_category: "Parent Category"
+        subcategories: "Subcategories"
+
+      locked:
+        locked_entry: "This entry has been locked by the journal owner. If you have been provided with the password, enter it now to unlock all locked entries in this journal."
+        journal_locked: "This journal is password protected."
+        journal_locked_instructions: "If the journal owner has provided you with the password, enter it now to unlock the journal. If not, please contact the journal owner."
+        unlock: "Unlock"
+        keep_unlocked: "Keep this {{item}} unlocked." # journal/entry
+
+      private:
+        entry_private: "This entry is private. You shouldn't be here."
+        journal_private: "This journal is private."
+        journal_private_instructions: "Sorry, only the journal owner can view this journal."
+        category_private: "This category is private. You shouldn't be here."
+
+      show_post:
+        journal_authentication_changed: "The previously used password is no longer valid."
+
+      show_tag:
+        posts_tagged_x: "List of posts tagged '{{tag}}'"
+
+      tag_archive:
+        my_tagged_posts: "Posts in this journal"
+        other_tagged_posts: "Posts in other journals"
+
+      user_not_found:
+        title: "User Not Found"
+        message: "I think it's safe to say we couldn't find the user you were looking for."
+        alt: "'IT MOVED!' ... 'WE ARE NOW ONLY HALF-CRAZY!!'"
+        
+      new_journal:
+        no_entries: "I have not created any entries for my journal yet."
+
+      incorrect_password: "Incorrect password."
+      lock_icon: "Password Protected"
+
+    user:
+      add_favorite:
+        favorite_journal_exists: "<b>{{username}}</b> has already been added."
+        
+      forgot_password:
+        title: "Reset my password"
+        instructions: "In the interest of security, we do not store plaintext passwords. This means that we, unfortunately, cannot just recover your password for you. However, if you enter your Codexed username below, an email will be sent to the address set up for the account, which will provide you with instructions to reset your password."
+        instructions_sent: "Password reset instructions sent to email address associated with <b>{{username}}</b>."
+
+      remove_favorite:
+        invalid_favorite: "Invalid favorite journal."
+
+      reset_password:
+        title: "Reset my password"
+        instructions: "Fill out the following form to change your password. The change will apply immediately, and you will be logged into Codexed."
+        username_differs: "This reset password key was given for a different username than the one entered."
+        key_missing: "A key is needed to reset your password, but a valid one was not given."
+        password_changed: "Password successfully changed. You have been logged in."
+
+      resend_activation_email:
+        title: "Re-send activation email"
+        instructions: "If you never received your activation email for some reason, you can use this form to re-send it."
+        email_sent: "A new activation email was sent to the email address associated with <b>{{username}}</b>."
+
+      sayonara:
+        title: "Sad to see you go..."
+        sayonara: "Your user account and journal have now been removed. We hope you enjoyed using Codexed!"
+
+      signup:
+        has_errors: "Couldn't complete registration for the following reasons:"
+
+        index:
+          title: "You're About To Join The Codexed Community!"
+          instructions1: "Want a journal? You're just one quick form away."
+          get_invitation_code: "Get an invitation code!"
+          desired_username: "Desired username"
+          email_confirmation: "Email confirmation"
+          invitation_code_name: "Invitation code"
+          enter_field: "enter"
+          confirm_field: "confirm"
+          email_address: "Email Address"
+          your_name: "Your name"
+          first_name: "First name"
+          last_name: "Last name"
+          your_email: "Your email address"
+          invitation_code: "Invitation code"
+          read_and_agreed: "I have read and agree to the {{link_text}}."
+          terms_of_service: "Terms of Service"
+          prerelease_tos: "Pre-Release Terms of Service"
+          next: "Almost Done!"
+
+        profile:
+          title: "Tell Us About Yourself"
+          instructions1: "Help us get to know our userbase! All information in this section is optional, and can be changed at any time on the Account Options page once you are registered."
+          instructions2: "Don't worry, all information collected here is covered by our {{privacy_link}}, and only Codexed staff will ever be able to see it without your express permission."
+          instructions2_link_text: "Privacy Policy"
+          instructions3: "If you'd rather not share more about yourself right now, that's okay too. We'll be sad, but we'll get over it, with time."
+          real_name: "Name"
+          birthday: "Birthday"
+          gender: "Gender"
+          male: "Male"
+          female: "Female"
+          first_name: "First Name"
+          last_name: "Last Name"
+          country: "Country"
+          next: "Done!"
+          skip: "No thanks, just let me in!"
+
+        thanks:
+          title: "Check Your Email"
+          p1: "Congratulations, you're now a member of Codexed!"
+          p2: "<i>Hold the phone!</i> Before you can start using your journal, you need to activate your account. This is a security measure to prevent spammers from being able to automatically create accounts. We just sent you an email -- open it up, click on the link inside, and you'll be all set!"
+          p3: "The email address that we sent the email to was <b>{{email}}</b>. If this isn't right, feel free to {{contact_us}} and we'll get you straightened out."
+          p3_link_text: "contact us"
+
+      verify:
+        title: "Final Step: Activate Your Account"
+        error_no_email: "What th--? How'd you get an activation key if you didn't receive the activation email yet? Heyy, I bet you're one of those voyeurs from the future, aren't you? Well, everyone has to get the email first, special future people included. Them's the rules!"
+        error_invalid_key: "Invalid key."
+        error_invalid_key_long: "Hmm... we couldn't activate your account due to an invalid key. It looks we didn't give you the right link in the registration email we sent you. You might try copying the key manually and pasting it in the field below."
+        enter_activation_key: "Enter the activation key"
+        activate: "Activate"
+        welcome_to_codexed: "Welcome to Codexed! Use the links on the left to manage your journal."
+        user_already_activated: "This user has already been activated. Please use the login form to login."
+
+    admin:
+      title: "Codexed Admin"
+      
+      archive_layouts:
+        invalid_layout_given: "Invalid archive layout given."
+        index:
+          title: "Archive Layouts"
+          view: "View archive layout"
+          delete: "Delete archive layout"
+          confirm_delete: "Are you sure you want to delete the {{layout}} layout?"
+          instructions1: "If you need to add other content to your archive page or customize the order in which your archives appear, you can do so on this page. Right now there are two types of archive pages you can customize: the <b>complete archive page</b>, which lists all the entries in your journal, and the <b>category archive page</b>, which lists entries you have placed in a specific category."
+          instructions2: "Click on a layout below to customize the corresponding page. A red link is a layout you haven't customized yet. A blue link is one you have."
+          category_required_to_preview: "You need to have at least one public category in your journal to preview the category archive page."
+          tag_required_to_preview: "You need to have tagged at least one post to preview the tag archive page."
+        form:
+          archive_type: "Archive type"
+          title: "Title"
+          content: "Content"
+          available_substitutions: "Available substitutions"
+          use_default_template: "<use default>"
+          new:
+            title: "Define Archive Layout"
+            create_layout: "Define Layout"
+          edit:
+            title: "Edit Archive Layout"
+            update_layout: "Update Layout"
+        create:
+          archive_layout_created: "<b>{{layout}}</b> layout successfully defined."
+        update:
+          archive_layout_updated: "<b>{{layout}}</b> layout successfully updated."
+        delete:
+          title: "Confirm Archive Layout Deletion"
+          confirm_delete: "Are you sure you want to delete the <b>{{layout}}</b> layout?"
+        destroy:
+          archive_layout_destroyed: "<b>{{layout}}</b> layout successfully deleted."
+      
+      categories:
+        privacy_changed: "The category was forced to private because its parent category is private."
+        privacy_changed_subcategories: "All subcategories of <b>{{name}}</b> that were not already private have been changed to private."
+
+        index:
+          title: "Manage Categories"
+          view: "View Category"
+          delete: "Delete Category"
+          new_category: "Add a new category"
+          confirm_delete: "Are you sure you want to delete this category? Note that deleting a category will also delete any sub-categories!"
+          no_categories: "You don't have any categories."
+          private_category: "Private category"
+          category_has_x_entries:
+            one: "This category contains 1 entry"
+            other: "This category contains {{count}} entries"
+
+        create:
+          new_category_canceled: "New category was cancelled."
+          category_created: "Category <b>{{name}}</b> successfully created."
+
+        delete:
+          title: "Confirm Category Deletion"
+          confirm_delete: "Are you sure you want to delete the category <b>{{category}}</b>? Note that deleting a category will also delete any sub-categories!"
+          
+        destroy:
+          category_destroyed: "Category <b>{{name}}</b> successfully deleted."
+          category_and_subcats_destroyed:
+            one: "Category <b>{{name}}</b> and one subcategory were successfully deleted."
+            other: "Category <b>{{name}}</b> and {{count}} subcategories were successfully deleted."
+      
+        form:
+          create_new_category: "Create a new category"
+          editing_category: "Editing category" 
+          slug: "Permaname"
+          autofill_slug: "Automatically fill in permaname"
+          parent: "Parent Category"
+          change_parent_notice: "NOTE: Changing the parent category will move any sub-categories as well."
+          privacy: "Privacy"
+          public: "Public"
+          private: "Private"
+          privacy_options_disallowed: "NOTE: Because the parent of this category is private, this category must be private too."
+
+        update:
+          category_updated: "Category <b>{{name}}</b> successfully updated."
+          changes_to_category_not_saved: "Changes to category <b>{{name}}</b> were not saved."
+
+      posts:
+        all_posts: "All Posts"
+
+        e_desc: "entry"
+        p_desc: "page"
+ 
+        e_with_article: "an entry"
+        p_with_article: "a page"
+
+        create_entry:
+          page: "Create a new page"
+          entry: "Create a new entry"
+        editing_entry: "Edit an existing {{type}}"
+
+        entry_not_found: "Could not find a {{type}} entry with permaname <b>{{permaname}}</b>."
+        password_missing_warning: "This entry will not be accessible until a password is set up on the {{options_link}} page."
+        journal_options: "Journal Options"
+        permaname_conflict: "The specified permaname is already being used; using <b>{{permaname}}</b> instead."
+        use_default_template: "<use default>"
+        page_as_archive_warning: "You seem to be using a page to customize your archive page.<br />While this will continue to work for a time, the recommended way now is to use <a href=\"{{url}}\">archive layouts</a>."
+
+        create:
+          new_entry_canceled: "Creating a new {{type}} was cancelled, any changes were not saved."
+          entry_created: "{{type}} <b>{{title}}</b> successfully created."
+
+        delete:
+          title: "Confirm Entry Deletion"
+          confirm_delete: "Are you sure you want to delete the {{type}} <b>{{entry}}</b>?"
+          
+        destroy:
+          entry_destroyed: "{{type}} <b>{{title}}</b> successfully deleted."
+
+        form:
+          day: "Day"
+          month: "Month"
+          year: "Year"
+          hour: "Hour"
+          minute: "Minute"
+          second: "Second"
+          use_server_time:
+            page: "Use the time that the page is saved"
+            entry: "Use the time that the entry is saved"
+          title: "Title"
+          permaname: "Permaname"
+          autofill_permaname: "Set permaname based on title"
+          body: "Body"
+          summary: "Summary"
+          entry_privacy: "Privacy"
+          quick_preview: "Quick Preview"
+          preview_in_template: "Preview in Template"
+          entry_preview: "{{type}} Preview"
+          public: "Public"
+          protected: "Password Protected"
+          private: "Private"
+          categories: "Categories"
+          no_categories: "No categories exist yet for this journal."
+          add_a_category: "Create a category!"
+          add_category: "Add a new category"
+          tags: "Tags"
+          more_fields: "More fields"
+          entry_tags_default_message: "Existing tags will be shown as you type. Press Enter or Comma to create a tag."
+
+        index:
+          a: "entries or pages"
+          e: "entries"
+          p: "pages"
+          title: "Posts"
+          no_entries: "You don't have any {{type}}."
+          entry_timestamp: "Timestamp"
+          confirm_delete: "Are you sure you want to delete this {{type}}?"
+          protected_entry: "Password protected"
+          private_entry: "Private"
+          preview_entry: "Preview"
+          delete_entry: "Delete this {{type}}"
+          preview_as_guest: "Preview as Guest"
+
+        update:
+          entry_updated: "{{type}} <b>{{title}}</b> successfully updated."
+          changes_to_entry_not_saved: "Changes to {{type}} entry <b>{{title}}</b> were not saved."
+      
+      journal:
+        let_us_know_about_this: "let us know about this"
+        x_other_user:
+          one: "1 other user is"
+          other: "{{count}} other users are"
+        refresh_at_any_time: "You may refresh at any time to see where you stand."
+        try_again: "Try again"
+        waiting_for_job: "Waiting for job to start..."
+        here_we_go: "and here we go!"
+
+        update_progress:
+          waiting_for_job_to_start: "Waiting for job to start..."
+          and_here_we_go: "Waiting for job to start... and here we go!"
+          time_remaining: "Time remaining:"
+          estimating: "estimating..."
+        
+        import:
+          title: "Import an Archive"
+
+          header: "Import Your Journal"
+          instructions: "If you've previously exported your journal above, or if you have a copy of your old journal on Diary-X that you obtained using its export feature, you can upload the zip file and we will import all of the entries, templates, and substitutions inside into your Codexed journal."
+          instructions2a: "This feature is definitely still in beta, so if you have trouble getting this to work, please" # ...
+          instructions2b: "let us know about it"
+          error_bad_data: "An error occurred when trying to parse your archive. Please try uploading the file again. If this issue persists, please {{let_us_know}}."
+          error_invalid_structure: "The organization of the files inside the zip archive you gave us wasn't what we expected, so we didn't know how to import the data. {{email}} and we'll give you a hand."
+          error_invalid_structure2: "Send us your archive"
+          journal_imported_is_nonenglish: "The journal I am importing contains characters other than from the extended {{wiki_link}}." #...
+          latin_alphabet: "Latin alphabet"
+          latin_alphabet_wikilink: "http://en.wikipedia.org/wiki/Latin_alphabet"
+          journal_imported_is_nonenglish_desc: "This will help to ensure that language-specific characters (Kanji, Cyrillic, etc.) are preserved when the archive is imported. Languages such as English, French, and Spanish use the Latin alphabet; if importing a journal in one of those, or a similar language, do not check the checkbox."
+          button_text: "Import Journal"
+          errors_exist1: "We ran into errors saving some of the items in the archive. Before you can import these items, you must" #...
+          errors_exist2: "correct the errors"
+          conflicts_exist1: "Some of the items you're importing conflict with items that already exist in your journal."
+          conflicts_exist2: "In order to continue, you must"
+          conflicts_exist3: "decide what you want to do with them"
+          step1_waiting: "We received your request to import your journal, but right now {{count}} in line ahead of you. Stay tuned, we'll get to you soon!"
+          step1_running1: "We are currently reading the archive that you uploaded."
+          step1_running2_js: "You can keep an eye on the progress below."
+          step1_running2_nojs: "This may take up to 3 minutes depending on the size of your journal."
+          step1_running3: "After this is done you will be given a list of the archive contents so you can choose what you'd like to import."
+          step1_pending1: "You're almost finished importing!"
+          step1_pending2: "Review what will be imported"
+          step2_running: "We are currently copying the contents of the archive to your journal. This may take a while, but you can keep an eye on the progress below."
+          step2_waiting: "We received your request to continue importing, but right now {{count}} in line ahead of you. Stay tuned, we'll get to you soon!"
+          success1: "Your journal was successfully imported."
+          success2: "Take a look at what happened"
+          internal_error: "Something happened while importing your journal! You might want to {{let_us_know}}."
+          in_progress: "You're currently in the process of importing your journal."
+          continue: "Continue importing"
+          cancel: "Cancel importing"
+          import_job_missing: "It appears that the import job that was active no longer exists. You may have to reissue another import."
+
+          review:
+            options:
+              header: "Options"
+              default:
+                start_page: "Default start page"
+                template: "Default template"
+              entrylists:
+                archiveformat: "Archive format"
+                lockicon: "Use lock icon for protected entries on archive page?"
+              formatting:
+                time:
+                  full: "Archive full date format"
+                  month: "Archive year and month format"
+                  year: "Archive year only format"
+                dnl2p: "Convert double linebreaks to paragraphs?"
+                inline: "Enable inline formatting?"
+                nl2br: "Convert linebreaks to &lt;br /&gt;'s?"
+                parenclass: "Parentheses CSS class"
+                parencolor: "Parentheses color"
+                parens: "Parentheses formatting mode"
+                typographical: "Enable smart quotes"
+              lang: "Site language"
+              privacy:
+                locked_entry_text: "Locked entry text"
+                default_entry_privacy: "Default Entry Privacy"
+              time:
+                zone: "Time zone"
+              ui:
+                pagination:
+                  entry: "Number of entries per page"
+                  template: "Number of templates per page"
+                recently_updated:
+                  show_dates: "Show dates in recently updated box?"
+                sidebar:
+                  sections: "Default view for sidebar links"
+                login_to_new_entry: "Jump to 'new entry' screen upon login?"
+            
+            title: "Review Import Data"
+            these_are_items_found: "These are the templates, categories, entries, substitutions, and options that were found in the archive. By default, all of them will be imported. Unchecking the box next to an item will exclude it from being imported."
+            some_items_need_to_be_corrected: "<b>Note!</b> Some of the items need to be corrected before they can be imported. More info is below."
+            some_items_conflict: "<b>Note!</b> Some of the items that you're importing conflict with items that already exist in your journal. You will have to change some of the data if you'd like to import them."
+            only_show_invalid_items: "Only show items that need to be corrected"
+            only_show_conflicting_items: "Only show items that conflict with other items"
+            this_item_conflicts: "This {{item}} conflicts with an existing {{item}} in your journal. You must give it a new {{attr}} if you want to import it."
+            compare_the_two: "Compare the two."
+            there_are_no_items: "There are no {{items}} in the archive."
+            merge_config_options: "Merge any configuration options from the journal I am importing into my configuration options."
+            merge_config_options_desc: "For instance, if you've defined a default template 'main', but the imported archive defines a default template 'plain', your default template will now be 'plain'. Note that this does not affect your journal title or privacy or language settings."
+
+          start:
+            no_file_given: "You must select a file to import."
+            #no_zip_given: "Hmm, that doesn't look like a zip file."
+            import_error_zip_error: "We had trouble opening the file you gave us. Are you sure it's a zip file?"
+          
+          summary:
+            title: "Summary of Imported Data"
+            entries_and_pages: "Entries and Pages"
+            set_up_entries_password_notice: "Some of the entries you imported are protected. However, it appears you haven't set up a password for entries yet. Go to {{options_link}} and set the \"Locked Entry Password\" field, otherwise everyone will be able to read your protected entries!"
+            these_are_imported_items: "These are the templates, entries, substitutions, and options found in the archive you last imported, along with their import statuses."
+            there_were_no_items: "There were no {{items}} in the archive."
+            imported: "Imported"
+            new_name: "new name"
+            new_permaname: "new permaname"
+            new_title: "new title"
+            status: "Status"
+            could_not_be_imported: "Could not be imported"
+            skipped: "Skipped"
+            these_options_were_merged: "These options were merged into your options:"
+            options_not_imported: "You chose not to import the options in the archive into your journal."
+            return: "Return to Import"
+
+          importing_cancelled: "Importing has been cancelled."
+          these_items_are_invalid: "These {{items}} are invalid and must be corrected before they can be imported:"
+          nothing: "Nothing"
+
+        export:
+          title: "Download My Journal"
+
+          header: "Download Your Journal"
+          instructions: "You may download your journal in .zip format for safekeeping or for viewing offline. This archive will include all of your entries, templates, substitutions, and configuration options, but will NOT include other information associated with your account (such as forum posts, etc)."
+          awaiting_export: "We received your request to download your journal, but {{count}} in line ahead of you. Hang on -- we'll get to you soon!"
+          running1: "We are currently generating a copy of your journal."
+          running2_js: "You can keep an eye on the progress below."
+          running2_nojs: "This may take up to 15 minutes depending on the size of your journal, so check back in a bit."
+          complete: "We have finished generating a copy of your journal."
+          expires_in: "You may use this link for {{time}}, after which you will have to generate another copy."
+          expired: "While the download link is still available, the export has expired and will be cleaned up shortly. Please generate a fresh copy if you'd like to download your archive."
+          error: "An internal error occurred while exporting your journal! You might want to {{let_us_know}}."
+          download: "Download Journal"
+          redownload: "Get a fresh copy"
+          cancel: "Cancel exporting"
+          exporting_cancelled: "Exporting has been cancelled."
+          export_job_missing: "It appears that the export job that was active no longer exists. You may have to reissue another export."
+
+        no_entries_exist: "No entries yet."
+
+      options:
+        title: "Options"
+        help: "Help"
+        
+        tabs:
+          main: "Main"
+          account: "Account"
+          journal: "Journal"
+          formatting: "Formatting"
+          
+        reset_to_defaults: "Reset to Defaults"
+        confirm_reset_options: "Are you sure you want to reset the options on this page to their default values? This action is not reversible."
+        options_saved: "Options successfully saved."
+        options_reset: "Options successfully reset to default values."
+        test_entry: "Test Entry"
+        save: "Save Options"
+        account_saved: "Account options saved successfully."
+        password_changed_no_login: "Password successfully changed."
+        time_format_cannot_be_blank: "Archive time formats cannot be blank."
+        
+        account:
+          unspecified_lang: "Unspecified / Other"
+            
+          profile:
+            member_profile: "Member Profile"
+            info_shared_in: "This information is shared in the {{directory_link}}, unless your journal is private or unlisted."
+            registered: "Registered"
+            ancient: "At the very dawn of time"
+            journal_language: "Journal language"
+            list_me: "List my journal in the directory and recently updated list."
+            save_profile: "Save Profile"
+
+          user:
+            registration_information: "Registration Information"
+            registration_information_instructions: "This information is only visible to you and the Codexed.com staff (except where specified, if you have opted-in)."
+            real_name: "Real Name"
+            email_address: "Email Address"
+            birthday: "Birthday"
+            list_birthday: "Let other users see my birthday"
+            show_age: "&hellip; and how old I am"
+            gender: "Gender"
+            male: "Male"
+            female: "Female"
+            first_name: "First Name"
+            last_name: "Last Name"
+            country: "Country"
+            save_registration: "Save Registration Information"
+
+          remove_journal:
+            header: "Remove Your Journal"
+            instructions: "If you so desire, you may remove your journal and all account information from Codexed.com.  This will remove your entire journal and personal information from Codexed, but will leave behind some other information such as forum posts."
+            instructions2: "This operation is permanent and cannot be undone."
+            enter_password: "Enter the account password for {{username}}:"
+            button_text: "Remove Journal"
+            incorrect_password: "Incorrect password."
+
+        email:
+          email_placeholder: "Here is where the email options will go."
+          email_preferences: "Email Preferences"
+          forward_my_email: "Forward my email to my account address ({{email}})"
+          change_email_link: "Visit {{options_link}} to change your account address."
+          profile_options: "Profile Options"
+          reject_email: "Reject all email sent to {{username}}@codexed.com"
+          communication_preferences: "Communication Preferences"
+          send_official_emails: "I wish to receive important Codexed news updates via email."
+
+        main:
+          site_preferences: "Codexed.com Settings"
+          site_preferences_instructions: "Set up how you'd like to interact with the site."
+          my_language: "Site text language"
+          language_instructions: "Specifies the language for text on the site, does not affect your journal text! If you are looking to set your journal language, visit the {{profile_link}} tab" # Profile
+          language_instructions_link_text: "Account"
+          my_timezone: "My timezone"
+          timezone_instructions: "This will autodetect DST / summer time, so you do not need to set it"
+          default_page: "After logging in, take me to"
+          dashboard: "Dashboard"
+          new_entry: "Create new entry"
+          other_options: "My Preferences"
+          section_display: "Default view for sidebar sections"
+          section_display_js_note: "Note that the first two options only apply if Javascript is enabled."
+          disable: "Disable"
+          collapse_all: "Collapse all"
+          expand_active: "Expand active section"
+          expand_all: "Expand all"
+          show_dates: "Show timestamps in the recently updated list?"
+
+        formatting:
+          formatting: "Entry Formatting"
+          convert_line_breaks: "Convert line breaks into HTML tags:"
+          br_after_every_line: "Put &lt;br/&gt; after every line"
+          wrap_text_blocks: "Wrap text blocks separated by double line breaks in &lt;p&gt;..&lt;/p&gt;"
+          leave_breaks_alone: "Leave my line breaks alone!"
+          enable_inline_formatting: "Enable inline formatting"
+          enable_inline_formatting_desc: "This will replace **bold** with <b>bold</b>, \\\\italic\\\\ with <i>italic</i>, and __underline__ with <u>underline</u>."
+          enable_smart_quotes: "Enable smart quotes"
+          enable_smart_quotes_desc: "This will replace straight quotes with curly quotes, double-dashes with em-dashes, and triple-dots with a proper ellipsis."
+          add_this_color_to_parens: "Add this color to my parentheses:"
+          add_this_color_to_parens_desc: "(<b>Example:</b> #FFFFFF, #CCC, ccc, blue)"
+          apply_this_class_to_parens: "Apply this CSS class to my parentheses:"
+          leave_parens_alone: "Leave my parentheses alone!"
+          entry_lists: "Archive &amp; Entrylist Formatting"
+          archive_format: "Archive format"
+          archive_format_desc: "Allowed subs: [time], [url], [title], [link&nbsp;(...)], [locked], [lock_icon]"
+          archive_format_preview: "Archive format preview"
+          archive_format_live_preview: "Live archive format preview"
+          lockicon_desc: "Show {{image}} instead of a bullet for locked entries."
+          split_archive_format: "Paginated Archive Date Formatting"
+          split_formatting_desc: "Here you can specify the date formats (similar to [time]) for paginated archives."
+          format: "Format"
+          preview: "Preview"
+          year_only: "Year only"
+          year_month: "Year and month"
+          full_date: "Full date"
+
+        journal:
+          journal_settings: "Journal Settings"
+          privacy_settings: "Privacy Settings"
+          journal_privacy: "Journal Privacy"
+          journal_password: "Password"
+          public: "Public"
+          protected: "Password Protected"
+          private: "Private"
+          locked_entry_password: "Locked Entry Password"
+          locked_entry_text: "Locked Entry Text"
+          locked_entry_text_instructions: "Leave blank to use default message.<br />HTML is allowed."
+          default_entry_privacy: "Default Entry Privacy"
+          password_already_set: "Password already set."
+          change_journal_password: "Change"
+          journal_defaults: "Journal Defaults"
+          default_template: "Default template"
+          start_page: "Start page"
+          view_journal_as_guest: "View My Journal as a Guest"
+          view_journal_as_guest_instr: "for testing journal privacy"
+          feeds: "Feeds"
+          your_feed_key: "Your feed key"
+          regenerate_feed_key: "Regenerate feed key"
+          your_private_feed_url: "Your private feed URL"
+          feeds_help: "Codexed gives you two journal feeds that you can share with people. The first allows people to read entries you have marked as public, but not password protected or private. We call this the <i>public</i> feed. The second allows people to read public as well as password-protected entries (but private ones are still hidden). We call this the <i>private</i> feed. People gain access to the private feed through the feed key. As you can see this is a sequence of characters that appears at the end of the private feed URL and is randomly generated so as to prevent it from being guessed. This means that the people you give this URL to do not have to enter a password; however, the security risks are the same as a password. That is, there is no way to prevent specific entries from appearing in the private feed aside from hiding them completely from your journal, so be careful who you share this URL with. If you find out that someone has gotten a hold of the URL without your knowledge, you may choose to regenerate the feed key above. This will immediately prevent any new entries you create from appearing in the private feed, and requiring anyone who is subscribed to the feed to contact you for the new URL."
+          feed_key_regenerated: "Feed key successfully regenerated."
+
+          readers:
+            journal_protection_level: "Journal Protection Level"
+            journal_protection_level_instructions: "You may lock your journal to prevent the general public from reading it."
+            journal_protection_level_O: "Anyone may read your journal."
+            journal_protection_level_R: "Only the readers added below may read your journal."
+            set_protection_level: "Set Protection Level"
+            manage_readers: "Manage Your Readers"
+            manage_readers_instructions: "These are the readers who are allowed to read when your journal is in private mode."
+            reader_name: "Reader Name"
+            reader_password: "Reader Password"
+
+      prefabs:
+        template_set_as_default: "Template <b>{{name}}</b> was set as the default template."
+        
+        change_color:
+          choose_color_for: "Color selection: {{desc}}"
+          choose_std_color: "Choose a color:"
+          or_input_color: "Or, enter HTML color code:"
+          change_color_button: "Change Color"
+
+        convert:
+          canceled: "Conversion of prefab <b>{{name}}</b> canceled."
+          succeeded: "Prefab <b>{{name}}</b> successfully converted to a custom template."
+          missing_prefab_to_convert: "The prefab you tried to convert no longer exists!"
+          instructions: "By converting a prefab to a custom template, you gain full control over the template code, which allows you to change it as you will. Converting this prefab template will create a new custom template, also called <b>{{name}}</b>, but will remove the prefab."
+          instructions2: "Note that converting a template will retain all your currently defined prefab options, but you will not get access to the prefab options form for this template any longer (options can still be changed by modifying the template code, of course)."
+
+        create:
+          new_prefab_canceled: "New prefab template was canceled."
+          prefab_created: "Prefab <b>{{name}}</b> successfully created."
+        
+        delete:
+          title: "Confirm Prefab Deletion"
+          confirm_delete: "Are you sure you want to delete the prefab <b>{{prefab}}</b>?"
+        
+        destroy:
+          template_deleted: "Prefab <b>{{name}}</b> successfully deleted."
+          default_template_deleted: "The default template was deleted, and any entries using it were set to <b>&lt;use default&gt;</b>."
+          fallback_template_restored: "Since you deleted your last template, the site default template has been reinstalled in your journal."
+
+        form:
+          prefab_name: "Installed Prefab"
+          no_prefab_customization: "This prefab has no customization options."
+          colors: "Colors"
+          default_color: "Default Color"
+          change_color: "Change"
+          prefab_save: "Save Prefab"
+          font_options: "Fonts"
+          text_options: "Prefab Variables"
+
+        list:
+          choose_prefab_instructions: "Select the prefab that you want to install:"
+          description: "Description"
+          creator: "Designed by"
+          no_prefabs_available: "There are no prefab templates available at the moment."
+          setup_options: "Setup prefab options"
+          loading: "Loading..."
+          preview_template: "Preview this prefab"
+          sort_by: "Sort by"
+          name: "Name"
+          newest: "Newest"
+          popularity: "Popularity"
+          
+        update:
+          prefab_updated: "Prefab <b>{{name}}</b> successfully updated."
+          changes_to_prefab_not_saved: "Changes to prefab <b>{{name}}</b> were not saved."
+        
+        prefabs: "Prefabs"
+        custom: "Custom Templates"
+        create_new_prefab: "Setup a new prefab template"
+        editing_prefab: "Editing prefab"
+
+      templates:
+        title: "Templates"
+        tpl: "Template"
+        prefabs: "Prefabs"
+        custom: "Custom Templates"
+
+        template_not_found: "Could not find a template named <b>{{name}}</b>"
+        template_set_as_default: "Template <b>{{name}}</b> was set as the default template."
+        template_name_truncated: "Template names can be a maximum of 40 characters.<br />Your template name has been truncated to <b>{{name}}</b>."
+  
+        create:
+          new_template_canceled: "New template was canceled."
+          template_created: "Template <b>{{name}}</b> successfully created."
+
+        delete:
+          title: "Confirm Custom Template Deletion"
+          confirm_delete: "Are you sure you want to delete the custom template <b>{{template}}</b>?"
+          
+        destroy:
+          template_deleted: "Template <b>{{name}}</b> successfully deleted."
+          default_template_deleted: "The default template was deleted, and any entries using it were set to <b>&lt;use default&gt;</b>."
+          fallback_template_restored: "Since you deleted your last template, the site default template has been reinstalled in your journal."
+        
+        form:
+          create_new_template: "Create a new template"
+          editing_template: "Editing template"
+          content: "Content"
+          available_substitutions: "Available substitutions"
+          get_help_with_templates: "Get help with templates"
+          get_help_template_subs: "Template substitutions"
+          get_help_time_formats: "Time formats"
+          make_template_default: "Make this my default template"
+          this_is_default_template: "This is the default template for this journal."
+          
+        index:
+          no_templates: "You don't have any custom templates defined."
+          no_prefabs: "You don't have any prefab templates set up."
+          last_updated: "Last Updated"
+          confirm_delete_template: "Are you sure you want to delete this template?"
+          confirm_delete_prefab: "Are you sure you want to delete this prefab?"
+          add_new_template: "Add a new template"
+          add_new_prefab: "Setup a prefab template"
+          original_prefab: "Prefab Name"
+          convert_prefab: "Convert this prefab"
+          delete_template: "Delete this template"
+          preview_template: "Preview this template"
+          default_template: "This is your default template."
+
+        update:
+          changes_to_template_not_saved: "Changes to template <b>{{name}}</b> were not saved."
+          template_updated: "Template <b>{{name}}</b> successfully updated."
+
+      substitutions:
+        title: "Substitutions"
+
+        index:
+          sub_already_defined: "Substitution <b>[{{sub}}]</b> is defined multiple times. Substitutions were not saved."
+          substitutions_saved: "Substitutions successfully saved."
+          add_sub: "Add another substitution"
+
+      user:
+        add_favorite:
+          invalid_user_id: "Invalid user."
+
+        destroy:
+          title: "Confirm User Deletion"
+          confirm_destroy_prompt: "Are you really sure you want to remove your journal? Again, this can't be undone..."
+          confirm_destroy_yes: "Yes, I'm sure!"
+          confirm_destroy_no: "No, wait, I changed my mind!"
+
+        login:
+          user_not_activated: "You haven't activated your account yet. Check your inbox for an activation email, or {{link_text}}." # ...
+          resend_the_email: "<a href=\"/user/resend_activation_email\">resend the email</a>"
+          cookies_not_enabled: "Cookies must be enabled in order to be able to login to Codexed. If you do have cookies enabled, try refreshing the page."
+          invalid_username_or_password: "Invalid username or password."
+          forgot_password: "Forgot your password?"
+          log_in: "Log in"
+          no_account: "Don't have a Codexed account?"
+          register_now: "Register now!"
+          login: "Login"
+
+        logout:
+          logged_out: "You have been logged out."
+
+        remove_favorite:
+          invalid_favorite: "Invalid favorite journal."
+
+  workers:
+    export:
+      writing_categories: "Writing categories"
+      writing_category_n: "Writing category {{n}}/{{total}}: {{name}}"
+      writing_category_index: "Writing category index"
+      writing_posts: "Writing posts"
+      writing_post_n: "Writing post {{n}}/{{total}}: {{title}}"
+      writing_post_index: "Writing post index"
+      writing_templates: "Writing templates"
+      writing_template_n: "Writing template {{n}}/{{total}}: {{name}}"
+      writing_template_index: "Writing template index"
+      writing_subs: "Writing subs"
+      writing_sub_n: "Writing sub {{n}}/{{total}}: {{name}}"
+      writing_sub_index: "Writing sub index"
+      writing_options: "Writing options"
+      writing_html: "Writing HTML"
+      writing_html_for_post: "Writing HTML for post {{n}}/#{{total}}: #{{title}}"
+      writing_html_index: "Writing index.html"
+      writing_html_for_name: "Writing {{name}}.html"
+      writing_metadata: "Writing metadata"
+
+    import:
+      extracting_to_temp_dir: "Extracting to temp directory"
+      index_existing_data: "Indexing existing data"
+      index_existing_template_n: "Indexing existing template {{n}}/{{total}}: {{name}}"
+      index_existing_post_n: "Indexing existing post {{n}}/{{total}}: {{title}}"
+      index_existing_sub_n: "Indexing existing sub {{n}}/{{total}}: {{name}}"
+      index_existing_category_n: "Indexing existing category {{n}}/{{total}}: {{name}}"
+      index_source_data: "Indexing source data"
+      index_source_template_n: "Indexing source template {{n}}/{{total}}: {{name}}"
+      index_source_post_n: "Indexing source post {{n}}/{{total}}: {{title}}"
+      index_source_sub_n: "Indexing source sub {{n}}/{{total}}: {{name}}"
+      index_source_category_n: "Indexing source category {{n}}/{{total}}: {{name}}"
+      index_source_options: "Indexing source options"
+      sort_source_data: "Sorting source data"
+      sort_templates: "Sorting templates"
+      sort_posts: "Sorting posts"
+      sort_subs: "Sorting subs"
+      verify_source_data: "Verifying source data"
+      validate_data: "Validating_data"
+      validating_item: "Validating {{item}} {{n}}/{{total}}: {{name}}"
+      import_data: "Importing data"
+      importing_item: "Importing {{item}} {{n}}/{{total}}: {{name}}"
+      import_options: "Importing options"
+
+  mailer:
+    cdx: "[cdx]"
+    user_activation:
+      subject: "Instructions for activating your account"
+    forgot_password:
+      subject: "Instructions for resetting your password"
+
+  activerecord:
+    errors:
+      messages:
+        accepted: "must be accepted"
+        all_blank: "{{other_attrs}} can't {{quantifier}} be blank"
+        blank: "can't be blank"
+        confirmation: "doesn't match confirmation"
+        email: "must be a genuine address (check what you typed!)"
+        empty: "can't be empty"
+        equal_to: "must be equal to {{value}}"
+        even: "must be even"
+        exclusion: "is reserved"
+        greater_than: "must be greater than {{count}}"
+        greater_than_or_equal_to: "must be greater than or equal to {{count}}"
+        inclusion: "is not included in the list"
+        invalid: "is invalid"
+        less_than: "must be less than {{count}}"
+        less_than_or_equal_to: "must be less than or equal to {{count}}"
+        no_match: "does not match {{value}}"
+        not_a_date: "is not a valid date"
+        not_a_number: "is not a number"
+        odd: "must be odd"
+        reserved: "is reserved"
+        taken: "has already been taken"
+        too_long: "is too long (maximum is {{count}} characters)"
+        too_short: "is too short (minimum is {{count}} characters)"
+        wrong_length: "is the wrong length (should be {{count}} characters)"
+
+      models:
+        category:
+          cannot_be_child_of_self: "A category cannot be its own parent"
+          cannot_be_child_of_descendant: "A category cannot be moved below of one of its descendants"
+          given_parent_is_invalid: "The specified parent is invalid"
+          taken: "has already been taken in this branch of the category tree"
+        journal:
+          password_required: "cannot be blank when the journal is password protected"
+        post:
+          unique_permaname_e: "is already being used for another entry on the same date"
+          unique_permaname_p: "is already being used for another page"
+        tag:
+          invalid: "cannot contain commas or start with two or less periods."
+        sub:
+          bad_chars: "may only contain alphanumeric characters and dashes"
+          already_used: "is used more than once"
+        user:
+          invitation_code_email_mismatch: "doesn't match the address you used to get an invitation"
+          invitation_code_already_used: "has already been used"
+          invitation_code_isnt_real: "isn't real"
+          username_valid_chars: "must only contain alphanumeric characters, underscores or dashes"
+          username_min_alnum: "must contain at least three alphanumeric characters"
+          acceptance_of_prerelease_tos: "You must accept the Pre-Release Terms of Service"
+          acceptance_of_tos: "You must accept the Terms of Service"
+        user_favorite:
+          exists: "already added to favorites"
+          no_self_add: "Cannot add yourself to your favorites"
+
+      template:
+        header:
+          one: "1 error prohibited this {{model}} from being saved"
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+          subs:
+            one: "1 error prohibited your substitutions from being saved"
+            other: "{{count}} errors prohibited your substitutions from being saved"
+          profile:
+            one: "1 error prohibited your profile from being saved"
+            other: "{{count}} errors prohibited your profile from being saved"
+        # The variable :count is also available
+        body: "There were problems with the following fields:"
+        subs_body: "There are problems with the following substitutions:"
+
+    models:
+      entry:
+        one: "entry"
+        other: "entries"
+      template:
+        one: "template"
+        other: "templates"
+      date_and_time: "Date/Time"
+      birthday: "Birthday"
+
+    attributes:
+      category:
+        parent_id:
+          one: ""
+        slug: "Permaname"
+        existing_name: "Existing Name"
+        import_name: "Import Name"
+      entry:
+        day: "Day"
+        month: "Month"
+        year: "Year"
+        hour: "Hour"
+        minute: "Minute"
+        second: "Second"
+      journal:
+        entries_password: "Locked Entry Password"
+        journal_password: "Locked Journal Password"
+      tag:
+        name: "Tag"
+      template:
+        name: "Name"
+      user:
+        invitation_code_name: "Invitation code"
+        first_name: "First name"
+        email: "Email"
+        username: "Username"
+        password: "Password"
+        tos: ""
+        prerelease_tos: ""
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+    percentage:
+      format:
+        # separator: 
+        delimiter: ""
+        # precision: 
+    precision:
+      format:
+        # separator:
+        delimiter: ""
+        # precision:
+    human:
+      format:
+        # separator: 
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      short: "%e/%m"
+      short_word: "%e %b %y"
+      long: "%B %d, %Y"
+      only_day: "%d"
+    
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order: [:month, :day, :year]
+  
+  time:
+    formats:
+      default: "%m/%d/%Y %I:%M %p"
+      time: "%I:%M %p"
+      short: "%b %d, %I:%M %p"
+      short_word: "%e %b %Y"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+    am: "AM"
+    pm: "PM"
+
+  datetime:
+    distance_in_words:
+      about: "about" # ... 5 seconds, or whatever
+      half_a_minute: "half a minute"
+      less_than_x_seconds:
+        one:   "less than 1 second"
+        other: "less than {{count}} seconds"
+      x_seconds:
+        one:   "1 second"
+        other: "{{count}} seconds"
+      less_than_x_minutes:
+        one:   "less than a minute"
+        other: "less than {{count}} minutes"
+      x_minutes:
+        one:   "1 minute"
+        other: "{{count}} minutes"
+      about_x_hours:
+        one:   "about 1 hour"
+        other: "about {{count}} hours"
+      x_hours:
+        one:   "1 hour"
+        other: "{{count}} hours"
+      x_days:
+        one:   "1 day"
+        other: "{{count}} days"
+      about_x_months:
+        one:   "about 1 month"
+        other: "about {{count}} months"
+      x_months:
+        one:   "1 month"
+        other: "{{count}} months"
+      about_x_years:
+        one:   "about 1 year"
+        other: "about {{count}} years"
+      over_x_years:
+        one:   "over 1 year"
+        other: "over {{count}} years"
+    prompts:
+      year:   "Year"
+      month:  "Month"
+      day:    "Day"
+      hour:   "Hour"
+      minute: "Minute"
+      second: "Seconds"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " and "
+      last_word_connector: ", and "

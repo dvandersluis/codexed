@@ -1,0 +1,10 @@
+- title "Stats"
+
+%h3 Number of Users By Date
+= ziya_chart '/super_admin/stats/num_records_by_date_graph?table=users', :size => "1200x300", :bgcolor => '#c0c0c0'
+
+%h3{ :style => "margin-top: 1em" } Number of Posts By Date
+= ziya_chart '/super_admin/stats/num_records_by_date_graph?table=posts', :size => "1200x300", :bgcolor => '#c0c0c0'
+
+%h3{ :style => "margin-top: 1em" } Number of Templates By Date
+= ziya_chart '/super_admin/stats/num_records_by_date_graph?table=templates', :size => "1200x300", :bgcolor => '#c0c0c0'

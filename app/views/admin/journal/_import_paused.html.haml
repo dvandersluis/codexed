@@ -1,0 +1,7 @@
+- t_scope 'controllers.admin.journal.import' do
+  .tcenter.lightfill.padded
+    = t(:step1_pending1)
+    = succeed "." do
+      = link_to t(:step1_pending2), :controller => 'admin/journal/import', :action => 'review'
+    - form_tag :controller => 'admin/journal/import', :action => 'cancel' do
+      = submit_tag t(:cancel)

@@ -1,0 +1,60 @@
+!!! XML
+!!!
+- @tabindex = 1
+- t_scope 'layouts.application' do
+  %html{ :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang' => 'en', :lang => 'en' }
+    %head
+      %meta{ 'http-equiv' => 'content-type', 'content' => "text/html; charset=utf-8" }/
+      %title= window_title
+      :javascript
+        window.requestForgeryProtectionToken = "#{request_forgery_protection_token}";
+        window.formAuthenticityToken = "#{escape_javascript form_authenticity_token}";
+      = base_includes
+      = render '/google_analytics'
+
+    %body
+      %table#header{ :cellspacing => 0, :cellpadding => 0 }
+        %tr
+          %td#logo
+            %h1= link_to t(:codexed, :scope => 'general').downcase, '/', :tabindex => 1 
+            #beta= t(:beta)
+          %td#top
+            %table{ :cellspacing => 0, :cellpadding => 0 }
+              %tr
+                %td#nav
+                  %ul
+                    %li= link_to t(:directory), members_path, :tabindex => (@tabindex += 1)
+                    /%li= link_to t(:birthdays), birthdays_path, :tabindex => (@tabindex += 1)
+                    %li= link_to t(:twitter), "http://www.twitter.com/codexed", :tabindex => (@tabindex += 1), :target => '_blank'
+                    %li= link_to t(:forums), "http://forums.codexed.com", :tabindex => (@tabindex += 1)
+                    /%li= link_to t(:help), { :controller => '/support' }, :tabindex => (@tabindex += 1)
+                %td#login-info.top.smaller
+                  - if logged_in?
+                    = t(:logged_in_as, :username => current_user.login_name)
+                    &nbsp;
+                    %b= link_to t(:logout), { :controller => '/admin/user', :action => 'logout' }, :tabindex => (@tabindex += 1)
+                  - else
+                    = link_to t(:create_account), { :controller => 'user/signup', :action => 'index' }, :tabindex => (@tabindex += 1)
+                    = t(:or_login)
+                    - form_for(User.new, :url => { :controller => 'admin/user', :action => 'login' }, :html => { :id => 'login_form'}) do |f|
+                      = f.text_field :username, :size => 15, :tabindex => (@tabindex += 1)
+                      = f.password_field :password, :size => 15, :tabindex => (@tabindex += 1)
+                      = submit_tag t(:log_in), :tabindex => (@tabindex += 1)
+                      = link_to t(:forgot_password), { :controller => '/user', :action => 'forgot_password' }, :tabindex => (@tabindex += 1)
+      
+      - unless @hide_sidebar
+        = render :partial => '/sidebar'
+        
+      #main{main_div_attributes}
+        #main-inner
+          = render :partial => '/notices'
+          #main-inner-inner
+            - unless page_title.blank? || @hide_title
+              %h2{ :align => 'center' }= page_title
+            
+            - unless @hide_global_messages
+              = message_divs
+            
+            = yield
+          
+        %br{ :style => 'clear: both;' }

@@ -1,0 +1,7 @@
+- t_scope 'layouts.application.notices' do
+  #birthday_notice
+    %table
+      %tr
+        %td.img= image_tag("icons/cake.png")
+        %td.text= t(:happy_birthday, :age => (Time.zone.today.year - current_user.birthday.year).ordinalize)
+        %td.img= image_tag("icons/cake.png")

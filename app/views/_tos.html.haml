@@ -1,0 +1,108 @@
+%style{ :type => 'text/css' }
+  :sass
+    dt
+      font-weight: bold
+      text-transform: uppercase 
+
+- t_scope 'controllers.main.tos' do
+  %dl
+    - t_scope :append, 'section1' do
+      %dt==1. #{t(:header)}
+      %dd
+        %p=t(:text) 
+    
+    - t_scope :append, 'section2' do
+      %dt==2. #{t(:header)}
+      %dd
+        %p=t(:line1)
+        %p=t(:line2)
+
+    - t_scope :append, 'section3' do
+      %dt==3. #{t(:header)}
+      %dd
+        - t_scope :append, 'line1' do
+          %p=t(:text) 
+          %ul
+            %li=t(:item1)
+            %li=t(:item2)
+        %p=t(:line2) 
+        %p=t(:line3)
+        %p=t(:line4, :privacy_link => link_to(t(:privacy_statement, :scope => 'layouts.application'), :controller => '/main', :action => 'privacy'))
+
+    - t_scope :append, 'section4' do
+      %dt==4. #{t(:header)}
+      %dd
+        %p=t(:line1)
+        - t_scope :append, 'line2' do
+          %p=t(:text)
+          %ul
+            %li=t(:item1) 
+            %li=t(:item2) 
+            %li=t(:item3) 
+            %li=t(:item4) 
+            %li=t(:item5) 
+            %li=t(:item6) 
+            %li=t(:item7) 
+            %li=t(:item8) 
+            %li=t(:item9) 
+        %p=t(:line3) 
+        
+    - t_scope :append, 'section5' do
+      %dt==5. #{t(:header)}
+      %dd
+        %p=t(:text)
+      
+    - t_scope :append, 'section6' do
+      %dt==6. #{t(:header)}
+      %dd
+        %p=t(:text) 
+      
+    - t_scope :append, 'section7' do
+      %dt==7. #{t(:header)}
+      %dd
+        %p=t(:line1)
+        %p=t(:line2)
+        %p=t(:line3)
+        
+    - t_scope :append, 'section8' do
+      %dt==8. #{t(:header)}
+      %dd
+        %p=t(:text) 
+      
+    - t_scope :append, 'section9' do
+      %dt==9. #{t(:header)}
+      %dd
+        %p=t(:text)
+      
+    - t_scope :append, 'section10' do
+      %dt==10. #{t(:header)}
+      %dd
+        - t_scope :append, 'line1' do
+          %p=t(:text)
+          %ul
+            %li=t(:item1) 
+            - t_scope :append, 'item2' do
+              %li
+                =t(:text) 
+                %ul
+                  %li=t(:item1)
+                  %li=t(:item2)
+                  %li=t(:item3)
+                  %li=t(:item4)
+
+    - t_scope :append, 'section11' do
+      %dt==11. #{t(:header)}
+      %dd{ :style=> 'text-transform: uppercase' }
+        - t_scope :append, 'line1' do
+          %p=t(:text)
+          %ul
+            %li=t(:item1)
+            %li=t(:item2)
+            %li=t(:item3)
+            %li=t(:item4)
+            %li=t(:item5)
+
+    - t_scope :append, 'section12' do
+      %dt==12. #{t(:header)}
+      %dd{ :style=> 'text-transform: uppercase' }
+        %p=t(:text) 

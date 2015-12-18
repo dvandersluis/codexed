@@ -1,0 +1,63 @@
+<style type="text/css">
+  .cdx_error_message
+  {
+    margin: 0px auto;
+    margin-bottom: 1em;
+    padding: 3px;
+    text-align: center;
+    background-color: #FFE4DE;
+    border: 1px solid #EA786B;
+    color: #CC0000;
+    line-height: 1.8em;
+  }
+
+  .cdx_notice_message
+  {
+    margin: 0px auto;
+    margin-bottom: 1em;
+    padding: 3px;
+    text-align: center;
+    background-color: #CFD6EE;
+    color: #5471A1;
+    border: 1px solid #5471A1;
+    line-height: 1.8em;
+  }
+</style>
+
+<% t_scope 'controllers.journal.locked' do %>
+  <% if @journal.config.privacy.locked_entry_text.nil? %>
+    <p><%= t(:locked_entry) %></p>
+  <% else %>
+    <p><%= @journal.config.privacy.locked_entry_text %></p>
+  <% end %>
+
+  <% if !@error.nil? %>
+    <div class="cdx_error_message">
+      <img src="/images/icons/exclamation.png" style="vertical-align: middle" />&nbsp;&nbsp;
+      <%= @error %>
+    </div>
+  <% elsif !@notice.nil? %>
+    <div class="cdx_notice_message">
+      <img src="/images/icons/information.png" style="vertical-align: middle" />&nbsp;&nbsp;
+      <%= @notice %>
+    </div>
+  <% end %>
+  <form id="unlock_form" method="post" action="/journal/unlock">
+    <input type="hidden" name="authenticity_token" value="<%= @authenticity_token %>" />
+    <input type="hidden" name="mode" value="post" />
+    <input type="hidden" name="guest" value="<%= @guest %>" />
+    <p>      
+      <b><%= t(:password, :scope => 'general.form')%>:</b>&nbsp;
+      <input type="password" name="post_authentication" size="20" style="vertical-align: middle" />&nbsp;
+    </p>
+    <p>
+      <label>
+        <input type="checkbox" name="set_cookie" id="set_cookie" value="1" checked="checked" style="vertical-align: middle" />
+        <%= t(:keep_unlocked, :item => t('models.entry', :count => 1).downcase) %>
+      </label>
+    </p>
+    <p>
+      <input type="submit" value="<%= t(:unlock) %> &raquo;" style="vertical-align: middle" />
+    </p>  
+  </form>
+<% end %>

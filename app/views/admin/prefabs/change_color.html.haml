@@ -1,0 +1,21 @@
+- t_scope 'controllers.admin.prefabs.change_color' do
+  - title t(:create_new_prefab)
+
+  - url = @prefab.new_record? ? { :action => 'new', :name => @prefab.prefab_name } : { :action => 'edit', :id => @prefab.id }
+  - method = @prefab.new_record? ? :post : :get # hmm, interesting
+  .center{ :style => 'width: 100%; text-align: center' } 
+    %h3= t(:choose_color_for, :desc => @color_desc.join(' - ')) 
+    %div{ :style => 'width: 196px; margin: auto;' }
+      %b= t(:choose_std_color)
+      %br
+      = non_js_color_picker(@prefab.prefab_name, @color_name, url[:action])
+    - form_tag(url, :method => method) do
+      = hidden_field_tag :cname, @color_name
+      %table.form.center
+        %tr
+          %th= t(:or_input_color)
+          %td== ##{text_field_tag :cval, nil, { :maxlength => 6, :size => 7 } }
+      %p{ :align => 'center' }
+        = submit_tag "&laquo; #{t(:previous_short, :scope => 'general.form')}", :name => 'return', :accesskey => 'R'
+        &nbsp;
+        = submit_tag "#{t(:change_color_button)}", :name => 'change_color'

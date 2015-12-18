@@ -1,0 +1,43 @@
+/* Adapted from <http://labs.silverorange.com/archive/2004/may/updatedsimple>, */
+/* and some other places which I forget now */
+#tabs_header {
+  position: relative;
+  font-size: 13px;
+  background: transparent url(/images/tab_bottom.gif) repeat-x bottom left;
+  min-height: 33px;
+  overflow: auto; }
+  #tabs_header ul {
+    margin: 0;
+    padding-left: 15px;
+    overflow: auto; }
+  #tabs_header li {
+    display: inline;
+    list-style: none; }
+  #tabs_header a, #tabs_header span {
+    font-size: 13px;
+    display: block;
+    float: left;
+    padding: 2px 8px 3px;
+    margin-right: 4px;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none; }
+  #tabs_header span, #tabs_header a:hover {
+    color: #333;
+    border-style: solid;
+    border-color: #aaa;
+    border-width: 1px 1px 0 1px; }
+  #tabs_header a {
+    background: #ECEDEE;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    color: #A3ABC9; }
+  #tabs_header span {
+    border-bottom: 1px solid #D9DBE2;
+    background: #D9DBE2; }
+  #tabs_header input {
+    vertical-align: middle; }
+
+#tabs_content_inner {
+  margin: 1.5em 2em 0 15px;
+  padding-bottom: 15px; }

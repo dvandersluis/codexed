@@ -1,0 +1,100 @@
+---
+meta:
+  title: Extreme Georgia
+  description: Simple newspaper-style layout centered around the Georgia font. Created for Smashing Magazine typographic layout competition.
+  created: 2010-06-18
+  creator:
+    name: Mohd Huzairy Mohd Rezuan
+    url: http://www.smashingmagazine.com/2009/07/08/free-typographic-xhtmlcss-layouts-for-your-designs/ 
+  license:
+    name: GNU General Public License
+    url: http://www.gnu.org/licenses/
+customization:
+  vars:
+    username:
+    subheading: Subheading goes here
+    recent: Recent News
+    previous: Previous Entry
+    next: Next Entry
+    extralinks: []
+  colors:
+    page:
+      background: "#FFFFFF"
+      topborder: "#EEEEEE"
+      journaltitle: "#666666"
+      subhead: "#999999"
+    lists:
+      heading: "#999999"
+      border: "#CCCCCC"
+    content:
+      header: "#CCCCCC"
+      headertext: "#F7FFFF"
+      headerhighlight: "#DEDEDE"
+      border: "#CCCCCC" 
+      background: "#FFFFFF"
+      highlights: "#CCCCCC"
+      entrymeta: "#999999"
+      text: "#444444" 
+    navigation:
+      background: "#CCCCCC"
+      hover: "#333333"
+      text: "#FFFFFF"
+    links:
+      active: "#F25F0F"
+      hover: "#444444"
+descriptions:
+  vars:
+    _order: [:username, :subheading, :recent, :previous, :next, :extralinks]
+    username:
+      _: Journal author
+      _note: Your journal username will be used if left blank.
+    subheading: Subheading
+    recent: Content heading
+    previous: Previous label
+    next: Next label
+    extralinks:
+      _: Extra links
+      _order: [:url, :text]
+      _multiple: true
+      _add: Add another link
+      url:
+       _: URL
+       default: "http://"
+      text: Link Text
+  colors:
+    _order: [:page, :lists, :content, :navigation, :links]
+    page:
+      _: Page Colors
+      _order: [:background, :topborder, :journaltitle, :subhead]
+      background: Background
+      topborder: Top edge
+      journaltitle: Journal title text
+      subhead: Subheading text
+    lists:
+      _: Sidebar List Colors
+      _order: [:heading, :border]
+      heading: Heading
+      border: Heading Border
+    content:
+      _: Content Area Colors
+      _order: [:header, :headerhighlight, :headertext, :background, :border, :highlights, :entrymeta, :text]
+      header: Header background
+      headertext: Header text 
+      headerhighlight: Header highlight
+      border: Border
+      background: Background
+      highlights: Highlights
+      entrymeta: Entry information
+      text: Text
+    navigation:
+      _: Navigation Button Colors
+      _order: [:background, :hover, :text]
+      background: Background
+      hover: Hover
+      text: Text
+    links:
+      _: Link Colors
+      _order: [:active, :hover]
+      active: Default
+      hover: Hover
+

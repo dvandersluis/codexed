@@ -1,0 +1,363 @@
+# Logfile created on Sun Jun 15 23:18:19 -0500 2008 by /
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: near "SHOW": syntax error: SHOW TABLES[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002519)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.005627)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002683)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.004584)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002232)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003169)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002232)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.000342)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002608)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003557)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002705)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003779)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003614)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.016073)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003678)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003051)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003570)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.002951)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002601)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003487)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003550)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003672)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002752)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.004164)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003871)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003753)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002869)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.002926)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003352)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003994)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002836)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003326)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002626)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003175)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002309)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003821)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002506)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003240)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002653)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.002910)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002165)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.004181)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003564)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003900)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003101)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mSQL (0.003174)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002901)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000463)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('d210874c082bc48846636188b9f101fb899aa4ae', 'edcf71473122cb8123b1d15789c0d663808325bd', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000608)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('d5fb0221d13f913ac4c0f1335babf00e66670c23', '8dbff09a049b8146cda2ffaf0b9fe6c995fe7e08', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000735)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003750)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003092)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000441)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('c26c0626c463593cb73ee3385856254f35bd5053', '1d512a8f0d2505ec3ce378bd4aaea08734e3bbd7', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000371)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('6d0b88f62df044273b6402338bd0f4547edccd6e', '7f6f0b748c9e29123b63494331b9df5062ba84f6', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000487)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003389)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003583)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000436)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('bff323810d91aadfabf02204791d11434f5d38c5', '85546da0b5ff5f638618cd1054d313cf27d40c9e', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000609)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('9c0f63a932000ec2e39cc69193178ec057f35f11', 'd41fc6509c9c1fd8b12a7e5be75c4b533425f582', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000748)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003050)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003190)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000443)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('a0b1cba0ec34a87a6c957d013ff19f5423ed436d', '8119858be040403dd9c0982cb6987fdde7a37150', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000589)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('007dc2ef6f332245173c5f1b783ca4085b72f2c7', '39a4a3b254130021d828d1e2323d8f8fb8d95d25', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000836)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003319)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002951)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000448)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('ea6b6fef3aac641d815164ab1812abeb443b097c', '3c7bf15efc6c9ac61fed8b2add1dfba2c3173cae', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000587)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('5af730278960f3e811cfa9c5fd12d9ac792cfa16', 'a211a04c80883a86694e49d5100e135a3c044abe', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000722)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.004159)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002545)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000459)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('e0c3a119708e8a076414115f58e841a58b68f47f', '3bbd2d33ba6027fbe61e54dda5d49a15b5d417c2', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000407)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('6e75f04ef70be48f42852020c9256a37e649dc28', 'ca3fd3c62a0db5520a2b35d92d4a7864b9eb7cbd', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000498)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003382)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003168)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000452)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('c2ee8586bec30e4daa544dba5e7ac563c7e82963', 'eefe492c56e009da70d1413b842e96e793c6b751', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000604)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('cfcb70d66c21d667b3767d7c00a60d180dc834c6', '70b12e7b9daa1a600f7255a1f1f24f3c1d392cf1', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000760)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003211)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003370)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000475)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('377f21c378e73cbcabbe108589d760d4991e63a6', '202ed8bce35f1dc0c7774afe7ea5d0f99c305ab4', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000581)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('718b62148ac7d083e4b634dba4153d432acf5d1e', '7fb4cd5ace4e0ee27a11136e28330894449e5da1', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000737)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.000276)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003860)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000479)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('e4344c7a78c63947245a095075c93876578dbd6c', '472ebb9cdef120e1f239d0196a15de9d377d9260', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000577)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('dc4325c3880c0449063b4c69cc50a209b1ba22d5', '08ee2cc0363157bdf9c8ab6bcd3155c7a76e5206', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000814)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003484)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003201)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000452)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('4fa2367cd8d7f677251e4ee824a8488c275e62d3', '0c740ec662edd6091bd7621b75ddc39365551719', 'john', NULL)[0m
+  [4;36;1mSQL (0.011562)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003625)[0m   [0m
+ CREATE TABLE users (
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000427)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('2c279a8face0c94a637830ffbc5d0cab16bc46f6', '92a720fd7f3f4af2803631c4cce24d1df3984e85', 'john', NULL)[0m
+  [4;35;1mUser Load (0.000915)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003624)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.003791)[0m   [0m
+ CREATE TABLE users (
+ id integer not null primary key autoincrement,
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000459)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('6146260fd2988c025a46bd3bc90b539be68a84f5', '8e341af47b8bef4df669589f33a2e1476e0cb2aa', 'john', NULL)[0m
+  [4;35;1mUser Load (0.000997)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m
+  [4;36;1mSQL (0.003810)[0m   [0;1mDROP TABLE IF EXISTS users[0m
+  [4;35;1mSQL (0.002976)[0m   [0m
+ CREATE TABLE users (
+ id integer not null primary key autoincrement,
+ username varchar(255) not null,
+ crypted_password varchar(255) not null,
+ salt varchar(255) not null,
+ mnemonic varchar(255)
+ )
+[0m
+  [4;36;1mUser Create (0.000464)[0m   [0;1mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('892ff777cd806f9a85da2c35ea9da9876875c5ee', 'faf1dfa387cab8e914073c28e87a892f645ff7b6', 'john', NULL)[0m
+  [4;35;1mUser Create (0.000644)[0m   [0mINSERT INTO "users" ("salt", "crypted_password", "username", "mnemonic") VALUES('af46aa48fb77c913fd0a9023313b1cfe0f28c33a', '6a19a33ecff757207311fbdad4f87d5d98e17584', 'john', NULL)[0m
+  [4;36;1mUser Load (0.000801)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'john') LIMIT 1[0m

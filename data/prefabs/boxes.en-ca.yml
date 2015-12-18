@@ -1,0 +1,11 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+    nav:
+      _: Menu Colours
+    entry:
+      _: Entry Colours
+    link:
+      _: Link Colours

@@ -1,0 +1,78 @@
+= javascript_include_tag 'controls'
+
+- t_scope 'controllers.main.favorite_journals' do
+  .sidebar-box#favorite-journals
+    %h3= t('favorite_journal.other')
+    .sidebar-box-body
+      .error#fj_error{ :style => 'display: none;' }
+        = image_tag('icons/exclamation.png', :style => 'vertical-align: middle; margin-right: 2px;')
+        &nbsp;&nbsp;
+        %span#fj_error_span
+      - if mode == :db
+        - merge_div_style = (favorites_to_merge.empty? or !cookies[:dismiss_merge_notice].nil?) ? 'display: none;' : ''
+        .notice#fj_merge{ :style => merge_div_style }
+          = image_tag('icons/information.png', :style => 'vertical-align: middle; margin-right: 2px;')
+          %span#fj_merge_count_span
+            = t(:favorite_journals, :count => favorites_to_merge.length).downcase
+          = t(:favorites_found_in_cookie)
+          = link_to(t(:merge), |
+            {:controller => controller, :action => 'merge_favorites', :id => favorites_to_merge.join(',')}, |
+            :onclick => "ajax_request(this.href, merge_favorites_succeeded, '#{form_authenticity_token}'); return false;", |
+            :id => 'fj_merge_link') |
+          &nbsp;
+          %span{ :style => 'font-size: 90%' }
+            == [#{link_to(t(:dismiss), {:controller => controller, :action => 'dismiss_merge_message'}, :onclick => "dismiss_merge_message(); return false;")}]
+      - form_tag({:controller => controller, :action => "add_favorite"}, :onsubmit => 'return false;') do
+        %table{ :style => 'width: 100%;' }
+          %tbody#fj_tbody
+            - no_favs_style = "display: none" unless favorite_journals.nil? or favorite_journals.empty?
+            %tr#fj_no_favorites{ :style => no_favs_style }
+              %td{ :colspan => 2}= t(:no_favorites)
+            - if !(favorite_journals.nil? or favorite_journals.empty?)            
+              - favorite_journals.each do |fj|
+                %tr{ :id => "fj_table_row_id#{fj.id}" }
+                  %td
+                    - if fj.user_id.nil?
+                      %span.fj-deleted{ :title => t(:deleted_favorite_journal) }= fj.user.username
+                    - else
+                      = link_to fj.user.username, journal_url(fj.user)
+                    == [#{link_to("x", |
+                      "#{controller}/remove_favorite/#{fj.id}", |
+                      :onclick => "ajax_request('#{controller}/remove_favorite/#{fj.id}', remove_favorite_succeeded, '#{form_authenticity_token}'); return false;")}] |
+                  %td.fj-age{ :nowrap => 'nowrap' }
+                    - if fj.user_id.nil?
+                      %span.fj-deleted{ :style => "text-decoration: none;" }= t(:deleted)
+                    - elsif fj.current_entry.nil?
+                      \--
+                    - elsif fj.current_entry.created_at.to_date == Time.zone.today
+                      = l(fj.current_entry.created_at, :format => :time)
+                    - else
+                      = l(fj.current_entry.created_at, :format => :short_word)
+        %p{ :style => "margin-top: 0" }
+          = text_field_tag("username", "", :id => 'fj_add_input')
+          / Form has two submit buttons, one for ajax and one for normal. In either case, only one will be visible. 
+          = submit_tag(t(:add), :name => "submit", :id => 'fj_normal_submit')
+          = tag(:input, { |
+              :value => t(:add), |
+              :name => "submit", |
+              :type => "submit", | 
+              :id => 'fj_ajax_submit', |
+              :style => 'display: none;', |
+              :onclick => "ajax_request('#{controller}/add_favorite', add_favorite_succeeded, '#{form_authenticity_token}', Form.serialize(this.form)); return false;" |
+            }) |
+          = image_tag('ajax/loading.gif', { :class => 'ajax-loading', :id => 'fj_ajax', :style => 'display: none;' })
+          
+        - if logged_in?
+          %p.tright{ :style => "margin-top: 1.5em; font-style: italic" }
+            = link_to "RSS feed", user_favorites_feed_path(:guid => current_user.guid), :class => "rss"
+
+        %div.auto_complete#favorite_journal_username_auto_complete
+        = auto_complete_field('fj_add_input', { |
+            :update => 'favorite_journal_username_auto_complete', |
+            :url => { :controller => '/user', :action => 'auto_complete_for_favorite_journal_username' }, |
+            :indicator => 'fj_ajax' |
+          } ) |
+        - if mode == :cookie
+          %div{ :style => 'font-style: italic; font-size: 90%' }
+            = t(:cookie_mode)
+      = javascript_tag("$('fj_normal_submit').remove(); $('fj_ajax_submit').show()")

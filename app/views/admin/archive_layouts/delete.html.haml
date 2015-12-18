@@ -1,0 +1,8 @@
+- t_scope 'controllers.admin.archive_layouts.delete' do
+  - title t(:title)
+  - form_tag admin_archive_layout_path(:id => @archive_layout), :method => :delete do |f|
+    %p.center= t(:confirm_delete, :layout => @archive_layout.type.name.downcase)
+    %p.center
+      = submit_tag t(:yes).capitalize
+      &nbsp;
+      = link_to t(:no).capitalize, admin_archive_layouts_path

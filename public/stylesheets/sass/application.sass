@@ -1,0 +1,500 @@
+/* Structural elements
+
+#header
+  width: 100%
+  height: 60px
+  background-color: #3B4172
+  color: white
+  /*border-bottom: 2px solid #7B859D
+  td
+    padding: 0
+
+td#logo, td#top
+  padding: 0 20px
+  vertical-align: middle
+
+#logo
+  h1, #alpha, #beta
+    float: left
+    margin: 0
+  h1
+    font-size: 2.1em
+    font-style: italic
+    letter-spacing: -1px
+    padding-right: 3px
+    line-height: 40px
+    a
+      color: white
+      text-decoration: none
+      border: none
+    a:hover
+      border-bottom: 1px solid #7b859d
+      background-color: transparent
+  #alpha, #beta
+    margin-top: 7px
+    font-size: 1.15em
+    font-family: "Trebuchet MS", Arial, sans-serif
+    letter-spacing: -0.5px
+    font-variant: small-caps
+    position: relative
+    top: 15px
+  #alpha
+    color: #F87777
+  #beta
+    color: #77D6F8
+    
+td#top
+  font-size: 0.9em
+  text-align: right
+  padding-right: 100px
+  line-height: 1.5em
+  a:hover
+    background-color: transparent
+    color: white
+    border-bottom: 1px solid white
+  table
+    float: right
+  td
+    padding: 9px 15px
+  #nav
+    text-align: right
+    /*margin-right: 15px
+    border-right: 3px solid #7b859d
+    a, a:active, a:visited
+      color: #F4FF9E
+      font-size: 1.2em
+      font-variant: small-caps
+    ul, li
+      display: inline
+      margin: 0
+      padding: 0
+    li
+      padding-left: 20px
+  #login-info
+    text-align: left
+    color: white
+    a, a:active, a:visited
+      color: #818ba5
+      text-decoration: none
+      border-bottom: 1px dotted #818ba5
+    form, form div
+      display: inline
+    input
+      vertical-align: middle
+
+#sidebar
+  position: absolute
+  /* height of #header
+  top: 60px
+  left: 0
+  z-index: 10
+  width: 200px
+  
+#sidebar ul
+  margin-right: 0.9em
+  li
+    text-align: right
+    font-style: italic
+    font-weight: bold
+    padding-bottom: 0.8em
+    text-transform: lowercase
+    a
+      /color: #697092
+      color: #3b4172
+    a:hover, a.active
+      border-bottom: 1px solid #999
+      background-color: transparent
+
+#sidebar a.dropdown
+  display: none
+
+#sidebar ul.dropdown
+  font-variant: small-caps
+  font-size: 1.1em
+  a
+    font-style: normal
+  ul
+    font-size: 80%
+    font-variant: normal
+    text-transform: lowercase
+
+#sidebar-inner
+  padding: 10px
+
+#main
+  background-color: white
+  margin-left: 200px
+  min-height: 100%
+  border-left: 2px solid #b2b2b2
+
+#main-inner
+  /* height of #header
+  /*padding-top: 60px
+  
+#main-inner-inner
+  padding: 15px
+  line-height: 1.5em
+
+/* this will not work on IE 5/6, maybe there's a better way?
+#main-inner-inner > p:first-child, #sidebar-inner > p:first-child
+  margin-top: 0
+
+.sidebar-box
+  background-color: white
+  border: 1px solid #3B4172
+  width: 250px
+  float: right
+  clear: right
+  margin: 0 0 20px 50px
+  h3
+    font-size: 0.85em
+    font-style: italic
+    background: #3B4172
+    color: white
+    padding: 2px 2px 2px 5px
+    margin-top: 0
+    margin-bottom: 0
+  .sidebar-box-body
+    /* 0.7em 0.9em 0.8em 0.9em
+    margin: 0 1em 
+    font-size: 0.8em
+    
+  ul, table, form, p
+    margin: 0.7em 0
+  ul
+    padding: 0 1em
+    
+  &#recently-updated, &#favorite-journals, &#birthdays
+    td
+      padding: 0
+
+  &#birthdays
+    table
+      width: 100%
+      th
+        text-align: center
+      td.spacer
+        padding: 3px
+      td.name
+        padding-left: 5px
+        padding-right: 5px
+      td.image
+        width: 16px
+
+  &#favorite-journals
+    form
+      margin: 0
+      input
+        font-size: 0.9em
+
+      input[type=text]
+        width: 125px
+        margin-right: 10px
+
+      p
+        padding-left: 0
+
+      table
+        margin-bottom: 10px
+        td.fj-age
+          text-align: right
+          width: 75px
+          whitespace: nowrap 
+        td .fj-deleted
+          text-decoration: line-through
+          color: #999
+
+    .error, .notice
+      padding: 1px
+      width: auto 
+      margin: 10px 10px 0 10px
+      img
+        position: relative
+        top: -2px
+
+#nag_notice, #birthday_notice
+  border-bottom: 1px solid #CAC19D
+  line-height: 1.3em
+  font-size: 0.9em
+  div
+    padding: 8px 15px
+    
+#nag_notice
+  background-color: #CFD6EE
+
+#birthday_notice
+  background-color: #F7F72C
+  table
+    margin-left: auto
+    margin-right: auto
+    td.img
+      vertical-align: middle
+      padding: 5px 20px
+    td.text
+      font-weight: bold
+      font-size: 150%
+      padding-top: 12px
+      padding-bottom: 12px
+
+.field_desc
+  font-size: 0.9em
+  font-style: italic
+
+/*==============================================================
+  
+/* Tables
+
+table.form
+  td, th
+    padding: 2px
+    vertical-align: middle
+  th
+    text-align: right
+    /*font-size: 0.9em
+    padding-right: 7px
+  tr.inv
+    th
+      text-align: left
+    td
+      text-align: right
+    td.label
+      text-align: left
+table.form.stretch
+  input[type=text], input[type=password], textarea
+    width: 100%
+
+table.listing
+  /*
+    th, td
+      border: 2px solid white
+  th
+    background-color: gray
+    color: white
+    padding: 2px 7px
+    text-align: left
+  td
+    border-bottom: 1px solid silver
+    padding: 5px 7px
+
+  tr.evenrow
+    background-color: #ECEDEE
+
+  tr.oddrow
+    background-color: white
+
+tr.zebra td
+  background-color: #dedede
+  
+tr.desc
+  font-size: 0.8em
+  
+td.members_icon
+  width: 16px
+
+table.smaller td, table.smaller th
+  font-size: 0.95em
+
+table#recently-updated-table
+  width: 100%
+  
+  td.image
+    width: 16px
+
+  td.name
+    padding-left: 5px
+    padding-right: 5px
+
+  td.age
+    width: 75px
+    text-align: right
+    white-space: nowrap
+    
+/*==============================================================
+  
+/* Lists
+
+ul.horizmenu, ul.horizmenu li, ul.no-bullet, ul.no-bullet li
+  list-style-type: none
+  margin-left: 0
+  margin-right: 0
+  padding-left: 0
+  padding-right: 0
+  
+ul.horizmenu, ul.horizmenu li
+  display: inline
+  margin: 0
+  padding: 0
+ul.horizmenu li
+  padding-right: 10px
+
+/*==============================================================
+
+/* Form elements
+
+/* This won't work in IE6
+input[type=text], input[type=password]
+  border-collapse: collapse
+  border-top: 1px solid #AAA
+  border-left: 1px solid #AAA
+  border-bottom: 1px solid #DDD
+  border-right: 1px solid #DDD
+  
+select, textarea
+  border-collapse: collapse
+  border-top: 1px solid #AAA
+  border-left: 1px solid #AAA
+  border-bottom: 1px solid #DDD
+  border-right: 1px solid #DDD
+
+/*==============================================================
+
+/* Misc classes
+
+.center
+  margin-left: auto
+  margin-right: auto
+
+.tcenter, p.center
+  text-align: center
+
+.tleft
+  text-align: left
+.tright
+  text-align: right
+
+.narrow
+  width: 70%
+.narrower
+  width: 50%
+
+.clear
+  clear: both
+  overflow: auto
+
+.autowidth
+  width: auto
+
+.stretch
+  width: 100%
+
+/*
+  .border
+    border: 1px solid #dedede
+  .lightborder
+    border: 1px solid #e3e3e3
+  .yellowborder
+    border: 1px solid #EDEDDB
+  .fill
+    background-color: #f0f0f0
+  .yellowfill
+    background-color: #FFFFEA
+
+.lightfill
+  background-color: #efefef
+.padded
+  padding: 7px
+
+.bigger
+  font-size: 1.2em
+.medium
+  font-size: 1.1em
+.smaller, .smaller th, .smaller td, .smaller li, small
+  font-size: 0.95em
+
+.alt
+  :font-family = alt_font
+
+.topmargin
+  margin-top: 1em
+  
+.notopmargin
+  margin-top: 0
+
+#toc, .pagination, .pagination form
+  text-align: center
+  
+  & > span.toc-entry, & > span, & > a
+    margin: 3px
+
+  & > span.current
+    font-weight: bold
+
+.pagination select.jump
+  text-align: center
+
+.pagination span.jump
+  font-weight: bold
+
+.color-button
+  width: 1em
+  height: 1em
+  border: 1px solid black
+  empty-cells: show
+
+.color-picker-row
+  td
+    empty-cells: show
+
+    a
+      width: 1em
+      height: 1em
+      border: 1px solid black
+      display: block
+
+.inline-block, ul.inline-block, ol.inline-block
+  display: -moz-inline-box
+  display: inline-block
+  -moz-box-orient: vertical
+  vertical-align: top
+
+.translation_missing
+  background: #FFE4DE
+  font-style: italic
+
+.translation_missing:before
+  content: "Translation missing: "
+
+a.rss
+  background-image: url(/images/icons/feed.png)
+  background-repeat: no-repeat
+  background-position: 0 0
+  padding-top: 2px
+  padding-bottom: 4px
+  padding-left: 20px
+
+/*==============================================================
+
+/* Auto complete
+div.auto_complete
+  width: 350px
+  background: #fff
+  overflow-y: auto
+  overflow-x: hidden 
+  max-height: 200px
+
+  ul
+    border: 1px solid #888
+    margin: 0
+    padding: 0
+    width: 100%
+    list-style-type: none
+    
+    li
+      margin: 0
+      padding: 3px
+
+    li.selected
+      background-color: #ffb
+  
+    strong.highlight
+      color: #800
+      margin: 0
+      padding: 0
+
+/*==============================================================
+
+/* AJAX
+img.ajax-loading
+  margin-left: 5px
+  position: relative
+  top: 3px

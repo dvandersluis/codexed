@@ -1,0 +1,38 @@
+- t_scope 'controllers.admin.substitutions.index' do
+  - title t(:title)
+
+  = javascript_include_tag 'cancel_event', 'form_helper'
+
+  :javascript
+    function add_sub()
+    {
+      var name_input = new Element('input', { 'type': 'text', 'name': 'subs[][name]', 'id': 'subs[][name]', 'size': 20 });
+      var value_input = new Element('input', { 'type': 'text', 'name': 'subs[][value]', 'id': 'subs[][value]', 'size': 50 });
+
+      var tr = new Element('tr');
+      var td1 = new Element('td');
+      var td2 = new Element('td').update("=&gt;");
+      var td3 = new Element('td');
+
+      td1.insert('[ ').insert(name_input).insert(' ]');
+      td3.insert(value_input);
+
+      tr.insert(td1).insert(td2).insert(td3);
+      $('subs_tbody').insert(tr);
+    }
+
+  - if !@messages.empty?
+    - t_scope 'activerecord.errors.template' do
+      %div{ :id => 'errorExplanation', :class => 'errorExplanation' }
+        %h2= t('header.subs', :count => @messages.length)
+        %p= t(:subs_body)
+        %ul
+          - @messages.each do |message| 
+            %li= message
+
+  - form_tag do
+    %table#subs.center
+      %tbody#subs_tbody
+        = render :partial => 'sub', :collection => @subs
+    %p.center= link_to_function image_tag('icons/add.png')+" <b>#{t(:add_sub)}</b>", "add_sub()"
+    %p.center= submit_tag t(:save, :scope => 'general.form'), :accesskey => 'S'

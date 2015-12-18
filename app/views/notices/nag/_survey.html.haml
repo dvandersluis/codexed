@@ -1,0 +1,10 @@
+- t_scope 'layouts.application.nag_notice' do
+  #nag_notice
+    %table{ :style => 'width: 100%' }
+      %tr
+        %td{ :style => 'vertical-align: middle; padding: 5px 20px;' }= image_tag("icons/information.png")
+        %td
+          = t(:survey, :link_text => link_to("codexed.com/survey", "http://www.codexed.com/survey", :target => "_blank"))
+          %br/
+          %span{ :style => 'font-size: 75%' }
+            == [#{link_to(t(:dismiss_this_message), {:controller => 'admin/main', :action => 'dismiss_nag_notice', :notice => 'survey'}, :onclick => "dismiss_nag_notice('survey'); return false;")}]

@@ -1,0 +1,148 @@
+- controller = params[:controller]
+- action = params[:action]
+- case controller
+  - when 'admin/main', 'april_fools_2010'
+    - home = "selected"
+  - when 'admin/posts', 'admin/entries', 'admin/pages'
+    - if action == 'index'
+      - all_posts = "selected"
+    - else
+      - if controller == 'admin/entries'
+        - new_entry = "selected"
+      - elsif controller == 'admin/pages'
+        - new_page = "selected"
+  - when 'admin/archive_layouts'
+    - archive_layouts = "selected"
+  - when 'admin/categories'
+    - categories = "selected"
+  - when 'admin/templates'
+    - if action == 'index'
+      - templates = 'selected'
+    - else
+      - new_template = "selected"
+  - when 'admin/prefabs'
+    - new_prefab = "selected"
+  - when 'admin/options'
+    - case action
+      - when 'account'
+        - account_options = 'selected'
+      - when 'journal'
+        - journal_options = 'selected'
+      - when 'formatting'
+        - formatting_options = 'selected'
+      - else
+        - options = 'selected'
+  - when 'admin/substitutions'
+    - subs = "selected"
+  - when 'admin/journal'
+    - case action
+      - when 'import'
+        - import = 'selected'
+      - when 'export'
+        - export = 'selected'
+  
+#lhn-selectors.section.lhn-section
+  #lhn-selectors-minimize.section-button.section-minimize
+  #lhn-selectors-menubutton.section-button.section-menubutton.goog-menu-button.goog-inline-block{ :style => "-moz-user-select: none;" }
+  .lhn-section-secondary
+    .selector{ :class => home }
+      %a.link{ :href => home_url }
+        %span.text Home
+  .lhn-section-primary
+    .selector{ :class => all_posts }
+      %a.link{ :href => admin_posts_url }
+        %span.text
+          %b== All Posts (#{current_user.journal.posts.count})
+  .lhn-section-secondary
+    .scroll-tree-container
+      %ul.scroll-tree{ :style => "overflow: visible;" }
+        %li.folder.expanded
+          .toggle.folder-toggle.toggle-d-0
+          %a.link Writing
+          %ul{ :style => "margin-left: 15px;" }
+            %li.unselectable.expanded{ :class => new_entry }
+              %a.link{ :href => new_admin_entry_url }
+                New entry
+            %li.unselectable.expanded{ :class => new_page }
+              %a.link{ :href => new_admin_page_url }
+                New page
+            %li.unselectable.expanded{ :class => archive_layouts }
+              %a.link{ :href => admin_archive_layouts_url }
+                Archive layouts
+            %li.unselectable.expanded{ :class => categories }
+              %a.link{ :href => admin_categories_url }
+                Categories
+  .lhn-section-secondary
+    .scroll-tree-container
+      %ul.scroll-tree{ :style => "overflow: visible;" }
+        %li.folder.expanded
+          .toggle.folder-toggle.toggle-d-0
+          %a.link{ :href => admin_templates_url, :class => templates } Templates 
+          %ul{ :style => "margin-left: 15px;" }
+            %li.unselectable.expanded{ :class => new_template }
+              %a.link{ :href => new_admin_template_url }
+                New template
+            %li.unselectable.expanded{ :class => new_prefab }
+              %a.link{ :href => url_for(:controller => "admin/prefabs", :action => "list") }
+                Setup a new prefab
+  .lhn-section-secondary
+    .scroll-tree-container
+      %ul.scroll-tree{ :style => "overflow: visible;" }
+        %li.folder.expanded
+          .toggle.folder-toggle.toggle-d-0
+          %a.link{ :href => url_for(:controller => "admin/options"), :class => options } Options 
+          %ul{ :style => "margin-left: 15px;" }
+            %li.unselectable.expanded{ :class => account_options }
+              %a.link{ :href => url_for(:controller => "admin/options", :action => "account") }
+                Account
+            %li.unselectable.expanded{ :class => journal_options }
+              %a.link{ :href => url_for(:controller => "admin/options", :action => "journal") }
+                Journal
+            %li.unselectable.expanded{ :class => formatting_options }
+              %a.link{ :href => url_for(:controller => "admin/options", :action => "formatting") }
+                Formatting
+  .lhn-section-secondary
+    .selector{ :class => subs }
+      %a.link{ :href => url_for(:controller => "admin/substitutions") }
+        %span.text Substitutions
+
+#lhn-friends.section.lhn-section
+  #lhn-friends-minimize.section-button.section-minimize
+  #lhn-friends-menubutton.section-button.section-menubutton.goog-menu-button.goog-inline-block{ :style => "-moz-user-select: none;" }
+  .lhn-section-secondary
+    .scroll-tree-container
+      %ul.scroll-tree{ :style => "overflow: visible;" }
+        %li.folder.expanded
+          .toggle.folder-toggle.toggle-d-0
+          %a.link{ :href => journal_url }
+            %b Journal
+          %ul{ :style => "margin-left: 15px;" }
+            %li.unselectable.expanded{ :class => import }
+              %a.link{ :href => url_for(:controller => "admin/journal", :action => "import") }
+                Import an archive
+          %ul{ :style => "margin-left: 15px;" }
+            %li.unselectable.expanded{ :class => export }
+              %a.link{ :href => url_for(:controller => "admin/journal", :action => "export") }
+                Download my journal
+
+%style{ :type => 'text/css' }
+  :sass
+    .sidebar-box h3
+      display: none
+
+    .sidebar-box-body p
+      padding-left: 25px
+
+    #recently-updated-table
+      padding-left: 25px
+
+      & td
+        padding: 0
+
+#lhn-friends.section.lhn-section
+  #lhn-friends-minimize.section-button.section-minimize
+  #lhn-friends-menubutton.section-button.section-menubutton.goog-menu-button.goog-inline-block{ :style => "-moz-user-select: none;" }
+  .lhn-section-primary
+    %a.link
+      %b Recently updated journals 
+    = recently_updated 

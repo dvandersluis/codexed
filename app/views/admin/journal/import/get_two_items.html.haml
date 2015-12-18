@@ -1,0 +1,7 @@
+%div{:style => "overflow: hidden"}
+  %div{:style => "float: left; width: 50%"}
+    %h3.notopmargin New
+    %pre= h(@source_value)
+  %div{:style => "float: right; width: 50%"}
+    %h3.notopmargin Existing
+    %pre= h(@existing_value)

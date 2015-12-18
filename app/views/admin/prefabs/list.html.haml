@@ -1,0 +1,70 @@
+- t_scope 'controllers.admin.prefabs.list' do
+  - title t(:create_new_prefab)
+
+  :javascript
+    var orders = {
+      popularity: #{@popularity.map(&:prefab_name).to_json},
+      newest: #{@newest.map(&:prefab_name).to_json},
+      name: #{@newest.map(&:prefab_name).sort.to_json}
+    };
+
+  %style{ :type => 'text/css' }
+    :sass
+      img.thumbnail
+        border: 1px solid black
+
+      img.preview
+        vertical-align: middle
+        margin-right: 3px
+
+      div#prefabs
+        min-width: 570px
+        margin-left: auto
+        margin-right: auto
+        a
+          border-bottom: none
+        a:hover
+          background-color: transparent 
+
+      div.prefab_container
+        padding: 4px
+        float: left
+
+      div.prefab
+        padding: 1px 10px
+        text-align: center
+        &:hover
+          background-color: lemonchiffon 
+
+  - if @prefabs.empty?
+    %p.center= t(:no_prefabs_available)
+  - else
+    %p= t(:choose_prefab_instructions)
+
+    - form_tag({ :action => 'list' }, :method => "get", :style => "float: right; padding-right: 25px; display: inline; margin: 0") do
+      %b==#{t(:sort_by)}:
+      = radio_button_tag "sort", 'name', @sort_by == 'name', :onchange => "resort('name')"
+      %label{ :for => "sort_name" }= t(:name)
+      = radio_button_tag "sort", 'newest', @sort_by == 'newest', :onchange => "resort('newest')"
+      %label{ :for => "sort_newest" }= t(:newest)
+      = radio_button_tag "sort", 'popularity', @sort_by == 'popularity', :onchange => "resort('popularity')"
+      %label{ :for => "sort_popularity" }= t(:popularity)
+      = submit_tag t(:show), :name => nil, :id => 'sort_by_button'
+    %br{ :style => 'clear: both;' }/
+
+    %div#prefabs
+      - for prefab in @prefabs
+        - meta = prefab.config.meta
+        %div.prefab_container{ :id => prefab.prefab_name }
+          %div.prefab
+            %a{ :href => new_admin_prefab_path(:name => prefab.prefab_name) }
+              %div{ :style => 'font-weight: bold;' }= meta.title
+              - prefab_alt = []
+              - prefab_alt << meta.description unless meta.description.blank?
+              - prefab_alt << "Created by " + meta.creator.name unless meta.creator.name.blank?
+              - prefab_alt << meta.creator.url unless meta.creator.url.nil?
+              %div= image_tag(prefab.thumbnail, :class => 'thumbnail', :alt => prefab_alt.join(" "))
+            - preview_img = image_tag('icons/magnifier.png', :alt => t(:preview_template), :title => t(:preview_template), :valign => 'absmiddle', :class => 'preview')
+            = link_to preview_img + t(:preview_template), journal_post_url('lorem', :prefab => prefab.prefab_name), :style => 'border: none', :target => '_blank'
+    %br{ :style => 'clear: both;' }/
+

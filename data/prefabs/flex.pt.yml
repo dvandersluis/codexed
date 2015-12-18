@@ -1,0 +1,53 @@
+---
+meta:
+  description: Layout com largura variável e menu de navegação à direita.
+
+descriptions:
+  vars:
+    _: Configurações
+    width:
+      _: Largura do conteúdo
+    extralinks:
+      _: Links extra
+      _add: Adicionar outro link
+      url:
+       _: URL
+      text: Texto do link
+  colors:
+    page:
+      _: Cores da página
+      background: Plano de fundo
+      journal_title: Título do diário
+      selection:
+        _note: "Nota: isto não funcionará em todos os navegadores."
+        _: Texto selecionado
+      x1: X cor 1
+      x2: X cor 2
+    nav:
+      _: Cores da área de navegação
+      background: Plano de fundo
+      border: Borda
+      text: Texto
+    content:
+      _: Cores da área do conteúdo
+      background: Plano de fundo
+      border: Borda
+      title: Título
+      date: Data
+      text: Texto
+    blockquote:
+      _: Cores do blockquote
+      background: Plano de fundo
+      border: Borda
+      text: Texto
+    links:
+      _: Cores do link
+      default: Padrão
+      hover: Ativo
+  fonts:
+    nav: Navegação
+    journal_title: Título do diário
+    content: Conteúdo
+    title: Título
+    date: Data
+

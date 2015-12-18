@@ -1,0 +1,36 @@
+---
+meta:
+  description: Layout com menu de navegação à esquerda.
+descriptions:
+  vars:
+    extralinks:
+      _: Mais links
+      _add: Adicionar outro link
+      url:
+       _: URL
+      text: Texto do link
+  colors:
+    page:
+      _: Cores da página
+      background: Plano de fundo
+    nav:
+      _: Cores do menu
+      background: Plano de fundo
+      border: Borda
+      text: Texto
+    entry:
+      _: Cores do post
+      background: Plano de fundo
+      border: Borda
+      text: Texto
+    link:
+      _: Cores dos links
+      active: Padrão
+      visited: Visitado
+      hover: Ativo
+  fonts:
+    nav: Menu
+    navheader: Topo do menu
+    title: Título do post
+    time: Data/Hora
+    entry: Corpo do post

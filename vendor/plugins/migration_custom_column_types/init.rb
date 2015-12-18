@@ -1,0 +1,1 @@
+require "migration_custom_column_types"

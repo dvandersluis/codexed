@@ -1,0 +1,40 @@
+- t_scope 'controllers.admin.templates.index' do
+  - templates.each_with_index do |template, i|
+    %tr{ :class => i.even? ? "evenrow" : "oddrow" }
+      %td{ :style => 'padding: 2px; text-align: center; vertical-align: middle' }
+        - if template.default?
+          = image_tag('icons/asterisk_yellow.png', :valign => 'absmiddle', :title => t(:default_template))
+      %td
+        - if @showing_default_template
+          = link_to h(template.name), new_from_default_admin_template_path
+        - else
+          = link_to h(template.name), edit_admin_template_path(:id => template.id)
+      -if @type == 'p' or @type == 'all'
+        %td
+          - unless template.prefab_name.nil?
+            - skel = Prefab.skeleton(template.prefab_name) 
+            = skel.config.meta.title unless skel.nil?
+      %td
+        = l(template.updated_at, :format => :default)
+      %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap; text-align: right' }
+        - if template.prefab?
+          = link_to image_tag('icons/cog_go.png', :valign => 'absmiddle', :title => t(:convert_prefab)), convert_admin_prefab_path(:id => template.id), :style => 'border: none'
+          &nbsp;
+        - unless template.fake?
+          - if template.prefab?
+            = link_to image_tag('icons/delete.png', :valign => 'absmiddle', :title => t(:delete_prefab)), delete_admin_prefab_path(template), :title => t(:confirm_delete_prefab), :style => 'border: none', :class => 'delete'
+          - else
+            = link_to image_tag('icons/delete.png', :valign => 'absmiddle', :title => t(:delete_template)), delete_admin_template_path(template), :title => t(:confirm_delete_template), :style => 'border: none', :class => 'delete'
+          &nbsp;
+        = link_to image_tag('icons/magnifier.png', :valign => 'absmiddle', :title => t(:preview_template)), journal_post_url('lorem', :template => template.name), :style => 'border: none', :target => '_blank'
+  %tr
+    %td{ :colspan => 4, :style => 'border: 0; padding-top: 20px; text-align: center;' }
+      - t_scope 'general.pagination' do
+        = will_paginate templates, |
+          :previous_label => "&lsaquo; #{t(:prev)}", |
+          :next_label => "#{t(:next)} &rsaquo;", |
+          :first_label => "&laquo; #{t(:first)}", |
+          :last_label => "#{t(:last)} &raquo;", |
+          :jump_label => "#{t(:jump)}:", |
+          :go_label => "#{t(:go)}", |
+          :renderer => JumpListLinkRenderer |

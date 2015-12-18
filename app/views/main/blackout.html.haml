@@ -1,0 +1,46 @@
+!!! XML
+!!!
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", 'xml:lang' => 'en', :lang => 'en' }
+  %head
+    %meta{ 'http-equiv' => 'content-type', 'content' => "text/html; charset=utf-8" }/
+    %title Codexed is Blacked Out Against SOPA &amp; PIPA - January 18, 2012
+    %style{ :type => 'text/css' }
+      :sass
+        body
+          background: black
+          color: white
+          height: 100%
+
+          a
+            color: #7098BF
+  %body
+    %table{ :style => "width: 100%; height: 100%;" }
+      %tr
+        %td{ :style => "vertical-align: middle; text-align: center;" }
+          %div{ :style => "margin-left: auto; margin-right: auto; width: 450px; text-align: justify;" }
+            %p
+              Codexed opposes the proposed US legislation known as
+              = link_to "SOPA", "http://en.wikipedia.org/wiki/Stop_Online_Piracy_Act", :title => "Stop Online Piracy Act"
+              and
+              == #{ link_to "PIPA", "http://en.wikipedia.org/wiki/PROTECT_IP_Act", :title => "Protect IP Act" }.
+              These bills seek to curb internet piracy, but in doing so, threaten free speech for both
+              Americans and the rest of the world, as well as censor and disrupt how the web is supposed to function.
+            %p
+              Today, January 18th 2012, has been chosen as a day for websites to go on strike in opposition to
+              these bills, and we here at Codexed have decided that we must participate. Unfortunately, this
+              means that our users will be unable to use the site as normal for 24 hours (from midnight to midnight, EST);
+              we hope that our blackout will encourage our users to be educated and enlightened about what the result
+              of these bills passing would bring (which could even result in the permanent closure of this site, as
+              it would be impossible to ensure that no copyrighted material is posted &mdash; even accidentally or
+              unknowingly &mdash; by one of our users).
+            %p
+              If you are in the US, please join us in fighting this bill by contacting your representatives and asking
+              them to speak out against this threat to the free internet. Please also make use of the resources below
+              to learn and take a stand against censorship.
+            %p{ :style => "text-align: center;" }
+              = link_to "AmericanCensorship.org", "http://americancensorship.org/"
+              %br/
+              = link_to "Why SOPA is Dangerous", "http://mashable.com/2012/01/17/sopa-dangerous-opinion/"
+              %br/
+              = link_to "Fight for the Future - Email your Representative", "http://sopastrike.com/strike/"
+

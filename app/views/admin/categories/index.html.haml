@@ -1,0 +1,30 @@
+- add_to_javascripts 'restful_destroy'
+
+- t_scope 'controllers.admin.categories.index' do
+  - title t(:title)
+
+  - if !@categories.empty?
+    %table.listing.stretch
+      %tr
+        %th= h(t(:name))
+        %th{ :style => "width: 54px" }
+
+      - @categories.each do |tree|
+        - tree.self_and_descendants.sort_by(&:lft).each do |node| 
+          %tr
+            %td{ :style => "padding-left: #{7 + 20 * node.level}px;" }
+              = link_to h(node.name), edit_admin_category_path(:id => node.id)
+              = image_tag('icons/lock12.png', :valign => 'absmiddle', :style => 'margin-left: 3px;', :title => t('private_category')) if node.private?
+              - if (post_count = node.posts.count) > 0
+                %span{ :style => "font-size: 80%; margin-left: 3px", :title => t(:category_has_x_entries, :count => post_count) }
+                  = "(#{post_count})"
+            %td{ :style => "text-align: right;" }
+              = link_to image_tag('icons/magnifier.png', :valign => 'absmiddle', :title => t(:view)), node.link, :style => 'border: none', :target => '_blank'
+              &nbsp;
+              = link_to image_tag('icons/delete.png', :valign => 'absmiddle', :title => t(:delete)), delete_admin_category_path(node), :title => t(:confirm_delete), :style => 'border: none', :class => 'delete'
+  - else
+    = message_div_for :notice, t(:no_categories)
+
+  %p.center{ :style => 'margin-top: 1.5em; font-size: 1.1em' }
+    = image_tag 'icons/add.png', :valign => 'absmiddle', :style => 'position: relative; top: 2px;'
+    %b= link_to t(:new_category), new_admin_category_path

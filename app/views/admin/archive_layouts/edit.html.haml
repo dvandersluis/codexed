@@ -1,0 +1,9 @@
+- t_scope 'controllers.admin.archive_layouts.form.edit' do
+  - title t(:title)
+  - form_for :archive_layout, :url => "/admin/archive_layouts/#{@archive_layout.type_id}", :html => {:method => :put} do |f|
+    = error_messages_for :archive_layout
+    = render "form", :f => f
+    %p.center
+      = submit_tag t(:update_layout), :name => 'commit'
+      &nbsp;
+      = submit_tag t(:cancel, :scope => "general.form"), :name => 'cancel'

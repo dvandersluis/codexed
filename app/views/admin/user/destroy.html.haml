@@ -1,0 +1,10 @@
+- t_scope 'controllers.admin.user.destroy' do
+  - title t(:title)
+
+  %p.center{ :style => "margin: 2em 0" }= t(:confirm_destroy_prompt)
+
+  - form_tag({}, { :class => 'narrow center' }) do
+    %div{ :style => 'width: 50%; float: left; text-align: center' }
+      = submit_tag t(:confirm_destroy_yes), :name => 'confirm'
+    %div{ :style => 'width: 50%; float: right; text-align: center' }
+      = submit_tag t(:confirm_destroy_no), :name => 'confirm'

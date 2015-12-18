@@ -1,0 +1,30 @@
+- t_scope "controllers.admin.archive_layouts.form" do
+  %table.form.stretch
+    %colgroup{ :span => 2 }
+      %col{ :width => '100' }
+      %col
+    %tr
+      %th= t(:archive_type)
+      %td= @archive_layout_type.name
+    %tr
+      %th{:style=>"vertical-align: top"}= t(:title)
+      %td
+        = f.text_field :title, :style => "width: 95%"
+        - if @archive_layout.type_id == "category_archive"
+          %div.field_desc{:style=>"margin-top: 3px"}
+            = t(:available_substitutions) + ":"
+            [category]
+        - elsif @archive_layout.type_id == "tag_archive"
+          %div.field_desc{:style=>"margin-top: 3px"}
+            = t(:available_substitutions) + ":"
+            [tag]
+    %tr
+      %th{:style=>"vertical-align: top"}= t(:content)
+      %td
+        = f.text_area :content, :rows => 16, :cols => 90, :style => "width: 95%"
+        %div.field_desc{:style=>"margin-top: 3px"}
+          = t(:available_substitutions) + ":"
+          == [entrylist]#{", [parent], [parents], [children]" if @archive_layout.type_id == "category_archive"}
+    %tr
+      %th= t('models.template.one')
+      %td= f.select :template_id, @selectable_templates, {}

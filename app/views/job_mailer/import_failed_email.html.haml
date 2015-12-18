@@ -1,0 +1,9 @@
+%p
+  ==At #{@date}, an import job run by
+  %b=@username
+  failed with the message:
+%pre
+  %b= h(@message)
+%p Backtrace:
+%pre= @backtrace
+%p The uploaded archive is attached.

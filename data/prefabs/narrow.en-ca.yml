@@ -1,0 +1,15 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+    link:
+      _: Link Colours
+    hr:
+      _: Horizontal rule colours
+    container:
+      _: Container colours
+    entry:
+      _: Entry colours
+    nav:
+      _: Nav (footer) colours

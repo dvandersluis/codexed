@@ -1,0 +1,27 @@
+= render :partial => '/sidebar_boxes'
+
+.medium
+  %p
+    %b= jumble "Codexed"
+    = jumble "is a brand new service that aims to make it easy to organize and publish your writings online, while providing you with a unique set of tools to freely customize their presentation and giving you the opportunity to meet and visit with other members."
+
+  %h4= jumble "How do I get started?"
+  %p
+    = jumble "At this time, the service is being"
+    %b= jumble "beta tested"
+    = jumble "by the Codexed community. In order to participate in the beta test, you will need to receive an invitation, which you can"
+    == #{link_to jumble("request"), "http://codexed.com/preorder"}.
+    = jumble "Once you have an invitation code, all that is left to do is"
+    == #{link_to jumble("register"), :controller => 'user/signup', :action => 'index'}!
+  %p
+    = jumble "Please note that while Codexed is in a pre-release stage, registrations are limited to "
+    %b== #{jumble "one account per person"}.
+
+  %h4= jumble "How can I get involved?"
+  %p
+    = jumble "Become an active member of the Codexed community by not only signing up for a Codexed account, but also by joining our"
+    == #{link_to jumble("forums"), "http://forums.codexed.com"}
+    = jumble "if you have not done so already."
+  %p
+    = jumble "We are also looking for people to help with various non-coding aspects of Codexed development, so if this is something in which  you might be interested, please take a look at the forums, or send an email to"
+    == #{link_to jumble("admin@codexed.com"), "mailto:admin@codexed.com"}.

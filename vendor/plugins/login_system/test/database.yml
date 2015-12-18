@@ -1,0 +1,3 @@
+test:
+  adapter: sqlite3
+  database: <%= $PLUGIN_ROOT %>/test/login_system.sqlite3

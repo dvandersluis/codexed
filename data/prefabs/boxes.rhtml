@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>[title]</title>
+    [feed]
+    <style type="text/css">
+    <!--{cursor:default;}
+    body
+    {
+      background: [[colors.page.background]];
+    }
+
+    .main
+    {
+      font-family: [[fonts.entry.family]]; 
+      font-size: [[fonts.entry.px]]px; 
+      color: [[colors.entry.text]];
+      background-color: [[colors.entry.background]];
+      border-width: 1px;
+      border-style: solid;
+      border-color: [[colors.entry.border]];
+      padding: 10px;
+    }
+
+    .nav
+    {
+      font-family: [[fonts.nav.family]]; 
+      font-size: [[fonts.nav.px]]px;
+      font-weight: bold;
+      font-variant: small-caps; 
+      color: [[colors.nav.text]];
+      background-color: [[colors.nav.background]]; 
+      border-width: 1px;
+      border-style: solid;
+      border-color: [[colors.nav.border]];
+    }
+
+    .nav h3
+    {
+      font-family: [[fonts.navheader.family]];
+      font-size: [[fonts.navheader.px]]px;
+    }
+
+    #title
+    {
+      font-family: [[fonts.title.family]];
+      font-size: [[fonts.title.px]]px;
+    }
+
+    #time
+    {
+      font-family: [[fonts.time.family]];
+      font-size: [[fonts.time.px]]px;
+    }
+
+    a:link, a:active
+    {
+      text-decoration: none;
+      color: [[colors.link.active]];
+    }
+
+    a:visited
+    {
+      text-decoration: none;
+      color: [[colors.link.visited]];
+    }
+
+    a:hover
+    { 	
+      text-decoration: none;
+      color: [[colors.link.hover]];
+    }
+    -->
+    </style>
+  </head>
+  <body bgcolor="#FFFFFF">
+    <div id="outer" style="padding-bottom: 20px; position: absolute; left: 225px; top: 25px;">
+      <div id="main" style="width: 700px; min-height: 500px;" class="main"> 
+        <p>
+          <span id="title"><b>[title]</b></span><br />
+          <span id="time">[time "%B %d, %Y - %A @ %I.%0M %p"]</span>
+        </p>
+        [body]
+        <p />
+        <div style="text-align: right; padding-right: 25px; padding-bottom: 3px;">
+          <a href="[prev url]"><<</a> / <a href="[next url]">>></a>
+        </div>
+      </div>
+    </div>
+    <div id="nav" style="position: absolute; width: 150px; left: 50px; top: 25px" class="nav">
+      <center><h3>NAVIGATE</h3>
+        [prev exists "[prev link back]<br />"]
+        [curr exists "[curr link now]<br />"]
+        [next exists "[next link next]<br />"]
+        [archive link exists "all"]<br />
+        [[ifset:vars.extralinks "<p /><h3>LINKS</h3>"]]
+        [[foreach:vars.extralinks "<a href=\"#{@v.url}\">#{@v.text}</a><br />" if @v.text]]
+        <p />
+        <h3>HOSTED BY</h3>
+        <a href="http://www.codexed.com">codexed</a>
+      </center>
+      <p />
+    </div>
+  </body>
+</html>

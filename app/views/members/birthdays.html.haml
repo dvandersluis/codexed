@@ -1,0 +1,47 @@
+- t_scope 'controllers.members.birthdays' do
+  - title t(:title)
+
+  %style{ :type => 'text/css' }
+    :sass
+      th.month
+        text-align: left
+      td.day
+        font-weight: bold
+        max-width: 50px
+        width: 50px
+      td.spacer
+        empty-cells: show
+        height: 25px
+        border-bottom: none !important
+
+  #toc
+    - @headings.each_with_index do |h, i|
+      - next if h.nil? or @birthdays[i+1].empty?
+      - datestamp = DateTime.new(*h)
+      %span.toc-entry= link_to I18n.l(datestamp, :format => "%B %Y"), :anchor => datestamp.strftime("%b%y").downcase
+
+  %br{ :style => 'clear: both;' }
+
+  %table.listing.stretch
+    - today = @birthdays.shift
+    - if !today.empty?
+      %tr
+        %th.month{ :colspan => 2 }= t(:todays_birthdays)
+      = render :partial => 'birthday_line', :locals => {:day => :cake, :birthdays => today[today.keys.first], :heading => @headings.first}
+      %tr
+        %td.spacer{ :colspan => 2 }
+
+    - @birthdays.each_with_index do |month, i|
+      - if !month.empty?
+        - datestamp = DateTime.new(*@headings[i])
+        - heading = I18n.l(datestamp, :format => "%B %Y")
+        - anchor = datestamp.strftime("%b%y").downcase
+        %tr
+          %th.month{ :colspan => 2 }
+            %a{ :name => anchor }
+            =heading
+        - month.sort.each do |day, birthdays|
+          = render :partial => 'birthday_line', :locals => { :day => day, :birthdays => birthdays, :heading => @headings[i] }
+        %tr
+          %td.spacer{ :colspan => 2 }
+

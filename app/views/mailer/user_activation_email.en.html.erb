@@ -1,0 +1,18 @@
+Hello <%= @user.first_name %>,
+
+Your account on Codexed.com has been successfully created. In order to start using it, however, we need to verify that you have given us a valid email address. Please visit the link that follows to activate your account.
+
+  <%= @link %>
+  
+If the page that comes up prompts you for an activation key, here it is:
+
+  <%= @user.activation_key %>
+  
+Enjoy your journal! If you have any questions, you can find help in the forums, or you can contact us directly by emailing admin@codexed.com.
+
+The Codexed Team
+http://www.codexed.com
+
+----
+Please do not respond to this email, responses will not be seen. Inquiries can be sent to admin@codexed.com
+Codexed.com does not send unsolicited commercial email. If you feel you have received this message in error, please let us know as soon as possible and we will research the matter.

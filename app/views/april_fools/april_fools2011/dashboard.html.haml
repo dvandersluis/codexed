@@ -1,0 +1,77 @@
+- window_title t(:dashboard, :scope => 'layouts.application.sidebar')
+
+= render :partial => '/sidebar_boxes'
+
+%style{ :type => 'text/css' }
+  :sass
+    p
+      text-align: justify
+
+    p.posted_by
+      text-align: right
+      font-size: 85%
+      font-style: italic
+      color: #C0C0C0
+      
+.medium
+  %h4= jumble "Something's gone terribly wrong!"
+  %p= jumble "As I'm sure you've noticed, something has gone terribly wrong with Codexed! Our top technicians are hard at work trying to figure out what's going on but the outlook is unfortunately grim. Soon we'll have to resort to calling Stephen Deken, he really knows how to solve these problems!"
+  %p= jumble "In the meantime, your patience and money would be greatly appreciated. Especially your money. Please send it all to us immediately!"
+  %p.posted_by
+    = jumble("Posted by")
+    == #{link_to jumble("daniel"), "http://www.codexed.com/~daniel"},
+    = jumble("1 April 2011")
+
+  %h4= jumble "Card Exchange registration complete"
+  %p
+    = jumble "Registration for this years' card exchange is now complete, and the list of recipients has been sent to everyone who signed up. If you signed up and did not receive a list, please "
+    == #{mail_to "admin@codexed.com", jumble("let me know")},
+    = jumble "and I'll have it resent to you."
+  %p.posted_by
+    = link_to jumble("Permalink"), "http://news.codexed.com/2010/11/17/card-exchange-registration-complete"
+    &bull;
+    = jumble("Posted by")
+    == #{link_to jumble("daniel"), "http://www.codexed.com/~daniel"},
+    = jumble("17 November 2010")
+
+  %h4= jumble "Mini-update changes"
+  %p= jumble "Codexed has gotten a few mini-updates since the 0.11 release, mostly to fix bugs. Today's mini-update also makes some changes to the dashboard, which I wanted to take a moment to go over."
+  %p.posted_by
+    = link_to "#{jumble "Read More"}&hellip;", "http://news.codexed.com/2010/11/11/mini-update-changes"
+    &bull;
+    = jumble("Posted by")
+    == #{link_to jumble("daniel"), "http://www.codexed.com/~daniel"},
+    = jumble("11 November 2010")
+
+  %h4= jumble "Codexed 0.11 released!"
+  %p
+    = jumble "After a long period of a lack of updates, I am pleased to announce that Codexed 0.11 is now live! The first change you might notice is that we've migrated servers again; the hosting plan at the old host is about to run out and I was getting fed up with the issues they were having, so we've now moved to"
+    == #{link_to jumble("Linode"), "http://www.linode.com/?r=ae54178d8a9d822cb7b6688abc94d97620496082"}.
+    = jumble "The result of this is that I expect the site will be faster and more responsive."
+  %p= jumble "As well, this update fixes a number of bugs (including issues people have been having with downloading/importing a journal archive), as well as adding some new features, which you can read more about in the following articles:"
+  %ul
+    %li= link_to jumble("Archive Pagination"), "http://news.codexed.com/2010/10/30/archive-pagination"
+    %li= link_to jumble("New Substitutions"), "http://news.codexed.com/2010/10/30/new-substitutions"
+    %li= link_to jumble("Other new features"), "http://news.codexed.com/2010/10/30/miscellaneous-additions-in-011"
+  %p
+    = jumble "If you're interested, the full changelist can be found"
+    == #{link_to jumble("on the forums"), "http://forums.codexed.com/viewtopic.php?p=16249#16249"}.
+  %p.posted_by
+    = link_to jumble("Permalink"), "http://news.codexed.com/2010/10/31/codexed-011-released"
+    &bull;
+    = jumble("Posted by")
+    == #{link_to jumble("daniel"), "http://www.codexed.com/~daniel"},
+    = jumble("31 October 2010")
+
+  %h4= jumble("Help Codexed out: contribute a prefab!")
+  %p= jumble("I still have to compile all the survey results and I'll write up a post about the results in general once I've done that, but in the meantime, I noticed a lot of responses talking about our prefabs -- whether there was not enough of them, or the ones we have are not nice enough.")
+  %p
+    = jumble("I'm always happy to add new prefabs to the site (and actually have a few more that are coming ASAP, probably with the next batch of changes), so if you consider yourself to be handy with templates, or if you just want to help, please send me your prefab ideas to")
+    == #{link_to jumble("admin@codexed.com"), "mailto:admin@codexed.com"}!
+  %p.posted_by
+    = link_to "#{jumble "Read More"}&hellip;", "http://www.codexed.com/~news/2010/07/12/help-codexed-out-contribute-a-prefab"
+    &bull;
+    = jumble("Posted by")
+    == #{link_to jumble("daniel"), "http://www.codexed.com/~daniel"},
+    = jumble("12 July 2010")
+

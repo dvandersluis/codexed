@@ -1,0 +1,24 @@
+---
+meta:
+  description: Aparência limpa, com linhas simples. 
+descriptions:
+  colors:
+    page:
+      _: Cores da Página
+      background: Fundo
+      journaltitle: Título
+    entry:
+      _: Cores do Post
+      background: Fundo
+      border: Borda
+      title: Título
+      text: Conteúdo
+    link:
+      _: Cores dos Links
+      active: Padrão 
+      hover: Ativo
+      hoverhilight: Fundo do link ativo
+  fonts:
+    journaltitle: Nome do diário
+    title: Título
+    entry: Post

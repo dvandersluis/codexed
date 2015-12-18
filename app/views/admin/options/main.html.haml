@@ -1,0 +1,97 @@
+- t_scope 'controllers.admin.options.main' do
+  - window_title t('tabs.main')
+
+  - add_to_stylesheets 'admin/options'
+
+  :style
+    th
+      width: 350px
+      white-space: nowrap
+
+  - tabbed(options_tabs) do
+    = message_divs
+    
+    - form_tag do
+      -# Here is where the main options will go.
+      -# - form_tag do
+      -#   %h2 Sidebar Options
+      -#   %p Select the boxes you'd like to appear in the right-hand sidebar.
+      -#   %blockquote
+      -#     %table.form
+      -#       - for box in @boxes
+      -#         %tr
+      -#           %th
+      -#             = check_box_tag box.name, 1
+      -#             = hidden_field box.name, 0
+      -#           %td
+      -#             = box.label
+      %h3.notopmargin= t(:site_preferences)
+      %p
+        %small
+          = t(:site_preferences_instructions)
+      %blockquote.lightfill.padded
+        %table.form
+          %tr
+            %th== #{t(:my_language)}:
+            %td
+              - fields_for 'config', @config, {} do |lang|
+                = lang.select :lang, @languages 
+          %tr
+            %td
+            %td
+              %span.option_desc== #{t(:language_instructions, :profile_link => link_to(t(:language_instructions_link_text), {:action => 'account'}))}.
+          %tr
+            %th== #{t(:my_timezone)}:
+            %td
+              - fields_for 'config[time]', @config.time, {} do |time|
+                = time.time_zone_select :zone, ActiveSupport::TimeZone.all
+          %tr
+            %td
+            %td
+              %span.option_desc== #{t(:timezone_instructions)}.
+          %tr
+            %th== #{t(:default_page)}:
+            %td
+              - fields_for 'config[ui]', @config.ui do |login|
+                %label
+                  = login.boolean_radio_button :login_to_new_entry, false
+                  = t(:dashboard)
+                %label
+                  = login.boolean_radio_button :login_to_new_entry, true 
+                  = t(:new_entry)
+
+      %h3.topmargin= t(:other_options)
+      %blockquote.lightfill.padded
+        %table.form
+          %tr
+            %th{ :style => "vertical-align: top" }== #{t(:section_display)}:
+            %td
+              - fields_for 'config[ui][sidebar]', @config.ui.sidebar, {} do |sidebar|        
+                %label
+                  = sidebar.radio_button :sections, 0
+                  = t(:collapse_all)
+                %label
+                  = sidebar.radio_button :sections, 1
+                  = t(:expand_active)
+                %label
+                  = sidebar.radio_button :sections, 2
+                  = t(:expand_all)
+          %tr
+            %td
+            %td
+              %span.option_desc== #{t(:section_display_js_note)}
+          %tr
+            %th= t(:show_dates)
+            %td
+              - fields_for 'config[ui][recently_updated]', @config.ui.recently_updated, {} do |recently_updated|
+                %label
+                  = recently_updated.boolean_radio_button :show_dates, true
+                  = t(:Yes)
+                %label
+                  = recently_updated.boolean_radio_button :show_dates, false 
+                  = t(:No)
+      %p.center
+        = submit_tag "#{t(:save)} &raquo;"
+        &nbsp;
+        = submit_tag "#{t(:reset_to_defaults)}", { :name => 'reset', :onclick => "return confirm('#{t(:confirm_reset_options).gsub("'", "\\\\'")}');" }
+     

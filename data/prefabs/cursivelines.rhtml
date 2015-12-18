@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>[journaltitle]</title>
+    [feed]
+    <style type="text/css">
+      body {
+        font-family: [[fonts.entry.family]], serif;
+        font-size: [[fonts.entry.px]]px;
+        color: [[colors.entry.text]];
+        background-color: [[colors.page.background]];
+      }
+
+      a {
+        text-decoration: none;
+        color: [[colors.link.active]];
+      }
+
+      a:hover {
+        color: [[colors.link.hover]];
+        background-color: [[colors.link.hoverhilight]];
+      }
+
+      p {
+        line-height: 140%;
+        margin: 12px 8px 0 8px;
+      }
+
+      h4.entrylist {
+        font-weight: normal;
+      }
+
+      ul.entrylist {
+        list-style-type: none;
+      }		
+
+      div#container {
+        margin: 80px auto 0 auto;
+        padding: 0 0 48px 0;
+        width: 480px;
+      }
+
+      div#journaltitle
+      {
+        position: relative;
+        font-style: italic;
+        font-family: [[fonts.journaltitle.family]], serif;
+        font-size: [[fonts.journaltitle.px]]px;
+        color: [[colors.page.journaltitle]];
+        text-align: center;
+      }
+
+      div#content
+      {
+        position: relative;
+        top: -14px;
+        width: 480px;
+        border: 1px solid [[colors.entry.border]];
+        text-align: justify;
+        background-color: [[colors.entry.background]];
+      }
+
+      div#header
+      {
+        text-align: center;
+      }
+
+      div.navigation
+      {
+        width: 480px;
+        border-top: 1px solid [[colors.entry.border]];
+        border-bottom: 1px solid [[colors.entry.border]];
+        margin: 16px 0 12px 0;
+        text-align: center;
+      }
+
+      span#title
+      {
+        font-style: italic;
+        font-weight: bold;
+        font-family: [[fonts.title.family]], serif;
+        font-size: [[fonts.title.px]]px;
+        color: [[colors.entry.title]];
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="journaltitle">[journaltitle]</div>
+      <div id="content">
+        <div class="navigation">
+            [prev link] &nbsp; 
+            [archive link] &nbsp;   
+            [curr link] &nbsp;
+            <a href="http://www.codexed.com">Codexed</a> &nbsp;   
+            [next link]
+        </div>
+        <div id="header">
+          <span id="title">[title]</span><br />
+          [time]
+        </div>
+        <p>[body]</p>
+        <div class="navigation">
+            [prev link] &nbsp; 
+            [archive link] &nbsp;   
+            [curr link] &nbsp;
+            <a href="http://www.codexed.com">Codexed</a> &nbsp;   
+            [next link]
+        </div>
+      </div>
+    </div>	
+  </body>
+</html>

@@ -1,0 +1,35 @@
+---
+meta:
+  description: Layout dividido em três seções verticais. 
+descriptions:
+  colors:
+    page:
+      _: Cores da Página
+      background: Fundo
+    topbox:
+      _: Cores do Topo
+      background: Fundo
+      border: Borda
+    entrybox:
+      _: Cores do Conteúdo
+      background: Fundo
+      border: Borda
+      text: Texto
+      title: Título do post
+    bottombox:
+      _: Cores do Rodapé
+      background: Fundo
+      border: Borda
+      text: Texto
+    link:
+      _: Cores dos Links
+      active: Padrão 
+      visited: Link visitado
+      hover: Link ativo
+  fonts:
+    title: Título do Post
+    time: Data/Hora
+    entry: Conteúdo
+    links: Links
+  vars:
+    email: Endereço de e-mail

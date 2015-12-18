@@ -1,0 +1,8 @@
+- t_scope 'controllers.admin.posts.delete' do
+  - title t(:title)
+  - form_tag admin_post_path(@post), :method => :delete do |f|
+    %p.center= t(:confirm_delete, :entry => @post.title, :type => t("models.#{@type.singularize}", :count => 1))
+    %p.center
+      = submit_tag t(:yes).capitalize
+      &nbsp;
+      = link_to t(:no).capitalize, :controller => controller_from_type(session[:posts_type]), :action => 'index'

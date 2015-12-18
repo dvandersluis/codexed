@@ -1,0 +1,7 @@
+%h3= t(:font_options)
+%table.form.stretch
+  - d = @config.descriptions.fonts.include?(:_order) ? @config.descriptions.fonts._order : @config.descriptions.fonts
+  - d.each do |font|
+    %tr
+      %th= @config.descriptions.fonts[font]
+      %td= font_picker('config[customization][fonts][' + font.to_s + ']', @config.customization.fonts[font].family, @config.customization.fonts[font].px)

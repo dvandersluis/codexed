@@ -1,0 +1,10 @@
+blockquote {
+  margin-bottom: 2em;
+  position: relative;
+  margin: 0; }
+
+.option_desc {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 0.8em;
+  word-wrap: break-word; }

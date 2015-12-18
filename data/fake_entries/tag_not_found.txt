@@ -1,0 +1,5 @@
+<% t_scope 'controllers.journal.tag_not_found' do %>
+  <p><%= t(:message) %></p>
+
+  <p><%= t(:go_to_front, :front_link => link_to(t(:go_to_front_link_text), journal_url(@user))) %></p>  
+<% end %>

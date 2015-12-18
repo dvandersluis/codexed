@@ -1,0 +1,25 @@
+---
+meta:
+  description: Template simples com ênfase no espaço e na tipografia.
+descriptions:
+  colors:
+    page:
+      _: Cores da Página
+      background: Fundo
+      hover: Ativo
+    header:
+      _: Cores do Topo da Página
+      main: Título do diário
+      navbg: Fundo dos botões
+      navtext: Texto dos botões
+      title: Título do post
+    body:
+      _: Cores do Corpo da Página
+      text: Conteúdo 
+      link: Links
+  fonts:
+    journaltitle: Título do Diário
+    navigation: Navegação
+    header: Título do post
+    entry: Conteúdo
+    foot: Rodapé

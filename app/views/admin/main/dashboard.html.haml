@@ -1,0 +1,59 @@
+- window_title t(:dashboard, :scope => 'layouts.application.sidebar')
+
+= render :partial => '/sidebar_boxes'
+
+%style{ :type => 'text/css' }
+  :sass
+    p
+      text-align: justify
+
+    p.posted_by
+      text-align: right
+      font-size: 85%
+      font-style: italic
+      color: #C0C0C0
+      
+.medium
+  %h4 Stop American Censorship!
+  %p== As you may or may not know, the US Congress is currently considering a bill known as #{link_to "SOPA", "http://en.wikipedia.org/wiki/SOPA"}, or the Stop Online Piracy Act. The US Senate is scheduled to vote on it on January 24th.
+  %p== If you are unfamiliar with the bill, I would implore you to read the previously linked Wikipedia article, as well as resources such as #{link_to "Stop American Censorship", "http://americancensorship.org/"} (which also provides an #{link_to "infographic", "http://americancensorship.org/infographic.html"}). To quickly summarize, SOPA will allow for copyright holders to issue takedown notices, forcing ISPs to disable access to a website to US internet users, if there is even a <i>suspicion</i> that there is copyright infringement. A website can be classified as "rogue" with as little as a few links being made to infringing material.
+  %p
+    What this means to Codexed is that if one of our users happens to post something that someone else decides infringes on their copyright,
+    %b the entire site can be shutdown to American users.
+    This can include being delisted from search engines and being blacklisted from payment engines like PayPal, so even if you are not an American, this can and will affect you. If this happens, Codexed is likely too small to be able to defend itself and most likely have to be shutdown.
+    %b The alternative would be that Codexed would have to actively censor its users,
+    which goes against what we are all about.
+  %p
+    By no means does Codexed, nor I, personally, support the current implementation of this bill, and I ask that all Codexed users join me in this stance. The Stop American Censorship site I linked above has suggestions as to how we can try to fight it; if you are American, go to a town hall meeting and contact your congressperson; if you are not, sign the petition and spread the word. Most importantly,
+    %b be informed.
+  %p This bill does not only threaten Codexed but the entire internet as we know it. We must be responsible internet citizens and try to do what we can to prevent this from happening.
+  %p.posted_by
+    = link_to "Permalink", "http://news.codexed.com/2012/01/06/stop-american-censorship"
+    &bull;
+    == Posted by #{link_to "daniel", "http://daniel.codexed.com"}, 6 January 2012
+
+  %h4 Codexed 0.11 released!
+  %p
+    == After a long period of a lack of updates, I am pleased to announce that Codexed 0.11 is now live! The first change you might notice is that we've migrated servers again; the hosting plan at the old host is about to run out and I was getting fed up with the issues they were having, so we've now moved to #{link_to "Linode", "http://www.linode.com/?r=ae54178d8a9d822cb7b6688abc94d97620496082"}. The result of this is that I expect the site will be faster and more responsive.
+  %p
+    As well, this update fixes a number of bugs (including issues people have been having with downloading/importing a journal archive), as well as adding some new features, which you can read more about in the following articles:
+  %ul
+    %li= link_to "Archive Pagination", "http://news.codexed.com/2010/10/30/archive-pagination"
+    %li= link_to "New Substitutions", "http://news.codexed.com/2010/10/30/new-substitutions"
+    %li= link_to "Other new features", "http://news.codexed.com/2010/10/30/miscellaneous-additions-in-011"
+  %p
+    == If you're interested, the full changelist can be found #{link_to "on the forums", "http://forums.codexed.com/viewtopic.php?p=16249#16249"}.
+  %p.posted_by
+    = link_to "Permalink", "http://news.codexed.com/2010/10/31/codexed-011-released"
+    &bull;
+    == Posted by #{link_to "daniel", "http://daniel.codexed.com"}, 31 October 2010
+
+  %h4 Help Codexed out: contribute a prefab!
+  %p
+    I still have to compile all the survey results and I'll write up a post about the results in general once I've done that, but in the meantime, I noticed a lot of responses talking about our prefabs -- whether there was not enough of them, or the ones we have are not nice enough.
+  %p
+    == I'm always happy to add new prefabs to the site (and actually have a few more that are coming ASAP, probably with the next batch of changes), so if you consider yourself to be handy with templates, or if you just want to help, please send me your prefab ideas to #{link_to "admin@codexed.com", "mailto:admin@codexed.com"}!
+  %p.posted_by
+    = link_to "Read More...", "http://news.codexed.com/2010/07/12/help-codexed-out-contribute-a-prefab"
+    &bull;
+    == Posted by #{link_to "daniel", "http://daniel.codexed.com"}, 12 July 2010

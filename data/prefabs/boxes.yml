@@ -1,0 +1,83 @@
+---
+meta:
+  title: Boxes 
+  description: Entry layout with left-hand navigation menu. 
+  created: 2008-11-13
+  creator:
+    name: Breathe
+    url: 
+customization:
+  vars:
+    extralinks: []
+  colors:
+    page:
+      background: '#FFFFFF'
+    entry:
+      background: '#9DA9FF'
+      border: '#000000'
+      text: '#000000'
+    nav:
+      background: '#9DA9FF'
+      border: '#000000'
+      text: '#000000'
+    link:
+      active: '#1300F2'
+      visited: '#1300F2'
+      hover: '#000000'
+  fonts:
+    entry:
+      family: 'Verdana'
+      px: 13
+    nav:
+      family: 'Verdana'
+      px: 13
+    navheader:
+      family: 'Verdana'
+      px: 16
+    title:
+      family: 'Verdana'
+      px: 13
+    time:
+      family: 'Verdana'
+      px: 13
+descriptions:
+  vars:
+    extralinks:
+      _: Extra links
+      _order: [:url, :text]
+      _multiple: true
+      _add: Add another link
+      url:
+       _: URL
+       default: "http://"
+      text: Link Text
+  colors:
+    _order: [:page, :nav, :entry, :link]
+    page:
+      _: Page Colors
+      background: Page background
+    nav:
+      _: Menu Colors
+      _order: [:text, :background, :border]
+      background: Background
+      border: Border
+      text: Text
+    entry:
+      _: Entry Colors
+      _order: [:text, :background, :border]
+      background: Background
+      border: Border
+      text: Text
+    link:
+      _: Link Colors
+      _order: [:active, :visited, :hover]
+      active: Default 
+      visited: Visited link
+      hover: Hover 
+  fonts:
+    _order: [:nav, :navheader, :title, :time, :entry]
+    nav: Menu
+    navheader: Menu headers
+    title: Entry title
+    time: Date/Time
+    entry: Entry body

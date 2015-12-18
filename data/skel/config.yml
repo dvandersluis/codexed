@@ -1,0 +1,35 @@
+---
+time:
+  zone: UTC
+lang: en
+default:
+  start_page: 
+  template: main
+formatting:
+  nl2br: false
+  dnl2p: false
+  parens: normal
+  parenclass:
+  parencolor:
+  inline: false
+  typographical: false
+  time:
+    year: '%Y'
+    month: '%B %Y'
+    full: '%d %B %Y'
+ui:
+  sidebar:
+    sections: 1
+  pagination:
+    entry: 10
+    template: 10
+  recently_updated:
+    show_dates: false
+  login_to_new_entry: false
+entrylists:
+  archiveformat: '<b>[time "%H:%0M, %Y-%0m-%0d"]:</b>&nbsp; [link [title]]'
+  lockicon: false
+privacy:
+  locked_entry_text:
+  default_entry_privacy: O
+

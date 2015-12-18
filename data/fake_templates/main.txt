@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>[journal_title] - [title]</title>
+</head>
+<body>
+  <h1>[journal_title]</h1>
+  <hr />
+  <h2>[title]</h2>
+  <h3>Posted at [time]</h3>
+  [body]
+  <hr />
+  <p>[prev link] - [curr link] - [next link] - [archive link]</p>
+</body>
+</html>
+<!-- default template for Codexed, Nov 2008 -->

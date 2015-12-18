@@ -1,0 +1,57 @@
+JournalController specs
+=======================
+
+Showing an entry
+----------------
+
+- The "new journal" screen should be shown if:
+  - viewing a normal entry and start page is set to current entry, but no normal public entries in journal
+  - viewing a normal entry as the journal owner and no normal entries in journal regardless of privacy
+- The start page should be shown if there are no params and the start page points to an existent entry
+- A specific entry should be shown if we can find the entry by the given URL
+- A fake entry should be shown if viewing a special entry and there is no special entry by the given permaname and the fake entry exists
+- An "entry not found" page should be shown if:
+  - journal has normal entries (regardless of privacy), viewing a normal entry that's not the start page, not found via URL
+  - journal has normal entries (regardless of privacy), viewing special entry that's not the start page, not found via URL and not a fake
+  - journal does not have normal entries (regardless of privacy) and start page doesn't exist, viewing special entry that's not the start page, not found via URL and not a fake
+  - journal has normal entries (only public), viewing a normal entry that's not the start page, not found via URL
+  - journal has normal entries (only public), viewing a special entry that's not the start page, not found via URL and not a fake
+  - journal does not have normal entries (only public) and start page doesn't exist, viewing a special entry that's not the start page, not found via URL and not a fake
+- The "entry not found" page should list similar entries
+- It should use the given custom template passed in the query string to render the entry, if one was found
+- It should use the given prefab passed in the query string to render the entry, if a skeleton was found
+- It should merge prefab variables in session with the built prefab if such a prefab is in session
+- If no custom template passed in query string, AND no prefab passed in query string, or such a prefab was passed, but no skeleton for the prefab could be found:
+  - it should use the stored template, if there is one
+  - it should use the journal default template, if no stored template and the default template is set
+  - it should use the fallback template, if no stored template and no default template set
+- params[:template] and params[:guest] should persist to prev/next links
+
+Privacy
+- Allow access if:
+  - record is not locked
+  - record locked, flash[:unlocked] set
+  - record locked, flash[:unlocked] not set, not viewing as guest or acting as guest
+  - record locked, flash[:unlocked] not set, viewing as guest, record open
+  - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record open
+  - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password not set
+  - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record protected, crypted password not set
+  - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password set, password == cookie, not acting as guest
+    - also set privileged_reader = true
+    - also refresh cookie
+- Show 'private' screen if:
+  - record locked, flash[:unlocked] not set, viewing as guest, record private
+  - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record private
+- Show 'locked' screen if:
+  - also show auth changed if:
+    - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password set, password == cookie, acting as guest, cookie already exists
+    - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record protected, crypted password set, password == cookie, cookie already exists
+    - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password set, password != cookie, cookie already exists
+    - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record protected, crypted password set, cookie already exists
+  - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password set, password != cookie, cookie already exists, not acting as guest
+  - record locked, flash[:unlocked] not set, viewing as guest, record protected, crypted password set, password != cookie, cookie doesn't already exist
+  - record locked, flash[:unlocked] not set, not viewing as guest but acting as guest, record protected, crypted password set, password != cookie, cookie doesn't already exist
+  
+Unlocking a record
+------------------
+

@@ -1,0 +1,10 @@
+- has_errors = items.any? {|k,i| i.errors && !i.errors.empty? }
+- if has_errors
+  .errorExplanation
+    %h2= t(:these_items_are_invalid, :items => t("models.#{type.to_s.singularize}", :count => 2).downcase)
+    %ul
+      - items.each do |key, item|
+        - next if item.errors.blank?
+        - messages = assemble_error_messages(item.errors)
+        - display_attr = (type == :templates || type == :subs) ? :name : :title
+        %li= "%s (%s)" % [ item.send(display_attr), messages.join(", ") ]

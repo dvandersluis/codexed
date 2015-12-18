@@ -1,0 +1,145 @@
+- t_scope 'controllers.admin.options.account' do
+  - window_title t('tabs.account')
+
+  :javascript
+    function toggle_enabled(name, enable)
+    {
+      var cb = $('user_' + name), label = $('user_' + name + '_label');
+
+      if (enable)
+      {
+        cb.disabled = false;
+        label.style.color = "black";
+      }
+      else
+      {
+        cb.disabled = true;
+        label.style.color = "#A6A6A6";
+      }
+
+      if (name == 'list_birthday') 
+      {
+        toggle_enabled('show_age', enable && cb.checked);  
+      }
+    }
+
+  %style{ :type => 'text/css' }
+    :sass
+      span.req
+        color: red
+
+      th
+        width: 180px
+
+  - tabbed(options_tabs) do
+    = error_messages_for :user, :journal, :object_name => 'profile'
+    = message_divs
+
+    - form_tag do
+      - t_scope 'general.form' do
+        %h3= t(:change_password )
+        %blockquote.lightfill.padded
+          = message_div_for :success, @password_success
+          = message_div_for :error, @password_error
+          %table.form
+            %tr
+              %th== #{t(:current_password)}:
+              %td= password_field_tag "current_password"
+            %tr
+              %th== #{t(:new_password)}:
+              %td= password_field_tag "new_password"
+            %tr
+              %th== #{t(:confirm_password)}:
+              %td= password_field_tag "new_password_confirm"
+            %tr
+              %th
+              %td
+                = submit_tag "#{t(:save, :scope => 'general.form')} &raquo;", :name => 'change_password'
+
+      - t_scope :append, 'profile' do
+        %h3= t(:member_profile)
+        - fields_for :journal, current_user.journal do |jf|
+          %p
+            %small
+              = t(:info_shared_in, :directory_link => link_to(t(:members_directory), :controller => '/members'))
+              = t(:required_fields_notice, :scope => 'general.form')
+          %blockquote.lightfill.padded
+            %table.form
+              %tr
+                %th== #{t(:username, :scope => 'general.form')}:
+                %td= current_user.username
+              %tr
+                %th== #{t(:registered)}:
+                %td= current_user.ancient? ? t(:ancient) : current_user.created_at.to_s(:std)
+              %tr
+                %th== #{t(:journal_title)}:<span class="req">*</span>
+                %td= jf.text_field :title
+              %tr
+                %th== #{t(:journal_language)}:
+                %td= jf.select :language_id, @languages.unshift([t(:unspecified_lang), 0]), {}, { :style => 'height: 21px;' }
+              %tr.inv
+                %td= jf.check_box :listed, :onchange => "toggle_enabled('list_birthday', this.checked)"
+                %td.label
+                  %label{ :for => 'journal_listed' }= t(:list_me)
+              %tr
+                %th
+                %td
+                  = submit_tag "#{t(:save_profile)} &raquo;", :name => 'update_profile'
+
+      - t_scope :append, 'user' do
+        %h3{ :style => 'margin-top: 1em;' }= t(:registration_information)
+        - fields_for :user, current_user do |uf|
+          %p
+            %small== #{t(:registration_information_instructions)} #{t(:required_fields_notice, :scope => 'general.form')}
+          %blockquote.lightfill.padded
+            %table.form
+              %tr
+                %th== #{t(:real_name)}:
+                %td= uf.text_field :first_name
+                %td= uf.text_field :last_name
+              %tr
+                %th
+                %td.smaller= t(:first_name)
+                %td.smaller= t(:last_name)
+              %tr
+                %th== #{t(:email_address)}:<span class="req">*</span>
+                %td{ :colspan => 2 }= uf.text_field :email
+              %tr
+                %th== #{t(:birthday)}:
+                %td
+                  - (t(:'date.order') || [:day, :month, :year]).each do |d|
+                    = uf.select :"birthday_#{d}", instance_variable_get("@#{d.to_s.pluralize}"), :include_blank => true
+                %td
+                  - cb_options = { :onchange => "toggle_enabled('show_age', this.checked)" }
+                  - cb_options.merge!({:disabled => true, :checked => false}) unless current_user.journal.listed?
+                  = uf.check_box :list_birthday, cb_options
+                  %label{ :for => 'user_list_birthday', :id => 'user_list_birthday_label', :style => (current_user.journal.listed? ? '' : 'color: #A6A6A6') }= t(:list_birthday)
+                  = uf.check_box :show_age, (current_user.journal.listed? && current_user.list_birthday ? {} : {:disabled => true, :checked => false}) 
+                  %label{ :for => 'user_show_age', :id => 'user_show_age_label', :style => (current_user.journal.listed? && current_user.list_birthday ? '' : 'color: #A6A6A6')}= t(:show_age)
+              %tr
+                %th== #{t(:country)}:
+                %td{ :colspan => 2 }= uf.select :country_id, @countries.unshift([nil, nil])
+              %tr
+                %th== #{t(:gender)}:
+                %td{ :colspan => 2 }
+                  = uf.radio_button :gender, 'M', { :id => 'gender_M' }
+                  %label{ :for => 'gender_M' }= t(:male)
+                  = uf.radio_button :gender, 'F', { :id => 'gender_F' }
+                  %label{ :for => 'gender_F' }= t(:female)
+              %tr
+                %th
+                %td{ :colspan => 2 }
+                  = submit_tag "#{t(:save_registration)} &raquo;", :name => 'update_user'
+
+    - t_scope :append, 'remove_journal' do
+      %h3#remove_journal= t(:header)
+      %blockquote
+        %p= t(:instructions)
+        %p
+          %b= t(:instructions2)
+        - if @incorrect_password
+          = message_div_for :error, t(:incorrect_password)
+        - form_tag({:controller => 'admin/user', :action => 'destroy'}, :class => "tcenter lightfill padded") do
+          = t(:enter_password, :username => current_user.username)
+          = password_field_tag "confirm_destroy_password", "", :autocomplete => "off" 
+          = submit_tag "#{t(:button_text)} &raquo;"

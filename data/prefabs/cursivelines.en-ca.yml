@@ -1,0 +1,9 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Page Colours
+    entry:
+      _: Entry Colours
+    link:
+      _: Link Colours

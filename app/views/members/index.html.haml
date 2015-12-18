@@ -1,0 +1,106 @@
+- t_scope 'controllers.members.index' do
+  - title t(:title)
+
+  %style{ :type => 'text/css' }
+    :sass
+      table#list
+        width: 100%
+
+      tr#headers
+        th
+          a
+            color: white
+            border-bottom: 0
+            img
+              position: relative
+              top: 3px
+          a:hover
+            color: white
+            background: none
+            border-bottom: 1px solid silver
+
+  #toc
+    %b== #{t(:show_usernames)}:
+    - ([t(:all).titleize] + ('0'..'9').to_a + ('A'..'Z').to_a).each do |letter|
+      - letter_is_all = (letter =~ /^#{t(:all)}$/i)
+      %span.toc-entry
+        - if @search =~ /^#{letter}$/i or (@search == 'all' and letter_is_all)
+          %b=letter
+        - elsif letter_is_all
+          = link_to letter, { :search => 'all' }.merge(@url_params)
+        - else
+          = link_to letter, { :search => letter }.merge(@url_params)
+    %br/
+    %b== #{t('controllers.admin.options.account.profile.journal_language')}:
+    %span.toc-entry
+      - if @lang == 'all'
+        %b= t(:all).titleize
+      - else
+        = link_to t(:all).titleize, { :lang => 'all' }
+    %span.toc-entry
+      - if @lang == '0'
+        %b= t(:unspecified_lang)
+      - else
+        = link_to t(:unspecified_lang), { :lang => 0, :page => 1 }
+    - @search_langs.each do |lang|
+      %span.toc-entry
+        - lang_display = Language.strings[lang.id]
+        - if @lang.to_i == lang.id
+          %b= lang_display
+        - else
+          = link_to lang_display, { :lang => lang.id, :page => 1 }
+
+  %br{ :style => 'clear: both;' }
+  - if @journals.empty?
+    %p{ :style => 'text-align: center;' }
+      - if @search == 'all'
+        = t(:directory_empty, :link => t(:members_directory))
+      - else
+        = t(:no_journals_for_search, :search => @search) 
+  - else
+    %table.listing.stretch{ :align => 'center' }
+      %tr#headers
+        %th
+        - [:username, :journal_title, :language, :member_since, :last_updated].each do |header|
+          - if @sort.to_sym == header
+            - arrow_dir = (header == :last_updated) ? flip_direction(@dir) : @dir
+            - arrow_img = (arrow_dir == 'asc') ? 'arrow2_down.png' : 'arrow2_up.png'
+            - image = image_tag("icons/#{arrow_img}")
+            %th{ :nowrap => 'nowrap', :style => "white-space: nowrap; " + (header == :title ? 'width: 100%;' : '') }
+              = link_to(t(header) + image, {:sort => header.to_s, :dir => flip_direction(@dir)}, :style => 'vertical-align: baseline;')
+          - else
+            - dir = (header == :last_updated ? 'desc' : 'asc')
+            - qs_hash = {:sort => header.to_s, :dir => dir}
+            - qs_hash[:lang] = @lang unless @lang == 'all'
+            %th= link_to(t(header), qs_hash)
+      - @journals.each do |journal|
+        %tr
+          %td.members_icon
+            - if journal.privacy == 'P'
+              = image_tag('icons/lock.png', :style => 'vertical-align: middle;')
+          %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap;' }
+            = journal.user.username
+          %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap;' }
+            = link_to journal.title, journal_url(journal.user)
+          %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap;' }
+            - if journal.language.nil?
+              = t(:unspecified_lang)
+            - elsif Language.strings[journal.language.id] == journal.language.localized_name
+              = Language.strings[journal.language.id]
+            - else
+              == #{Language.strings[journal.language.id]} / #{journal.language.localized_name}
+          %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap;' }
+            = journal.user.ancient? ? t('controllers.admin.options.profile.ancient') : l(journal.user.created_at, :format => :short_word)
+          %td{ :nowrap => 'nowrap', :style => 'white-space: nowrap;' }
+            = journal.current_entry.nil? ? t(:never) : l(journal.current_entry.created_at, :format => :short_word)
+    %br
+  
+    - t_scope 'general.pagination' do
+      = will_paginate @journals, |
+        :previous_label => "&lsaquo; #{t(:prev)}", |
+        :next_label => "#{t(:next)} &rsaquo;", |
+        :first_label => "&laquo; #{t(:first)}", |
+        :last_label => "#{t(:last)} &raquo;", |
+        :jump_label => "#{t(:jump)}:", |
+        :go_label => "#{t(:go)}", |
+        :renderer => JumpListLinkRenderer |

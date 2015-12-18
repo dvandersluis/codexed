@@ -1,0 +1,10 @@
+---
+descriptions:
+  colors:
+    page:
+      _: Full Page Colouurs
+      hover: Hover colour
+    header:
+      _: Page Header Colours
+    body:
+      _: Body Colours

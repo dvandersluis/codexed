@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+    <title>[journaltitle]</title>
+    [feed]
+
+    <style type="text/css">
+      body
+      { 
+        line-height: 10pt; 
+        color: [[colors.page.journal_title]]; 
+        background-color: [[colors.page.background]]; 
+      }
+
+      blockquote
+      {
+        background-color: [[colors.blockquote.background]];
+        border-top: 1px dotted [[colors.blockquote.border]];
+        border-bottom: 1px dotted [[colors.blockquote.border]];
+        padding: 5px;
+        color: [[colors.blockquote.text]];
+      }
+
+      ::selection { color: [[colors.page.selection]]; }
+      ::-moz-selection { color: [[colors.page.selection]]; }
+      ::-webkit-selection { color: [[colors.page.selection]]; }
+
+      #head
+      {
+        font: [[fonts.journal_title.px]]px [[fonts.journal_title.family]];
+      }
+
+      #title
+      {
+        font: normal [[fonts.title.px]]px [[fonts.title.family]]; 
+        color: [[colors.content.title]]; 
+        text-align: left; 
+        line-height: 8px; 
+        text-transform: lowercase;
+        letter-spacing: -1px;
+      }      
+      
+      #date
+      {
+        font: normal [[fonts.date.px]]px [[fonts.date.family]]; 
+        color: [[colors.content.date]]; 
+        line-height: 9pt; 
+        letter-spacing: -1px; 
+        text-align: left;
+      }
+
+      #content
+      {
+        text-align: justify; 
+        background: [[colors.content.background]]; 
+        color: [[colors.content.text]]; 
+        text-align: justify; 
+        line-height: 9.5pt; 
+        padding: 12px; 
+        border: 1px [[colors.content.border]] solid;
+        font: [[fonts.content.px]]px [[fonts.content.family]];
+      }
+
+      #body
+      {
+        border-bottom: 1pt [[colors.content.date]] solid;
+      }
+
+      a:link, a:visited, a:active
+      {
+        color: [[colors.links.default]]; 
+        text-decoration: none;
+      }
+
+      a:hover
+      {
+        color: [[colors.links.hover]]; 
+      }
+
+      #nav
+      {
+        position: absolute;
+        left: [[:vars.width @v.to_i + ((100 - @v.to_i) / 2) - 5]]%;
+        top: 55px;
+        font: [[fonts.nav.px]]px [[fonts.nav.family]];
+        letter-spacing: 1px;
+        color: [[colors.nav.text]];
+        border: 1px [[colors.nav.border]];
+        width: 120px;
+        padding: 4px;
+        text-align: left;
+      }
+
+      #nav .nav-link
+      {
+        background-color: [[colors.nav.background]];
+        padding: 5px;
+        margin: 1px;
+      }
+
+      #nav .nav-link a
+      {
+        text-transform: lowercase;
+      }
+
+      #x 
+      {
+        font: normal 25pt georgia;
+        text-align: left;
+        letter-spacing: 0px;
+        background-color: transparent;
+        vertical-align: bottom;
+        position: relative;
+        top: 5px;
+      }
+
+      #x div
+      {
+        float: left;
+        position: absolute;
+        vertical-align: bottom;
+        z-index: -1;
+      }
+
+      /* Hack to make the X's line up in Chrome */
+      @media screen and (-webkit-min-device-pixel-ratio:0)
+      {
+        #x div
+        {
+          top: 3px;
+        }
+      }
+
+      /* ... and on the iphone */
+      @media screen and (max-device-width: 480px)
+      {
+        #x div
+        {
+          top: 0;
+        }
+      }
+
+      #x .odd
+      {
+        color: [[colors.page.x1]];
+      }
+
+      #x .even
+      {
+        color: [[colors.page.x2]];
+      }
+
+      #main
+      {
+        padding: 0px;
+        overflow: auto;
+        width: [[vars.width]]%;
+        position: absolute;
+        left: [[:vars.width (100 - @v.to_i) / 2 - 5]]%;
+        top: 80px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="head">[journaltitle]</div>
+
+      <div id="content">
+        <div id="box">
+          <div id="date">[time "%b. %d, %Y . %I:%M %P"]</div>
+          <div id="title">[title]</div>
+          <br />
+          <div id="body">[body]</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="nav">
+      <div id="x" style="white-space: nowrap">
+        <div class="odd">&#10008;</div>
+        <div class="even" style="margin-left: 20px;">&#10008;</div>
+        <div class="odd" style="margin-left: 40px;">&#10008;</div>
+        <div class="even" style="margin-left: 60px;">&#10008;</div>
+        <div class="odd" style="margin-left: 80px;">&#10008;</div>
+        <br style="clear: both;" />
+      </div>
+
+      <div class="nav-link" style="margin-top: 0;">[curr link present]</div>
+      <div class="nav-link">[prev link past]</div>
+      <div class="nav-link">[next link future]</div>
+      <div class="nav-link">[archive link archive]</div>
+      [[foreach:vars.extralinks "<div class=\"nav-link\"><a href=\"#{@v.url}\">#{@v.text}</a></div>" if @v.text]]
+      <div class="nav-link"><a href="http://codexed.com/">Host</a></div>
+    </div>
+  </body>
+</html>

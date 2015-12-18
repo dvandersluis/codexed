@@ -1,0 +1,125 @@
+- include_facebox
+
+:style
+  .smaller
+    font-size: 0.9em
+  a.has_image
+    border: none
+  #facebox
+    width: 80%
+    table
+      width: 100%
+    pre
+      line-height: 1.5em
+      /* CSS2.1 compliant
+      white-space: pre-wrap
+      /* Mozilla-based browsers
+      white-space: -moz-pre-wrap
+      /* Opera 7+
+      white-space: o-pre-wrap
+  table.listing
+    font-size: 0.9em
+  tr.br td
+    border-bottom: none
+    padding-bottom: 0
+  .errorExplanation
+    margin-top: 1.5em
+    margin-bottom: 1.5em
+  .error-text
+    color: red
+
+:javascript
+  function toggleCheckboxes(toggleAllBox, boxes) {
+    boxes.each(function(box) {
+      box.checked = toggleAllBox.checked;
+    });
+  }
+  function checkToggleAll(toggleAllBox, boxes) {
+    toggleAllBox.checked = boxes.all(function(box) { return box.checked });
+  }
+  function toggleItems(className, checked) {
+    if (checked) {
+      $$("div.items").each(function(div) {
+        var trs = div.select('tr.item');
+        var x = trs.partition(function(tr) { return tr.hasClassName(className) });
+        var itemsToShow = x[0], itemsToHide = x[1];
+        if (itemsToShow.any()) {
+          itemsToShow.invoke("show");
+          itemsToHide.invoke("hide");
+        } else {
+          div.hide();
+        }
+      });
+    }
+    else {
+      $$("div.items, div.items tr").invoke('show');
+    }
+  }
+  document.observe("dom:loaded", function() {
+    $$("table.listing").each(function(table) {
+      var type = table.id;
+      var toggleAllBox = $("toggle_all_"+type);
+      var boxes = $$("tr."+type+" input[type=checkbox]");
+      
+      toggleAllBox.observe('click', function() { toggleCheckboxes(this, boxes) });
+      boxes.each(function(box) {
+        box.observe('click', function() { checkToggleAll(toggleAllBox, boxes) });
+      })
+      
+      checkToggleAll(toggleAllBox, boxes);
+    })
+  })
+
+- t_scope 'controllers.admin.journal.import.review' do
+  %p= t(:these_are_items_found)
+
+  - if @data[:errors_exist]
+    %p.error-text= t(:some_items_need_to_be_corrected)
+    %p
+      - label_tag do
+        %input{ :type => 'checkbox', :onclick => "toggleItems('invalid', this.checked)" }
+        = t(:only_show_invalid_items)
+  - elsif @data[:conflicts_exist]
+    %p.error-text= t(:some_items_conflict)
+    %p
+      - label_tag do
+        %input{ :type => 'checkbox', :onclick => "toggleItems('conflicting', this.checked)" }
+        = t(:only_show_conflicting_items)
+
+  %hr/
+
+  - form_tag :action => 'save' do
+
+    - @tabindex = 50
+    
+    = render :partial => "items", :locals => { :type => :templates, :columns => [ [:name, nil, 50] ] }
+    = render :partial => "items", :locals => { :type => :entries, :columns => [ [:title, nil, 50], [:permaname, nil, 50], [:post_date, nil, nil] ] }
+    = render :partial => "items", :locals => { :type => :pages, :columns => [ [:title, nil, 60], [:permaname, nil, 60] ] }
+    = render :partial => "items", :locals => { :type => :subs, :columns => [ [:name, nil, 50] ] }
+    
+
+    - if @options
+      %h3= t('options.header')
+      %table
+        %tr
+          %th
+            = boolean_check_box_tag "import_options", @options[:import]
+            = hidden_field_tag "import_options", false
+          %td
+            - label_tag "import_options" do
+              = t(:merge_config_options)
+              %br
+              %span.smaller= t(:merge_config_options_desc)
+      %ul
+        - h = @options[:data].flatten_keys
+        - h.keys.sort.each do |k|
+          - v = h[k]
+          %li
+            - t_scope :append, "options" do
+              %b= t(k)+":"
+            = v.nil? ? "<i>("+t(:nothing)+")</i>" : "<tt>"+html_escape(v)+"</tt>"
+
+    %p.center
+      = submit_tag t(:continue, :scope => 'general.form'), :name => "continue"
+      &nbsp;&nbsp;
+      = submit_tag t("admin.journal.import.cancel"), :name => "cancel"

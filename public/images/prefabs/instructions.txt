@@ -1,0 +1,7 @@
+How to create a prefab thumbnail
+
+1. Take a screenshot at 1680x1050
+2. Crop out the top 6 pixels which are the menu bar in Firefox. If not using Firefox, remove 6 pixels so resulting size is 1680x1044.
+3. Crop image to 1280x1044. Center the image if applicable.
+4. Resize image to 250x204
+5. Save as a png

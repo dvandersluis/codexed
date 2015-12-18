@@ -1,0 +1,5 @@
+<% t_scope 'controllers.journal.category_archive' do %>
+[parent exists <%= t(:parent_category) %>: [parent]<br />]
+[children exists <%= t(:subcategories) %>: [children]<br />]
+[entrylist descending]
+<% end %>
