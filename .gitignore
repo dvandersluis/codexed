@@ -1,0 +1,10 @@
+.svn
+nbproject
+changes.txt
+codexed.tmproj
+coverage
+log
+users
+config/database.yml
+config/email.yml
+config/mongrel_cluster.yml
